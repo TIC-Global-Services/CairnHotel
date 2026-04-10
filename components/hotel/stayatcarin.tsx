@@ -105,7 +105,7 @@ interface CardProps {
 }
 
 function DesktopCard({ img, index, isCenter, scrollYProgress, globalScale }: CardProps) {
-  const offsets = [-520, -260, 0, 260, 520]
+  const offsets = [-690, -345, 0, 345, 690]
   const rotations = [-8, -4, 0, 4, 8]
 
   const x = useTransform(scrollYProgress, [0, 0.35], [0, offsets[index]])
@@ -113,25 +113,25 @@ function DesktopCard({ img, index, isCenter, scrollYProgress, globalScale }: Car
 
   return (
     <motion.div
-      className="absolute top-0 left-1/2"
+      className="absolute top-0  left-1/2"
       style={{
         x,
         rotate,
         scale: globalScale,
         width: isCenter ? 380 : 320,
         height: isCenter ? '100%' : '90%',
-        marginLeft: isCenter ? -190 : -160,
-        marginTop: isCenter ? 0 : '2%',
+        marginLeft: isCenter ? -190 : -190,
+        marginTop: isCenter ? 0 : '1%',
         zIndex: isCenter ? 10 : 5 - Math.abs(index - 2),
       }}
     >
-      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+      <div className="relative w-full h-full rounded-md  overflow-hidden shadow-2xl">
         <Image
           src={img.src}
           alt={img.alt}
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, 380px"
+        //   sizes="(max-width: 768px) 100vw, 380px"
           quality={85}
         />
       </div>
@@ -142,7 +142,7 @@ function DesktopCard({ img, index, isCenter, scrollYProgress, globalScale }: Car
 
 function MobileGallery({ scrollYProgress, globalScale }: GalleryProps) {
   return (
-    <div className="relative w-full h-[380px] sm:h-[400px]">
+    <div className="relative w-full h-[300px] sm:h-[460px] px-4">
       {images.map((img, i) => (
         <MobileCard
           key={i}
@@ -157,13 +157,21 @@ function MobileGallery({ scrollYProgress, globalScale }: GalleryProps) {
   )
 }
 
-function MobileCard({ img, index, isCenter, scrollYProgress, globalScale }: CardProps) {
-  // Mobile: narrower spread, tighter fan
-  const mobileOffsets = [-160, -80, 0, 80, 160]
-  const mobileRotations = [-12, -6, 0, 6, 12]
+// Per-card config for the fan layout matching the reference design
+// [x-offset from center, rotation, width, height%, z-index, marginTop%]
+const mobileCardConfig = [
+  { offsetX: -180, rot: -15, w: 170, h: '82%', z: 1, mt: '5%' },   // far left — mostly off-screen
+  { offsetX: -100, rot: -8,  w: 200, h: '88%', z: 3, mt: '3%' },   // left — peeking in
+  { offsetX: 0,    rot: 0,   w: 280, h: '100%', z: 10, mt: '0%' },  // center — dominant
+  { offsetX: 100,  rot: 8,   w: 200, h: '88%', z: 3, mt: '3%' },   // right — peeking in
+  { offsetX: 180,  rot: 15,  w: 170, h: '82%', z: 1, mt: '5%' },   // far right — mostly off-screen
+]
 
-  const x = useTransform(scrollYProgress, [0, 0.35], [0, mobileOffsets[index]])
-  const rotate = useTransform(scrollYProgress, [0, 0.35], [0, mobileRotations[index]])
+function MobileCard({ img, index, isCenter, scrollYProgress, globalScale }: CardProps) {
+  const cfg = mobileCardConfig[index]
+
+  const x = useTransform(scrollYProgress, [0, 0.35], [0, cfg.offsetX])
+  const rotate = useTransform(scrollYProgress, [0, 0.35], [0, cfg.rot])
 
   return (
     <motion.div
@@ -172,20 +180,20 @@ function MobileCard({ img, index, isCenter, scrollYProgress, globalScale }: Card
         x,
         rotate,
         scale: globalScale,
-        width: isCenter ? 240 : 200,
-        height: isCenter ? '100%' : '88%',
-        marginLeft: isCenter ? -120 : -100,
-        marginTop: isCenter ? 0 : '3%',
-        zIndex: isCenter ? 10 : 5 - Math.abs(index - 2),
+        width: cfg.w,
+        height: cfg.h,
+        marginLeft: -(cfg.w / 2),
+        marginTop: cfg.mt,
+        zIndex: cfg.z,
       }}
     >
-      <div className="relative w-full h-full rounded-xl overflow-hidden shadow-xl">
+      <div className="relative w-full h-full rounded-lg overflow-hidden shadow-xl">
         <Image
           src={img.src}
           alt={img.alt}
           fill
           className="object-cover"
-          sizes="240px"
+          sizes="280px"
           quality={80}
         />
       </div>

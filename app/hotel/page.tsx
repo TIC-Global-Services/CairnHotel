@@ -1,4 +1,5 @@
 import React from 'react'
+import Hero from '@/components/hotel/Hero'
 import StoryOfCairn from '@/components/hotel/storyofcarin'
 import ArchitectureOfNature from '@/components/hotel/architectureofnature'
 import StayElevated from '@/components/hotel/stayelevated'
@@ -12,6 +13,7 @@ import StayAtCairn from '@/components/hotel/stayatcarin'
 const page = () => {
   return (
     <div>
+      <Hero />
       <StoryOfCairn />
       <ArchitectureOfNature />
       <ExploreStay/>
@@ -19,8 +21,8 @@ const page = () => {
       <StayElevated/>
       <Sustainability/>
       <Testimonial/>
-      <StayAtCairn/>
       <SpecialOffer/>
+      <StayAtCairn/>
     </div>
   )
 }
