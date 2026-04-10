@@ -1,0 +1,387 @@
+"use client"
+import React, { useState, useRef, useCallback, useEffect } from 'react'
+import Image from 'next/image'
+import gsap from 'gsap'
+
+import exploreBg from '@/assets/Home/exploringbg.jpg'
+import room1 from '@/assets/Home/hotel-1.jpg'
+import room2 from '@/assets/hotel/stay-2.jpg'
+import room3 from '@/assets/hotel/stay-3.jpg'
+import room4 from '@/assets/Home/hotel-2.jpg'
+// import room5 from '@/assets/Home/hotel-5.jpg'
+import { 
+    Armchair, Wifi, Monitor,
+    Sun, Lock, Wine,
+    Bath, Droplets, Leaf,
+    Building, Utensils, Bell,
+    Palette, Flame, Tv,
+    Bed,
+    Users
+} from 'lucide-react'
+
+const staysData = [
+    {
+        id: 1,
+        name: "Mount Elmo deluxe",
+        shortDesc: "Comfortable room with views of Mount Helm, high-quality furnishings, and parking directly in front of the hotel. Pets are not allowed.",
+        fullDesc: "Comfortable room with views of Mount Helm, high-quality furnishings, and parking directly in front of the hotel. Pets are not allowed. Experience comfort and tranquility in the Mount Elmo Deluxe room, thoughtfully designed to provide a relaxing stay surrounded by scenic mountain beauty.",
+        extraDesc: "Large windows allow natural light to fill the space while offering peaceful views of the surrounding landscape.",
+        beds: 1,
+        bath: 1,
+        people: 4,
+        image: room1,
+        amenities: [
+            { title: "1 Beds", icon: <Bed size={20} strokeWidth={1.5} /> },
+            { title: "1 Bath", icon: <Bath size={20} strokeWidth={1.5} /> },
+            { title: "4 People", icon: <Users size={20} strokeWidth={1.5} /> }
+        ],
+    },
+    {
+        id: 2,
+        name: "Fitness Center",
+        shortDesc: "Stay active and energized in our compact fitness center, equipped with essential workout machines for a quick and effective session during your stay.",
+        fullDesc: "Stay active during your stay in our well-equipped fitness center, designed for quick and effective workouts. Featuring essential cardio machines and a clean, comfortable setting, it’s ideal for maintaining your routine with ease.  ",
+        extraDesc: "Keep up with your wellness routine in our dedicated fitness centre, featuring essential workout equipment for a balanced exercise session. ",
+        beds: 2,
+        bath: 2,
+        people: 6,
+        image: room2,
+        amenities: [
+            { title: "Cardio", icon: <Image src="/running.svg" alt="" width={20} height={20} /> },
+            { title: "Workout", icon: <Image src="/workout.svg" alt="" width={20} height={20} /> },
+            { title: "Open Daily", icon: <Image src="/timer.svg" alt="" width={20} height={20} /> }
+        ],
+    },
+    {
+        id: 3,
+        name: "Indoor Heated Pool",
+        shortDesc: "Relax and unwind by our serene swimming pool, designed for comfort and leisure. Enjoy crystal-clear waters, sun loungers, and a peaceful ambiance perfect for both relaxation and recreation.",
+        fullDesc: "Enjoy a relaxing escape in our indoor heated pool, designed to provide comfort in every season. The warm, temperature-controlled water creates a soothing environment, perfect for unwinding after a long day of travel or exploration.",
+        extraDesc: "Surrounded by a calm and private setting, this space offers the ideal balance of relaxation and quiet, whether you prefer a gentle swim or simply soaking in the warmth.",
+        beds: 1,
+        bath: 1,
+        people: 2,
+        image: room3,
+        amenities: [
+            { title: "Heated Water", icon: <Image src="/wave.svg" alt="" width={20} height={20} /> },
+            { title: "Jacuzzi Style", icon: <Image src="/Jacuzzi.svg" alt="" width={20} height={20} /> },
+            { title: "Quiet & Private", icon: <Image src="/lock.svg" alt="" width={20} height={20} /> }
+        ],
+    },
+    {
+        id: 4,
+        name: "Infinity Pool Retreat",
+        shortDesc: "Relax and unwind by our serene swimming pool, designed for comfort and leisure. Enjoy crystal-clear waters, sun loungers, and a peaceful ambiance perfect for both relaxation and recreation.",
+        fullDesc: "Unwind by our refreshing outdoor pool, where calm waters and open skies create the perfect setting for relaxation. Whether you're taking a leisurely swim or lounging poolside, this space is designed for comfort and ease.",
+        extraDesc: "Enjoy a peaceful atmosphere with plenty of space to relax, soak up the sun, and spend quality time with family and friends.",
+        beds: 3,
+        bath: 2,
+        people: 8,
+        image: room4,
+        amenities: [
+            { title: "Pool Access", icon: <Image src="/swimming.svg" alt="" width={20} height={20} /> },
+            { title: "Sun Deck", icon: <Image src="/sun.svg" alt="" width={20} height={20} /> },
+            { title: "Family Friendly", icon: <Image src="/people.svg" alt="" width={20} height={20} /> }
+        ],
+    },
+    // {    
+    //     id: 5,
+    //     name: "Redrock Heritage Room",
+    //     shortDesc: "Inspired by the ancient geology of Southern Utah, this room features bespoke stone textures and curated artisan decor.",
+    //     fullDesc: "Inspired by the ancient geology of Southern Utah, this room features bespoke stone textures and curated artisan decor. A tribute to the landscape that defines the Cairn experience.",
+    //     extraDesc: "Locally sourced art pieces adorn the walls, telling the story of the region.",
+    //     beds: 2,
+    //     bath: 1,
+    //     people: 4,
+    //     image: room5,
+    //     amenities: [
+    //         { title: "Artisan Decor", icon: <Palette size={20} strokeWidth={1.5} /> },
+    //         { title: "Heated Floors", icon: <Flame size={20} strokeWidth={1.5} /> },
+    //         { title: "Smart TV", icon: <Tv size={20} strokeWidth={1.5} /> }
+    //     ],
+    // },
+]
+const ExploreStay = () => {
+    const [activeIndex, setActiveIndex] = useState(0)
+    const [expandedCard, setExpandedCard] = useState<number | null>(null)
+    const numberRef = useRef<HTMLSpanElement>(null)
+    const cardContainerRef = useRef<HTMLDivElement>(null)
+    const overlayRef = useRef<HTMLDivElement>(null)
+
+    const animateNumberChange = useCallback((newIndex: number) => {
+        if (!numberRef.current) return
+        const el = numberRef.current
+        
+        const goingForward = newIndex > activeIndex
+        gsap.to(el, {
+            y: goingForward ? -20 : 20,
+            opacity: 0,
+            duration: 0.25,
+            ease: "power2.in",
+            onComplete: () => {
+                setActiveIndex(newIndex)
+                gsap.set(el, { y: goingForward ? 20 : -20 })
+                gsap.to(el, { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" })
+            }
+        })
+    }, [activeIndex])
+
+    const animateCardTransition = useCallback((newIndex: number) => {
+        if (!cardContainerRef.current) return
+        gsap.to(cardContainerRef.current, {
+            opacity: 0,
+            x: newIndex > activeIndex ? -20 : 20,
+            duration: 0.25,
+            ease: "power2.in",
+            onComplete: () => {
+                animateNumberChange(newIndex)
+                gsap.set(cardContainerRef.current, { x: newIndex > activeIndex ? 20 : -20 })
+                gsap.to(cardContainerRef.current, {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.4,
+                    ease: "power2.out",
+                })
+            }
+        })
+    }, [activeIndex, animateNumberChange])
+
+    const goNext = useCallback(() => {
+        if (activeIndex < staysData.length - 1) {
+            animateCardTransition(activeIndex + 1)
+        }
+    }, [activeIndex, animateCardTransition])
+
+    const goPrev = useCallback(() => {
+        if (activeIndex > 0) {
+            animateCardTransition(activeIndex - 1)
+        }
+    }, [activeIndex, animateCardTransition])
+
+    const openCard = useCallback((index: number) => {
+        setExpandedCard(index)
+        requestAnimationFrame(() => {
+            if (overlayRef.current) {
+                gsap.fromTo(overlayRef.current,
+                    { opacity: 0, scale: 0.98 },
+                    { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }
+                )
+                const els = overlayRef.current.querySelectorAll('.detail-animate')
+                gsap.fromTo(els,
+                    { opacity: 0, y: 15 },
+                    { opacity: 1, y: 0, duration: 0.5, stagger: 0.05, ease: "power3.out", delay: 0.1 }
+                )
+            }
+        })
+    }, [])
+
+    const closeCard = useCallback(() => {
+        if (overlayRef.current) {
+            gsap.to(overlayRef.current, {
+                opacity: 0,
+                scale: 0.98,
+                duration: 0.35,
+                ease: "power2.in",
+                onComplete: () => setExpandedCard(null)
+            })
+        }
+    }, [])
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (expandedCard !== null && e.key === 'Escape') closeCard()
+            if (expandedCard === null) {
+                if (e.key === 'ArrowRight') goNext()
+                if (e.key === 'ArrowLeft') goPrev()
+            }
+        }
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [expandedCard, closeCard, goNext, goPrev])
+
+    const current = staysData[activeIndex]
+    const progress = ((activeIndex) / (staysData.length - 1)) * 100
+
+    return (
+        <section className="relative w-full h-screen overflow-hidden flex flex-col justify-center">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src={exploreBg}
+                    alt="Explore background"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+                <div className="absolute inset-0 bg-black/40" />
+            </div>
+
+            {/* Main Content */}
+            <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 lg:px-24 gap-12 lg:gap-8 mt-4">
+                
+                {/* Left: Title & Description */}
+                <div className="flex flex-col gap-5 w-full lg:w-[40%] flex-shrink-0">
+                    <div>
+                        <h2 className="text-[4rem] md:text-[4.315rem] font-semibold text-white uppercase leading-none">
+                            EXPLORE
+                        </h2>
+                        <div className="flex items-center gap-3 mt-1 md:pl-70">
+                            <span className="text-3xl md:text-[3.15rem] font-medium text-white">Our</span>
+                            <span className="text-3xl md:text-[3.15rem] font-medium italic text-[#FFEBD3]">Stay</span>
+                        </div>
+                    </div>
+                    <p className="text-white/80 text-sm md:text-xl leading-relaxed font-light max-w-lg md:pl-6 border-l-2 border-white/20 mt-4 md:mt-6">
+                        Discover Thoughtfully Designed Rooms And Suites Where Comfort, Nature, And Timeless Mountain Elegance Come Together.
+                    </p>
+                    
+                    <button className="flex items-center text-center gap-0 mt-6 md:mt-8 group w-fit bg-white rounded-full py-4 px-12 shadow-lg hover:shadow-xl transition-shadow ml-6 md:ml-10">
+                        <span className="text-[#1a1a1a] text-base  font-medium tracking-[0.1em] uppercase">
+                            BOOK NOW
+                        </span>
+                    </button>
+                </div>
+
+                {/* Right: Room Card */}
+                <div
+                    ref={cardContainerRef}
+                    className="w-full lg:w-full xl:w-full h-[350px] md:h-[60vh] cursor-pointer group"
+                    onClick={() => openCard(activeIndex)}
+                >
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl flex border border-white/10 group-hover:border-white/30 transition-colors">
+                        {/* Background Split */}
+                        <div className="w-[15%] md:w-[35%] h-full bg-white hidden md:block z-0"></div>
+                        <div className="w-full md:w-[75%] h-full relative z-0">
+                            <Image
+                                src={current.image}
+                                alt={current.name}
+                                fill
+                                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                            />
+                        </div>
+
+                        {/* Floating Glass Text Box */}
+                        <div className="absolute top-1/2 left-4 md:left-[8%] -translate-y-1/2 w-[90%] md:w-[80%] bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-10 border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.1)] z-10">
+                            <h4 className="text-xl md:text-[26px] font-medium text-[#1a1a1a] mb-3">{current.name}</h4>
+                            <p className="text-black text-base leading-relaxed mb-6 max-w-[90%]">
+                                {current.shortDesc}
+                            </p>
+                            <div className="flex flex-wrap items-center gap-4 md:gap-6 pt-2">
+                                {current.amenities.map((amenity, i) => (
+                                    <div key={i} className="flex items-center gap-2 text-black">
+                                        {amenity.icon}
+                                        <span className="text-sm md:text-base font-medium">{amenity.title}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Bottom Navigation */}
+            <div className="absolute bottom-8 right-8 md:bottom-12 md:right-24 z-10 w-[85%] md:w-[60%] lg:w-[45%] flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={goPrev}
+                        disabled={activeIndex === 0}
+                        className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-white/50 flex items-center justify-center text-white disabled:opacity-30 hover:bg-white/10 transition-colors"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m15 18-6-6 6-6"/></svg>
+                    </button>
+                    <button
+                        onClick={goNext}
+                        disabled={activeIndex === staysData.length - 1}
+                        className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-white/50 flex items-center justify-center text-white disabled:opacity-30 hover:bg-white/10 transition-colors"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m9 18 6-6-6-6"/></svg>
+                    </button>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="flex-1 mx-6 h-[1px] bg-white/30 relative">
+                    <div className="absolute top-1/2 left-0 -translate-y-1/2 h-[2px] bg-white transition-all duration-500 ease-out" style={{ width: `${progress}%` }}></div>
+                </div>
+
+                {/* Slide Number */}
+                <div className="overflow-hidden h-6 flex items-center">
+                    <span ref={numberRef} className="text-white text-lg md:text-xl font-medium tracking-wider">
+                        {String(activeIndex + 1).padStart(2, '0')}
+                    </span>
+                </div>
+            </div>
+
+            {/* Expanded Card Overlay (Modal) */}
+            {expandedCard !== null && (
+                <div
+                    ref={overlayRef}
+                    className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-8"
+                    style={{ opacity: 0 }}
+                >
+                    {/* Backdrop */}
+                    <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={closeCard} />
+
+                    {/* Detail Card Container */}
+                    <div className="relative w-full max-w-[1200px] h-[100dvh] md:h-[85vh] bg-transparent rounded-none md:rounded-2xl overflow-hidden flex flex-col-reverse md:flex-row shadow-[0_0_100px_rgba(0,0,0,0.8)]">
+                        
+                        {/* Left: Info Panel (Frosted) */}
+                        <div className="w-full md:w-[45%] h-1/2 md:h-full bg-white/70 backdrop-blur-2xl p-8 md:p-12 flex flex-col justify-center relative z-10 border-r border-white/20">
+                            
+                            <h3 className="detail-animate text-3xl md:text-[32px] font-bold text-[#1a1a1a] mb-6 leading-none">
+                                {staysData[expandedCard].name}
+                            </h3>
+                            
+                            <p className="detail-animate text-[#444] text-[15px] leading-relaxed mb-6">
+                                {staysData[expandedCard].fullDesc}
+                            </p>
+                            
+                            <p className="detail-animate text-[#444] text-[15px] leading-relaxed mb-10">
+                                {staysData[expandedCard].extraDesc}
+                            </p>
+
+                            {/* Amenities List */}
+                            <div className="space-y-5">
+                                {staysData[expandedCard].amenities.map((amenity, i) => (
+                                    <div key={i} className="detail-animate flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#1a1a1a] shadow-sm">
+                                            {amenity.icon}
+                                        </div>
+                                        <span className="text-[15px] font-medium text-[#1a1a1a]">{amenity.title}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Right: Full Image */}
+                        <div className="w-full md:w-[55%] h-1/2 md:h-full relative z-0">
+                            <Image
+                                src={staysData[expandedCard].image}
+                                alt={staysData[expandedCard].name}
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+
+                            {/* Close Button Top Right */}
+                            <button
+                                onClick={closeCard}
+                                className="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-black hover:bg-white transition-colors duration-300 z-50 drop-shadow-md"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m18 6-12 12"/><path d="m6 6 12 12"/></svg>
+                            </button>
+
+                            {/* Book Now Button Over Image (Bottom Right) */}
+                            <button className="absolute bottom-8 right-8 flex items-center gap-0 group w-fit py-3 bg-white rounded-full p-1 pl-6 shadow-2xl hover:shadow-white/20 transition-all z-20">
+                                <span className="text-[#1a1a1a] text-xs font-medium tracking-[0.1em] uppercase pr-4">
+                                    BOOK NOW
+                                </span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            )}
+        </section>
+    )
+}
+
+export default ExploreStay
