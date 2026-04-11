@@ -1,0 +1,153 @@
+"use client"
+
+import React, { useState } from 'react'
+import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
+
+import banner from '@/assets/things-to-do/things_to_do_banner.jpg'
+import hiking from '@/assets/things-to-do/hike.jpg'
+import skiing from '@/assets/things-to-do/skiing.jpg'
+
+// Built as requested using an organized Array Of Objects to easily feed the slider state
+const experiences = [
+    {
+        id: 1,
+        tag: "1. HIKE",
+        title: "MOUNTAIN AS A PLACE\nOF ADVENTURE",
+        desc1: "Mountains offer a thrilling escape for those seeking adventure and discovery.",
+        desc2: "The crisp mountain air, rugged landscapes, and endless horizons invite explorers to push their limits while embracing the beauty and serenity of nature.",
+        image: hiking
+    },
+    {
+        id: 2,
+        tag: "2. SKIING",
+        title: "WINTER WONDERLAND\nEXPERIENCE",
+        desc1: "Hit the snowy slopes and weave through breathtaking alpine trails in fresh powder.",
+        desc2: "Our nearby resorts offer world-class facilities and cozy lodge atmospheres, giving you the perfect balance of thrill and comfortable serenity.",
+        image: skiing
+    }
+]
+
+const Hero = () => {
+    const [activeIndex, setActiveIndex] = useState(0)
+
+    const handleNext = () => {
+        setActiveIndex((prev) => (prev + 1) % experiences.length)
+    }
+
+    const handlePrev = () => {
+        setActiveIndex((prev) => (prev - 1 + experiences.length) % experiences.length)
+    }
+
+    const activeItem = experiences[activeIndex]
+
+    return (
+        <div className='relative w-full min-h-[140vh] flex flex-col items-center gap-100 justify-start overflow-hidden pt-[20vh] pb-[10vh]'>
+            {/* Background Layer completely behind everything */}
+            <div className="absolute inset-0 z-0">
+                <Image src={banner} alt="banner" fill className='object-cover object-center' priority />
+                <div className='absolute inset-0 bg-linear-to-b from-black/20 via-black/40 to-black/80' />
+            </div>
+
+            {/* Top Typography Node */}
+            <div className='relative z-10 flex flex-col mt-[10%] items-center justify-center w-full px-[5%] mb-[10vh]'>
+                <h1 className='text-[5rem] md:text-[8rem] lg:text-[11rem] font-semibold uppercase text-white leading-none drop-shadow-2xl'>THINGS TO DO</h1>
+                <p className='text-sm md:text-base lg:text-xl font-medium max-w-3xl text-center leading-relaxed mt-4 mb-8 text-white/95 drop-shadow flex flex-col'>
+                    <span>Let Us Host Your Group To Create An Unforgettable Experience For You. We're</span>
+                    <span>Experienced With Hosting Families, Companies, Tour Buses, And More.</span>
+                </p>
+                <button className='px-12 py-3.5 rounded-full border-[0.5px] border-white hover:bg-white/10 uppercase backdrop-blur-md text-white transition-colors duration-300 text-sm font-medium tracking-widest shadow-lg'>Book Now</button>
+            </div>
+
+            {/* Lower Interactive Component Core */}
+            <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-center justify-center gap-[8%] lg:gap-[12%] w-full px-[5%] lg:px-[8%]">
+
+                {/* Left: Dynamic Asset Node */}
+                <div className="relative w-[70%] sm:w-[50%] lg:w-[25%] shrink-0">
+                    {/* Aspect lock box container */}
+                    <div className="relative aspect-3/4 w-full mt-[5%] lg:mt-0">
+                        {/* Negative offset perimeter to strictly replicate design geometry */}
+                        <div className="absolute top-[-5%] left-[-8%] w-full h-full rounded-2xl border border-white/40 drop-shadow-sm pointer-events-none" />
+
+                        <div className="relative z-10 w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={activeIndex}
+                                    initial={{ opacity: 0, filter: 'blur(4px)' }}
+                                    animate={{ opacity: 1, filter: 'blur(0px)' }}
+                                    exit={{ opacity: 0, filter: 'blur(4px)' }}
+                                    transition={{ duration: 0.5 }}
+                                    className="relative w-full h-full"
+                                >
+                                    <Image
+                                        src={activeItem.image}
+                                        fill
+                                        className="object-cover"
+                                        alt={activeItem.tag}
+                                        priority
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+                    </div>
+
+                    {/* Pagination Remote Array */}
+                    <div className="w-full flex items-center justify-between mt-[15%] lg:mt-[12%] px-[5%] lg:px-0">
+                        <button onClick={handlePrev} className="cursor-pointer p-3 lg:p-4 rounded-full border border-white/30 text-white hover:bg-white/20 backdrop-blur-sm transition-all group shadow-md hover:scale-105 active:scale-95" aria-label="Previous Activity">
+                            <svg className="w-4 h-4 lg:w-5 lg:h-5 text-white/80 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+
+                        <div className="flex gap-3">
+                            {experiences.map((_, i) => (
+                                <button key={i} aria-label={`slide indicator ${i}`} onClick={() => setActiveIndex(i)} className={`cursor-pointer w-2 h-2 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-white scale-125 shadow-[0_0_8px_white]' : 'bg-white/40 hover:bg-white/70'}`} />
+                            ))}
+                        </div>
+
+                        <button onClick={handleNext} className="cursor-pointer p-3 lg:p-4 rounded-full border border-white/30 text-white hover:bg-white/20 backdrop-blur-sm transition-all group shadow-md hover:scale-105 active:scale-95" aria-label="Next Activity">
+                            <svg className="w-4 h-4 lg:w-5 lg:h-5 text-white/80 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                {/* Right: Stateful Description Injection Node */}
+                <div className="flex flex-col text-white w-full lg:w-[45%] mt-[15%] lg:mt-0 relative z-10 px-[5%] lg:px-0 overflow-hidden">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeIndex}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            className="flex flex-col w-full"
+                        >
+                            <h3 className="text-xl md:text-3xl font-semibold tracking-wider drop-shadow-md">
+                                {activeItem.tag}
+                            </h3>
+                            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold mt-[4%] uppercase whitespace-pre-line tracking-tight leading-tight drop-shadow-lg">
+                                {activeItem.title}
+                            </h2>
+
+                            <div className="flex flex-row items-center gap-[5%] mt-[10%]">
+                                <p className="text-sm sm:text-base lg:text-lg font-light text-white/90 leading-relaxed max-w-[65%]">
+                                    {activeItem.desc1}
+                                </p>
+                                <hr className="grow border-t border-white/50" />
+                            </div>
+
+                            <p className="text-sm sm:text-base lg:text-lg font-light text-white/90 leading-relaxed max-w-[85%] mt-[6%]">
+                                {activeItem.desc2}
+                            </p>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+
+            </div>
+        </div>
+    )
+}
+
+export default Hero

@@ -22,10 +22,6 @@ const navLinks = [
         href: "/things-to-do"
     },
     {
-        title: "Book now",
-        href: "/book-now"
-    },
-    {
         title: "GALLERY",
         href: "/gallery"
     },

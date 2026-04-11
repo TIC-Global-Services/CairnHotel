@@ -24,13 +24,12 @@ import elevated from '@/assets/hotel/stayelevated.jpg'
 import trusted1 from '@/assets/hotel/trustedby-1.jpg'
 import trusted2 from '@/assets/hotel/trustedby-2.jpg'
 
-// ── Row configurations: each row scrolls in its own direction ──
 interface RowConfig {
     images: StaticImageData[]
-    direction: 'left' | 'right' // visual scroll direction
-    speed: number               // relative speed for the infinite marquee
-    height: number              // row height in px (desktop)
-    mobileHeight: number        // row height in px (mobile)
+    direction: 'left' | 'right'
+    speed: number
+    height: number
+    mobileHeight: number
 }
 
 const ROWS: RowConfig[] = [
@@ -57,55 +56,65 @@ const ROWS: RowConfig[] = [
     },
 ]
 
-// ── Single marquee row ──
 const MarqueeRow = memo(({ images, direction, speed, height, mobileHeight }: RowConfig) => {
-    // Map previous gsap scrub speed to an infinite animation duration in seconds.
-    const duration = 30000 / speed; 
+    
+    const duration = 30000 / speed
+
+    const animationName = direction === 'left' ? 'marquee-left' : 'marquee-right'
+
+    const imgWidth = Math.round(height * 1.5)
+    const mobileImgWidth = Math.round(mobileHeight * 1.4)
 
     return (
-        <div className="flex w-max" style={{ willChange: 'transform' }}>
-            {Array.from({ length: 3 }).map((_, setIndex) => (
-                <motion.div
-                    key={setIndex}
-                    className="flex gap-3 md:gap-4 pr-3 md:pr-4 shrink-0"
-                    animate={{
-                        x: direction === 'left' ? ['0%', '-100%'] : ['-100%', '0%']
-                    }}
-                    transition={{
-                        repeat: Infinity,
-                        ease: "linear",
-                        duration: duration,
-                    }}
-                >
-                    {images.map((src, i) => (
-                        <div
-                            key={i}
-                            className="relative gallery-image-container shrink-0 rounded-lg md:rounded-xl overflow-hidden"
-                            style={{
-                                width: `${Math.round(height * 1.5)}px`,
-                                height: `${height}px`,
-                            }}
-                        >
-                            <Image
-                                src={src}
-                                alt={`Gallery image ${i + 1}`}
-                                fill
-                                sizes={`${Math.round(height * 1.5)}px`}
-                                className="object-cover"
-                                loading="lazy"
-                            />
-                            {/* Subtle hover overlay */}
-                            <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-all duration-500 cursor-pointer" />
-                        </div>
-                    ))}
-                </motion.div>
-            ))}
+        <div className="overflow-hidden w-full">
+       
+            <div
+                className="flex gap-3 md:gap-4"
+                style={{
+                    width: 'max-content',
+                    animation: `${animationName} ${duration}s linear infinite`,
+                    willChange: 'transform',
+                }}
+            >
+                {/* Render images TWICE for the seamless loop */}
+                {[0, 1].map((setIndex) => (
+                    <div key={setIndex} className="flex gap-3 md:gap-4 shrink-0">
+                        {images.map((src, i) => (
+                            <div
+                                key={i}
+                                className="relative shrink-0 rounded-lg md:rounded-xl overflow-hidden"
+                                style={{
+                                    width: `${imgWidth}px`,
+                                    height: `${height}px`,
+                                }}
+                            >
+                                <Image
+                                    src={src}
+                                    alt={`Gallery image ${i + 1}`}
+                                    fill
+                                    sizes={`${imgWidth}px`}
+                                    className="object-cover"
+                                    loading={setIndex === 0 ? 'eager' : 'lazy'}
+                                />
+                                <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-all duration-500 cursor-pointer" />
+                            </div>
+                        ))}
+                    </div>
+                ))}
+            </div>
 
-            {/* Mobile sizing override */}
             <style jsx>{`
+                @keyframes marquee-left {
+                    from { transform: translateX(0); }
+                    to   { transform: translateX(-50%); }
+                }
+                @keyframes marquee-right {
+                    from { transform: translateX(-50%); }
+                    to   { transform: translateX(0); }
+                }
                 @media (max-width: 768px) {
-                    .gallery-image-container {
-                        width: ${Math.round(mobileHeight * 1.4)}px !important;
+                    div[style*="animation"] > div > div {
+                        width: ${mobileImgWidth}px !important;
                         height: ${mobileHeight}px !important;
                     }
                 }
@@ -115,7 +124,6 @@ const MarqueeRow = memo(({ images, direction, speed, height, mobileHeight }: Row
 })
 MarqueeRow.displayName = 'MarqueeRow'
 
-
 const Gallery = memo(() => {
     return (
         <section className="relative w-full py-16 md:py-24 lg:py-20 overflow-hidden">
@@ -124,7 +132,6 @@ const Gallery = memo(() => {
                     <MarqueeRow key={i} {...row} />
                 ))}
             </div>
-
         </section>
     )
 })

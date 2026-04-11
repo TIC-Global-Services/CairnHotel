@@ -1,0 +1,100 @@
+{
+  "menuItems": [
+    {
+      "id": "b-ind-1",
+      "title": "Fresh Bakery Basket",
+      "description": "Croissant, Toast, Butter, Jam, And Honey",
+      "type": "breakfast",
+      "cuisine": "indian",
+      "image": "image1"
+    },
+    {
+      "id": "b-ind-2",
+      "title": "Classic Toast & Eggs",
+      "description": "Toasted Bread With Scrambled/Boiled Eggs",
+      "type": "breakfast",
+      "cuisine": "indian",
+      "image": "image1"
+    },
+    {
+      "id": "b-ind-3",
+      "title": "Fruits & Yogurt Bowl",
+      "description": "Seasonal Fruits Served With Yogurt And Granola",
+      "type": "breakfast",
+      "cuisine": "indian",
+      "image": "image2"
+    },
+    {
+      "id": "b-ind-4",
+      "title": "Pancakes Or Waffles",
+      "description": "Served With Maple Syrup And Fresh Fruits",
+      "type": "breakfast",
+      "cuisine": "indian",
+      "image": "image2"
+    },
+    {
+      "id": "b-ind-5",
+      "title": "Beverage Selection",
+      "description": "Coffee, Tea, And Fresh Juice",
+      "type": "breakfast",
+      "cuisine": "indian",
+      "image": "image3"
+    },
+    {
+      "id": "b-chi-1",
+      "title": "Dim Sum Platter",
+      "description": "Assortment Of Steamed Dumplings and Buns",
+      "type": "breakfast",
+      "cuisine": "chinese",
+      "image": "image2"
+    },
+    {
+      "id": "b-chi-2",
+      "title": "Congee with Crispy Dough",
+      "description": "Warm rice porridge served with traditional You Tiao",
+      "type": "breakfast",
+      "cuisine": "chinese",
+      "image": "image2"
+    },
+    {
+      "id": "b-ita-1",
+      "title": "Cornetto e Cappuccino",
+      "description": "Traditional Italian Croissant with Coffee",
+      "type": "breakfast",
+      "cuisine": "italian",
+      "image": "image3"
+    },
+    {
+      "id": "l-ind-1",
+      "title": "Paneer Butter Masala",
+      "description": "Rich tomato gravy with cottage cheese cubes",
+      "type": "lunch",
+      "cuisine": "indian",
+      "image": "image2"
+    },
+    {
+      "id": "l-ind-2",
+      "title": "Tandoori Roti & Naan Basket",
+      "description": "Freshly baked Indian breads from the clay oven",
+      "type": "lunch",
+      "cuisine": "indian",
+      "image": "image2"
+    },
+    {
+      "id": "d-ita-1",
+      "title": "Margherita Pizza",
+      "description": "Classic Wood Fired Pizza with Basil and Mozzarella",
+      "type": "dinner",
+      "cuisine": "italian",
+      "image": "image3"
+    },
+    {
+      "id": "d-chi-1",
+      "title": "Kung Pao Chicken",
+      "description": "Spicy stir-fried chicken with peanuts and vegetables",
+      "type": "dinner",
+      "cuisine": "chinese",
+      "image": "image2"
+    }
+  ]
+}
