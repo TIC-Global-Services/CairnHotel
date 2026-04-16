@@ -68,10 +68,10 @@ const PrivateEvent = () => {
         
         {/* Header Content */}
         <div className="max-w-4xl flex flex-col gap-4 md:gap-6">
-          <h2 className="text-[#4D2F27] text-3xl md:text-4xl lg:text-[40px] font-medium tracking-wide uppercase">
+          <h2 className="text-[#4D2F27] text-2xl md:text-4xl lg:text-[40px] font-medium tracking-wide uppercase">
             Private Event Areas At Cairn Hotel
           </h2>
-          <p className="text-[#51615E] text-[16px] md:text-lg lg:text-xl leading-[1.65] font-normal max-w-6xl">
+          <p className="text-[#51615E] text-sm md:text-lg lg:text-xl md:leading-[1.65] leading-snug font-normal md:max-w-6xl">
             Host seamless and productive corporate gatherings in a refined, distraction-free environment
             designed for focus and collaboration. Our meeting spaces are equipped with modern
             presentation facilities, comfortable seating, and adaptable layouts to suit everything from small

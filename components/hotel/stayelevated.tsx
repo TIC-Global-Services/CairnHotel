@@ -29,8 +29,8 @@ const StayElevated = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "top top", 
-        end: "bottom 40%", 
+        start: () => window.innerWidth < 768 ? "top 45%" : "top top", 
+        end: () => window.innerWidth < 768 ? "bottom 60%" : "bottom 40%", 
         scrub: 1, 
         invalidateOnRefresh: true, 
       }
@@ -80,7 +80,7 @@ const StayElevated = () => {
   }, { scope: containerRef })
 
   return (
-    <section ref={containerRef} className="relative w-full py-[15vh] min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section ref={containerRef} className="relative w-full md:py-[15vh] min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Dynamic Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
         <Image 

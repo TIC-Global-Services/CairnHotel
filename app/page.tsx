@@ -20,10 +20,10 @@ export default function Home() {
       <StoryByStone />
       <BookNow />
       <Discover />
+      <NatureWithSoul />
       <Grounded />
       <GetInTouch/>
       <Map/>
-      {/* <NatureWithSoul /> */}
     </main>
   );
 }

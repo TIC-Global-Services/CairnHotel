@@ -7,8 +7,8 @@ const hero = () => {
             <Image src={banner} alt="banner" fill className='object-cover' />
             <div className='absolute inset-0 bg-black/50'>
                 <div className='flex flex-col items-center justify-center h-full'>
-                    <h1 className='text-[10rem] font-medium uppercase text-white'>Dining</h1>
-                    <p className='text-white text-center text-base md:text-2xl font-medium'>Savour the Taste of the Mountains<br />Fresh, seasonal flavours inspired by nature.</p>
+                    <h1 className='text-[5rem] md:text-[10rem] font-medium uppercase text-white'>Dining</h1>
+                    <p className='text-white text-center md:leading-none leading-snug text-base md:text-2xl font-normal md:font-medium'>Savour the Taste of the Mountains<br />Fresh, seasonal flavours inspired by nature.</p>
                 </div>
             </div>
         </div>

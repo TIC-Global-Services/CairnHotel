@@ -49,7 +49,7 @@ const Sustainability = () => {
   ]
 
   return (
-    <section className="relative w-full h-screen min-h-[700px] flex flex-col justify-between overflow-hidden">
+    <section className="relative w-full h-screen min-h-screen flex flex-col justify-between overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <Image
           src={sustainabilityBg}
@@ -61,8 +61,8 @@ const Sustainability = () => {
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <div className="w-full px-8 md:px-16 lg:px-24 pt-24 md:pt-32">
-        <h2 className="text-4xl md:text-[52px] font-normal text-white leading-tight tracking-tight">
+      <div className="w-full px-8 md:px-16 lg:px-24 pt-15 mb-5 md:pt-32">
+        <h2 className="text-2xl md:text-[52px] font-normal text-white leading-tight tracking-tight">
           Sustainability starts with us
         </h2>
         <p className="text-white/90 text-sm md:text-xl font-light">
@@ -82,11 +82,11 @@ const Sustainability = () => {
                     <div className="md:hidden h-px w-full bg-white/40" />
                   </>
                 )}
-                <div className="flex-1 flex flex-col py-4 md:py-0 px-0 md:px-8 lg:px-12 first:pt-0 last:pb-0 md:first:pl-0 md:last:pr-0">
-                  <div className="text-4xl md:text-[40px] font-medium text-white mb-2 md:mb-4">
+                <div className="flex-1 flex flex-col py-1 md:py-0 px-0 md:px-8 lg:px-12 first:pt-0 last:pb-0 md:first:pl-0 md:last:pr-0">
+                  <div className="text-2xl md:text-[40px] font-medium text-white mb-2 md:mb-4">
                     <Counter text={stat.value} />
                   </div>
-                  <div className="text-base md:text-xl  text-white/90 font-light whitespace-pre-line leading-[1.3]">
+                  <div className="text-sm md:text-xl  text-white/90 font-light whitespace-pre-line leading-[1.3]">
                     {stat.label}
                   </div>
                 </div>

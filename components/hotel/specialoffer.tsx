@@ -41,17 +41,17 @@ const SpecialOffer = () => {
       <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 xl:px-10">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-16 mb-12">
-           <h2 className="text-4xl md:text-3xl lg:text-[36px] font-medium text-black max-w-lg leading-[1.1] tracking-tight">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-2 lg:gap-16 mb-6 md:mb-12">
+           <h2 className="text-2xl md:text-3xl lg:text-[36px] font-medium text-black max-w-lg leading-[1.1] tracking-tight">
               Special Offers for Every Season
            </h2>
-           <p className="text-[#646464] text-lg md:text-xl font-normal max-w-3xl leading-relaxed">
+           <p className="text-[#646464] text-base md:text-xl font-normal max-w-3xl leading-snug md:leading-relaxed">
               Experience the Cedar City in every season with our exclusive offers for adventure, relaxation, indulgence, and unforgettable moments.
            </p>
         </div>
 
         {/* Divider line */}
-        <div className="w-full h-[1px] bg-gray-200 mb-16"></div>
+        <div className="w-full h-[1px] bg-gray-200 hidden md:block mb-5 md:mb-16"></div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 transition-all duration-500 ease-in-out">

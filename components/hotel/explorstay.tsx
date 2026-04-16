@@ -16,7 +16,8 @@ import {
     Building, Utensils, Bell,
     Palette, Flame, Tv,
     Bed,
-    Users
+    Users,
+    X
 } from 'lucide-react'
 
 const staysData = [
@@ -222,20 +223,20 @@ const ExploreStay = () => {
                 {/* Left: Title & Description */}
                 <div className="flex flex-col gap-5 w-full lg:w-[40%] flex-shrink-0">
                     <div>
-                        <h2 className="text-[4rem] md:text-[4.315rem] font-semibold text-white uppercase leading-none">
+                        <h2 className="text-[2rem] md:text-[4.315rem] font-semibold text-white uppercase leading-none">
                             EXPLORE
                         </h2>
-                        <div className="flex items-center gap-3 mt-1 md:pl-70">
+                        <div className="flex items-center gap-3 mt-1 pl-40 md:pl-70">
                             <span className="text-3xl md:text-[3.15rem] font-medium text-white">Our</span>
                             <span className="text-3xl md:text-[3.15rem] font-medium italic text-[#FFEBD3]">Stay</span>
                         </div>
                     </div>
-                    <p className="text-white/80 text-sm md:text-xl leading-relaxed font-light max-w-lg md:pl-6 border-l-2 border-white/20 mt-4 md:mt-6">
+                    <p className="text-white/80 text-sm md:text-xl leading-snug  md:leading-relaxed font-light max-w-lg md:pl-6 md:border-l-2 border-white/20 mt-4 md:mt-6">
                         Discover Thoughtfully Designed Rooms And Suites Where Comfort, Nature, And Timeless Mountain Elegance Come Together.
                     </p>
                     
-                    <button className="flex items-center text-center gap-0 mt-6 md:mt-8 group w-fit bg-white rounded-full py-4 px-12 shadow-lg hover:shadow-xl transition-shadow ml-6 md:ml-10">
-                        <span className="text-[#1a1a1a] text-base  font-medium tracking-[0.1em] uppercase">
+                    <button className="flex items-start justify-start md:items-center md:text-center gap-0 mt-1 md:mt-8 group w-fit bg-white rounded-full py-2 md:py-4 px-6 md:px-12 shadow-lg hover:shadow-xl transition-shadow ml-0 md:ml-10">
+                        <span className="text-[#1a1a1a] text-xs md:text-base  font-medium tracking-[0.1em] uppercase">
                             BOOK NOW
                         </span>
                     </button>
@@ -244,7 +245,7 @@ const ExploreStay = () => {
                 {/* Right: Room Card */}
                 <div
                     ref={cardContainerRef}
-                    className="w-full lg:w-full xl:w-full h-[350px] md:h-[60vh] cursor-pointer group"
+                    className="w-full lg:w-full xl:w-full h-[400px] mb-[15%] md:h-[60vh] cursor-pointer group"
                     onClick={() => openCard(activeIndex)}
                 >
                     <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl flex border border-white/10 group-hover:border-white/30 transition-colors">
@@ -261,15 +262,15 @@ const ExploreStay = () => {
 
                         {/* Floating Glass Text Box */}
                         <div className="absolute top-1/2 left-4 md:left-[8%] -translate-y-1/2 w-[90%] md:w-[80%] bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-10 border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.1)] z-10">
-                            <h4 className="text-xl md:text-[26px] font-medium text-[#1a1a1a] mb-3">{current.name}</h4>
-                            <p className="text-black text-base leading-relaxed mb-6 max-w-[90%]">
+                            <h4 className="text-base md:text-[26px] font-medium text-[#1a1a1a] mb-3">{current.name}</h4>
+                            <p className="text-black text-sm leading-snug md:leading-relaxed mb-6 max-w-[90%]">
                                 {current.shortDesc}
                             </p>
                             <div className="flex flex-wrap items-center gap-4 md:gap-6 pt-2">
                                 {current.amenities.map((amenity, i) => (
                                     <div key={i} className="flex items-center gap-2 text-black">
                                         {amenity.icon}
-                                        <span className="text-sm md:text-base font-medium">{amenity.title}</span>
+                                        <span className="text-xs md:text-base font-medium">{amenity.title}</span>
                                     </div>
                                 ))}
                             </div>
@@ -321,38 +322,10 @@ const ExploreStay = () => {
                     <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={closeCard} />
 
                     {/* Detail Card Container */}
-                    <div className="relative w-full max-w-[1200px] h-[100dvh] md:h-[85vh] bg-transparent rounded-none md:rounded-2xl overflow-hidden flex flex-col-reverse md:flex-row shadow-[0_0_100px_rgba(0,0,0,0.8)]">
+                    <div className="relative w-full max-w-[1200px] h-[100dvh] md:h-[85vh] bg-transparent rounded-none md:rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-[0_0_100px_rgba(0,0,0,0.8)]">
                         
-                        {/* Left: Info Panel (Frosted) */}
-                        <div className="w-full md:w-[45%] h-1/2 md:h-full bg-white/70 backdrop-blur-2xl p-8 md:p-12 flex flex-col justify-center relative z-10 border-r border-white/20">
-                            
-                            <h3 className="detail-animate text-3xl md:text-[32px] font-bold text-[#1a1a1a] mb-6 leading-none">
-                                {staysData[expandedCard].name}
-                            </h3>
-                            
-                            <p className="detail-animate text-[#444] text-[15px] leading-relaxed mb-6">
-                                {staysData[expandedCard].fullDesc}
-                            </p>
-                            
-                            <p className="detail-animate text-[#444] text-[15px] leading-relaxed mb-10">
-                                {staysData[expandedCard].extraDesc}
-                            </p>
-
-                            {/* Amenities List */}
-                            <div className="space-y-5">
-                                {staysData[expandedCard].amenities.map((amenity, i) => (
-                                    <div key={i} className="detail-animate flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#1a1a1a] shadow-sm">
-                                            {amenity.icon}
-                                        </div>
-                                        <span className="text-[15px] font-medium text-[#1a1a1a]">{amenity.title}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Right: Full Image */}
-                        <div className="w-full md:w-[55%] h-1/2 md:h-full relative z-0">
+                        {/* Right: Full Image (Background on mobile, right panel on desktop) */}
+                        <div className="absolute inset-0 md:relative w-full md:w-[55%] h-full z-0 md:order-2">
                             <Image
                                 src={staysData[expandedCard].image}
                                 alt={staysData[expandedCard].name}
@@ -360,23 +333,51 @@ const ExploreStay = () => {
                                 className="object-cover"
                                 priority
                             />
-
-                            {/* Close Button Top Right */}
-                            <button
-                                onClick={closeCard}
-                                className="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-black hover:bg-white transition-colors duration-300 z-50 drop-shadow-md"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m18 6-12 12"/><path d="m6 6 12 12"/></svg>
-                            </button>
-
-                            {/* Book Now Button Over Image (Bottom Right) */}
-                            <button className="absolute bottom-8 right-8 flex items-center gap-0 group w-fit py-3 bg-white rounded-full p-1 pl-6 shadow-2xl hover:shadow-white/20 transition-all z-20">
-                                <span className="text-[#1a1a1a] text-xs font-medium tracking-[0.1em] uppercase pr-4">
-                                    BOOK NOW
-                                </span>
-                            </button>
                         </div>
 
+                        {/* Left: Info Panel (Frosted Overlay on mobile, left panel on desktop) */}
+                        <div className="absolute bottom-0 left-0 w-full md:relative md:w-[45%] h-auto md:h-full bg-white/40 md:bg-white/70  md:backdrop-blur-2xl p-6 pt-8 pb-24 md:p-12 flex flex-col justify-end md:justify-center z-10 md:border-r border-white/20 md:order-1 shadow-[0_-10px_30px_rgba(0,0,0,0.1)] md:shadow-none  md:rounded-none">
+                            
+                            <h3 className="detail-animate text-[18px] md:text-[32px] font-extrabold text-[#1a1a1a] mb-4 md:mb-6 leading-none tracking-tight">
+                                {staysData[expandedCard].name}
+                            </h3>
+                            
+                            <p className="detail-animate text-black text-xs md:text-base leading-snug md:leading-relaxed mb-4 md:mb-6 font-medium md:font-normal">
+                                {staysData[expandedCard].fullDesc}
+                            </p>
+                            
+                            <p className="detail-animate text-black text-xs md:text-base leading-snug md:leading-relaxed mb-6 md:mb-10 font-medium md:font-normal">
+                                {staysData[expandedCard].extraDesc}
+                            </p>
+
+                            {/* Amenities List */}
+                            <div className="space-y-3 md:space-y-5">
+                                {staysData[expandedCard].amenities.map((amenity, i) => (
+                                    <div key={i} className="detail-animate flex items-center gap-3 md:gap-4">
+                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center text-[#1a1a1a] shadow-sm">
+                                            {amenity.icon}
+                                        </div>
+                                        <span className="text-[12px] md:text-[15px] font-bold md:font-medium text-[#1a1a1a]">{amenity.title}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Close Button Top Right */}
+                        <button
+                            onClick={closeCard}
+                            className="absolute top-12 right-6 md:top-6 md:right-6 w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-black hover:bg-white transition-colors duration-300 z-50 drop-shadow-md cursor-pointer bg-transparent"
+                        >
+                            {/* Mobile Arrow Right, Desktop X */}
+                           <X className='text-black'/>
+                        </button>
+
+                        {/* Book Now Button Over Image (Bottom Center / Bottom Right) */}
+                        <button className="absolute bottom-8 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:bottom-8 md:right-8 flex items-center justify-center gap-0 group w-[35%] md:w-fit py-2 md:py-3 bg-white rounded-full p-1 md:pl-6 shadow-[0_10px_30px_rgba(0,0,0,0.15)] md:shadow-2xl hover:shadow-white/20 transition-all z-20 cursor-pointer">
+                            <span className="text-[#1a1a1a] text-xs md:text-xs font-bold md:font-medium tracking-[0.1em] uppercase md:pr-4">
+                                BOOK NOW
+                            </span>
+                        </button>
                     </div>
                 </div>
             )}

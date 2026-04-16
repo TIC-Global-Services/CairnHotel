@@ -14,7 +14,7 @@ const repeatedImages = [...images, ...images, ...images]
 
 const KnowMore = () => {
   return (
-    <section className="relative w-full min-h-screen bg-white overflow-hidden flex flex-col justify-between px-6 md:px-12 lg:px-20 py-12 md:py-24">
+    <section className="relative w-full min-h-[80vh] md:min-h-screen bg-white overflow-hidden flex flex-col justify-between px-6 md:px-12 lg:px-20 py-12 md:py-24">
       
    
       <style>{`
@@ -62,9 +62,9 @@ const KnowMore = () => {
       </div>
 
       {/* Bottom Right Text Block */}
-      <div className="relative z-10 flex flex-col items-end w-full mt-[10%] pointer-events-none">
-        <h2 className="text-[40px] sm:text-[56px] md:text-[76px] lg:text-[96px] font-medium text-[#A1A1A1] text-right leading-[1.05]  uppercase drop-shadow-sm">
-          IT'S MORE THAN A <br /> 
+      <div className="relative z-10 flex flex-col items-end w-full md:mt-[15%] pointer-events-none">
+        <h2 className="text-4xl sm:text-[56px] md:text-[74px] font-medium text-[#A1A1A1] text-right leading-[1.05]  uppercase drop-shadow-sm">
+          IT'S MORE THAN A <br className='hidden md:block'/> 
           DESTINATION...
         </h2>
       </div>

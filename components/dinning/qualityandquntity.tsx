@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import discover from '@/assets/dining/quality-1.jpg'
 import taste from '@/assets/dining/quality-2.jpg'
 import flavors from '@/assets/dining/quality-3.jpg'
@@ -41,19 +41,19 @@ const QualityAndQuantity = () => {
   ]
 
   return (
-    <section className="w-full bg-white py-24 px-4 md:px-8">
+    <section className="w-full bg-white py-10 md:py-24 px-2 md:px-8">
       <div className="px-[5%] flex flex-col">
         
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-start mb-20 gap-10">
-          <div className="max-w-3xl">
-            <p className="text-lg uppercase tracking-[0.25em] font-medium mb-3 text-[#1a1a1a]">QUALITY & QUANTITY</p>
-            <h2 className="text-5xl md:text-[4.4rem] font-semibold leading-[1.05] text-[#1a1a1a] tracking-tight">
-              Experience <br /> Comfort in <br /> Every Detail
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-start md:mb-20 mb-10 gap-10">
+          <div className="md:max-w-3xl">
+            <p className="text-sm md:text-lg  uppercase  md:tracking-[0.25em] font-medium md:mb-3 mb-2 text-[#1a1a1a]">QUALITY & QUANTITY</p>
+            <h2 className="text-2xl md:text-[4.4rem] font-semibold leading-[1.05] text-[#1a1a1a] tracking-tight">
+              Experience <br className='hidden md:block'/> Comfort in <br className='hidden md:block'/> Every Detail
             </h2>
           </div>
-          <div className="max-w-xl pb-2">
-            <p className="text-[#a3a3a3] text-lg md:text-3xl font-light leading-[1.6]">
+          <div className="md:max-w-xl md:pb-2">
+            <p className="text-[#a3a3a3] text-sm md:text-3xl font-light leading-[1.6]">
               A comfortable and peaceful stay with simple interiors and essential amenities. Simple, clean spaces with all the basic comforts for a pleasant stay.
             </p>
           </div>
@@ -72,14 +72,26 @@ const QualityAndQuantity = () => {
 
 const HoverCard = ({ card }: { card: CardData }) => {
   const [isHovered, setIsHovered] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
-  // We wrap the entire block so moving from the + icon upwards into the text maintains the hover state cleanly.
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const active = isHovered || isMobile
+
   return (
     <div 
       className="flex flex-col items-center relative w-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4A3B32] text-white/80 text-xs sm:text-xs font-light md:font-semibold tracking-[0.2em] px-4 md:px-6 py-1 md:py-2 rounded-xl z-40 shadow-md">
+          {card.tag}
+        </div>
       {/* Image Container */}
       <div className="w-full aspect-[3/4] relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgb(0,0,0,0.1)] transition-transform duration-500 ease-out hover:-translate-y-2 cursor-pointer">
         <Image 
@@ -92,7 +104,7 @@ const HoverCard = ({ card }: { card: CardData }) => {
         
         {/* Dark Gradient Overlay for text readability */}
         <AnimatePresence>
-          {isHovered && (
+          {active && (
              <motion.div 
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
@@ -104,14 +116,12 @@ const HoverCard = ({ card }: { card: CardData }) => {
         </AnimatePresence>
         
         {/* Top Tag */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#4A3B32] text-white/80 text-xs sm:text-xs font-semibold tracking-[0.2em] px-6 py-2 rounded-b-xl z-40 shadow-md">
-          {card.tag}
-        </div>
+        
 
         {/* Text Area (Reveals on Hover) */}
         <div className="absolute bottom-12 left-0 w-full flex flex-col items-center justify-center text-center px-4 z-20 pointer-events-none">
           <AnimatePresence>
-            {isHovered && (
+            {active && (
               <motion.div 
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -135,7 +145,7 @@ const HoverCard = ({ card }: { card: CardData }) => {
       <motion.button 
         className="w-14 h-14 rounded-full bg-[#FFFBF0] text-[#1a1a1a] shadow-xl flex items-center justify-center -mt-7 z-30 relative cursor-pointer"
         whileHover={{ scale: 1.1 }}
-        animate={{ rotate: isHovered ? 135 : 0 }}
+        animate={{ rotate: active ? 135 : 0 }}
         transition={{ duration: 0.3 }}
       >
         <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

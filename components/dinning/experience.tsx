@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 
 const Experience = () => {
   return (
-    <section className="w-full py-20 px-4 md:px-8 bg-[#FFF7E057] overflow-hidden">
+    <section className="w-full py-[30%] md:py-20 px-4 md:px-8 bg-[#FFF7E057] overflow-hidden">
       <div className="flex flex-col items-center">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -18,16 +18,16 @@ const Experience = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-12 sm:mb-16"
         >
-          <p className="font-medium text-lg md:text-xl mb-4 text-[#1a1a1a]">
+          <p className="font-medium text-sm md:text-xl md:mb-4 mb-2 text-[#1a1a1a]">
             -Mountain Retreat Experience-
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[#1a1a1a] uppercase">
+          <h2 className="text-xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[#1a1a1a] uppercase">
             Your Mountain Getaway
           </h2>
         </motion.div>
 
       
-        <div className="relative w-full max-w-7xl mx-auto mb-16 sm:mb-24 px-2 sm:px-8">
+        <div className="relative w-full max-w-7xl mx-auto mb-10 sm:mb-24 px-2 sm:px-8">
           <div className="flex justify-between items-start">
          
             <motion.div 
@@ -84,9 +84,9 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
           viewport={{ once: true, margin: "-50px" }}
-          className="max-w-4xl text-center px-4"
+          className="md:max-w-4xl text-center md:px-4"
         >
-          <p className="text-base md:text-lg lg:text-xl font-medium leading-relaxed md:leading-loose text-[#1a1a1a]">
+          <p className="text-sm md:text-lg lg:text-xl font-medium leading-relaxed md:leading-loose text-[#1a1a1a]">
             Experience The Beauty Of Nature At Cairn Hotel, Where Breathtaking Red Rock Landscapes And Peaceful Mountain Surroundings Create The Perfect Setting For Relaxation And Adventure.
           </p>
         </motion.div>

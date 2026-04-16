@@ -29,9 +29,10 @@ const TextScrollReveal = ({ text, className }: TextScrollRevealProps) => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: container,
-                start: "top 80%",
-                end: "bottom 40%",
+                start: () => window.innerWidth < 768 ? "top 95%" : "top 80%",
+                end: () => window.innerWidth < 768 ? "bottom 60%" : "bottom 40%",
                 scrub: 0.5,
+                invalidateOnRefresh: true,
                 // markers: true, // For debugging
             }
         });

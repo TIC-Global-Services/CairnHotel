@@ -4,10 +4,11 @@ import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import exploring1 from '@/assets/things-to-do/exploring-1.jpg'
-import stay2 from '@/assets/hotel/stay_at_carin2.jpg'
-import stay3 from '@/assets/hotel/stay_at_carin3.jpg'
+import exploring2 from '@/assets/things-to-do/exploring-2.png'
+import exploring3 from '@/assets/things-to-do/exploring-3.jpg'
 
-const images = [exploring1, stay2, stay3]
+
+const images = [exploring1, exploring2, exploring3]
 
 const Exploring = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -20,17 +21,17 @@ const Exploring = () => {
     }, [])
 
     return (
-        <section className="w-full bg-white flex max-h-screen items-center justify-center py-24 lg:py-20 px-6 lg:px-12 overflow-hidden">
-            <div className="w-full px-[5%] flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-12">
+        <section className="w-full bg-white flex max-h-screen items-center justify-center mt-5 mb-10 md:mb-0 lg:py-20 px-4 lg:px-12 overflow-hidden">
+            <div className="w-full md:px-[5%] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
                 
                 {/* Left Text Content */}
-                <div className="w-full lg:w-[45%] flex flex-col items-start justify-center">
+                <div className="w-full lg:w-[45%] flex flex-col items-start justify-center order-2 lg:order-1">
                     <motion.p 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-slate-800 mb-6 lg:mb-8"
+                        className="text-xs sm:text-xs font-bold md:tracking-[0.3em] uppercase text-slate-800 mb-3 lg:mb-8"
                     >
                         Explore Places
                     </motion.p>
@@ -40,9 +41,9 @@ const Exploring = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-[4rem] sm:text-[5rem] lg:text-6xl font-bold text-[#0c1627] leading-[1.05] tracking-tight mb-8"
+                        className="text-[1.5rem] sm:text-[4rem] lg:text-6xl font-bold text-[#0c1627] leading-[1.05] tracking-tight mb-6 lg:mb-8"
                     >
-                        Exploring<br />
+                        Exploring <br className="hidden lg:block"/>
                         Utah's<br />
                         Scenery
                     </motion.h2>
@@ -52,7 +53,7 @@ const Exploring = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-base sm:text-lg lg:text-lg font-normal text-gray-500 leading-[1.8] max-w-md"
+                        className="text-sm sm:text-lg lg:text-lg font-normal text-gray-500 leading-[1.8] max-w-md"
                     >
                         Experience the raw beauty of Utah, where dramatic canyons, towering peaks, and endless landscapes create unforgettable views. Every journey reveals a new perspective of nature's breathtaking artistry.
                     </motion.p>
@@ -64,7 +65,7 @@ const Exploring = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1 }}
-                    className="w-full lg:w-[40%] relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl bg-gray-100"
+                    className="w-full lg:w-[40%] relative aspect-[2/3] lg:aspect-[3/4] rounded-xl overflow-hidden shadow-2xl bg-gray-100 order-1 lg:order-2"
                 >
                     <AnimatePresence>
                         <motion.div

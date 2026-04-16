@@ -18,7 +18,6 @@ if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger, useGSAP)
 }
 
-// ── Layer config: centralised for clean iteration ──
 const LAYER_CONFIG = [
     {
         src: layer5,
@@ -72,16 +71,14 @@ const Hero = memo(() => {
     const discoveryRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        // Defer heavy animation setup until after first paint
         requestAnimationFrame(() => {
-            // Set initial states immediately to prevent FOUC
             gsap.set([adventureRef.current, discoveryRef.current], {
                 opacity: 0,
                 force3D: true,
             })
             gsap.set(layerRefs.current.filter(Boolean), { force3D: true })
 
-            // ── Single master timeline for all parallax (1 ScrollTrigger instead of 3) ──
+
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: containerRef.current,
@@ -93,18 +90,14 @@ const Hero = memo(() => {
                 },
             })
 
-            // Layers — GPU-accelerated with force3D
-            LAYER_CONFIG.forEach((cfg, i) => {
+        LAYER_CONFIG.forEach((cfg, i) => {
                 const el = layerRefs.current[i]
                 if (el) tl.to(el, { yPercent: cfg.yPercent, force3D: true, ease: 'none' }, 0)
             })
 
-            // Text parallax — negative values so text rises faster than background (depth effect)
             tl.to(hotelTextRef.current, { yPercent: -35, force3D: true, ease: 'none' }, 0)
             tl.to(descTextRef.current, { yPercent: -25, force3D: true, ease: 'none' }, 0)
             tl.to(discoverRef.current, { yPercent: -35, force3D: true, ease: 'none' }, 0)
-
-            // Content reveals — folded into the same scrub range to avoid extra ScrollTriggers
             gsap.fromTo(adventureRef.current,
                 { xPercent: 20, opacity: 0 },
                 {
@@ -136,9 +129,7 @@ const Hero = memo(() => {
     }, { scope: containerRef })
 
     return (
-        <div ref={containerRef} className="relative w-full overflow-hidden">
-
-            {/* Parallax layers — GPU-promoted with will-change */}
+        <div ref={containerRef} className="relative w-full overflow-hidden"> 
             <div className="absolute inset-0 w-full h-full">
                 {LAYER_CONFIG.map((cfg, i) => (
                     <Image
@@ -154,15 +145,15 @@ const Hero = memo(() => {
                     />
                 ))}
 
-                {/* Vignette */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/50 pointer-events-none z-[38]" />
+                
+                <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/60 pointer-events-none z-[38]" />
             </div>
 
-            {/* Content — drives natural height */}
+            
             <div className="relative z-[10]">
 
-                {/* Hero title */}
-                <div className="flex flex-col items-center justify-center z-10 pt-[28vh] md:pt-[30vh] pb-[20vh] md:pb-[25vh]">
+                
+                <div className="flex flex-col items-center justify-center z-10 pt-[28vh] md:pt-[30vh] pb-[5vh] md:pb-[25vh]">
                     <div ref={hotelTextRef} style={{ willChange: 'transform' }}>
                         <h1 className="text-[6rem] md:text-[10rem] lg:text-[14rem] leading-none font-semibold uppercase text-white select-none mix-blend-overlay opacity-90">
                             HOTEL
@@ -177,7 +168,7 @@ const Hero = memo(() => {
                         </p>
                     </div>
 
-                    <div ref={discoverRef} className="mt-6 md:mt-8 flex flex-col items-center gap-2" style={{ willChange: 'transform' }}>
+                    <div ref={discoverRef} className="hidden md:flex mt-6 md:mt-8 flex-col items-center gap-2" style={{ willChange: 'transform' }}>
                         <span className="text-white/70 text-xs md:text-sm tracking-[0.2em] uppercase">
                             Discover
                         </span>
@@ -188,33 +179,33 @@ const Hero = memo(() => {
                 </div>
             </div>
             <div className='relative z-[40]'>
-                {/* Adventures — right aligned */}
-                <div className="flex justify-center md:justify-end px-6 md:px-16 lg:px-24 pb-[18vh] md:pb-[22vh]">
-                    <div ref={adventureRef} className="max-w-xl" style={{ willChange: 'transform, opacity' }}>
+
+                <div className="flex justify-center md:justify-end px-6 md:px-16 lg:px-24 pb-[3vh] md:pb-[22vh]">
+                    <div ref={adventureRef} className="max-w-xl flex flex-col items-start text-center md:block md:text-left" style={{ willChange: 'transform, opacity' }}>
                         <div className="mb-3 md:mb-4">
                         <Image src={trucking} alt="trucking" width={28} height={28} />
                         </div>
 
-                        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight mb-3 md:mb-4 tracking-tight">
+                        <h2 className="text-xl md:text-2xl lg:text-3xl font-medium md:font-bold text-white leading-tight mb-3 md:mb-4 tracking-tight">
                             Adventures Begin At The Cairn
                         </h2>
 
-                        <p className="text-white text-xs md:text-xl leading-relaxed mb-5 md:mb-6 max-w-3xl capitalize">
+                        <p className="text-white text-xs md:text-xl text-left leading-relaxed mb-5 md:mb-6 max-w-3xl capitalize">
                             The Cairn Hotel Is The Perfect Retreat For Hiking
                             Enthusiasts, Surrounded By Scenic Mountain Trails
                             And Breathtaking Natural Landscapes.
                             A Place Where Adventure Meets Comfort.
                         </p>
 
-                        <button className="px-6 md:px-8 py-2.5 md:py-3 bg-white/10 backdrop-blur-md border border-white/40 rounded-full text-white uppercase tracking-[0.2em] text-[10px] md:text-xs hover:bg-white/25 transition-all duration-300 cursor-pointer">
+                        <button className="px-6 md:px-8 py-2.5 md:py-3 bg-white md:bg-white/10 backdrop-blur-md border border-white md:border-white/40 rounded-full text-black md:text-white uppercase tracking-[0.2em] md:font-normal font-semibold text-[10px] md:text-xs hover:bg-white/25 transition-all duration-300 cursor-pointer">
                             Explore More
                         </button>
                     </div>
                 </div>
 
-                {/* Discovery — left aligned */}
-                <div className="flex justify-start px-6 md:px-16 lg:px-24 pb-[12vh] md:pb-[16vh]">
-                    <div ref={discoveryRef} className="max-w-xl" style={{ willChange: 'transform, opacity' }}>
+      
+                <div className="flex justify-start px-6 md:px-16 lg:px-24 pb-[8vh] md:pb-[16vh]">
+                    <div ref={discoveryRef} className="max-w-xl flex flex-col items-start text-center md:block md:text-left" style={{ willChange: 'transform, opacity' }}>
                         <div className="mb-3">
                             <Image src={mountain} alt="mountain" width={32} height={24} />
                         </div>
@@ -223,13 +214,13 @@ const Hero = memo(() => {
                             Discovery Southern Utah
                         </h2>
 
-                        <p className="text-white text-xs md:text-xl leading-relaxed mb-4 md:mb-5 max-w-3xl capitalize">
+                        <p className="text-white text-xs md:text-xl text-left leading-relaxed mb-4 md:mb-5 max-w-3xl capitalize">
                             Surrounded By Breathtaking Landscapes, The Cairn
                             Hotel Offers Access To A Variety Of Scenic Mountain
                             Routes Perfect For Hikers And Nature Enthusiasts.
                         </p>
 
-                        <button className="px-5 md:px-7 py-2 md:py-2.5 bg-white/10 backdrop-blur-md border border-white/40 rounded-full text-white uppercase tracking-[0.2em] text-[10px] md:text-xs hover:bg-white/25 transition-all duration-300 cursor-pointer">
+                        <button className="px-5 md:px-7 py-2 md:py-2.5 bg-white md:bg-white/10 backdrop-blur-md border border-white md:border-white/40 rounded-full text-black md:text-white uppercase tracking-[0.2em] md:font-normal font-semibold text-[10px] md:text-xs hover:bg-white/25 transition-all duration-300 cursor-pointer">
                             Explore More
                         </button>
                     </div>

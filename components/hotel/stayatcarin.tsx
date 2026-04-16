@@ -37,7 +37,7 @@ const StayAtCairn = () => {
       {/* Text content */}
       <div className="px-6 text-center mb-14 md:mb-20">
         <motion.h2
-          className="text-3xl md:text-5xl lg:text-[56px] font-bold text-black leading-[1.1] tracking-tight mb-6 md:mb-8"
+          className="text-2xl md:text-5xl lg:text-[56px] font-semibold text-black leading-[1.1] md:tracking-tight mb-6 md:mb-8"
           style={{ opacity: globalOpacity }}
         >
           <span className="hidden md:inline">Stay at Cairn</span>
@@ -157,8 +157,7 @@ function MobileGallery({ scrollYProgress, globalScale }: GalleryProps) {
   )
 }
 
-// Per-card config for the fan layout matching the reference design
-// [x-offset from center, rotation, width, height%, z-index, marginTop%]
+
 const mobileCardConfig = [
   { offsetX: -180, rot: -15, w: 170, h: '82%', z: 1, mt: '5%' },   // far left — mostly off-screen
   { offsetX: -100, rot: -8,  w: 200, h: '88%', z: 3, mt: '3%' },   // left — peeking in

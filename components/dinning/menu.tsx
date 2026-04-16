@@ -54,8 +54,8 @@ export default function Menu() {
                 viewport={{ once: true, margin: "-100px" }}
                 className="text-center max-w-5xl px-4 z-10"
             >
-                <h2 className="text-4xl md:text-[40px] font-semibold uppercase tracking-widest mb-6 text-[#1a1a1a]">Menu</h2>
-                <p className="text-[#1a1a1a]/90 text-lg md:text-[20px] font-medium leading-normal md:leading-relaxed">
+                <h2 className="text-xl md:text-[40px] font-semibold uppercase tracking-widest mb-6 text-[#1a1a1a]">Menu</h2>
+                <p className="text-[#1a1a1a]/90 text-base md:text-[20px] font-medium leading-normal md:leading-relaxed">
                     Let our chef take you on a culinary journey. Each dish celebrates fresh, seasonal ingredients
                     carefully selected to deliver a flavourful and authentic dining experience.
                 </p>
@@ -73,7 +73,7 @@ export default function Menu() {
                         <button
                             key={type}
                             onClick={() => setActiveType(type)}
-                            className={`px-8 sm:px-10 py-3 sm:py-3 rounded-full text-[13px] font-normal tracking-[0.15em] transition-all duration-300 ${activeType === type
+                            className={`px-4 sm:px-10 py-2 sm:py-3 rounded-full text-xs font-normal tracking-[0.15em] transition-all duration-300 ${activeType === type
                                     ? 'bg-[#826154] text-white shadow-lg shadow-[#826154]/30'
                                     : 'bg-transparent text-gray-400 hover:text-[#1a1a1a] hover:bg-gray-50'
                                 }`}
@@ -93,10 +93,10 @@ export default function Menu() {
             <div className="w-full max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 relative z-10">
 
                 {/* Stacked Left Column: Cuisines and Items List */}
-                <div className="col-span-1 md:col-span-7 lg:col-span-7 flex flex-col space-y-10">
+                <div className="col-span-1 md:col-span-7 lg:col-span-7 flex flex-col space-y-10 order-2 md:order-1">
                     
                     {/* Cuisines Sub-menu */}
-                    <div className="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 w-fit min-w-[200px] sm:min-w-[240px] relative z-20">
+                    <div className="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 w-fit min-w-[200px] sm:min-w-[240px] relative z-20 mx-auto md:mx-0">
                         <div 
                             className="px-6 py-5 font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#1a1a1a] flex justify-between items-center relative cursor-pointer select-none bg-white rounded-[20px] z-30"
                             onClick={() => setIsCuisinesOpen(!isCuisinesOpen)}>
@@ -149,7 +149,7 @@ export default function Menu() {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: 10 }}
                                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                                className="flex flex-col space-y-10"
+                                className="flex flex-col space-y-8 md:space-y-10"
                             >
                                 {filteredItems.length > 0 ? (
                                     filteredItems.map((item) => (
@@ -173,7 +173,7 @@ export default function Menu() {
                 </div>
 
                 {/* Column 3: Hero Image */}
-                <div className="col-span-1 md:col-span-5 lg:col-span-5 flex justify-center lg:justify-end">
+                <div className="col-span-1 md:col-span-5 lg:col-span-5 flex justify-center lg:justify-end order-1 md:order-2">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={`img-${activeType}-${activeCuisine}`}
@@ -181,7 +181,7 @@ export default function Menu() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.96 }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
-                            className="w-full max-w-lg aspect-4/5 relative rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgb(0,0,0,0.1)]"
+                            className="w-full max-w-lg aspect-[3/2] md:aspect-4/5 relative rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgb(0,0,0,0.1)]"
                         >
                             <Image
                                 src={currentDisplayImage}

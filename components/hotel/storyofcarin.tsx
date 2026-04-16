@@ -81,7 +81,7 @@ const StoryOfCairn = () => {
                 />
             </div>
 
-            <div className="relative z-10 w-full max-w-7xl flex flex-col lg:flex-row items-center gap-16 lg:gap-32">
+            <div className="relative z-10 w-full max-w-7xl flex flex-col lg:flex-row items-center gap-12 lg:gap-32">
                 {/* Left Side: Image */}
                 <div ref={imageRef} className="w-full lg:w-1/2">
                     <div className="relative aspect-4/5 md:aspect-4/5 w-full rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
@@ -96,21 +96,21 @@ const StoryOfCairn = () => {
                 </div>
 
                 {/* Right Side: Content */}
-                <div ref={contentRef} className="w-full lg:w-1/2 flex flex-col items-start gap-8">
-                    <span className="text-[11px] md:text-xs font-bold tracking-[0.4em] uppercase text-[#7a6559]">
+                <div ref={contentRef} className="w-full lg:w-1/2 flex flex-col items-start gap-4 md:gap-8">
+                    <span className="text-xs md:text-xs font-bold md:tracking-[0.4em] uppercase text-[#7a6559]">
                         OUR LEGACY
                     </span>
                     
-                    <h2 className="text-4xl md:text-6xl lg:text-[2.5rem] font-semibold text-white leading-[1.1] tracking-tight">
+                    <h2 className="text-2xl md:text-6xl lg:text-[2.5rem] font-semibold text-white leading-[1.1] tracking-tight">
                         STORY OF <br />
                         THE CAIRN HOTEL
                     </h2>
 
-                    <p className="text-base md:text-lg text-[#b8b8b8] max-w-lg leading-relaxed font-light">
+                    <p className="text-sm md:text-lg text-[#b8b8b8] max-w-lg leading-relaxed font-light">
                         Born from a passion for hospitality and a deep appreciation for nature, The Cairn Hotel was created as a peaceful retreat for travellers seeking comfort, elegance, and meaningful experiences. Inspired by the beauty of its surroundings, the hotel reflects a perfect harmony between modern luxury and timeless charm.
                     </p>
 
-                    <div className="h-px w-24 bg-[#7a6559]/30 mt-4" />
+                    <div className="h-px w-24 bg-[#7a6559]/30 mt-4 hidden md:block" />
                 </div>
             </div>
         </section>

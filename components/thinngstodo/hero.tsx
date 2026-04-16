@@ -14,6 +14,7 @@ const experiences = [
         id: 1,
         tag: "1. HIKE",
         title: "MOUNTAIN AS A PLACE\nOF ADVENTURE",
+        mobiletitle:"MOUNTAIN AS A PLACE OF ADVENTURE",
         desc1: "Mountains offer a thrilling escape for those seeking adventure and discovery.",
         desc2: "The crisp mountain air, rugged landscapes, and endless horizons invite explorers to push their limits while embracing the beauty and serenity of nature.",
         image: hiking
@@ -22,6 +23,7 @@ const experiences = [
         id: 2,
         tag: "2. SKIING",
         title: "WINTER WONDERLAND\nEXPERIENCE",
+        mobiletitle:"WINTER WONDERLAND EXPERIENCE",
         desc1: "Hit the snowy slopes and weave through breathtaking alpine trails in fresh powder.",
         desc2: "Our nearby resorts offer world-class facilities and cozy lodge atmospheres, giving you the perfect balance of thrill and comfortable serenity.",
         image: skiing
@@ -42,7 +44,7 @@ const Hero = () => {
     const activeItem = experiences[activeIndex]
 
     return (
-        <div className='relative w-full min-h-[140vh] flex flex-col items-center gap-100 justify-start overflow-hidden pt-[20vh] pb-[10vh]'>
+        <div className='relative w-full min-h-[120vh] md:min-h-[140vh] flex flex-col items-center gap-50 md:gap-100 justify-start overflow-hidden pt-[20vh] pb-[10vh]'>
             {/* Background Layer completely behind everything */}
             <div className="absolute inset-0 z-0">
                 <Image src={banner} alt="banner" fill className='object-cover object-center' priority />
@@ -50,17 +52,17 @@ const Hero = () => {
             </div>
 
             {/* Top Typography Node */}
-            <div className='relative z-10 flex flex-col mt-[10%] items-center justify-center w-full px-[5%] mb-[10vh]'>
-                <h1 className='text-[5rem] md:text-[8rem] lg:text-[11rem] font-semibold uppercase text-white leading-none drop-shadow-2xl'>THINGS TO DO</h1>
-                <p className='text-sm md:text-base lg:text-xl font-medium max-w-3xl text-center leading-relaxed mt-4 mb-8 text-white/95 drop-shadow flex flex-col'>
+            <div className='relative z-10 flex flex-col mt-[30%] md:mt-[10%] items-center justify-center w-full px-[5%] mb-[10vh]'>
+                <h1 className='text-[4rem] md:text-[8rem] lg:text-[11rem] text-center font-semibold uppercase text-white leading-none drop-shadow-2xl'>THINGS TO DO</h1>
+                <p className='text-sm md:text-base lg:text-xl font-normal md:font-medium  md:max-w-3xl text-center leading-relaxed mt-4 mb-8 text-white/95 drop-shadow flex flex-col'>
                     <span>Let Us Host Your Group To Create An Unforgettable Experience For You. We're</span>
                     <span>Experienced With Hosting Families, Companies, Tour Buses, And More.</span>
                 </p>
-                <button className='px-12 py-3.5 rounded-full border-[0.5px] border-white hover:bg-white/10 uppercase backdrop-blur-md text-white transition-colors duration-300 text-sm font-medium tracking-widest shadow-lg'>Book Now</button>
+                <button className='px-6 py-2.5 md:px-12 md:py-3.5 rounded-full border-[0.5px] border-white hover:bg-white/10 uppercase backdrop-blur-md text-white transition-colors duration-300 text-sm font-medium tracking-widest shadow-lg'>Book Now</button>
             </div>
 
             {/* Lower Interactive Component Core */}
-            <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-center justify-center gap-[8%] lg:gap-[12%] w-full px-[5%] lg:px-[8%]">
+            <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-center justify-center gap-[5%] lg:gap-[12%] w-full px-[5%] lg:px-[8%]">
 
                 {/* Left: Dynamic Asset Node */}
                 <div className="relative w-[70%] sm:w-[50%] lg:w-[25%] shrink-0">
@@ -124,21 +126,24 @@ const Hero = () => {
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             className="flex flex-col w-full"
                         >
-                            <h3 className="text-xl md:text-3xl font-semibold tracking-wider drop-shadow-md">
+                            <h3 className="text-sm text-center md:text-left md:text-3xl font-semibold tracking-wider drop-shadow-md">
                                 {activeItem.tag}
                             </h3>
-                            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold mt-[4%] uppercase whitespace-pre-line tracking-tight leading-tight drop-shadow-lg">
+                            <h2 className="hidden md:block text-base text-center md:text-left md:text-4xl lg:text-[44px] font-bold mt-[4%] uppercase whitespace-pre-line tracking-tight leading-tight drop-shadow-lg">
                                 {activeItem.title}
                             </h2>
+                            <h2 className="md:hidden text-sm font-medium mt-[2%] uppercase">
+                                {activeItem.mobiletitle}
+                            </h2>
 
-                            <div className="flex flex-row items-center gap-[5%] mt-[10%]">
-                                <p className="text-sm sm:text-base lg:text-lg font-light text-white/90 leading-relaxed max-w-[65%]">
+                            <div className="flex flex-row items-center gap-[5%] mt-[5%] md:mt-[10%]">
+                                <p className="text-sm sm:text-base lg:text-lg font-light text-white/90 leading-relaxed md:max-w-[65%]">
                                     {activeItem.desc1}
                                 </p>
                                 <hr className="grow border-t border-white/50" />
                             </div>
 
-                            <p className="text-sm sm:text-base lg:text-lg font-light text-white/90 leading-relaxed max-w-[85%] mt-[6%]">
+                            <p className="text-sm sm:text-base lg:text-lg font-light text-white/90 leading-relaxed md:max-w-[85%] mt-[6%]">
                                 {activeItem.desc2}
                             </p>
                         </motion.div>

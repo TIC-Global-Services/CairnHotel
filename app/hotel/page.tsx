@@ -9,6 +9,8 @@ import TrustedBy from '@/components/hotel/trustedby'
 import Testimonial from '@/components/hotel/testimonial'
 import SpecialOffer from '@/components/hotel/specialoffer'
 import StayAtCairn from '@/components/hotel/stayatcarin'
+import Amenities from '@/components/hotel/amenities'
+import Sanctuary from '@/components/hotel/sanctuary'
 
 const page = () => {
   return (
@@ -17,6 +19,8 @@ const page = () => {
       <StoryOfCairn />
       <ArchitectureOfNature />
       <ExploreStay/>
+      <Amenities/>
+      <Sanctuary />
       <TrustedBy/>
       <StayElevated/>
       <Sustainability/>
