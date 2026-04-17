@@ -14,11 +14,12 @@ import exploringbg  from '@/assets/Home/exploringbg.jpg'
 import firstlayer1  from '@/assets/Home/Layer 1.png'
 import secondlayer2 from '@/assets/Home/Layer 2.png'
 import thirdlayer3  from '@/assets/Home/Layer 3.png'
+import snowlayer1 from '@/assets/Home/snowlayer_1.jpg'
+import snowlayer2 from '@/assets/Home/snowlayer_2.jpg'
 
-import theaterlayer1 from '@/assets/Home/theaterL-1.png'
-import theaterlayer2 from '@/assets/Home/theaterL-2.png'
-import theaterlayer3 from '@/assets/Home/theaterL-3.png'
-import theaterlayer4 from '@/assets/Home/theaterL-4.png'
+import theaterlayer1 from '@/assets/Home/theater_bg.png'
+import theaterlayer2 from '@/assets/Home/theaterLayer-1.png'
+
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP)
@@ -233,23 +234,23 @@ const SECTIONS: SectionConfig[] = [
     isHero: false,
     className: 'bg-black',
     layers: [
-      {
-        type: 'image',
-        id: 'layer-3-dup',
-        src: theaterlayer3,
-        alt: 'Background layer',
-        zIndex: 10,
-        className: 'left-0 object-cover object-top',
-        style: { top: '-15%', width: '100%', height: '130%' },
-        parallax: {
-          from: { yPercent: -10, scale: 1.1 },
-          to:   { yPercent: 15, scale: 1 },
-        },
-      },
+      // {
+      //   type: 'image',
+      //   id: 'layer-3-dup',
+      //   src: theaterlayer3,
+      //   alt: 'Background layer',
+      //   zIndex: 10,
+      //   className: 'left-0 object-cover object-top',
+      //   style: { top: '-15%', width: '100%', height: '130%' },
+      //   parallax: {
+      //     from: { yPercent: -10, scale: 1.1 },
+      //     to:   { yPercent: 15, scale: 1 },
+      //   },
+      // },
       {
         type: 'element',
         id: 'hero-heading-dup',
-        zIndex: 15,
+        zIndex: 125,
         className: 'flex flex-col items-center justify-center w-full h-full mix-blend-overlay opacity-90 tracking-widest text-[#e8dfd5]',
         style: { top: '-10%', left: '-2.5rem' },
         parallax: {
@@ -259,8 +260,8 @@ const SECTIONS: SectionConfig[] = [
         content: (
           <div className="relative flex flex-col items-center">
             <div className="relative flex justify-center items-center">
-              <div className="z-100 md:right-[10%]">
-                <h1 className="text-[7rem] md:text-[15rem] leading-none font-semibold uppercase select-none tracking-tighter text-[#eae8e6]">
+              <div className="z-130 md:right-[10%]">
+                <h1 className="text-[7rem] md:text-[15rem] leading-none font-semibold uppercase select-none tracking-tighter text-white">
                   THEATER
                 </h1>
               </div>
@@ -273,9 +274,9 @@ const SECTIONS: SectionConfig[] = [
         id: 'layer-2-dup',
         src: theaterlayer2,
         alt: 'Midground layer',
-        zIndex: 20,
+        zIndex: 40,
         className: 'left-0 object-cover object-top',
-        style: { top: '-15%', width: '100%', height: '130%' },
+        style: { top: '-20%', width: '100%', height: '130%' },
         parallax: {
           from: { yPercent: -5, scale: 1.05 },
           to:   { yPercent: 5, scale: 1 },
@@ -299,7 +300,7 @@ const SECTIONS: SectionConfig[] = [
         alt: 'Foreground layer',
         zIndex: 30,
         className: 'left-0 object-cover object-top',
-        style: { top: '-30%', width: '100%', height: '130%' },
+        style: { top: '-25%', width: '100%', height: '130%' },
         parallax: {
           from: { yPercent: -5, scale: 1.15 },
           to:   { yPercent: 15, scale: 1 },
@@ -320,6 +321,118 @@ const SECTIONS: SectionConfig[] = [
       {
         type: 'element',
         id: 'cta-dup',
+        zIndex: 50,
+        className: 'pointer-events-auto',
+        style: { bottom: '4rem', right: '4rem' },
+        content: (
+          <button className="px-8 md:px-12 py-3 md:py-4 bg-white/10 backdrop-blur-md border border-white/40 rounded-full text-white uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-white/20 transition-all duration-300 cursor-pointer shadow-xl">
+            View More
+          </button>
+        )
+      }
+    ],
+  },
+   {
+    id: 'hero',
+    navIndex: '01/04',
+    isHero: true,
+    className: 'bg-black',
+    layers: [
+      {
+        type: 'image',
+        id: 'layer-3',
+        src: thirdlayer3,
+        alt: 'Background layer',
+        zIndex: 10,
+        className: 'left-0 object-cover object-top',
+        style: { top: '-15%', width: '100%', height: '130%' },
+        parallax: {
+          from: { yPercent: 0, scale: 1 },
+          to:   { yPercent: 15, scale: 1.1 },
+        },
+      },
+      {
+        type: 'element',
+        id: 'hero-heading',
+        zIndex: 15,
+        className: 'flex flex-col items-center justify-center w-full h-full mix-blend-overlay opacity-90 tracking-widest text-[#e8dfd5]',
+        style: { top: '-10%', left: '-2.5rem' },
+        parallax: {
+          from: { yPercent: 0 },
+          to:   { yPercent: 40 },
+        },
+        content: (
+          <div className="relative flex flex-col items-center">
+            <div className="relative flex justify-center items-center">
+              <div className="z-50 md:right-[10%]">
+                <span className="absolute -top-4 md:top-5 -left-45 text-3xl md:text-[5rem] font-semibold uppercase text-[#fdf8f4]">
+                  The
+                </span>
+                <h1 className="text-[7rem] md:text-[15rem] leading-none font-semibold uppercase select-none tracking-tighter text-[#eae8e6]">
+                  CAIRN
+                </h1>
+              </div>
+            </div>
+          </div>
+        )
+      },
+      {
+        type: 'image',
+        id: 'layer-2',
+        src: secondlayer2,
+        alt: 'Midground layer',
+        zIndex: 20,
+        className: 'left-0 object-cover object-top',
+        style: { top: '-15%', width: '100%', height: '130%' },
+        parallax: {
+          from: { yPercent: 0, scale: 1 },
+          to:   { yPercent: 5, scale: 1.05 },
+        },
+      },
+      {
+        type: 'element',
+        id: 'hotel-text',
+        zIndex: 20,
+        className: 'w-full flex justify-end',
+        style: { bottom: '40%', left: '-10rem' },
+        parallax: {
+            from: { yPercent: 0 },
+            to:   { yPercent: 60 }
+        },
+        content: (
+          <span className="text-4xl md:text-6xl font-semibold uppercase tracking-[0.2em] text-[#fdf8f4] pr-8 md:pr-[10%]">
+            HOTEL
+          </span>
+        )
+      },
+      {
+        type: 'image',
+        id: 'layer-1',
+        src: firstlayer1,
+        alt: 'Foreground layer',
+        zIndex: 30,
+        className: 'left-0 object-cover object-top',
+        style: { top: '-30%', width: '100%', height: '130%' },
+        parallax: {
+          from: { yPercent: 0, scale: 1 },
+          to:   { yPercent: 15, scale: 1.15 },
+        },
+      },
+      {
+        type: 'element',
+        id: 'label',
+        zIndex: 50,
+        className: 'pointer-events-auto',
+        style: { bottom: '3rem', left: '3rem' },
+        content: (
+          <span className="text-xs md:text-sm tracking-[0.2em] font-medium uppercase text-white/90 drop-shadow-md">
+            Cedar Breaks
+          </span>
+        )
+      },
+      {
+        type: 'element',
+        id: 'cta',
         zIndex: 50,
         className: 'pointer-events-auto',
         style: { bottom: '4rem', right: '4rem' },

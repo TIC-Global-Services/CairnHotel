@@ -116,7 +116,7 @@ const StoryByStone = () => {
 
     return (
         <section ref={containerRef} className="relative w-full lg:min-h-screen bg-white overflow-hidden py-10 lg:py-0">
-            
+
             {/* DESKTOP VIEW */}
             <div className="hidden lg:flex px-12 h-screen flex-row items-center gap-10 justify-between pointer-events-none">
                 {/* Left Side: Content */}
@@ -144,7 +144,7 @@ const StoryByStone = () => {
 
                 {/* Right Side: Stone Stack */}
                 <div ref={stonesRef} className="relative w-1/2 h-screen flex items-end justify-end">
-                    <div className="relative w-[30vw] h-full -bottom-[90%] left-[20%] -translate-x-[10%]">
+                    <div className="relative w-[30vw] h-full left-[20%] -translate-x-[10%]">
                         {stories.map((story, i) => (
                             <div
                                 key={i}
@@ -152,7 +152,7 @@ const StoryByStone = () => {
                                 style={{
                                     zIndex: i + 1,
                                     transform: `translate(-50%, ${i * 50}px)`,
-                                    bottom: `${(i * 17) + -5}%`
+                                    bottom: `${(i * 8) - 5}%`
                                 }}
                             >
                                 <Image
@@ -173,9 +173,9 @@ const StoryByStone = () => {
             <div className="flex lg:hidden flex-col items-center justify-between min-h-[80vh] w-full px-[5%] relative pt-10">
                 {/* Slide Header */}
                 <div className="h-[40px] flex flex-col items-center justify-center w-full mb-8">
-                     <span className="text-[13px] font-sans tracking-[0.2em] uppercase text-[#7a6559] font-bold mb-10 text-center">
-                         {stories[currentSlide].label}
-                     </span>
+                    <span className="text-[13px] font-sans tracking-[0.2em] uppercase text-[#7a6559] font-bold mb-10 text-center">
+                        {stories[currentSlide].label}
+                    </span>
                 </div>
 
                 {/* Stones Stack Image Box */}
@@ -199,26 +199,26 @@ const StoryByStone = () => {
                 </div>
 
                 {/* Bottom Title Text & Controls */}
-                <div className="flex flex-col items-center w-full mb-4">
-                    <div className="min-h-[200px] sm:min-h-[140px] w-full flex items-center justify-center text-center px-1">
+                <div className="flex flex-col items-center justify-center -translate-y-10 md:translate-y-0 flex-1 w-full mb-8 md:pt-4">
+                    <div className="w-full flex items-center justify-start text-center px-4">
                         <h2 className="text-[18px] md:text-2xl font-sans font-medium text-neutral-800 leading-[1.3] transition-all duration-300">
                             {stories[currentSlide].title}
                         </h2>
                     </div>
-                    
+
                     {/* Controls */}
-                    <div className="flex gap-4 mt-6">
-                        <button 
-                            onClick={handlePrev} 
-                            disabled={currentSlide === 0} 
+                    <div className="flex gap-4 mt-8">
+                        <button
+                            onClick={handlePrev}
+                            disabled={currentSlide === 0}
                             className="w-10 h-10 rounded-full border border-black flex items-center justify-center text-black disabled:opacity-30 disabled:border-gray-300 disabled:text-gray-300 transition-all focus:outline-none"
                             aria-label="Previous Stone"
                         >
                             <ChevronLeft className="w-5 h-5" strokeWidth={1.5} />
                         </button>
-                        <button 
-                            onClick={handleNext} 
-                            disabled={currentSlide === stories.length - 1} 
+                        <button
+                            onClick={handleNext}
+                            disabled={currentSlide === stories.length - 1}
                             className="w-10 h-10 rounded-full border-black bg-black flex items-center justify-center text-white disabled:opacity-30 disabled:bg-gray-300 transition-all focus:outline-none"
                             aria-label="Next Stone"
                         >
