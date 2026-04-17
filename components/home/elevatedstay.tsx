@@ -1,10 +1,12 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
 import elevated from '@/assets/Home/elevated_stay.png'
+import SimpleParallax from 'simple-parallax-js'
 
 const ElevatedStay = () => {
     return (
-        <section className="w-full bg-white py-2 md:py-32 px-[4%] overflow-hidden">
+        <section className="w-full bg-white py-2 md:py-0 px-[4%] overflow-hidden">
             <div className="">
                 <div className="flex flex-col">
                     {/* Header Row */}
@@ -33,13 +35,16 @@ const ElevatedStay = () => {
 
                     {/* Image Section */}
                     <div className="relative w-full aspect-[4/5] md:aspect-[22/8] rounded-[16px] md:rounded-[24px] overflow-hidden shadow-sm mb-6 md:mb-0">
-                        <Image
+                        <SimpleParallax>
+                            <Image
                             src={elevated}
                             alt="Elevated stay in Utah landscape"
                             fill
-                            className="object-cover"
+                            style={{objectPosition:"80% 30%"}}
+                            className="object-cover scale-90"
                             priority
                         />
+                        </SimpleParallax>
                     </div>
 
                     {/* Right Column: Secondary Text (Mobile) */}

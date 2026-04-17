@@ -62,7 +62,7 @@ const BookNow = () => {
 
                         {/* Outer Orbiting Layer */}
                         <OrbitingCircles
-                            className="w-[70px] h-[55px] md:w-[150px] md:h-[110px] lg:w-[100px] lg:h-[150px] border-none bg-transparent"
+                            className="w-[70px] h-[55px] md:w-[150px] md:h-[110px] lg:w-[100px] lg:h-[130px] border-none bg-transparent"
                             duration={40}
                             radius={outerRadius}
                             path={true}
@@ -83,18 +83,18 @@ const BookNow = () => {
 
                 {/* Central CTA Content */}
                 <div className="relative z-20 flex flex-col items-center text-center px-[5%] max-w-2xl transform-gpu">
-                    <span className="text-[10px] md:text-[11px] font-sans tracking-[0.25em] uppercase text-white/80 mb-3 md:mb-6 font-medium">
+                    <span className="text-[10px] md:text-[11px] font-light tracking-[0.25em] uppercase text-[#FFF7E0] mb-3 md:mb-6 ">
                         CAIRN HOTEL
                     </span>
-                    <h2 className="text-[22px] md:text-5xl lg:text-6xl font-sans font-medium text-white leading-[1.3] lg:leading-[1.1] tracking-wide mb-6 md:mb-8 whitespace-nowrap">
+                    <h2 className="text-[22px] md:text-3xl lg:text-4xl font-sans font-normal text-[#FFF7E0] leading-[1.3] lg:leading-[1.1] tracking-wide mb-6 md:mb-8 whitespace-nowrap">
                         ENJOY A COZY<br />
                         <span className="hidden md:inline">STAY</span>
                         <span className="md:hidden">WEEKEND STAY</span>
                     </h2>
                     
-                    <button className="group relative px-6 md:px-8 py-2 md:py-3 rounded-full border border-white/40 bg-white/5 text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black hover:border-white duration-500 mt-2 md:mt-0">
+                    {/* <button className="group relative px-6 md:px-8 py-2 md:py-3 rounded-full border border-white/40 bg-white/5 text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black hover:border-white duration-500 mt-2 md:mt-0">
                         <span className="relative z-10 font-sans tracking-[0.1em] text-[10px] md:text-sm font-light uppercase md:normal-case">Book now</span>
-                    </button>
+                    </button> */}
                 </div>
 
             </div>

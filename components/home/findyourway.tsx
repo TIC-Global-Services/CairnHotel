@@ -32,7 +32,7 @@ const FindYourWay = () => {
     bg-white/10
     backdrop-blur-sm
     border border-white/20
-    hover:bg-white transition-all duration-300
+    hover:bg-white/20  transition-all duration-300
     before:absolute before:inset-0 before:rounded-full before:p-[1px] 
     before:[mask-composite:xor]
   "

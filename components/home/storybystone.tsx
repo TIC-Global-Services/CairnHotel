@@ -115,7 +115,7 @@ const StoryByStone = () => {
     }, []);
 
     return (
-        <section ref={containerRef} className="relative w-full lg:min-h-screen bg-white overflow-hidden py-10 lg:py-0">
+        <section ref={containerRef} className="relative w-full lg:min-h-screen bg-white overflow-hidden px-[2%] py-10 lg:py-0">
 
             {/* DESKTOP VIEW */}
             <div className="hidden lg:flex px-12 h-screen flex-row items-center gap-10 justify-between pointer-events-none">

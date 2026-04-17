@@ -10,15 +10,14 @@ const Elegant = () => {
         <section className="relative w-full min-h-screen bg-white flex items-center justify-start py-10 md:py-40 overflow-hidden">
             <div className="w-full relative min-h-[80vh] flex items-center">
                 {/* Left Side: Text Reveal */}
-                <div className="relative z-20 pl-[6%] pr-[4%] md:pr-0 max-w-5xl text-start">
+                <div className="absolute  left-20 z-20 pl-[6%] pr-[4%] max-w-6xl text-start">
                     <TextScrollReveal
                         text={quote}
                         className="text-[20px] md:text-4xl lg:text-4xl font-sans font-medium leading-normal md:leading-tight text-[#1a1a1a]"
                     />
                 </div>
 
-                {/* Right Side: Abstract Shapes */}
-                <div className="absolute top-[-5%] right-[-40%] md:right-[-15%] md:top-[-20%] md:left-[40%] h-full md:h-[150dvh] w-full md:w-full flex items-center justify-center z-10 pointer-events-none">
+                <div className="absolute top-[-5%] right-[-40%] md:right-[-15%] md:top-[-45%] md:left-[42%] h-full md:h-[150dvh] w-full md:w-full flex items-center justify-center z-10 pointer-events-none">
                     <Image
                         src={abstract}
                         alt="Abstract Shape"
