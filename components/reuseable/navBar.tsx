@@ -65,9 +65,8 @@ const NavBar = () => {
                     />
                 </Link>
 
-                {/* Right Side Navigation */}
                 <div className="flex items-center gap-4 pointer-events-auto">
-                    {/* Desktop Menu - Pill Shape */}
+                    
                     <div className='hidden md:flex items-center gap-4 justify-end bg-white/20 backdrop-blur-md border border-white/30 rounded-full p-2 px-4'>
                         {navLinks.map((link) => {
                             const isActive = pathname === link.href

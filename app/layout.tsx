@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/reuseable/navBar";
 import Footer from "@/components/reuseable/Footer";
 import SmoothScroller from "@/layout/SmoothScroller";
+import Loader from "@/components/reuseable/loader";
 
 export const metadata: Metadata = {
   title: "Cairn Hotel",
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en" className={`${clashDisplay.variable} h-full antialiased`}>
       <body className={`${clashDisplay.className} min-h-full flex flex-col antialiased`}>
         <SmoothScroller>
+          <Loader/>
           <NavBar />
           {children}
           <Footer />
