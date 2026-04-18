@@ -96,14 +96,14 @@ const NatureWithSoul = () => {
                             {/* Circular dots and Label */}
                             <div className="flex items-center gap-4 mb-6 opacity-70">
                                 <CircleDot />
-                                <span className="text-[0.7rem] md:text-xs tracking-[0.2em] uppercase text-gray-500 font-medium">
+                                <span className="text-[0.7rem] md:text-xs tracking-[0.2em] uppercase text-[#2A0800] font-medium">
                                     {data.label}
                                 </span>
                                 <CircleDot />
                             </div>
 
                             {/* Title */}
-                            <h2 className="text-[2.2rem] md:text-[3.5rem] font-light text-[#4a3227] leading-[1.1] mb-6 md:mb-8">
+                            <h2 className="text-[2.2rem] md:text-[2.25rem] font-light text-[#2A0800] leading-[1.1] mb-6 md:mb-8">
                                 {data.title.split('\n').map((line, j) => (
                                     <React.Fragment key={j}>
                                         {line}

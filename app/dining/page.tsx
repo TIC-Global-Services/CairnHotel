@@ -6,6 +6,7 @@ import Marquee from '@/components/dinning/marquee'
 import QualityAndQuantity from '@/components/dinning/qualityandquntity'
 import Explore from '@/components/dinning/explore'
 import KnowMore from '@/components/dinning/knowmore'
+import LocalFavorite from '@/components/dinning/localfavorite'
 const page = () => {
   return (
     <div>
@@ -16,6 +17,7 @@ const page = () => {
         <QualityAndQuantity/>
         <Explore/>
         <KnowMore/>
+        <LocalFavorite/>
     </div>
   )
 }
