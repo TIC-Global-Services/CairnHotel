@@ -317,7 +317,7 @@ const SECTIONS: SectionConfig[] = [
       {
         type: 'element',
         id: 'skiing-text',
-        zIndex: 30,
+        zIndex: 25,
         className: 'flex flex-col items-center justify-center w-full h-full opacity-95 tracking-widest',
         parallax: {
           from: { yPercent: 0 },
