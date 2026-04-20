@@ -218,21 +218,24 @@ export const SeasonOverlay: React.FC<SeasonOverlayProps> = ({ activeSeason, onCl
                                 initial="hidden"
                                 animate="show"
                                 exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.3 } }}
-                                className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between z-20 px-[5%] md:px-[10%] pt-24 pb-12 overflow-y-auto"
+                                className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between z-20 px-[5%] md:px-[8%] pt-24 pb-12 overflow-y-auto"
                             >
                                 {/* Left Side: Typography */}
-                                <div className="flex-1 relative w-full h-full flex flex-col justify-center mt-2 lg:mt-0">
-                                    <div className="relative md:static flex flex-col justify-center">
-                                        {/* Masked outline text overlapping */}
-                                        <div className="absolute top-0 md:top-1/2 left-0 md:-translate-y-[40%] w-full pointer-events-none z-10 md:py-10 md:-mx-4 overflow-visible">
-                                            <motion.h2 variants={maskVariants} className="text-[3.5rem] md:text-[6rem] xl:text-[10rem] font-black uppercase text-transparent tracking-widest leading-none block"
-                                                style={{ WebkitTextStroke: '1px rgba(255,255,255,0.4)' }}>
+                                <div className="flex-1 relative w-full h-full flex flex-col justify-center mt-2 lg:mt-0 lg:pr-10">
+                                    <div className="relative flex flex-col justify-center">
+                                        {/* Masked outline text overlapping - Backdrop */}
+                                        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full pointer-events-none z-10 overflow-visible">
+                                            <motion.h2 
+                                                variants={maskVariants} 
+                                                className="text-[4rem] sm:text-[7rem] md:text-[10rem] xl:text-[10rem] font-black uppercase text-transparent tracking-widest leading-none block opacity-30"
+                                                style={{ WebkitTextStroke: '1px rgba(255,255,255,0.6)' }}
+                                            >
                                                 {activeView.outlineTitle}
                                             </motion.h2>
                                         </div>
 
-                                        {/* Masked reveal for main title */}
-                                        <div className="overflow-hidden translate-x-[5%] md:translate-x-[10%] mt-[0%] md:mt-[10%] flex items-center relative z-20 pt-4 md:pt-0">
+                                        {/* Masked reveal for main title - Foreground */}
+                                        <div className="overflow-hidden translate-x-[2%] md:translate-x-[5%] flex items-center relative z-20">
                                             <AnimatePresence mode="popLayout">
                                                 <motion.h1
                                                     key={`title-${activeViewIndex}`}
@@ -240,7 +243,7 @@ export const SeasonOverlay: React.FC<SeasonOverlayProps> = ({ activeSeason, onCl
                                                     animate={{ y: 0 }}
                                                     exit={{ y: '-100%', opacity: 0, transition: { duration: 0.2 } }}
                                                     transition={{ duration: 0.5, type: 'tween', ease: [0.25, 0.1, 0.25, 1] }}
-                                                    className="text-[1.5rem] md:text-[5rem] xl:text-[4rem] font-bold uppercase text-white tracking-widest leading-[0.9]"
+                                                    className="text-[2rem] sm:text-[3rem] md:text-[3rem] xl:text-[3rem] font-extrabold uppercase text-white tracking-widest leading-[0.85]"
                                                 >
                                                     {activeView.title}
                                                 </motion.h1>
@@ -248,7 +251,7 @@ export const SeasonOverlay: React.FC<SeasonOverlayProps> = ({ activeSeason, onCl
                                         </div>
                                     </div>
 
-                                    <div className="overflow-hidden mt-6 md:mt-24">
+                                    <div className="overflow-hidden mt-6 md:mt-15 max-w-lg">
                                         <AnimatePresence mode="popLayout">
                                             <motion.p
                                                 key={`desc-${activeViewIndex}`}
@@ -256,7 +259,7 @@ export const SeasonOverlay: React.FC<SeasonOverlayProps> = ({ activeSeason, onCl
                                                 animate={{ opacity: 1, y: 0 }}
                                                 exit={{ opacity: 0, transition: { duration: 0.2 } }}
                                                 transition={{ duration: 0.5, type: 'tween', ease: [0.25, 0.1, 0.25, 1] }}
-                                                className="max-w-xl text-white md:text-white/90 text-xs md:text-lg leading-relaxed font-normal md:font-light z-20"
+                                                className="text-white md:text-white/90 text-sm md:text-xl leading-relaxed font-normal md:font-light z-20 drop-shadow-lg"
                                             >
                                                 {activeView.description}
                                             </motion.p>

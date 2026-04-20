@@ -41,19 +41,19 @@ const QualityAndQuantity = () => {
   ]
 
   return (
-    <section className="w-full bg-white py-10 md:py-24 px-2 md:px-8">
+    <section className="w-full bg-white py-10 md:py-20 px-2 md:px-8">
       <div className="px-[5%] flex flex-col">
         
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-start md:mb-20 mb-10 gap-10">
           <div className="md:max-w-3xl">
-            <p className="text-sm md:text-lg  uppercase  md:tracking-[0.25em] font-medium md:mb-3 mb-2 text-[#1a1a1a]">QUALITY & QUANTITY</p>
+            <p className="text-sm md:text-lg  uppercase font-medium md:mb-3 mb-2 text-[#1a1a1a]">QUALITY & QUANTITY</p>
             <h2 className="text-2xl md:text-[4.4rem] font-semibold leading-[1.05] text-[#1a1a1a] tracking-tight">
               Experience <br className='hidden md:block'/> Comfort in <br className='hidden md:block'/> Every Detail
             </h2>
           </div>
-          <div className="md:max-w-xl md:pb-2">
-            <p className="text-[#a3a3a3] text-sm md:text-3xl font-light leading-[1.6]">
+          <div className="md:max-w-xl pt-10">
+            <p className="text-[#00000066] text-sm md:text-3xl font-light leading-[1.2]">
               A comfortable and peaceful stay with simple interiors and essential amenities. Simple, clean spaces with all the basic comforts for a pleasant stay.
             </p>
           </div>
@@ -89,7 +89,7 @@ const HoverCard = ({ card }: { card: CardData }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4A3B32] text-white/80 text-xs sm:text-xs font-light md:font-semibold tracking-[0.2em] px-4 md:px-6 py-1 md:py-2 rounded-xl z-40 shadow-md">
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#4A3B32] text-white/80 text-xs sm:text-xs font-light md:font-light px-4 md:px-6 py-1 md:py-1 rounded-xl z-40 shadow-md">
           {card.tag}
         </div>
       {/* Image Container */}
@@ -129,7 +129,7 @@ const HoverCard = ({ card }: { card: CardData }) => {
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="flex flex-col items-center w-full"
               >
-                <p className="text-[#d8d8d8] text-[10px] sm:text-xs uppercase tracking-[0.25em] mb-2 font-medium drop-shadow-md">
+                <p className="text-[#d8d8d8] uppercase text-[10px] sm:text-sm uppercase  mb-2 tracking-wide font-normal drop-shadow-md">
                   {card.subtitle}
                 </p>
                 <p className="text-white text-lg sm:text-[22px] font-medium tracking-wide drop-shadow-lg">

@@ -68,13 +68,13 @@ export default function Menu() {
                 viewport={{ once: true, margin: "-100px" }}
                 className="mt-14 mb-20 z-10"
             >
-                <div className="flex bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-full p-2 mx-auto sm:space-x-2 border border-gray-100">
+                <div className="flex bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-full px-4 shadow-md py-2 mx-auto sm:space-x-2 border border-gray-100">
                     {(['breakfast', 'lunch', 'dinner'] as MenuTimeType[]).map((type) => (
                         <button
                             key={type}
                             onClick={() => setActiveType(type)}
-                            className={`px-4 sm:px-10 py-2 sm:py-3 rounded-full text-xs font-normal tracking-[0.15em] transition-all duration-300 ${activeType === type
-                                    ? 'bg-[#826154] text-white shadow-lg shadow-[#826154]/30'
+                            className={`px-4 sm:px-4 py-2 sm:py-2.5 rounded-full text-base cursor-pointer font-normal tracking-[0.15em] transition-all duration-300 ${activeType === type
+                                    ? 'bg-[#4D2F27BF] text-[#FFF7E0] x` shadow-[#826154]/30'
                                     : 'bg-transparent text-gray-400 hover:text-[#1a1a1a] hover:bg-gray-50'
                                 }`}
                         >
@@ -85,8 +85,8 @@ export default function Menu() {
             </motion.div>
 
             {/* Geometric Abstract Shapes Layer */}
-            <div className="absolute -bottom-[100%] left-10 right-0 inset-60 z-0 overflow-hidden pointer-events-none mix-blend-multiply">
-                <Image src={adstractshap} alt="abstract-shape" fill className='object-contain opacity-30 max-h-[100dvh] w-full' />
+            <div className="absolute -bottom-[50%] left-10 right-0 inset-50 z-0 overflow-hidden pointer-events-none h-full mix-blend-multiply">
+                <Image src={adstractshap} alt="abstract-shape" fill className='object-contain opacity-30 h-full w-full' />
             </div>
 
             {/* Menu Detail Container */}
@@ -98,13 +98,13 @@ export default function Menu() {
                     {/* Cuisines Sub-menu */}
                     <div className="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 w-fit min-w-[200px] sm:min-w-[240px] relative z-20 mx-auto md:mx-0">
                         <div 
-                            className="px-6 py-5 font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#1a1a1a] flex justify-between items-center relative cursor-pointer select-none bg-white rounded-[20px] z-30"
+                            className="px-6 py-5 font-semibold text-[10px] sm:text-sm uppercase tracking-[0.88px] text-[#1a1a1a] flex items-center justify-center relative cursor-pointer select-none bg-white rounded-[20px] z-30"
                             onClick={() => setIsCuisinesOpen(!isCuisinesOpen)}>
                             CUISINES 
                             <motion.span 
                                 animate={{ rotate: isCuisinesOpen ? 0 : 180 }}
                                 transition={{ duration: 0.3 }}
-                                className="text-[9px] absolute right-6"
+                                className="text-[10px] absolute right-15"
                             >
                                 ▲
                             </motion.span>
@@ -116,7 +116,7 @@ export default function Menu() {
                                     animate={{ height: "auto", opacity: 1 }}
                                     exit={{ height: 0, opacity: 0 }}
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                                    className="absolute top-[80%] left-0 w-full bg-white shadow-[0_20px_40px_rgb(0,0,0,0.08)] border-x border-b border-gray-100 rounded-b-[20px] overflow-hidden pt-4 z-20"
+                                    className="absolute top-[80%] left-0 w-full font-light bg-white shadow-[0_20px_40px_rgb(0,0,0,0.08)] border-x border-b border-gray-100 rounded-b-[20px] overflow-hidden pt-4 z-20"
                                 >
                                     <div className="flex flex-col py-2 border-t border-gray-50 mt-1">
                                         {(['indian', 'chinese', 'italian'] as CuisineType[]).map((cuisine) => (
@@ -154,7 +154,7 @@ export default function Menu() {
                                 {filteredItems.length > 0 ? (
                                     filteredItems.map((item) => (
                                         <div key={item.id} className="group cursor-pointer flex flex-col">
-                                            <h3 className="text-xl md:text-2xl font-extrabold text-[#1a1a1a] mb-2 transition-colors">
+                                            <h3 className="text-xl md:text-2xl font-semibold text-[#1a1a1a] mb-2 transition-colors">
                                                 {item.title}
                                             </h3>
                                             <p className="text-[#1a1a1a]/80 text-sm md:text-lg font-medium leading-relaxed max-w-lg">

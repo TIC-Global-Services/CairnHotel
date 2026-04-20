@@ -54,7 +54,7 @@ const Hero = () => {
             {/* Top Typography Node */}
             <div className='relative z-10 flex flex-col mt-[30%] md:mt-[10%] items-center justify-center w-full px-[5%] mb-[10vh]'>
                 <h1 className='text-[4rem] md:text-[8rem] lg:text-[11rem] text-center font-semibold uppercase text-white leading-none drop-shadow-2xl'>THINGS TO DO</h1>
-                <p className='text-sm md:text-base lg:text-xl font-normal md:font-medium  md:max-w-3xl text-center leading-relaxed mt-4 mb-8 text-white/95 drop-shadow flex flex-col'>
+                <p className='text-sm md:text-base lg:text-xl font-normal md:font-medium  md:max-w-3xl text-center mt-4 mb-8 text-white/95 drop-shadow flex flex-col'>
                     <span>Let Us Host Your Group To Create An Unforgettable Experience For You. We're</span>
                     <span>Experienced With Hosting Families, Companies, Tour Buses, And More.</span>
                 </p>
@@ -126,10 +126,10 @@ const Hero = () => {
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             className="flex flex-col w-full"
                         >
-                            <h3 className="text-sm text-center md:text-left md:text-3xl font-semibold tracking-wider drop-shadow-md">
+                            <h3 className="text-sm text-center md:text-left md:text-3xl font-semibold tracking-widest drop-shadow-md">
                                 {activeItem.tag}
                             </h3>
-                            <h2 className="hidden md:block text-base text-center md:text-left md:text-4xl lg:text-[44px] font-bold mt-[4%] uppercase whitespace-pre-line tracking-tight leading-tight drop-shadow-lg">
+                            <h2 className="hidden md:block text-base text-center md:text-left md:text-4xl lg:text-[44px] font-medium mt-[4%] uppercase whitespace-pre-line tracking-tight leading-tight drop-shadow-lg">
                                 {activeItem.title}
                             </h2>
                             <h2 className="md:hidden text-sm font-medium mt-[2%] uppercase">
@@ -137,13 +137,13 @@ const Hero = () => {
                             </h2>
 
                             <div className="flex flex-row items-center gap-[5%] mt-[5%] md:mt-[10%]">
-                                <p className="text-sm sm:text-base lg:text-lg font-light text-white/90 leading-relaxed md:max-w-[65%]">
+                                <p className="text-sm sm:text-base lg:text-lg font-medium text-white/90 leading-relaxed md:max-w-[65%]">
                                     {activeItem.desc1}
                                 </p>
                                 <hr className="grow border-t border-white/50" />
                             </div>
 
-                            <p className="text-sm sm:text-base lg:text-lg font-light text-white/90 leading-relaxed md:max-w-[85%] mt-[6%]">
+                            <p className="text-sm sm:text-base lg:text-lg font-medium text-white/90 leading-relaxed md:max-w-[85%] mt-[6%]">
                                 {activeItem.desc2}
                             </p>
                         </motion.div>

@@ -163,13 +163,13 @@ const LocalFavorite = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute left-0 top-full mt-2 min-w-[190px] bg-white border border-gray-100 rounded-2xl shadow-xl overflow-hidden z-50 py-1"
+                    className="absolute left-0 top-full min-w-[190px] bg-white border border-gray-100 rounded-2xl shadow-xl overflow-hidden z-50 py-1"
                   >
                     {FILTER_OPTIONS.map(opt => (
                       <li key={opt.value}>
                         <button
                           onClick={() => { setFilter(opt.value); setFilterOpen(false) }}
-                          className={`w-full text-left px-5 py-2.5 text-sm transition-colors cursor-pointer ${filter === opt.value ? 'bg-black text-white font-semibold' : 'text-gray-700 hover:bg-gray-50'}`}
+                          className={`w-full text-left px-5 py-2.5 text-sm transition-colors cursor-pointer ${filter === opt.value ? 'bg-[#F7F6F4] text-black font-semibold' : 'text-gray-700 hover:bg-gray-50'}`}
                         >
                           {opt.label}
                         </button>
@@ -212,7 +212,7 @@ const LocalFavorite = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-normal uppercase tracking-widest text-[#1a1a1a] mb-5">
+                  <h3 className="text-xl font-normal uppercase text-[#1a1a1a] mb-5">
                     {activeLoc.name}
                   </h3>
                   <div className="space-y-3 text-sm text-gray-700 mb-6">

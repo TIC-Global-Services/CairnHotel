@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <footer className="relative w-full pt-22 pb-10 px-4 md:px-8 lg:px-10 overflow-hidden bg-[#FFF7E0]">
             {/* Background Shapes */}
-            <div className="absolute inset-0 -left-[40%] w-full h-full z-0 opacity-20 pointer-events-none">
+            <div className="absolute inset-0 -top-10 -left-[50%] w-full h-full z-0 opacity-20 pointer-events-none">
                 <Image 
                     src={footerbg} 
                     alt="Footer Background" 

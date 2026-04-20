@@ -244,7 +244,7 @@ const Amenities = () => {
     const activeAmenity = amenitiesData[activeIndex]
 
     return (
-        <section className="relative w-full bg-black overflow-hidden py-12 md:py-30 select-none">
+        <section className="relative w-full bg-black overflow-hidden min-h-screen select-none">
             {/* Marquee strip */}
             <MarqueeStrip />
 
@@ -254,7 +254,7 @@ const Amenities = () => {
             </div>
 
             {/* Content area */}
-            <div className="relative mt-4 md:mt-16 flex items-center justify-center px-6 md:px-16 lg:px-24 min-h-[220px] md:min-h-[320px]">
+            <div className="relative mt-4 md:mt-16 flex items-center justify-center px-6 md:px-16 lg:px-24 min-h-[220px] md:min-h-[50dvh]">
                 {/* Left — draggable line slider (desktop) */}
                 <div className="hidden md:flex items-center justify-center w-[180px] shrink-0">
                     <DragSlider

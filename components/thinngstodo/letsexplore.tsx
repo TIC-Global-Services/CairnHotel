@@ -33,7 +33,7 @@ const LetsExplore = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-gray-400 text-base md:text-2xl leading-relaxed md:max-w-xl md:pt-4"
+                        className="text-gray-400 text-base text-right md:text-2xl md:max-w-xl md:pt-4"
                     >
                         Trek through vibrant summer trails or glide through snowy winter slopes each season invites you to explore, discover, and experience nature in a new way.
                     </motion.p>
@@ -47,7 +47,7 @@ const LetsExplore = () => {
                     transition={{ duration: 1 }}
                     className="flex flex-col items-center mb-5 md:mb-16"
                 >
-                    <span className="text-base md:text-3xl font-semibold tracking-[0.3em] uppercase text-white">
+                    <span className="text-base md:text-3xl font-semibold uppercase text-white">
                         Choose Season
                     </span>
                 </motion.div>

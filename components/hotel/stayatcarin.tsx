@@ -45,7 +45,7 @@ const StayAtCairn = () => {
         </motion.h2>
 
         <motion.p
-          className="text-[#555] text-base md:text-lg lg:text-xl font-normal leading-relaxed max-w-[520px] mx-auto mb-8 md:mb-10"
+          className="text-[#555] text-base md:text-lg lg:text-xl font-normal leading-relaxed max-w-3xl mx-auto mb-8 md:mb-10"
           style={{ opacity: globalOpacity }}
         >
           Experience a refined escape at Cairn Hotel, where comfort and nature come

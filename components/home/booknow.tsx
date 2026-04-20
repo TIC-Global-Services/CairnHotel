@@ -62,7 +62,7 @@ const BookNow = () => {
 
                         {/* Outer Orbiting Layer */}
                         <OrbitingCircles
-                            className="w-[70px] h-[55px] md:w-[150px] md:h-[110px] lg:w-[100px] lg:h-[130px] border-none bg-transparent"
+                            className="w-[70px] h-[55px] md:w-[150px] md:h-[110px] lg:w-[13dvh] lg:h-[18dvh] border-none bg-transparent"
                             duration={40}
                             radius={outerRadius}
                             path={true}
@@ -83,10 +83,10 @@ const BookNow = () => {
 
                 {/* Central CTA Content */}
                 <div className="relative z-20 flex flex-col items-center text-center px-[5%] max-w-2xl transform-gpu">
-                    <span className="text-[10px] md:text-[11px] font-light tracking-[0.25em] uppercase text-[#FFF7E0] mb-3 md:mb-6 ">
+                    <span className="text-xs md:text-sm font-light  uppercase text-[#FFF7E0] mb-3 md:mb-6 ">
                         CAIRN HOTEL
                     </span>
-                    <h2 className="text-[22px] md:text-3xl lg:text-4xl font-sans font-normal text-[#FFF7E0] leading-[1.3] lg:leading-[1.1] tracking-wide mb-6 md:mb-8 whitespace-nowrap">
+                    <h2 className="text-[22px] md:text-3xl lg:text-3xl font-sans font-normal text-[#FFF7E0] leading-[1.3] lg:leading-[1.1] tracking-wide mb-6 md:mb-8 whitespace-nowrap">
                         ENJOY A COZY<br />
                         <span className="hidden md:inline">STAY</span>
                         <span className="md:hidden">WEEKEND STAY</span>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 const hero = () => {
     return (
         <div className='relative w-full h-screen'>
-            <Image src={banner} alt="banner" fill className='object-cover' />
+            <Image src={banner} alt="banner" fill className='object-cover object-top' />
             <div className='absolute inset-0 bg-black/50'>
                 <div className='flex flex-col items-center justify-center h-full'>
                     <h1 className='text-[5rem] md:text-[10rem] font-medium uppercase text-white'>Dining</h1>

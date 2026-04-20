@@ -11,7 +11,7 @@ const Explore = () => {
   
 
     return (
-        <section className="w-full bg-[#FFFFFF] py-10 md:py-40 px-4 md:px-8 flex flex-col items-center justify-center text-center overflow-hidden">
+        <section className="w-full bg-[#FFFFFF] py-10 md:py-40 px-4 md:px-8  flex flex-col items-center justify-center text-center overflow-hidden">
             
             {/* Top Subtitle Component */}
             <motion.p 
@@ -24,7 +24,7 @@ const Explore = () => {
                 • EXPLORE OUR HOTEL •
             </motion.p>
 
-            <div className="max-w-7xl mx-auto text-xl sm:text-5xl md:text-6xl lg:text-[68px] font-normal leading-tight md:leading-[1.3] tracking-tight">
+            <div className="max-w-2xl mx-auto text-xl sm:text-5xl md:text-4xl lg:text-[40px] font-normal leading-tight md:leading-[1.3] tracking-tight">
                 <p className="text-[#3D2E26] md:hidden">
                     {text1}
                 </p>

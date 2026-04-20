@@ -18,10 +18,10 @@ const Experience = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-12 sm:mb-16"
         >
-          <p className="font-medium text-sm md:text-xl md:mb-4 mb-2 text-[#1a1a1a]">
+          <p className="font-medium text-sm md:text-3xl md:mb-4 mb-2 text-[#1a1a1a]">
             -Mountain Retreat Experience-
           </p>
-          <h2 className="text-xl md:text-5xl lg:text-6xl font-medium tracking-tight text-[#1a1a1a] uppercase">
+          <h2 className="text-xl md:text-5xl lg:text-[3.125rem] font-medium text-[#1a1a1a] uppercase">
             Your Mountain Getaway
           </h2>
         </motion.div>
@@ -84,9 +84,9 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
           viewport={{ once: true, margin: "-50px" }}
-          className="md:max-w-4xl text-center md:px-4"
+          className="md:max-w-6xl text-center md:px-4"
         >
-          <p className="text-sm md:text-lg lg:text-xl font-medium leading-relaxed md:leading-loose text-[#1a1a1a]">
+          <p className="text-sm md:text-lg lg:text-xl font-medium text-[#1a1a1a]">
             Experience The Beauty Of Nature At Cairn Hotel, Where Breathtaking Red Rock Landscapes And Peaceful Mountain Surroundings Create The Perfect Setting For Relaxation And Adventure.
           </p>
         </motion.div>

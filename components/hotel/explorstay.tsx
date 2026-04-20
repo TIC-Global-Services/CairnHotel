@@ -231,11 +231,11 @@ const ExploreStay = () => {
                             <span className="text-3xl md:text-[3.15rem] font-medium italic text-[#FFEBD3]">Stay</span>
                         </div>
                     </div>
-                    <p className="text-white/80 text-sm md:text-xl leading-snug  md:leading-relaxed font-light max-w-lg md:pl-6 md:border-l-2 border-white/20 mt-4 md:mt-6">
+                    <p className="text-white/80 text-sm md:text-xl font-light max-w-lg  border-white/20 mt-4 md:mt-6">
                         Discover Thoughtfully Designed Rooms And Suites Where Comfort, Nature, And Timeless Mountain Elegance Come Together.
                     </p>
                     
-                    <button className="flex items-start justify-start md:items-center md:text-center gap-0 mt-1 md:mt-8 group w-fit bg-white rounded-full py-2 md:py-4 px-6 md:px-12 shadow-lg hover:shadow-xl transition-shadow ml-0 md:ml-10">
+                    <button className="flex items-start justify-start md:items-center md:text-center gap-0 mt-1 md:mt-8 group w-fit bg-white rounded-full py-2 md:py-4 px-6 md:px-12 shadow-lg hover:shadow-xl transition-shadow ">
                         <span className="text-[#1a1a1a] text-xs md:text-base  font-medium tracking-[0.1em] uppercase">
                             BOOK NOW
                         </span>
@@ -245,7 +245,7 @@ const ExploreStay = () => {
                 {/* Right: Room Card */}
                 <div
                     ref={cardContainerRef}
-                    className="w-full lg:w-full xl:w-full h-[400px] mb-[15%] md:h-[60vh] cursor-pointer group"
+                    className="w-full lg:w-full xl:w-full h-[400px] md:h-[60vh] cursor-pointer group"
                     onClick={() => openCard(activeIndex)}
                 >
                     <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl flex border border-white/10 group-hover:border-white/30 transition-colors">
@@ -261,9 +261,9 @@ const ExploreStay = () => {
                         </div>
 
                         {/* Floating Glass Text Box */}
-                        <div className="absolute top-1/2 left-4 md:left-[8%] -translate-y-1/2 w-[90%] md:w-[80%] bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-10 border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.1)] z-10">
+                        <div className="absolute top-1/2 left-4 md:left-[8%] -translate-y-1/2 w-[90%] md:w-[60%] bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-10 border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.1)] z-10">
                             <h4 className="text-base md:text-[26px] font-medium text-[#1a1a1a] mb-3">{current.name}</h4>
-                            <p className="text-black text-sm leading-snug md:leading-relaxed mb-6 max-w-[90%]">
+                            <p className="text-black text-sm leading-snug md:leading-relaxed mb-6 ">
                                 {current.shortDesc}
                             </p>
                             <div className="flex flex-wrap items-center gap-4 md:gap-6 pt-2">

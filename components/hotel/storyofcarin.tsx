@@ -70,7 +70,7 @@ const StoryOfCairn = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative w-full max-h-screen bg-[#0c0705] flex items-center justify-center overflow-hidden py-24 px-6 lg:px-24">
+        <section ref={sectionRef} className="relative w-full min-h-dvh bg-[#0c0705] flex items-center justify-center overflow-hidden py-[10dvh] px-6 lg:px-24">
             {/* Background Graphic */}
             <div className="bg-shape absolute -right-80 top-1/2 -translate-y-1/2 w-[60%] h-full opacity-10 pointer-events-none select-none">
                 <Image
@@ -83,8 +83,8 @@ const StoryOfCairn = () => {
 
             <div className="relative z-10 w-full max-w-7xl flex flex-col lg:flex-row items-center gap-12 lg:gap-32">
                 {/* Left Side: Image */}
-                <div ref={imageRef} className="w-full lg:w-1/2">
-                    <div className="relative aspect-4/5 md:aspect-4/5 w-full rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+                <div ref={imageRef} className="w-full lg:w-1/2 flex items-center justify-center">
+                    <div className="relative aspect-4/5 w-full max-w-[600px] max-h-[80dvh] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
                         <Image
                             src={storyofcarinimg}
                             alt="The Cairn Hotel Legacy"

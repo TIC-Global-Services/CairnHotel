@@ -96,7 +96,7 @@ const ArchitectureOfNature = () => {
             <div className="relative w-full h-full flex flex-col items-center pt-12 md:pt-20 lg:pt-24 px-4 lg:px-24">
 
                 {/* Header Content */}
-                <div className="w-full flex flex-col lg:flex-row justify-between items-start md:items-center gap-6 lg:gap-8 z-10">
+                <div className="w-full flex flex-col lg:flex-row justify-between items-start md:items-center gap-6 lg:gap-4 z-10">
                     <div className="flex flex-col">
                         <h2 className="text-sm md:text-[2.75rem] font-bold md:font-semibold text-[#352520]  whitespace-nowrap leading-none tracking-wide">
                             THE ARCHITECTURE OF
@@ -106,9 +106,7 @@ const ArchitectureOfNature = () => {
                         </h2>
                     </div>
                     <p className="max-w-xl text-[#352520] text-[10px] md:text-2xl leading-relaxed md:leading-relaxed font-normal md:font-light">
-                        Cairn Hotel Is Designed To Exist In Harmony With The
-                        Mountains. Inspired By Natural Stone, Open Landscapes,
-                        And Timeless Alpine Structures.
+                        The Cairn Hotel is designed to exist in harmony with the mountains. Inspired by natural stone, open landscapes, and timeless alpine structures, every space is thoughtfully crafted to create a sense of calm and connection with nature.
                     </p>
                 </div>
 
@@ -137,10 +135,10 @@ const ArchitectureOfNature = () => {
                                         sizes="(max-width: 768px) 80vw, 24vw"
                                     />
                                 </div>
-                                <h3 className="text-xs md:text-[14px] font-extrabold text-[#1a1a1a] mb-1.5 md:mb-2 tracking-wide uppercase">
+                                <h3 className="text-xs md:text-base font-semibold text-[#1a1a1a] mb-1.5 md:mb-2 tracking-wide uppercase">
                                     {item.title}
                                 </h3>
-                                <p className="text-[9px] md:text-[10px] text-[#6b6b6b] uppercase tracking-[0.15em] font-bold">
+                                <p className="text-[9px] md:text-sm text-[#6b6b6b] uppercase tracking-[0.15em] font-normal">
                                     {item.description}
                                 </p>
                             </div>
