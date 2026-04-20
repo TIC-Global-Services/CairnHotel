@@ -10,10 +10,10 @@ const Elegant = () => {
         <section className="relative w-full min-h-screen bg-white flex items-center justify-start py-10 md:py-40 overflow-hidden">
             <div className="w-full relative min-h-[80vh] flex items-center">
                 {/* Left Side: Text Reveal */}
-                <div className="absolute  left-20 z-20 pl-[6%] pr-[4%] max-w-6xl text-start">
+                <div className="absolute  md:left-20 z-20 px-[5%] md:pl-[6%] md:pr-[4%] max-w-6xl text-start">
                     <TextScrollReveal
                         text={quote}
-                        className="text-[20px] md:text-4xl lg:text-4xl font-sans font-medium leading-normal md:leading-tight text-[#1a1a1a]"
+                        className="text-base md:text-4xl lg:text-4xl font-sans font-medium leading-normal md:leading-tight text-[#1a1a1a]"
                     />
                 </div>
 

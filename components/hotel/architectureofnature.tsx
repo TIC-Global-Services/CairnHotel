@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -12,22 +12,26 @@ const data = [
     {
         image: nature1,
         title: "CEDAR BREAKS",
-        description: "STATE PARK . ONE DAY PARK"
+        description: "STATE PARK . ONE DAY PARK",
+        full_description: "Cedar Breaks National Monument, just 23 miles from The Cairn, rises above 10,000 feet to reveal a breathtaking natural amphitheater of crimson, coral, and amber rock. In summer it blooms with wildflowers. Come winter, its snowfields draw cross-country skiers and those in search of rare mountain stillness."
     },
     {
         image: nature2,
         title: "ZION NATIONAL PARK",
-        description: "TOP 10 NATIONAL PARK IN THE USA"
+        description: "TOP 10 NATIONAL PARK IN THE USA",
+        full_description: "Zion National Park is one of America's most beloved natural wonders, and it is well within reach from Cedar City. Its towering sandstone walls rise thousands of feet above the valley floor, carved over millions of years by the Virgin River. From the iconic Angel's Landing to the cool, narrow corridors of The Narrows."
     },
     {
         image: nature3,
         title: "BRYCE CANYON NATIONAL PARK",
-        description: "TOP 10 NATIONAL PARK IN THE USA"
+        description: "TOP 10 NATIONAL PARK IN THE USA",
+        full_description: "Bryce Canyon National Park, a short drive east, is home to the largest concentration of hoodoos on earth — those extraordinary spires of red, orange, and white rock that glow at sunrise like something from another world. Nearby, the Kolob Canyons section of Zion National Park offers towering cliffs and cathedral-like canyon passages."
     },
     {
         image: nature4,
         title: "KOLOB CANYONS",
-        description: "SCENIC DISTRICT"
+        description: "SCENIC DISTRICT",
+        full_description: "The Kolob Canyons district of Zion National Park is located at Exit 40 on Interstate 15, 40 miles north of Zion Canyon and 17 miles south of Cedar City. A five-mile scenic drive along the Kolob Canyons Road allows visitors to view the crimson canyons and gain access to various trails and scenic viewpoints. Here in the northwest corner of the park."
     }
 ]
 
@@ -35,6 +39,19 @@ const ArchitectureOfNature = () => {
     const triggerRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    const [selectedCard, setSelectedCard] = useState<number | null>(null);
+
+    useEffect(() => {
+        if (selectedCard !== null) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [selectedCard]);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -138,9 +155,15 @@ const ArchitectureOfNature = () => {
                                 <h3 className="text-xs md:text-base font-semibold text-[#1a1a1a] mb-1.5 md:mb-2 tracking-wide uppercase">
                                     {item.title}
                                 </h3>
-                                <p className="text-[9px] md:text-sm text-[#6b6b6b] uppercase tracking-[0.15em] font-normal">
+                                <p className="text-[9px] md:text-sm text-[#6b6b6b] uppercase tracking-[0.15em] font-normal mb-3 md:mb-5">
                                     {item.description}
                                 </p>
+                                <button
+                                    onClick={() => setSelectedCard(index)}
+                                    className="text-[10px] md:text-xs font-semibold text-black border-b border-black pb-0.5 hover:text-gray-500 transition-colors uppercase tracking-[0.1em]"
+                                >
+                                    VIEW MORE
+                                </button>
                             </div>
                         ))}
                     </div>
@@ -154,6 +177,58 @@ const ArchitectureOfNature = () => {
                 </div>
 
             </div>
+
+            {/* Modal Overlay */}
+            {selectedCard !== null && (
+                <div 
+                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12"
+                    data-lenis-prevent="true"
+                    onWheel={(e) => e.stopPropagation()}
+                    onTouchMove={(e) => e.stopPropagation()}
+                >
+                    {/* Backdrop */}
+                    <div 
+                        className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity cursor-pointer" 
+                        onClick={() => setSelectedCard(null)}
+                    ></div>
+                    
+                    {/* Modal Content */}
+                    <div className="relative w-full max-w-5xl max-h-[90vh] bg-white shadow-2xl overflow-y-auto md:overflow-hidden  flex flex-col md:flex-row z-10 animate-in fade-in zoom-in-95 rounded-lg duration-200">
+                        {/* Close button */}
+                        <button 
+                            onClick={() => setSelectedCard(null)}
+                            className="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center bg-white/80 backdrop-blur-md rounded-full text-black hover:bg-gray-200 hover:scale-105 transition-all"
+                            aria-label="Close modal"
+                        >
+                            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
+
+                        {/* Image Panel */}
+                        <div className="w-full md:w-1/2 relative min-h-[40dvh] sm:min-h-[50dvh] md:min-h-[60dvh]">
+                            <Image
+                                src={data[selectedCard].image}
+                                alt={data[selectedCard].title}
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        
+                        {/* Content Panel */}
+                        <div className="w-full md:w-1/2 p-6 sm:p-8 md:p-14 flex flex-col justify-center bg-[#fdfdfc]">
+                            <h3 className="text-2xl md:text-4xl font-bold text-[#1a1a1a] mb-2 uppercase tracking-wide">
+                                {data[selectedCard].title}
+                            </h3>
+                            <p className="text-[10px] md:text-xs text-[#6b6b6b] uppercase tracking-[0.2em] font-medium mb-6 md:mb-10 pb-6 border-b border-gray-200">
+                                {data[selectedCard].description}
+                            </p>
+                            <div className="prose prose-sm md:prose-base text-gray-700 leading-relaxed font-light">
+                                <p>{data[selectedCard].full_description}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </section>
     )
 }

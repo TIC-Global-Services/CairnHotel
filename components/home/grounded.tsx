@@ -11,7 +11,10 @@ const Grounded = () => {
                     <br />
                     <span className="font-medium text-[#1a1a1a]">Elevated in Luxury.</span>
                 </h2>
-                {/* <div className="absolute inset-x-0 -top-[30%] h-90 bg-gradient-to-b from-[#CBD0D4]/20 via-[#EDEFF0] to-[#FFFFFF]"></div> */}
+
+                <div className="absolute inset-x-0 top-0 h-[10vh] bg-gradient-to-b from-white via-white/30 to-transparent z-10"></div>
+
+                {/* Text Content */}
             </div>
             <div className="w-full h-dvh relative">
                 <Image
@@ -21,7 +24,7 @@ const Grounded = () => {
                     className="object-cover object-center"
                     priority
                 />
-                <div className="absolute hidden md:block inset-x-0 -top-[29.5%] h-64 md:h-96 bg-gradient-to-t from-white/50 to-transparent"></div>
+                <div className="absolute inset-x-0 top-0 h-[50vh] md:h-[20vh] bg-gradient-to-b from-white via-white/10 to-transparent z-10"></div>
             </div>
         </div>
     )
