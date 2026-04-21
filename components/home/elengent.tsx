@@ -4,7 +4,7 @@ import abstract from '@/assets/Home/Abstract-shape.png'
 import Image from 'next/image'
 
 const Elegant = () => {
-    const quote = "“Cairn Hotel, an elegant retreat nestled in the heart of Utah seamlessly blends nature-inspired design with modern luxury Our thoughtfully curated accommodation embody comfort, warmth breathtaking landscapes. Surrounded by majestic red rock formations and serene mountain views, the hotel offers a peaceful escape from the ordinary.”"
+    const quote = "“The Cairn Hotel, an elegant retreat nestled in the heart of Utah seamlessly blends nature-inspired design with modern luxury Our thoughtfully curated accommodation embody comfort, warmth breathtaking landscapes. Surrounded by majestic red rock formations and serene mountain views, the hotel offers a peaceful escape from the ordinary.”"
 
     return (
         <section className="relative w-full min-h-screen bg-white flex items-center justify-start py-10 md:py-40 overflow-hidden">

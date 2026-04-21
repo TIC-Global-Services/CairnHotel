@@ -33,7 +33,7 @@ const KnowMore = () => {
         <h2 className="text-[32px] sm:text-[44px] md:text-[50px] font-semibold uppercase  text-[#0a0a0a] leading-none drop-shadow-sm">
           KNOW MORE
         </h2>
-        <span className="text-[20px] sm:text-[26px] md:text-[30px] font-light italic uppercase text-[#333] ml-14 sm:ml-20 md:ml-[15%] mt-5 tracking-wide drop-shadow-sm">
+        <span className="text-[20px] sm:text-[26px] md:text-[30px] font-light italic uppercase text-[#333] ml-14 sm:ml-[12%] md:ml-[12%] tracking-wide drop-shadow-sm">
           ABOUT US
         </span>
       </div>
@@ -45,7 +45,7 @@ const KnowMore = () => {
           {repeatedImages.map((src, i) => (
             <div
               key={i}
-              className="relative w-[210px] sm:w-[280px] lg:w-[40dvh] aspect-square rounded-2xl overflow-hidden shrink-0 shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
+              className="relative w-[210px] sm:w-[280px] lg:w-[38dvh] aspect-square rounded-2xl overflow-hidden shrink-0 shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
             >
               <Image
                 src={src}
@@ -62,7 +62,7 @@ const KnowMore = () => {
 
       {/* Bottom Right Text Block */}
       <div className="relative z-10 flex flex-col items-end w-full md:mt-[15%] pointer-events-none">
-        <h2 className="text-4xl sm:text-[56px] md:text-[74px] font-medium text-[#A1A1A1] text-right leading-[1.05]  uppercase drop-shadow-sm">
+        <h2 className="text-4xl sm:text-[56px] md:text-[74px] font-medium text-[#0000006B] text-right leading-[1.05]  uppercase">
           IT'S MORE THAN A <br className='hidden md:block' />
           DESTINATION...
         </h2>

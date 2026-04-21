@@ -67,7 +67,7 @@ const NavBar = () => {
 
                 <div className="flex items-center gap-4 pointer-events-auto">
                     
-                    <div className='hidden md:flex items-center gap-4 justify-end bg-white/20 backdrop-blur-md border border-white/30 rounded-full p-2 px-4'>
+                    <div className='hidden md:flex items-center gap-4 justify-end bg-[#FFFFFF33] backdrop-blur-xs border border-white/30 rounded-full p-2 px-4'>
                         {navLinks.map((link) => {
                             const isActive = pathname === link.href
 
@@ -77,12 +77,12 @@ const NavBar = () => {
                                         className={`
                                         px-5 py-2 rounded-full transition-all duration-300 cursor-pointer
                                         ${isActive
-                                                ? 'bg-white text-black font-semibold'
+                                                ? 'bg-white text-black backdrop-blur-xs font-semibold'
                                                 : 'text-white/80 hover:bg-white hover:text-black'
                                             }
                                     `}
                                     >
-                                        <p className='text-xs font-medium uppercase tracking-[0.15em]'>
+                                        <p className='text-xs font-normal uppercase tracking-[0.15em]'>
                                             {link.title}
                                         </p>
                                     </div>
@@ -135,7 +135,7 @@ const NavBar = () => {
                                     <Link
                                         href={link.href}
                                         onClick={() => setIsOpen(false)}
-                                        className="text-[15px] tracking-[0.15em] font-normal uppercase text-[#2B2B2B] hover:text-black transition-colors"
+                                        className="text-base tracking-[0.15em] font-normal uppercase text-[#2B2B2B] hover:text-black transition-colors"
                                     >
                                         {link.title}
                                     </Link>

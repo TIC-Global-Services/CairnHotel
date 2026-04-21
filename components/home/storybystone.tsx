@@ -188,7 +188,7 @@ const StoryByStone = () => {
                             width={500}
                             height={500}
                             className={`absolute left-1/2 -translate-x-1/2 w-[240px] drop-shadow-2xl transition-all duration-700 ease-out origin-center
-                                ${i <= currentSlide ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-[1.05] -translate-y-10 blur-sm'}
+                                ${i <= currentSlide ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-[1.05] -translate-y-11 blur-sm'}
                             `}
                             style={{
                                 zIndex: i + 1,

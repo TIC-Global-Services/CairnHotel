@@ -72,7 +72,7 @@ const StoryOfCairn = () => {
     return (
         <section ref={sectionRef} className="relative w-full min-h-dvh bg-[#0c0705] flex items-center justify-center overflow-hidden py-[10dvh] px-6 lg:px-24">
             {/* Background Graphic */}
-            <div className="bg-shape absolute -right-80 top-1/2 -translate-y-1/2 w-[60%] h-full opacity-10 pointer-events-none select-none">
+            <div className="bg-shape absolute -right-80 top-1/2 -translate-y-1/2 w-[60%] h-full opacity-50 pointer-events-none select-none">
                 <Image
                     src={abstractShape}
                     alt="background graphic"
@@ -97,7 +97,7 @@ const StoryOfCairn = () => {
 
                 {/* Right Side: Content */}
                 <div ref={contentRef} className="w-full lg:w-1/2 flex flex-col items-start gap-4 md:gap-8">
-                    <span className="text-xs md:text-xs font-bold md:tracking-[0.4em] uppercase text-[#7a6559]">
+                    <span className="text-[8px] md:text-[10px] font-semibold tracking-[0.4em] uppercase text-[#FFFFFFCC]">
                         OUR LEGACY
                     </span>
                     

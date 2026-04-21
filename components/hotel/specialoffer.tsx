@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import hotel1 from '@/assets/Home/hotel-1.jpg'
+import hotel2 from '@/assets/hotel/specialoffer-1.jpg'
 
 // Adding an extra item to demonstrate the "Show more" functionality
 const offerDetails = [
@@ -12,7 +13,7 @@ const offerDetails = [
         todate: "2026/10/04",
         type: "Rooms",
         offer: "Stays of 3 nights",
-        image: hotel1   
+        image: hotel2   
     },
     {
         id: 2,
@@ -63,7 +64,7 @@ const SpecialOffer = () => {
                   src={offer.image}
                   alt={offer.type}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 scale-120 group-hover:scale-125"
                 />
                 
                 {/* Gradient Overlay */}

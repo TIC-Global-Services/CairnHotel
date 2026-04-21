@@ -5,7 +5,7 @@ import Image from 'next/image'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import bgimage from '@/assets/hotel/paper_bg.png'
+import bgimage from '@/assets/hotel/sand_bg.png'
 import stayImage from '@/assets/hotel/stayelevated.jpg'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -29,7 +29,7 @@ const StayElevated = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        start: () => window.innerWidth < 768 ? "top 45%" : "top top", 
+        start: () => window.innerWidth < 768 ? "top 45%" : "top 60%", 
         end: () => window.innerWidth < 768 ? "bottom 60%" : "bottom 40%", 
         scrub: 1, 
         invalidateOnRefresh: true, 

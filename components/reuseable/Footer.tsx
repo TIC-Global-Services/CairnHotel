@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <footer className="relative w-full pt-22 pb-10 px-4 md:px-8 lg:px-10 overflow-hidden bg-[#FFF7E0]">
             {/* Background Shapes */}
-            <div className="absolute inset-0 -top-10 -left-[50%] w-full h-full z-0 opacity-20 pointer-events-none">
+            <div className="absolute inset-0 top-0 -left-[49%] w-full h-full z-0 opacity-20 pointer-events-none">
                 <Image 
                     src={footerbg} 
                     alt="Footer Background" 
@@ -47,7 +47,7 @@ const Footer = () => {
                 <p className="text-[#3A3A3A] text-base md:text-2xl max-w-4xl mx-auto leading-relaxed font-[400] mb-20">
                     Escape to refined comfort in the heart of Utah's breathtaking landscapes. 
                     Discover elevated stays, curated dining, and unforgettable mountain moments 
-                    at Craine Hotel.
+                    at Cairn Hotel.
                 </p>
 
                 {/* Newsletter Input */}
@@ -68,15 +68,15 @@ const Footer = () => {
                 {/* Contact Info */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full max-w-5xl mx-auto mb-32">
                     <div className="flex flex-col items-center">
-                        <h4 className="text-[#3A3A3A] mb-3 text-sm font-medium">Email</h4>
+                        <h4 className="text-[#3A3A3A] mb-3 text-base font-medium">Email</h4>
                         <p className="text-[#1A1A1A] text-xl md:text-2xl font-normal">info@thecairnhotel.com</p>
                     </div>
                     <div className="flex flex-col items-center">
-                        <h4 className="text-[#3A3A3A] mb-3 text-sm font-medium">Phone</h4>
+                        <h4 className="text-[#3A3A3A] mb-3 text-base font-medium">Phone</h4>
                         <p className="text-[#1A1A1A] text-xl md:text-2xl font-normal">+39 0474 710 423</p>
                     </div>
                     <div className="flex flex-col items-center">
-                        <h4 className="text-[#3A3A3A] mb-3 text-sm font-medium">Opening Hour</h4>
+                        <h4 className="text-[#3A3A3A] mb-3 text-base font-medium">Opening Hour</h4>
                         <p className="text-[#1A1A1A] text-xl md:text-2xl font-normal">Open 24 hours</p>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ const Footer = () => {
                         </a>
                     </div>
                     <div>
-                        <Link href="https://www.theinternetcompany.one/"><p className='text-lg font-normal'>Designed & Developed By TIC Global Services</p></Link>
+                        <Link href="https://www.theinternetcompany.one/"><p className='text-[1vw] font-normal'>Designed & Developed By TIC Global Services</p></Link>
                     </div>
                 </div>
                 

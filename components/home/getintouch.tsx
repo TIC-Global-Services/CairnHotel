@@ -26,7 +26,7 @@ const GetInTouch = () => {
                         />
                     </div>
                     <div className="w-full lg:w-1/2 flex flex-col md:items-start items-center text-left">
-                        <p className="text-[#6B6B6B] text-base md:text-lg leading-snug md:leading-loose mb-10 font-light max-w-lg">
+                        <p className="text-[#343A40] text-base md:text-lg leading-snug md:leading-loose mb-10 font-light max-w-lg">
                             Utah is a western U.S. state known for its dramatic landscapes, red rock deserts, alpine forests, and world-class mountain terrain. It offers year-round outdoor adventures ranging from skiing and mountain biking, and rock climbing.
                         </p>
                         

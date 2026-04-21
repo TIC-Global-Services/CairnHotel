@@ -10,7 +10,7 @@ const testimonialData = [
         id: 1,
         name: "Gokul",
         shortDesc: "Staying at Carin Hotel was an unforgettable experience. Surrounded by stunning red rock mountains and peaceful nature, it was the perfect escape from the city. The rooms were beautifully designed, the views were breathtaking, and the staff made us feel welcome from the moment we arrived.",
-        location: "Florida, TamilNadu",
+        location: "Florida, USA",
         image: <UserRound size={32} className="text-gray-400" />,
     },
     {
@@ -116,11 +116,11 @@ const Testimonial = () => {
                     <h2 className="text-2xl md:text-6xl font-semibold text-black leading-[1.3] md:leading-tight mb-4 md:mb-8">
                         Stories from<br />Our Guests
                     </h2>
-                    <p className="text-[#606060] text-base md:text-xl font-normal mb-12 max-w-lg leading-relaxed md:px-8">
+                    <p className="text-[#606060] text-base md:text-xl font-normal mb-12 max-w-lg leading-relaxed ">
                         Our guests are at the heart of everything we do. Discover what travellers have to say about their stay, their adventures, they experienced at Carin Hotel.
                     </p>
 
-                    <div className="flex gap-2 md:gap-4 md:pl-10">
+                    <div className="flex gap-2 md:gap-4">
                         <button
                             onClick={handlePrev}
                             disabled={isAnimating}
@@ -155,7 +155,7 @@ const Testimonial = () => {
                                     “
                                 </div>
 
-                                <p className="text-base md:text-[22px] lg:text-2xl text-[#606060] font-light md:leading-relaxed mb-10 w-full">
+                                <p className="text-base md:text-xl lg:text-xl text-[#606060] font-light md:leading-relaxed mb-10 w-full">
                                     {testimonial.shortDesc}
                                 </p>
 

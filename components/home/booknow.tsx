@@ -23,9 +23,9 @@ const BookNow = () => {
             if (window.innerWidth < 768) {
                 setOuterRadius(150); // Mobile
             } else if (window.innerHeight < 850 && window.innerWidth >= 1024) {
-                setOuterRadius(220); // Low-height desktop
+                setOuterRadius(300); // Low-height desktop
             } else {
-                setOuterRadius(320); // Normal desktop
+                setOuterRadius(350); // Normal desktop
             }
         };
 
@@ -56,7 +56,7 @@ const BookNow = () => {
                         <OrbitingCircles
                             className="hidden" // No orbiting items here
                             duration={0}
-                            radius={outerRadius * 0.5}
+                            radius={outerRadius * 0.6}
                             path={true}
                         />
 

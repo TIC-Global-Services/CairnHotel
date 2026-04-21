@@ -152,7 +152,7 @@ const Hero = memo(() => {
             <div className="relative z-[39]">
                 <div className="flex flex-col items-center justify-center pt-[28vh] md:pt-[30vh] pb-[5vh] md:pb-[25vh]">
                     <div ref={hotelTextRef} style={{ willChange: 'transform' }}>
-                        <h1 className="text-[6rem] md:text-[10rem] lg:text-[14rem] leading-none font-semibold uppercase text-white select-none mix-blend-overlay opacity-90">
+                        <h1 className="text-[6rem] md:text-[10rem] lg:text-[10rem] leading-none font-semibold uppercase text-white select-none mix-blend-overlay opacity-90">
                             HOTEL
                         </h1>
                     </div>
@@ -183,7 +183,7 @@ const Hero = memo(() => {
                             <Image src={trucking} alt="trucking" width={28} height={28} className="opacity-80" />
                         </div>
 
-                        <h2 className="text-xl md:text-2xl lg:text-3xl font-medium md:font-bold text-white leading-tight mb-3 md:mb-4 tracking-tight">
+                        <h2 className="text-xl md:text-2xl lg:text-3xl font-medium md:font-semibold text-white leading-tight mb-3 md:mb-4">
                             Adventures Begin At The Cairn
                         </h2>
 
@@ -208,7 +208,7 @@ const Hero = memo(() => {
                             <Image src={mountain} alt="mountain" width={32} height={24} className="brightness-0 invert opacity-80" />
                         </div>
 
-                        <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-white leading-tight mb-2 md:mb-3 tracking-tight">
+                        <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-white leading-tight mb-2 md:mb-3">
                             Discovery Southern Utah
                         </h2>
 

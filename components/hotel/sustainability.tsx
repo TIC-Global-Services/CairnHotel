@@ -58,7 +58,7 @@ const Sustainability = () => {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       <div className="w-full px-8 md:px-16 lg:px-24 pt-15 mb-5 md:pt-32">

@@ -162,7 +162,7 @@ const SECTIONS: SectionConfig[] = [
         className: 'pointer-events-auto md:bottom-[4rem] bottom-[47%] right-[10%] md:right-[4rem]',
         // style: { bottom: '4rem', right: '4rem' },
         content: (
-          <button className="px-6 md:px-12 py-2 md:py-4 bg-white/10 backdrop-blur-md border border-white/40 rounded-full text-white uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-white/20 transition-all duration-300 cursor-pointer shadow-xl">
+          <button className="px-6 md:px-12 py-2 md:py-4 bg-white/1 backdrop-blur-xs border border-white/40 rounded-full text-white uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-white/20 transition-all duration-300 cursor-pointer shadow-xl">
             View More
           </button>
         )
@@ -228,7 +228,7 @@ const SECTIONS: SectionConfig[] = [
         className: 'pointer-events-auto top-[3rem] right-5 md:right-[4rem]',
         // style: { top: '3rem', right: '4rem' },
         content: (
-          <button className="block md:px-10 px-6 md:py-3 py-2 bg-black/30 backdrop-blur-md border border-white/30 rounded-full text-white uppercase tracking-[0.2em] text-sm hover:bg-black/50 transition-all duration-300 shadow-xl cursor-pointer">
+          <button className="px-6 md:px-12 py-2 md:py-4 bg-white/1 backdrop-blur-xs border border-white/40 rounded-full text-white uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-white/20 transition-all duration-300 cursor-pointer shadow-xl">
             Discover
           </button>
         )
@@ -274,8 +274,8 @@ const SECTIONS: SectionConfig[] = [
             <h2 className="text-5xl md:text-[14rem] leading-none font-bold uppercase text-[#faf9f8] select-none mix-blend-overlay opacity-95">
               Theater
             </h2>
-            <button className="pointer-events-auto px-10 py-3 bg-black/30 backdrop-blur-md border border-white/30 rounded-full text-white uppercase tracking-[0.2em] text-sm hover:bg-black/50 transition-all duration-300 shadow-xl cursor-pointer">
-              Discover
+            <button className="px-6 md:px-12 py-2 md:py-4 bg-white/1 backdrop-blur-xs border border-white/40 rounded-full text-white uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-white/20 transition-all duration-300 cursor-pointer shadow-xl">
+              View More
             </button>
           </div>
         )
@@ -356,18 +356,18 @@ const SECTIONS: SectionConfig[] = [
           </span>
         )
       },
-      // {
-      //   type: 'element',
-      //   id: 'snow-cta',
-      //   zIndex: 50,
-      //   className: 'pointer-events-auto',
-      //   style: { bottom: '4rem', right: '4rem' },
-      //   content: (
-      //     <button className="px-8 md:px-12 py-3 md:py-4 bg-white/10 backdrop-blur-md border border-white/40 rounded-full text-white uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-white/20 transition-all duration-300 cursor-pointer shadow-xl">
-      //       View Events
-      //     </button>
-      //   )
-      // },
+      {
+        type: 'element',
+        id: 'snow-cta',
+        zIndex: 50,
+        className: 'pointer-events-auto',
+        style: { bottom: '4rem', right: '4rem' },
+        content: (
+          <button className="px-8 md:px-12 py-3 md:py-4 bg-white/10 backdrop-blur-md border border-white/40 rounded-full text-white uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-white/20 transition-all duration-300 cursor-pointer shadow-xl">
+            View Events
+          </button>
+        )
+      },
     ],
   },
 ]
@@ -457,6 +457,7 @@ const Hero = () => {
         </div>
       )
     })
+    
 
   const renderSection = (cfg: SectionConfig, sectionIdx: number) => {
     const { section, layers } = sectionRefs.current[sectionIdx]

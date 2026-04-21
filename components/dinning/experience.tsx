@@ -82,12 +82,12 @@ const Experience = () => {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
           viewport={{ once: true, margin: "-50px" }}
           className="md:max-w-6xl text-center md:px-4"
         >
           <p className="text-sm md:text-lg lg:text-xl font-medium text-[#1a1a1a]">
-            Experience The Beauty Of Nature At Cairn Hotel, Where Breathtaking Red Rock Landscapes And Peaceful Mountain Surroundings Create The Perfect Setting For Relaxation And Adventure.
+            Savor a refined dining experience at Crain Hotel, where thoughtfully curated menus, fresh ingredients, and a warm, elegant ambiance come together.
           </p>
         </motion.div>
       </div>

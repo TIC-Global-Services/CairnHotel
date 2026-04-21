@@ -31,7 +31,7 @@ const Exploring = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-xs sm:text-xs font-bold tracking-[3.12px] uppercase mb-3 lg:mb-8"
+                        className="text-xs sm:text-xs font-semibold tracking-[3.12px] text-[#132430] uppercase mb-3 lg:mb-8"
                     >
                         Explore Places
                     </motion.p>
@@ -41,7 +41,7 @@ const Exploring = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-[1.5rem] sm:text-[4rem] lg:text-6xl font-bold text-[#0c1627] leading-[1.05] tracking-tight mb-6 lg:mb-8"
+                        className="text-[1.5rem] sm:text-[4rem] lg:text-6xl font-semibold text-[#0c1627] leading-[1.05] tracking-tight mb-6 lg:mb-8"
                     >
                         Exploring <br className="hidden lg:block"/>
                         Utah's<br />
@@ -53,7 +53,7 @@ const Exploring = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-sm sm:text-lg lg:text-lg font-normal text-gray-500 leading-[1.8] max-w-lg"
+                        className="text-sm sm:text-lg lg:text-lg font-normal text-[#132430CC] leading-[1.8] max-w-md"
                     >
                         Experience the raw beauty of Utah, where dramatic canyons, towering peaks, and endless landscapes create unforgettable views. Every journey reveals a new perspective of nature's breathtaking artistry.
                     </motion.p>

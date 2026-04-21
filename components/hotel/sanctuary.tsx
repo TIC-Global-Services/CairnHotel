@@ -56,7 +56,7 @@ const Sanctuary = () => {
                     style={{ y: yTopLeft }}
                     className="absolute top-[10%] md:top-[5%] left-[5%] md:left-[3%] flex flex-col items-center group cursor-pointer"
                 >
-                    <span className="text-black font-light tracking-widest  md:text-3xl group-hover:-translate-y-1 transition-transform duration-300">
+                    <span className="text-black font-normal tracking-widest  md:text-3xl group-hover:-translate-y-1 transition-transform duration-300">
                         SCENIC VIEW
                     </span>
                     <div className="w-[140px] h-[140px] md:w-[220px] md:h-[250px] relative rounded-xl overflow-hidden shadow-xl">
@@ -74,7 +74,7 @@ const Sanctuary = () => {
                     style={{ y: yTopRight }}
                     className="absolute top-[10%] md:top-[5%] right-[5%] md:right-[3%] flex flex-col items-center group cursor-pointer"
                 >
-                    <span className="text-black font-light tracking-widest md:text-3xl group-hover:-translate-y-1 transition-transform duration-300">
+                    <span className="text-black font-normal tracking-widest md:text-3xl group-hover:-translate-y-1 transition-transform duration-300">
                         HIGHLANDS
                     </span>
                     <div className="w-[140px] h-[140px] md:w-[220px] md:h-[250px] relative rounded-xl overflow-hidden shadow-xl">
