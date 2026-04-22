@@ -120,7 +120,7 @@ const Testimonial = () => {
                         Our guests are at the heart of everything we do. Discover what travellers have to say about their stay, their adventures, they experienced at Carin Hotel.
                     </p>
 
-                    <div className="md:flex gap-2 md:gap-4 hidden">
+                    {/* <div className="md:flex gap-2 md:gap-4 hidden">
                         <button
                             onClick={handlePrev}
                             disabled={isAnimating}
@@ -137,12 +137,12 @@ const Testimonial = () => {
                         >
                             <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-gray-700 group-hover:text-white transition-colors" strokeWidth={1.5} />
                         </button>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Right Column: Slider Container */}
                 <div className="relative w-full flex flex-col items-start lg:items-end">
-                    <div className="relative w-full h-[280px] md:h-[400px] flex items-center">
+                    <div className="relative w-full h-[280px] md:h-[200px] flex items-center">
                         <div className="relative w-full h-full flex justify-start lg:justify-end">
                             {testimonialData.map((testimonial, index) => (
                                 <div
@@ -150,8 +150,8 @@ const Testimonial = () => {
                                     ref={(el) => { slidesRef.current[index] = el }}
                                     className="absolute inset-0 flex flex-col justify-center max-w-xl w-full"
                                     style={{ 
-                                        opacity: index === currentIndex ? 1 : 0,
-                                        visibility: index === currentIndex ? 'visible' : 'hidden'
+                                        opacity: index === 0 ? 1 : 0,
+                                        visibility: index === 0 ? 'visible' : 'hidden'
                                     }}
                                 >
                                     {/* Large stylized quote symbol */}
@@ -176,9 +176,27 @@ const Testimonial = () => {
                             ))}
                         </div>
                     </div>
+                    <div className="md:flex gap-2 md:gap-4 hidden relative z-20">
+                        <button
+                            onClick={handlePrev}
+                            disabled={isAnimating}
+                            className="w-8 h-8 md:w-10 md:h-10 rounded-full border border flex items-center justify-center hover:bg-black hover:text-white transition-all hover:border-black group disabled:opacity-50 disabled:cursor-not-allowed"
+                            aria-label="Previous Testimonial"
+                        >
+                            <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-gray-700 group-hover:text-white transition-colors" strokeWidth={1.5} />
+                        </button>
+                        <button
+                            onClick={handleNext}
+                            disabled={isAnimating}
+                            className="w-8 h-8 md:w-10 md:h-10 rounded-full border border flex items-center justify-center hover:bg-black hover:text-white transition-all hover:border-black group disabled:opacity-50 disabled:cursor-not-allowed"
+                            aria-label="Next Testimonial"
+                        >
+                            <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-gray-700 group-hover:text-white transition-colors" strokeWidth={1.5} />
+                        </button>
+                    </div>
 
                     {/* Mobile Navigation Buttons */}
-                    <div className="flex gap-4 mt-10 md:hidden translate-x-30">
+                    <div className="flex gap-4 mt-10 md:hidden translate-x-30 relative z-20">
                          <button
                             onClick={handlePrev}
                             disabled={isAnimating}

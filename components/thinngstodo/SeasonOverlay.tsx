@@ -4,7 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 import exploring1 from '@/assets/things-to-do/exploring-1.jpg'
-import hike from '@/assets/things-to-do/hike.jpg'
+import bikeadventure from '@/assets/things-to-do/bike_adventure.png'
+import hike from '@/assets/things-to-do/hiking_bg.png'
+import snowfestival from '@/assets/things-to-do/snow_festival.jpg'
 import skiing from '@/assets/things-to-do/skiing.jpg'
 
 interface SeasonOverlayProps {
@@ -37,14 +39,14 @@ const seasonContent = {
     summer: {
         description: "Summer in the mountains is filled with adventure, from scenic hiking and mountain biking to vibrant outdoor festivals and nature experiences.",
         cards: [
-            { id: 1, title: 'Biking Adventure', image: exploring1 },
+            { id: 1, title: 'Biking Adventure', image: bikeadventure },
             { id: 2, title: 'Hiking', image: hike },
         ]
     },
     winter: {
         description: "Winter turns the landscape into a playground, from pristine snowboarding and skiing trails to cozy fireside dining and festive events.",
         cards: [
-            { id: 1, title: 'Snowboarding', image: exploring1 },
+            { id: 1, title: 'Winter Festival', image: snowfestival },
             { id: 2, title: 'Skiing', image: skiing },
         ]
     }

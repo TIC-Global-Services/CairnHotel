@@ -110,7 +110,7 @@ const ArchitectureOfNature = () => {
 
     return (
         <section ref={triggerRef} className="relative w-full h-auto md:h-[130dvh] bg-[#f5f3f0] overflow-hidden">
-            <div className="relative w-full h-full flex flex-col items-center pt-12 md:pt-20 lg:pt-24 px-4 lg:px-24">
+            <div className="relative w-full h-full flex flex-col items-center pt-12 md:pt-20 lg:pt-10 px-4 lg:px-24">
 
                 {/* Header Content */}
                 <div className="w-full flex flex-col lg:flex-row justify-between items-start md:items-start gap-6 lg:gap-4 z-10">
@@ -132,7 +132,7 @@ const ArchitectureOfNature = () => {
                 <div ref={containerRef} className="relative flex-1 w-full flex items-center justify-start z-10 overflow-visible mt-10 md:mt-0">
 
 
-                    <div ref={wrapperRef} className="flex flex-col md:flex-row gap-6 md:gap-[3vw] pl-0 md:pl-[11vw] w-full md:w-max items-center pb-24 md:pb-0 z-10">
+                    <div ref={wrapperRef} className="flex flex-col md:flex-row gap-6 md:gap-[3vw] pl-0 md:pl-[11vw] w-full md:w-max items-center pb-24 md:pb-34 z-10">
                         {data.map((item, index) => (
                             <div
                                 key={index}
@@ -193,7 +193,7 @@ const ArchitectureOfNature = () => {
             {/* Modal Overlay */}
             {selectedCard !== null && (
                 <div 
-                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12"
+                    className="fixed inset-0 z-[100] flex items-center justify-start p-4 sm:p-6 md:p-12"
                     data-lenis-prevent="true"
                     onWheel={(e) => e.stopPropagation()}
                     onTouchMove={(e) => e.stopPropagation()}

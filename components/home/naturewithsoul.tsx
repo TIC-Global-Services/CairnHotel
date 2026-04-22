@@ -38,7 +38,7 @@ const NatureWithSoul = () => {
     const [activeIndex, setActiveIndex] = useState(0)
 
     return (
-        <section className="relative w-full bg-white text-black py-10 md:py-0">
+        <section className="relative w-full bg-white text-black py-10 md:py-20">
             <div className="px-[5%] md:px-[10%]  flex flex-col md:flex-row relative">
 
                 {/* Left column - pinned via sticky */}

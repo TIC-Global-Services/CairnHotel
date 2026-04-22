@@ -13,7 +13,7 @@ const repeatedImages = [...images, ...images, ...images, ...images]
 
 const Marquee = () => {
   return (
-    <section className="w-full overflow-hidden flex flex-col ">
+    <section className="w-full overflow-hidden flex flex-col">
       <style>{`
         @keyframes pure-css-marquee {
           0% { transform: translateX(0); }
@@ -30,7 +30,7 @@ const Marquee = () => {
       `}</style>
       
     
-      <div className="css-marquee-container gap-4 pr-4">
+      <div className="css-marquee-container  gap-4 pr-4">
         {repeatedImages.map((img, i) => (
           <div 
             key={i} 

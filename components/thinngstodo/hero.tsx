@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import banner from '@/assets/things-to-do/things_to_do_banner.jpg'
+import banner from '@/assets/things-to-do/thingstoto_bg.jpg'
 import hiking from '@/assets/things-to-do/hike.jpg'
 import skiing from '@/assets/things-to-do/skiing.jpg'
 

@@ -41,7 +41,7 @@ const QualityAndQuantity = () => {
   ]
 
   return (
-    <section className="w-full bg-white py-10 pt-20 md:pt-0 md:py-20 px-2 md:px-8">
+    <section className="w-full bg-white py-10 pt-20 md:pt-20 md:py-20 px-2 md:px-8">
       <div className="px-[5%] flex flex-col">
         
         {/* Header Section */}
