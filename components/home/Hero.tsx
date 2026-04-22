@@ -275,7 +275,7 @@ const SECTIONS: SectionConfig[] = [
             <h2 className="text-5xl md:text-[14rem] leading-none font-bold uppercase text-[#faf9f8] select-none mix-blend-overlay opacity-95">
               Theater
             </h2>
-            <Link href={'https://www.bard.org'}>
+            <Link href={'https://www.bard.org'} target='_blank'>
               <button className="px-6 md:px-12 py-2 md:py-4 bg-white/1 backdrop-blur-xs border border-white/40 rounded-full text-white uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-white/20 transition-all duration-300 cursor-pointer shadow-xl">
               View More
             </button>
