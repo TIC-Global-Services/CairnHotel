@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import getintouchbg from '@/assets/Home/get_in_touch.jpg'
+import Link from 'next/link'
 
 const GetInTouch = () => {
     return (
@@ -29,10 +30,11 @@ const GetInTouch = () => {
                         <p className="text-[#343A40] text-base md:text-lg leading-snug md:leading-loose mb-10 font-light max-w-lg">
                             Utah is a western U.S. state known for its dramatic landscapes, red rock deserts, alpine forests, and world-class mountain terrain. It offers year-round outdoor adventures ranging from skiing and mountain biking, and rock climbing.
                         </p>
-                        
+                        <Link href={'https://visitcedarcity.com/about-us-cedar-city/'} target='_blank'>
                         <button className="px-6 md:px-8 py-3 md:py-3.5 bg-[#5A3F30] hover:bg-[#4A3326] transition-colors duration-300 text-white text-xs tracking-[0.1em] uppercase rounded-full">
                             EXPLORE MORE
                         </button>
+                        </Link>
                     </div>
 
                 </div>

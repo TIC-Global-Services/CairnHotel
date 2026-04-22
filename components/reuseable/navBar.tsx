@@ -13,6 +13,10 @@ import whatsapplogo from '@/public/whatsapp_logo.png'
 
 const navLinks = [
     {
+        title: "HOME",
+        href: "/"
+    },
+    {
         title: "HOTEL",
         href: "/hotel"
     },
@@ -23,6 +27,10 @@ const navLinks = [
     {
         title: "THINGS TO DO",
         href: "/things-to-do"
+    },
+    {
+        title: "BOOK NOW",
+        href: "https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094"
     },
     {
         title: "GALLERY",

@@ -8,6 +8,7 @@ import hotel2 from '@/assets/hotel/stay_at_carin2.jpg'
 import hotel3 from '@/assets/hotel/stay_at_carin3.jpg'
 import hotel4 from '@/assets/hotel/stay_at_carin4.jpg'
 import hotel5 from '@/assets/hotel/stay_at_carin5.jpg'
+import Link from 'next/link'
 
 const images = [
   { src: hotel1, alt: 'Hotel Room 1' },
@@ -45,19 +46,20 @@ const StayAtCairn = () => {
         </motion.h2>
 
         <motion.p
-          className="text-[#555] text-base md:text-lg lg:text-xl font-normal leading-relaxed max-w-3xl mx-auto mb-8 md:mb-10"
+          className="text-[#555] text-base md:text-lg lg:text-xl font-normal leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10"
           style={{ opacity: globalOpacity }}
         >
           Experience a refined escape at Cairn Hotel, where comfort and nature come
           together in perfect harmony.
         </motion.p>
-
+      <Link href={'/gallery'}>
         <motion.button
           className="px-8 py-3 rounded-full border-2 border-black text-black text-sm md:text-[15px] font-semibold tracking-[0.15em] uppercase hover:bg-black hover:text-white transition-all duration-300 cursor-pointer"
           style={{ opacity: globalOpacity }}
         >
           See Space
         </motion.button>
+      </Link>
       </div>
 
       {/* Desktop Image Gallery — 5 images fanned out */}

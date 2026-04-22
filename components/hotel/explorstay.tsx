@@ -19,6 +19,7 @@ import {
     Users,
     X
 } from 'lucide-react'
+import Link from 'next/link'
 
 const staysData = [
     {
@@ -234,12 +235,13 @@ const ExploreStay = () => {
                     <p className="text-white text-sm md:text-xl font-normal max-w-lg  border-white/20 mt-4 md:mt-6">
                         Discover Thoughtfully Designed Rooms And Suites Where Comfort, Nature, And Timeless Mountain Elegance Come Together.
                     </p>
-                    
+                    <Link href={'https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094'} target='_blank'>
                     <button className="flex items-start justify-start md:items-center md:text-center gap-0 mt-1 md:mt-8 group w-fit bg-white rounded-full py-2 md:py-4 px-6 md:px-12 shadow-lg hover:shadow-xl transition-shadow ">
                         <span className="text-[#1a1a1a] text-xs md:text-base  font-medium tracking-[0.1em] uppercase">
                             BOOK NOW
                         </span>
                     </button>
+                    </Link>
                 </div>
 
                 {/* Right: Room Card */}

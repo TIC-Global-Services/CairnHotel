@@ -53,7 +53,7 @@ const Hero = () => {
 
             {/* Top Typography Node */}
             <div className='relative z-10 flex flex-col mt-[30%] md:mt-[10%] items-center justify-center w-full px-[5%] mb-[10vh]'>
-                <h1 className='text-[4rem] md:text-[10rem] lg:text-[10rem] text-center font-semibold uppercase text-white leading-none drop-shadow-2xl'>THINGS TO DO</h1>
+                <h1 className='text-[4rem] md:text-[10rem] lg:text-[10rem] text-center font-semibold uppercase text-white leading-[0.6] md:leading-none drop-shadow-2xl'>THINGS <br className='md:hidden'/> <span className='text-[2rem] md:text-[10rem] lg:text-[10rem]'>TO DO</span></h1>
                 <p className='text-sm md:text-base lg:text-xl font-normal md:font-medium  md:max-w-3xl text-center mt-4 mb-8 text-white/95 drop-shadow flex flex-col'>
                     <span>Let Us Host Your Group To Create An Unforgettable Experience For You. We're</span>
                     <span>Experienced With Hosting Families, Companies, Tour Buses, And More.</span>
@@ -61,14 +61,11 @@ const Hero = () => {
                 <button className='px-6 py-2.5 md:px-12 md:py-3.5 rounded-full border-2 bg-white/5     border-[#FFFFFF1A] hover:bg-white/10 uppercase backdrop-blur-xs text-white transition-colors duration-300 text-sm font-medium tracking-widest shadow-lg'>Book Now</button>
             </div>
 
-            {/* Lower Interactive Component Core */}
             <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-center justify-center gap-[5%] lg:gap-[12%] w-full px-[5%] lg:px-[8%]">
 
-                {/* Left: Dynamic Asset Node */}
                 <div className="relative w-[70%] sm:w-[50%] lg:w-[25%] shrink-0">
-                    {/* Aspect lock box container */}
+                    
                     <div className="relative aspect-3/4 w-full mt-[5%] lg:mt-0">
-                        {/* Negative offset perimeter to strictly replicate design geometry */}
                         <div className="absolute top-[-5%] left-[-8%] w-full h-full rounded-2xl border border-white/40 drop-shadow-sm pointer-events-none" />
 
                         <div className="relative z-10 w-full h-full rounded-2xl overflow-hidden shadow-2xl">

@@ -24,9 +24,9 @@ const FindYourWay = () => {
                     LET OUR CAIRN HELP <br />
                     YOU FIND YOUR WAY
                 </h2>
-                <Link href={'/hotel'}>
-                <button
-                    className="
+                {/* <Link href={'/hotel'}>
+                    <button
+                        className="
     relative px-12 py-3 
     text-white tracking-widest font-medium
     rounded-full 
@@ -37,10 +37,10 @@ const FindYourWay = () => {
     before:absolute before:inset-0 before:rounded-full before:p-[1px] 
     before:[mask-composite:xor]
   "
-                >
-                    EXPLORE
-                </button>
-                </Link>
+                    >
+                        EXPLORE
+                    </button>
+                </Link> */}
             </div>
         </section>
     )

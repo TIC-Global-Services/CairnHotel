@@ -56,12 +56,12 @@ const Discover = () => {
                     ref={ctaRef}
                     className="flex flex-col items-center gap-3 group cursor-pointer"
                 >
-                    <div className="flex items-center justify-center gap-3">
+                    {/* <div className="flex items-center justify-center gap-3">
                         <span className="text-base md:text-2xl font-sans tracking-[0.35em] font-medium text-[#4D2F27] uppercase">
                             Discover
                         </span>
                         <ArrowDown className='text-[#4D2F27] size-6'/>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

@@ -165,14 +165,14 @@ const Hero = memo(() => {
                         </p>
                     </div>
 
-                    <div ref={discoverRef} className="hidden md:flex mt-6 md:mt-8 flex-col items-center gap-2" style={{ willChange: 'transform' }}>
+                    {/* <div ref={discoverRef} className="hidden md:flex mt-6 md:mt-8 flex-col items-center gap-2" style={{ willChange: 'transform' }}>
                         <span className="text-white/70 text-xs md:text-sm tracking-[0.2em] uppercase">
                             Discover
                         </span>
                         <svg width="12" height="24" viewBox="0 0 12 24" fill="none" className="text-white/50">
                             <path d="M6 0v22M1 17l5 5 5-5" stroke="currentColor" strokeWidth="1.5" />
                         </svg>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className='relative z-[40]'>
@@ -194,9 +194,9 @@ const Hero = memo(() => {
                             A Place Where Adventure Meets Comfort.
                         </p>
 
-                        <button className="px-6 md:px-8 py-2.5 md:py-3 bg-white backdrop-blur-md border border-white rounded-full text-black uppercase tracking-[0.2em] md:font-normal font-semibold text-[10px] md:text-xs hover:bg-white/25 transition-all duration-300 cursor-pointer">
+                        {/* <button className="px-6 md:px-8 py-2.5 md:py-3 bg-white backdrop-blur-md border border-white rounded-full text-black uppercase tracking-[0.2em] md:font-normal font-semibold text-[10px] md:text-xs hover:bg-white/25 transition-all duration-300 cursor-pointer">
                             Explore More
-                        </button>
+                        </button> */}
                         
                     </div>
                 </div>
@@ -218,9 +218,9 @@ const Hero = memo(() => {
                             Routes Perfect For Hikers And Nature Enthusiasts.
                         </p>
 
-                        <button className="px-5 md:px-7 py-2 md:py-2.5 bg-white backdrop-blur-md border border-white rounded-full text-black uppercase tracking-[0.2em] md:font-normal font-semibold text-[10px] md:text-xs hover:bg-white/25 transition-all duration-300 cursor-pointer">
+                        {/* <button className="px-5 md:px-7 py-2 md:py-2.5 bg-white backdrop-blur-md border border-white rounded-full text-black uppercase tracking-[0.2em] md:font-normal font-semibold text-[10px] md:text-xs hover:bg-white/25 transition-all duration-300 cursor-pointer">
                             Explore More
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </div>
