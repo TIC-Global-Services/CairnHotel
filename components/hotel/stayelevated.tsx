@@ -29,16 +29,15 @@ const StayElevated = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        start: () => window.innerWidth < 768 ? "top 45%" : "top 60%", 
-        end: () => window.innerWidth < 768 ? "bottom 60%" : "bottom 40%", 
-        scrub: 1, 
+        start: () => window.innerWidth < 768 ? "top 75%" : "top top", 
+        toggleActions: "play none none none",
         invalidateOnRefresh: true, 
       }
     })
 
     tl.fromTo(imageRef.current,
-      { scale: 0.3 },
-      { scale: 1, duration: 1.5, ease: "power2.inOut" }
+      { scale: 0.4 },
+      { scale: 1, duration: 1.4, ease: "power3.out" }
     )
  
     .to(textLeftRef.current, {
@@ -57,7 +56,7 @@ const StayElevated = () => {
       opacity: 1,
       duration: 1,
       ease: "power2.out"
-    }, ">")
+    }, "-=0.6")
     .to(textRightRef.current, {
       x: () => {
          if (window.innerWidth < 768) return 0;
@@ -76,6 +75,7 @@ const StayElevated = () => {
       duration: 1,
       ease: "power2.out"
     }, "<")
+
 
   }, { scope: containerRef })
 

@@ -13,8 +13,8 @@ const ElevatedStay = () => {
                     <div className="flex flex-col lg:flex-row justify-between items-start mb-6 md:mb-16 gap-8">
                         {/* Left Column: Heading & Label */}
                         <div className="max-w-2xl">
-                            <span className="block text-[10px] md:text-xl font-bold md:font-medium uppercase text-[#4D2F27] mb-4 md:mb-6">
-                                ELEVATED STAYS IN UTAH
+                            <span className="block text-xs md:text-xl font-medium tracking-[0.05em] uppercase text-[#4D2F27] mb-4 md:mb-6">
+                                ELEVATED  STAYS  IN  UTAH
                             </span>
                             <h2 className="text-[17px] md:text-5xl lg:text-4xl font-sans font-medium text-neutral-900 leading-[1.4] md:leading-[1.1] tracking-tight pr-4 md:pr-0">
                                 Surrounded By Breathtaking <br className="hidden md:block" />

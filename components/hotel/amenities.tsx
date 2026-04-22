@@ -43,7 +43,7 @@ const AUTO_INTERVAL = 3000
 function MarqueeStrip() {
     const items = Array.from({ length: 8 })
     return (
-        <div className="w-full overflow-hidden select-none pointer-events-none">
+        <div className="w-full overflow-hidden select-none pointer-events-none mt-10 md:mt-0">
             <div
                 className="flex whitespace-nowrap"
                 style={{
@@ -183,7 +183,7 @@ function DragSlider({ activeIndex, total, onChangeIndex, orientation = 'vertical
             {/* Lines container — translates during drag */}
             <motion.div
                 className={`
-          flex ${isVertical ? 'flex-col items-start gap-[7px]' : 'flex-row items-end md:items-center gap-[10px]'}
+          flex ${isVertical ? 'flex-col items-start gap-[7px]' : 'flex-row mt-15 items-end md:items-center gap-[10px]'}
         `}
                 animate={{ [isVertical ? 'y' : 'x']: visualOffset * 0.5 }}
                 transition={{ type: 'spring', stiffness: 500, damping: 40 }}
@@ -193,7 +193,7 @@ function DragSlider({ activeIndex, total, onChangeIndex, orientation = 'vertical
                         key={i}
                         animate={isVertical
                             ? { width: cfg.width, opacity: cfg.opacity }
-                            : { height: cfg.width * 0.6, opacity: cfg.opacity }
+                            : { height: cfg.width * 1.5, opacity: cfg.opacity }
                         }
                         transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                         className={
@@ -280,12 +280,12 @@ const Amenities = () => {
                                     scale: isActive ? 1 : Math.max(0.85, 1 - distance * 0.05),
                                 }}
                                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                                className="relative py-1.5 md:py-2 cursor-pointer outline-none bg-transparent border-none"
+                                className="relative py-4 md:py-2 cursor-pointer outline-none bg-transparent border-none"
                             >
                                 <span
                                     className={`block font-medium md:tracking-wide transition-all duration-500 ${isActive
-                                            ? 'text-white text-xl md:text-4xl lg:text-[2.8rem]'
-                                            : 'text-white/40 text-[16px] md:text-xl lg:text-2xl'
+                                            ? 'text-white text-2xl md:text-4xl lg:text-[2.8rem]'
+                                            : 'text-white/40 text-xl md:text-xl lg:text-2xl'
                                         }`}
                                 >
                                     {item.name}
@@ -302,7 +302,7 @@ const Amenities = () => {
             </div>
 
             {/* Mobile drag slider — horizontal, below the list */}
-            <div className="flex md:hidden items-center justify-center mt-12 mb-8">
+            <div className="flex md:hidden items-end justify-center mt-32 md:mb-8">
                 <DragSlider
                     activeIndex={activeIndex}
                     total={amenitiesData.length}

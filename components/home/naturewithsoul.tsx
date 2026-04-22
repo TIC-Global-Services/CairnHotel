@@ -44,7 +44,7 @@ const NatureWithSoul = () => {
                 {/* Left column - pinned via sticky */}
                 <div className="w-full md:w-1/2 pt-12 pb-4 md:py-0 md:h-screen relative md:sticky top-0 md:top-0 flex items-center justify-center z-10 bg-white md:bg-transparent">
                     {/* Stacking elements */}
-                    <div className="relative w-[85%] max-w-[480px] aspect-4/5 mt-6 md:mt-0">
+                    <div className="relative w-[85%] max-w-[480px] md:aspect-4/5 aspect-3/2 mt-6 md:mt-0">
                         {/* Decorative background cards to give the "stack" look */}
                         <div className="absolute inset-0 bg-[#F4EBD9] rounded-2xl transform -rotate-4 -translate-x-3 -translate-y-3 md:-translate-x-5 md:-translate-y-5 shadow-sm" />
                         <div className="absolute inset-0 bg-[#6F3A21] rounded-2xl transform -rotate-2 -translate-x-1.5 -translate-y-1.5 md:-translate-x-2 md:-translate-y-2 shadow-sm" />

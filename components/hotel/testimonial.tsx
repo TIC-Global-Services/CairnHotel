@@ -99,9 +99,9 @@ const Testimonial = () => {
     }
 
     return (
-        <section ref={containerRef} className="relative w-full py-15 md:py-32 bg-[#FEF8ED78] overflow-hidden flex items-start justify-center font-sans min-h-screen">
+        <section ref={containerRef} className="relative w-full py-15 md:py-32 bg-[#FEF8ED78] overflow-hidden flex items-start justify-center font-sans md:min-h-screen">
 
-            <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
+            <div className="absolute top-[5%] md:top-[10%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
                 <h1 className="text-[12vw] font-black text-black/[0.03] uppercase tracking-tight leading-none mt-10">
                     Testimonials
                 </h1>
@@ -120,7 +120,7 @@ const Testimonial = () => {
                         Our guests are at the heart of everything we do. Discover what travellers have to say about their stay, their adventures, they experienced at Carin Hotel.
                     </p>
 
-                    <div className="flex gap-2 md:gap-4">
+                    <div className="md:flex gap-2 md:gap-4 hidden">
                         <button
                             onClick={handlePrev}
                             disabled={isAnimating}
@@ -141,38 +141,63 @@ const Testimonial = () => {
                 </div>
 
                 {/* Right Column: Slider Container */}
-                <div className="relative w-full h-[200px] flex items-center">
-                    <div className="relative w-full h-full flex justify-start lg:justify-end">
-
-                        {testimonialData.map((testimonial, index) => (
-                            <div
-                                key={testimonial.id}
-                                ref={(el) => { slidesRef.current[index] = el }}
-                                className="absolute inset-0 flex flex-col justify-center max-w-xl top-50 w-full"
-                            >
-                                {/* Large stylized quote symbol matching the design purely by text */}
-                                <div className="text-[8rem] md:text-[14rem] text-[#C2C2C233] absolute -top-40 font-serif leading-0 h-14 flex items-center justify-start -ml-20 select-none">
-                                    “
-                                </div>
-
-                                <p className="text-base md:text-xl lg:text-xl text-[#606060] font-light md:leading-relaxed mb-10 w-full">
-                                    {testimonial.shortDesc}
-                                </p>
-
-                                <div className="flex items-center gap-5 mt-auto">
-                                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center shrink-0 border border-black/5">
-                                        {testimonial.image}
+                <div className="relative w-full flex flex-col items-start lg:items-end">
+                    <div className="relative w-full h-[280px] md:h-[400px] flex items-center">
+                        <div className="relative w-full h-full flex justify-start lg:justify-end">
+                            {testimonialData.map((testimonial, index) => (
+                                <div
+                                    key={testimonial.id}
+                                    ref={(el) => { slidesRef.current[index] = el }}
+                                    className="absolute inset-0 flex flex-col justify-center max-w-xl w-full"
+                                    style={{ 
+                                        opacity: index === currentIndex ? 1 : 0,
+                                        visibility: index === currentIndex ? 'visible' : 'hidden'
+                                    }}
+                                >
+                                    {/* Large stylized quote symbol */}
+                                    <div className="text-[8rem] md:text-[14rem] text-[#C2C2C233] absolute -top-40 font-serif leading-0 h-14 flex items-center justify-start -ml-20 select-none">
+                                        “
                                     </div>
-                                    <div className="flex flex-col">
-                                        <h4 className="text-sm md:text-lg font-medium text-black leading-tight mb-1">{testimonial.name}</h4>
-                                        <span className="text-sm tracking-wide text-gray-500 font-normal">{testimonial.location}</span>
+
+                                    <p className="text-base md:text-xl lg:text-xl text-[#606060] font-light md:leading-relaxed mb-10 w-full">
+                                        {testimonial.shortDesc}
+                                    </p>
+
+                                    <div className="flex items-center gap-5 mt-auto">
+                                        <div className="w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center shrink-0 border border-black/5">
+                                            {testimonial.image}
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <h4 className="text-sm md:text-lg font-medium text-black leading-tight mb-1">{testimonial.name}</h4>
+                                            <span className="text-sm tracking-wide text-gray-500 font-normal">{testimonial.location}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+                    </div>
 
+                    {/* Mobile Navigation Buttons */}
+                    <div className="flex gap-4 mt-10 md:hidden translate-x-30">
+                         <button
+                            onClick={handlePrev}
+                            disabled={isAnimating}
+                            className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-black hover:text-white transition-all hover:border-black group disabled:opacity-50 disabled:cursor-not-allowed"
+                            aria-label="Previous Testimonial"
+                        >
+                            <ChevronLeft className="w-5 h-5 text-gray-700 group-hover:text-white transition-colors" strokeWidth={1.5} />
+                        </button>
+                        <button
+                            onClick={handleNext}
+                            disabled={isAnimating}
+                            className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-black hover:text-white transition-all hover:border-black group disabled:opacity-50 disabled:cursor-not-allowed"
+                            aria-label="Next Testimonial"
+                        >
+                            <ChevronRight className="w-5 h-5 text-gray-700 group-hover:text-white transition-colors" strokeWidth={1.5} />
+                        </button>
                     </div>
                 </div>
+
 
             </div>
         </section>

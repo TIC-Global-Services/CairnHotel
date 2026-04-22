@@ -218,10 +218,10 @@ const ExploreStay = () => {
             </div>
 
             {/* Main Content */}
-            <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 lg:px-24 gap-12 lg:gap-8 mt-4">
+            <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 lg:px-24 gap-5 lg:gap-8 mt-4">
                 
                 {/* Left: Title & Description */}
-                <div className="flex flex-col gap-5 w-full lg:w-[40%] flex-shrink-0">
+                <div className="flex flex-col gap-2 md:gap-5 w-full lg:w-[40%] flex-shrink-0">
                     <div>
                         <h2 className="text-[2rem] md:text-[4.315rem] font-semibold text-white uppercase leading-none">
                             EXPLORE
@@ -231,7 +231,7 @@ const ExploreStay = () => {
                             <span className="text-3xl md:text-[3.15rem] font-medium italic text-[#FFEBD3]">Stay</span>
                         </div>
                     </div>
-                    <p className="text-white/80 text-sm md:text-xl font-light max-w-lg  border-white/20 mt-4 md:mt-6">
+                    <p className="text-white text-sm md:text-xl font-normal max-w-lg  border-white/20 mt-4 md:mt-6">
                         Discover Thoughtfully Designed Rooms And Suites Where Comfort, Nature, And Timeless Mountain Elegance Come Together.
                     </p>
                     
@@ -280,7 +280,7 @@ const ExploreStay = () => {
             </div>
 
             {/* Bottom Navigation */}
-            <div className="absolute bottom-8 right-8 md:bottom-12 md:right-24 z-10 w-[85%] md:w-[60%] lg:w-[45%] flex items-center justify-between">
+            <div className="mt-5 md:mt-0 md:mb-0 ml-6 md:ml-0 mb-10 md:absolute bottom-8 right-8 md:bottom-12 md:right-24 z-10 w-[85%] md:w-[60%] lg:w-[45%] flex items-center justify-between">
                 <div className="flex items-center gap-3">
                     <button
                         onClick={goPrev}

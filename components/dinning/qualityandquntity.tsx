@@ -41,7 +41,7 @@ const QualityAndQuantity = () => {
   ]
 
   return (
-    <section className="w-full bg-white py-10 md:py-20 px-2 md:px-8">
+    <section className="w-full bg-white py-10 pt-20 md:pt-0 md:py-20 px-2 md:px-8">
       <div className="px-[5%] flex flex-col">
         
         {/* Header Section */}
@@ -52,7 +52,7 @@ const QualityAndQuantity = () => {
               Experience <br className='hidden md:block'/> Comfort in <br className='hidden md:block'/> Every Detail
             </h2>
           </div>
-          <div className="md:max-w-xl pt-10">
+          <div className="md:max-w-xl md:pt-10">
             <p className="text-[#00000066] text-sm md:text-3xl font-normal leading-[1.2]">
               A comfortable and peaceful stay with simple interiors and essential amenities. Simple, clean spaces with all the basic comforts for a pleasant stay.
             </p>
@@ -143,7 +143,7 @@ const HoverCard = ({ card }: { card: CardData }) => {
 
       {/* Plus Button - Overlapping the bottom edge */}
       <motion.button 
-        className="w-14 h-14 rounded-full bg-[#FFFBF0] text-[#1a1a1a] shadow-xl flex items-center justify-center -mt-7 z-30 relative cursor-pointer"
+        className="w-14 h-14 hidden rounded-full bg-[#FFFBF0] text-[#1a1a1a] shadow-xl md:flex items-center justify-center -mt-7 z-30 relative cursor-pointer"
         whileHover={{ scale: 1.1 }}
         animate={{ rotate: active ? 135 : 0 }}
         transition={{ duration: 0.3 }}

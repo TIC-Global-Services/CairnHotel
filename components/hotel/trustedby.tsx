@@ -4,6 +4,7 @@ import Image from 'next/image'
 import trustedby1 from '@/assets/hotel/trustedby-1.jpg'
 import trustedby2 from '@/assets/hotel/trustedby-2.jpg'
 import trustedby3 from '@/assets/hotel/trustedby-3.jpg'
+import trustedby_bg from '@/assets/hotel/trustedby_bg.jpg'
 
 const Counter = ({ text }: { text: string }) => {
   const [count, setCount] = useState(0)
@@ -46,7 +47,18 @@ const TrustedBy = () => {
   const images = [trustedby1, trustedby2, trustedby3, trustedby1, trustedby2, trustedby3]
 
   return (
-    <section className="w-full bg-[#FFF7E04A] py-24 md:py-32 overflow-hidden flex flex-col items-center">
+    <section className="w-full relative py-24 md:py-32 mt-10 overflow-hidden  flex flex-col items-center ">
+      {/* Background Image */}
+      <Image
+        src={trustedby_bg}
+        alt=""
+        fill
+        className="object-cover z-0 "
+        sizes="100vw"
+        quality={90}
+        priority
+      />
+
       <style>{`
         @keyframes slide {
           0% { transform: translateX(0); }
@@ -61,17 +73,17 @@ const TrustedBy = () => {
       `}</style>
 
       {/* Top Text Content */}
-      <div className="text-center mb-16 md:mb-24 px-4">
-        <h2 className="text-5xl md:text-[80px] font-light text-[#1a1a1a] leading-none mb-4 md:mb-6">
+      <div className="relative z-10 text-center mb-16 md:mb-24 px-4 ">
+        <h2 className="text-5xl md:text-[80px] font-light text-white leading-none mb-4 md:mb-6">
           <Counter text="10,000+" />
         </h2>
-        <p className="text-[#444] text-sm md:text-base font-medium tracking-wide">
+        <p className="text-white text-sm md:text-base font-medium tracking-wide">
           Trusted by over 10000 guests per year
         </p>
       </div>
-
+        <div className='absolute inset-0 bg-black/30  h-full w-full'></div>
       {/* Auto-Sliding Marquee */}
-      <div className="w-full relative">
+      {/* <div className="w-full relative">
         <div className="flex w-max animate-slide">
           {[...images, ...images].map((imgSrc, i) => (
             <div key={i} className="pr-6 md:pr-10 shrink-0">
@@ -91,7 +103,7 @@ const TrustedBy = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   )
 }

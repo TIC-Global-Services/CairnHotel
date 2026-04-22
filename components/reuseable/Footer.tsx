@@ -11,12 +11,12 @@ const Footer = () => {
     return (
         <footer className="relative w-full pt-22 pb-10 px-4 md:px-8 lg:px-10 overflow-hidden bg-[#FFF7E0]">
             {/* Background Shapes */}
-            <div className="absolute inset-0 top-0 -left-[49%] w-full h-full z-0 opacity-20 pointer-events-none">
+            <div className="absolute inset-0 top-[10%] md:top-0 -left-[60%] md:-left-[49%] w-full h-full z-0 opacity-20 pointer-events-none">
                 <Image 
                     src={footerbg} 
                     alt="Footer Background" 
                     fill 
-                    className="object-cover object-center" 
+                    className="object-cover max-h-[100dvh]  object-center" 
                     priority
                 />
             </div>
@@ -24,7 +24,7 @@ const Footer = () => {
             <div className="relative z-10 flex flex-col items-center text-center">
                 
                 {/* Logo */}
-                <div className="relative w-24 h-24 md:w-28 md:h-28 mb-6">
+                <div className="relative w-25 h-24 md:w-28 md:h-28 mb-6">
                     <Image 
                         src="/Cairn_Secondary_Logo.png" 
                         alt="Cairn Hotel Logo" 
@@ -82,8 +82,8 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Footer Area */}
-                <div className="w-full flex flex-col md:flex-row items-center gap-80 justify-center pt-8 text-xs md:text-sm">
-                    <div>
+                <div className="w-full flex flex-col md:flex-row items-center gap-5 md:gap-80 justify-center pt-8 text-xs md:text-sm">
+                    <div className='hidden md:block'>
                        <p className='text-lg'> @2026, The Cairn Hotel.</p>
                     </div>
                     <div className="flex items-center gap-4 text-[#1A1A1A]">
@@ -104,8 +104,11 @@ const Footer = () => {
                             <Image src={instagramlogo} alt="Instagram" width={24} height={24} className="object-contain" />
                         </a>
                     </div>
+                    <div className='md:hidden'>
+                       <p className='text-[3.5vw]'> @2026, The Cairn Hotel.</p>
+                    </div>
                     <div>
-                        <Link href="https://www.theinternetcompany.one/"><p className='text-[1vw] font-normal'>Designed & Developed By TIC Global Services</p></Link>
+                        <Link href="https://www.theinternetcompany.one/"><p className='md:text-[1vw] text-[3.5vw] font-normal'>Designed & Developed By TIC Global Services</p></Link>
                     </div>
                 </div>
                 

@@ -109,20 +109,20 @@ const ArchitectureOfNature = () => {
     }, []);
 
     return (
-        <section ref={triggerRef} className="relative w-full h-auto md:h-[10dvh] bg-[#f5f3f0] overflow-hidden">
+        <section ref={triggerRef} className="relative w-full h-auto md:h-[130dvh] bg-[#f5f3f0] overflow-hidden">
             <div className="relative w-full h-full flex flex-col items-center pt-12 md:pt-20 lg:pt-24 px-4 lg:px-24">
 
                 {/* Header Content */}
-                <div className="w-full flex flex-col lg:flex-row justify-between items-start md:items-center gap-6 lg:gap-4 z-10">
-                    <div className="flex flex-col mt-20">
-                        <h2 className="text-sm md:text-[2.75rem] font-bold md:font-semibold text-[#4D2F27]  whitespace-nowrap leading-none tracking-wide">
+                <div className="w-full flex flex-col lg:flex-row justify-between items-start md:items-start gap-6 lg:gap-4 z-10">
+                    <div className="flex flex-col">
+                        <h2 className="text-lg md:text-[2.75rem] font-bold md:font-semibold text-[#352520]  whitespace-nowrap leading-none tracking-wide">
                             THE ARCHITECTURE OF
                         </h2>
-                        <h2 className="text-base md:text-5xl font-medium italic text-[#4D2F27] mt-0.5 md:mt-2">
+                        <h2 className="text-lg md:text-5xl font-medium italic text-[#5c4033] mt-0.5 md:mt-2">
                             NATURE
                         </h2>
                     </div>
-                    <p className="max-w-xl text-sm md:text-2xl leading-relaxed md:leading-relaxed font-normal md:font-light">
+                    <p className="max-w-xl text-[#352520] text-sm md:text-2xl leading-relaxed md:leading-relaxed font-normal md:font-light">
                         The Cairn Hotel is designed to exist in harmony with the mountains. Inspired by natural stone, open landscapes, and timeless alpine structures, every space is thoughtfully crafted to create a sense of calm and connection with nature.
                     </p>
                 </div>
@@ -132,11 +132,11 @@ const ArchitectureOfNature = () => {
                 <div ref={containerRef} className="relative flex-1 w-full flex items-center justify-start z-10 overflow-visible mt-10 md:mt-0">
 
 
-                    <div ref={wrapperRef} className="flex flex-col md:flex-row gap-6 md:gap-[3vw] pl-0 md:pl-[11vw] w-full md:w-max items-center pb-24 md:pb-20 z-10">
+                    <div ref={wrapperRef} className="flex flex-col md:flex-row gap-6 md:gap-[3vw] pl-0 md:pl-[11vw] w-full md:w-max items-center pb-24 md:pb-0 z-10">
                         {data.map((item, index) => (
                             <div
                                 key={index}
-                                className={`nature-card flex-shrink-0 w-[55vw] md:w-[20vw] bg-white p-3 md:p-5 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15)] rounded-sm border border-black/5
+                                className={`nature-card flex-shrink-0 w-[55vw] md:w-[24vw] bg-white p-3 md:p-5 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15)] rounded-sm border border-black/5
                                     ${index === 0 ? 'md:-translate-y-8' : ''}
                                     ${index === 1 ? 'md:translate-y-20' : ''}
                                     ${index === 2 ? 'md:-translate-y-2' : ''}
@@ -155,7 +155,7 @@ const ArchitectureOfNature = () => {
                                 <h3 className="text-xs md:text-base font-semibold text-[#1a1a1a] mb-1.5 md:mb-2 tracking-wide uppercase">
                                     {item.title}
                                 </h3>
-                                <p className="text-[9px] md:text-sm text-[#6b6b6b] uppercase tracking-[0.15em] font-normal mb-3 md:mb-5">
+                                <p className="text-[9px] md:text-sm text-[#6b6b6b] uppercase  font-normal mb-3 md:mb-5">
                                     {item.description}
                                 </p>
                                 <button
@@ -170,12 +170,24 @@ const ArchitectureOfNature = () => {
                 </div>
 
                 {/* Background Large Text */}
-                <div className="bg-text absolute bottom-0 md:bottom-[-5%] left-0 w-full pointer-events-none select-none z-0 overflow-hidden flex justify-center pb-4 md:pb-0">
-                    <h1 className="text-[17vw] md:text-[11vw] font-bold text-[#e1dbd6] md:text-black leading-none whitespace-nowrap">
+                <div className="bg-text absolute bottom-0 md:bottom-[-5%] left-0 w-full pointer-events-none select-none z-0 overflow-hidden pb-4 md:pb-0">
+                    {/* Desktop: static centered text */}
+                    <h1 className="hidden md:flex justify-center text-[11vw] font-bold text-black leading-none whitespace-nowrap">
                         SOUTHERN UTAH
                     </h1>
+                    {/* Mobile: marquee scrolling text — 3 copies for seamless loop */}
+                    <div className="flex md:hidden animate-marquee-mobile w-max">
+                        <span className="text-[17vw] font-bold text-[#e1dbd6] leading-none whitespace-nowrap">
+                            SOUTHERN UTAH&nbsp;&bull;&nbsp;
+                        </span>
+                        <span className="text-[17vw] font-bold text-[#e1dbd6] leading-none whitespace-nowrap">
+                            SOUTHERN UTAH&nbsp;&bull;&nbsp;
+                        </span>
+                        <span className="text-[17vw] font-bold text-[#e1dbd6] leading-none whitespace-nowrap">
+                            SOUTHERN UTAH&nbsp
+                        </span>
+                    </div>
                 </div>
-
             </div>
 
             {/* Modal Overlay */}

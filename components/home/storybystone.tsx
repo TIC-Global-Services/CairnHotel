@@ -151,8 +151,8 @@ const StoryByStone = () => {
                                 className="desktop-stone-image absolute bottom-0 opacity-0"
                                 style={{
                                     zIndex: i + 1,
-                                    transform: `translate(-50%, ${i * 50}px)`,
-                                    bottom: `${(i * 8) - 5}%`
+                                    transform: `translate(-50%, ${i * 55}px)`,
+                                    bottom: `${[-5, 3, 11, 15.5][i]}%`
                                 }}
                             >
                                 <Image
@@ -192,7 +192,7 @@ const StoryByStone = () => {
                             `}
                             style={{
                                 zIndex: i + 1,
-                                bottom: `${i * 35}px`,
+                                bottom: `${[0, 40, 75, 100][i]}px`,
                             }}
                         />
                     ))}

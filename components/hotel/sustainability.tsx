@@ -65,28 +65,25 @@ const Sustainability = () => {
         <h2 className="text-2xl md:text-[52px] font-normal text-white leading-tight tracking-tight">
           Sustainability starts with us
         </h2>
-        <p className="text-white/90 text-sm md:text-xl font-light">
+        <p className="text-white/90 mt-2 text-base md:text-xl font-light">
           We protect what we love - with green energy, local food, and plastic-free choices that care for our surroundings.
         </p>
       </div>
 
 
-      <div className="w-full px-4 md:px-12 lg:px-20 pb-12 md:pb-16 mt-auto">
-        <div className="w-full bg-black/10 backdrop-blur-xs rounded-[2.5rem] border border-white/10 p-8 md:p-12 lg:py-16 lg:px-16 shadow-2xl">
-          <div className="flex flex-col md:flex-row w-full justify-between gap-6 md:gap-0">
+      <div className="w-full px-15 md:px-12 lg:px-20 pb-12 md:pb-16 mt-auto">
+        <div className="w-full md:bg-black/10 md:backdrop-blur-xs md:rounded-[2.5rem] md:border md:border-white/10 md:p-12 lg:py-16 lg:px-16 md:shadow-2xl">
+          <div className="flex flex-col md:flex-row w-full justify-between gap-4 md:gap-0">
             {stats.map((stat, index) => (
               <React.Fragment key={index}>
                 {index !== 0 && (
-                  <>
-                    <div className="hidden md:block w-px bg-white/40" />
-                    <div className="md:hidden h-px w-full bg-white/40" />
-                  </>
+                  <div className="hidden md:block w-px bg-white/40 mx-2" />
                 )}
-                <div className="flex-1 flex flex-col py-1 md:py-0 px-0 md:px-8 lg:px-12 first:pt-0 last:pb-0 md:first:pl-0 md:last:pr-0">
-                  <div className="text-2xl md:text-[40px] font-medium text-white mb-2 md:mb-4">
+                <div className="flex-1 flex flex-col items-center md:items-start justify-center text-center md:text-left py-8 md:py-0 px-3 md:px-8 lg:px-12 bg-black/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none rounded-3xl md:rounded-none border border-white/10 md:border-none">
+                  <div className="text-3xl md:text-[40px] font-medium text-white mb-2 md:mb-4">
                     <Counter text={stat.value} />
                   </div>
-                  <div className="text-sm md:text-xl  text-white/90 font-light whitespace-pre-line leading-[1.3]">
+                  <div className="text-base md:text-xl text-white/90 font-light whitespace-pre-line leading-[1.3] text-center md:text-left">
                     {stat.label}
                   </div>
                 </div>

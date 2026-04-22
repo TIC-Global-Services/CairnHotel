@@ -19,10 +19,23 @@
       transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * -1px));
     }
   }
+
+  @keyframes marquee-mobile {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
 }
 
 @utility animate-orbit {
   animation: orbit calc(var(--duration) * 1s) linear infinite;
+}
+
+@utility animate-marquee-mobile {
+  animation: marquee-mobile 10s linear infinite;
 }
 
 @media (prefers-color-scheme: dark) {

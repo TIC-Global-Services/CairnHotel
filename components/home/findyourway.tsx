@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 
 import carienhelp from '@/assets/Home/carien_help.jpg'
+import Link from 'next/link'
 const FindYourWay = () => {
     return (
         <section className="relative h-screen min-h-screen w-full flex flex-col items-center justify-center overflow-hidden">
@@ -23,7 +24,7 @@ const FindYourWay = () => {
                     LET OUR CAIRN HELP <br />
                     YOU FIND YOUR WAY
                 </h2>
-
+                <Link href={'/hotel'}>
                 <button
                     className="
     relative px-12 py-3 
@@ -39,6 +40,7 @@ const FindYourWay = () => {
                 >
                     EXPLORE
                 </button>
+                </Link>
             </div>
         </section>
     )

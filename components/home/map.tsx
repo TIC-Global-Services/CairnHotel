@@ -11,8 +11,8 @@ const Map = () => {
         loading="lazy"
         allowFullScreen
         referrerPolicy="no-referrer-when-downgrade"
-        src="https://maps.google.com/maps?q=Zion+National+Park,+Utah&t=&z=9&ie=UTF8&iwloc=&output=embed"
-        className="w-full h-full grayscale-50 contrast-[1.1] opacity-70 mix-blend-luminosity hover:mix-blend-normal hover:opacity-100 hover:grayscale-0 transition-all duration-700 ease-in-out"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-113.1041%2C37.6549%2C-113.0641%2C37.6949&layer=mapnik&marker=37.6749%2C-113.0841"
+        className="w-full h-full pointer-events-none grayscale-50 contrast-[1.1] opacity-70 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700 ease-in-out"
       />
 
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none bg-linear-to-t from-[#1a1818] via-transparent to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-700" />
@@ -23,7 +23,7 @@ const Map = () => {
           Location
         </h2>
         <p className="text-white/90 mt-2 tracking-[0.2em] uppercase text-xs md:text-sm drop-shadow-md">
-          Zion National Park, Utah
+          1575 W 200 N, Cedar City, UT 84720
         </p>
       </div>
     </section>

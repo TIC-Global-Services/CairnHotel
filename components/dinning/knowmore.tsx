@@ -33,7 +33,7 @@ const KnowMore = () => {
         <h2 className="text-[32px] sm:text-[44px] md:text-[50px] font-semibold uppercase  text-[#0a0a0a] leading-none drop-shadow-sm">
           KNOW MORE
         </h2>
-        <span className="text-[20px] sm:text-[26px] md:text-[30px] font-light italic uppercase text-[#333] ml-14 sm:ml-[12%] md:ml-[12%] tracking-wide drop-shadow-sm">
+        <span className="text-[20px] sm:text-[26px] md:text-[30px] font-light italic uppercase text-[#333] ml-25 sm:ml-[12%] md:ml-[12%] tracking-wide drop-shadow-sm">
           ABOUT US
         </span>
       </div>

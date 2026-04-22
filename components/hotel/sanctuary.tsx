@@ -29,21 +29,21 @@ const Sanctuary = () => {
             <div className="absolute inset-0 flex flex-col items-center justify-center md:translate-y-[-5%] pointer-events-none">
                 {/* Top Text - lightly visible top half */}
                 <div className="overflow-hidden h-[15vw] md:h-[10vw] flex items-end justify-center">
-                    <h2 className="text-[20vw] md:text-[10vw] font-medium text-gray-200 leading-none translate-y-[20%] uppercase">
+                    <h2 className="text-[15vw] md:text-[10vw] font-medium text-gray-200 leading-none translate-y-[20%] uppercase">
                         Sanctuary
                     </h2>
                 </div>
                 
                 {/* Middle Text - medium visible top half */}
                 <div className="overflow-hidden h-[15vw] md:h-[8vw] flex items-end justify-center">
-                    <h2 className="text-[20vw] md:text-[11vw] font-medium text-gray-300 leading-none translate-y-[25%] uppercase">
+                    <h2 className="text-[15vw] md:text-[11vw] font-medium text-gray-300 leading-none translate-y-[25%] uppercase">
                         Sanctuary
                     </h2>
                 </div>
 
                 {/* Bottom Text - completely visible */}
                 <div className="flex items-center justify-center">
-                    <h2 className="text-[20vw] md:text-[12vw] font-medium text-[#4a3227] leading-none uppercase">
+                    <h2 className="text-[15vw] md:text-[12vw] font-medium text-[#4a3227] leading-none uppercase">
                         Sanctuary
                     </h2>
                 </div>
