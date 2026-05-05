@@ -4,18 +4,18 @@ import React, { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 import hotel1 from '@/assets/hotel/stay_at_carin1.jpg'
-import hotel2 from '@/assets/hotel/stay_at_carin2.jpg'
+import hotel2 from '@/assets/hotel/shakespeare_quote.jpg'
 import hotel3 from '@/assets/hotel/stay_at_carin3.jpg'
-import hotel4 from '@/assets/hotel/stay_at_carin4.jpg'
-import hotel5 from '@/assets/hotel/stay_at_carin5.jpg'
+import hotel4 from '@/assets/hotel/room_canyon.jpg'
+import hotel5 from '@/assets/hotel/reception.jpg'
 import Link from 'next/link'
 
 const images = [
   { src: hotel1, alt: 'Hotel Room 1' },
-  { src: hotel2, alt: 'Hotel Room 2' },
+  { src: hotel2, alt: 'Shakespeare Quote' },
   { src: hotel3, alt: 'Hotel Pool' },
-  { src: hotel4, alt: 'Hotel Room 4' },
-  { src: hotel5, alt: 'Hotel Room 5' },
+  { src: hotel4, alt: 'Canyon Room' },
+  { src: hotel5, alt: 'Reception' },
 ]
 
 const StayAtCairn = () => {
@@ -52,14 +52,14 @@ const StayAtCairn = () => {
           Experience a refined escape at Cairn Hotel, where comfort and nature come
           together in perfect harmony.
         </motion.p>
-      <Link href={'/gallery'}>
-        <motion.button
-          className="px-8 py-3 rounded-full border-2 border-black text-black text-sm md:text-[15px] font-semibold tracking-[0.15em] uppercase hover:bg-black hover:text-white transition-all duration-300 cursor-pointer"
-          style={{ opacity: globalOpacity }}
-        >
-          See Space
-        </motion.button>
-      </Link>
+        <Link href={'/gallery'}>
+          <motion.button
+            className="px-10 py-2.5 rounded-full border border-black text-black text-[12px] md:text-[13px] font-medium tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-all duration-300 cursor-pointer"
+            style={{ opacity: globalOpacity }}
+          >
+            SEE SPACE
+          </motion.button>
+        </Link>
       </div>
 
       {/* Desktop Image Gallery — 5 images fanned out */}
@@ -83,7 +83,7 @@ interface GalleryProps {
 
 function DesktopGallery({ scrollYProgress, globalScale }: GalleryProps) {
   return (
-    <div className="relative w-full h-[420px] lg:h-[500px] xl:h-[560px]">
+    <div className="relative w-full h-[350px] lg:h-[400px] xl:h-[450px] mt-8">
       {images.map((img, i) => (
         <DesktopCard
           key={i}
@@ -107,34 +107,34 @@ interface CardProps {
 }
 
 function DesktopCard({ img, index, isCenter, scrollYProgress, globalScale }: CardProps) {
-  const offsets = [-690, -345, 0, 345, 690]
-  const rotations = [-8, -4, 0, 4, 8]
+  const offsets = [-480, -240, 0, 240, 480]
+  const rotations = [-10, -5, 0, 5, 10]
 
-  const x = useTransform(scrollYProgress, [0, 0.35], [0, offsets[index]])
-  const rotate = useTransform(scrollYProgress, [0, 0.35], [0, rotations[index]])
+  const x = useTransform(scrollYProgress, [0, 0.4], [0, offsets[index]])
+  const rotate = useTransform(scrollYProgress, [0, 0.4], [0, rotations[index]])
 
   return (
     <motion.div
-      className="absolute top-0  left-1/2"
+      className="absolute top-0 left-1/2"
       style={{
         x,
         rotate,
         scale: globalScale,
-        width: isCenter ? 380 : 320,
-        height: isCenter ? '100%' : '90%',
-        marginLeft: isCenter ? -190 : -190,
-        marginTop: isCenter ? 0 : '1%',
+        width: isCenter ? 380 : 330,
+        height: isCenter ? 380 : 330,
+        marginLeft: isCenter ? -190 : -165,
+        marginTop: isCenter ? 0 : '1.5%',
         zIndex: isCenter ? 10 : 5 - Math.abs(index - 2),
       }}
     >
-      <div className="relative w-full h-full rounded-md  overflow-hidden shadow-2xl">
+      <div className="relative w-full h-full rounded-lg overflow-hidden shadow-2xl bg-white">
         <Image
           src={img.src}
           alt={img.alt}
           fill
-          className="object-cover"
-        //   sizes="(max-width: 768px) 100vw, 380px"
-          quality={85}
+          style={{ objectFit: 'cover' }}
+          className="scale-[1.2] transition-transform duration-500 hover:scale-[1.3]"
+          quality={95}
         />
       </div>
     </motion.div>
@@ -188,14 +188,13 @@ function MobileCard({ img, index, isCenter, scrollYProgress, globalScale }: Card
         zIndex: cfg.z,
       }}
     >
-      <div className="relative w-full h-full rounded-lg overflow-hidden shadow-xl">
+      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl bg-white">
         <Image
           src={img.src}
           alt={img.alt}
           fill
-          className="object-cover"
-          sizes="280px"
-          quality={80}
+          style={{ objectFit: 'cover' }}
+          quality={85}
         />
       </div>
     </motion.div>

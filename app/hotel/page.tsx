@@ -11,6 +11,8 @@ import SpecialOffer from '@/components/hotel/specialoffer'
 import StayAtCairn from '@/components/hotel/stayatcarin'
 import Amenities from '@/components/hotel/amenities'
 import Sanctuary from '@/components/hotel/sanctuary'
+import GameDayPackage from '@/components/hotel/gamedaypackage'
+import PackagesOverview from '@/components/hotel/packagesoverview'
 
 const page = () => {
   return (
@@ -26,6 +28,8 @@ const page = () => {
       <Sustainability/>
       <Testimonial/>
       <SpecialOffer/>
+      <PackagesOverview/>
+      <GameDayPackage/>
       <StayAtCairn/>
     </div>
   )

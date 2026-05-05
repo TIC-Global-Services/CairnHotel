@@ -95,36 +95,41 @@ const Hero = memo(() => {
                 if (el) tl.to(el, { yPercent: cfg.yPercent, force3D: true, ease: 'none' }, 0)
             })
 
-            tl.to(hotelTextRef.current, { yPercent: -35, force3D: true, ease: 'none' }, 0)
-            tl.to(descTextRef.current, { yPercent: -25, force3D: true, ease: 'none' }, 0)
-            tl.to(discoverRef.current, { yPercent: -35, force3D: true, ease: 'none' }, 0)
-            gsap.fromTo(adventureRef.current,
-                { xPercent: 20, opacity: 0 },
-                {
-                    xPercent: 0, opacity: 1, force3D: true, ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: adventureRef.current,
-                        start: 'top 90%',
-                        end: 'top 55%',
-                        scrub: 1,
-                        fastScrollEnd: true,
-                    },
-                }
-            )
+            if (hotelTextRef.current) tl.to(hotelTextRef.current, { yPercent: -35, force3D: true, ease: 'none' }, 0)
+            if (descTextRef.current) tl.to(descTextRef.current, { yPercent: -25, force3D: true, ease: 'none' }, 0)
+            if (discoverRef.current) tl.to(discoverRef.current, { yPercent: -35, force3D: true, ease: 'none' }, 0)
 
-            gsap.fromTo(discoveryRef.current,
-                { xPercent: -20, opacity: 0 },
-                {
-                    xPercent: 0, opacity: 1, force3D: true, ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: discoveryRef.current,
-                        start: 'top 90%',
-                        end: 'top 55%',
-                        scrub: 1,
-                        fastScrollEnd: true,
-                    },
-                }
-            )
+            if (adventureRef.current) {
+                gsap.fromTo(adventureRef.current,
+                    { xPercent: 20, opacity: 0 },
+                    {
+                        xPercent: 0, opacity: 1, force3D: true, ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: adventureRef.current,
+                            start: 'top 90%',
+                            end: 'top 55%',
+                            scrub: 1,
+                            fastScrollEnd: true,
+                        },
+                    }
+                )
+            }
+
+            if (discoveryRef.current) {
+                gsap.fromTo(discoveryRef.current,
+                    { xPercent: -20, opacity: 0 },
+                    {
+                        xPercent: 0, opacity: 1, force3D: true, ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: discoveryRef.current,
+                            start: 'top 90%',
+                            end: 'top 55%',
+                            scrub: 1,
+                            fastScrollEnd: true,
+                        },
+                    }
+                )
+            }
         })
     }, { scope: containerRef })
 
