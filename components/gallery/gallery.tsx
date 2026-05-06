@@ -4,25 +4,19 @@ import React, { memo } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import { motion } from 'framer-motion'
 
-// Import images from across the project
-import hotel1 from '@/assets/Home/hotel-1.jpg'
-import hotel2 from '@/assets/Home/hotel-2.jpg'
-import hotel3 from '@/assets/Home/hotel-3.jpg'
-import hotel4 from '@/assets/Home/hotel-4.jpg'
-import hotel5 from '@/assets/Home/hotel-5.jpg'
-import hotel6 from '@/assets/Home/hotel-6.jpg'
-import nature1 from '@/assets/hotel/nature-1.jpg'
-import nature2 from '@/assets/hotel/nature-2.jpg'
-import stay1 from '@/assets/hotel/stay_at_carin1.jpg'
-import stay2 from '@/assets/hotel/stay_at_carin2.jpg'
-import stay3 from '@/assets/hotel/stay_at_carin3.jpg'
-import stay4 from '@/assets/hotel/stay_at_carin4.jpg'
-import stay5 from '@/assets/hotel/stay_at_carin5.jpg'
-import stay6 from '@/assets/hotel/stay-2.jpg'
-import stay7 from '@/assets/hotel/stay-3.jpg'
-import elevated from '@/assets/hotel/stayelevated.jpg'
-import trusted1 from '@/assets/hotel/trustedby-1.jpg'
-import trusted2 from '@/assets/hotel/trustedby-2.jpg'
+// Gallery images
+import g01 from '@/assets/gallery/g01.jpg'
+import g02 from '@/assets/gallery/g02.jpg'
+import g03 from '@/assets/gallery/g03.jpg'
+import g04 from '@/assets/gallery/g04.jpg'
+import g05 from '@/assets/gallery/g05.jpg'
+import g06 from '@/assets/gallery/g06.jpg'
+import g07 from '@/assets/gallery/g07.jpg'
+import g08 from '@/assets/gallery/g08.jpg'
+import g09 from '@/assets/gallery/g09.jpg'
+import g10 from '@/assets/gallery/g10.jpg'
+import g11 from '@/assets/gallery/g11.jpg'
+import g12 from '@/assets/gallery/g12.jpg'
 
 interface RowConfig {
     images: StaticImageData[]
@@ -34,23 +28,30 @@ interface RowConfig {
 
 const ROWS: RowConfig[] = [
     {
-        images: [hotel1, nature1, stay1, hotel5, trusted1, stay4, hotel3],
+        images: [g01, g02, g03, g04, g05, g06, g07],
         direction: 'left',
         speed: 600,
         height: 340,
         mobileHeight: 200,
     },
     {
-        images: [stay2, hotel2, elevated, stay5, nature2, hotel6, trusted2],
+        images: [g08, g09, g10, g11, g12, g01, g02],
         direction: 'right',
         speed: 500,
         height: 340,
         mobileHeight: 200,
     },
     {
-        images: [hotel4, stay3, stay6, stay7, hotel1, nature1, stay1],
+        images: [g03, g04, g05, g06, g07, g08, g09],
         direction: 'left',
         speed: 550,
+        height: 340,
+        mobileHeight: 200,
+    },
+    {
+        images: [g10, g11, g12, g01, g02, g03, g04],
+        direction: 'right',
+        speed: 520,
         height: 340,
         mobileHeight: 200,
     },
