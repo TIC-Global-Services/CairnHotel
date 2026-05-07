@@ -147,24 +147,26 @@ const PrivateEvent = () => {
                           )}
                         </AnimatePresence>
 
-                        {/* Expandable Overlay */}
+                        {/* Expandable Overlay (Mobile Optimized) */}
                         <AnimatePresence>
                           {expandedId === slide.id && (
                             <motion.div
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               exit={{ opacity: 0 }}
-                              className="absolute inset-0 bg-[#FEF9E1] z-30 p-8 md:p-12 lg:p-16 flex flex-col items-center justify-center text-center"
+                              className="absolute inset-0 bg-[#FEF9E1] z-30 p-6 md:p-12 lg:p-16 flex flex-col items-center justify-start md:justify-center text-center overflow-y-auto scrollbar-hide"
                             >
                               <button 
                                 onClick={(e) => { e.stopPropagation(); setExpandedId(null); }}
-                                className="absolute top-6 right-6 text-[#4D2F27] text-2xl hover:scale-110 transition-transform"
+                                className="absolute top-4 right-4 md:top-6 md:right-6 text-[#4D2F27] text-xl md:text-2xl hover:scale-110 transition-transform z-40"
                               >
                                 ✕
                               </button>
-                              <p className="text-[#4D2F27] text-base md:text-lg lg:text-[22px] font-medium leading-relaxed max-w-3xl">
-                                {slide.detail}
-                              </p>
+                              <div className="py-8 md:py-0">
+                                <p className="text-[#4D2F27] text-sm md:text-lg lg:text-[22px] font-medium leading-relaxed max-w-3xl">
+                                  {slide.detail}
+                                </p>
+                              </div>
                             </motion.div>
                           )}
                         </AnimatePresence>
