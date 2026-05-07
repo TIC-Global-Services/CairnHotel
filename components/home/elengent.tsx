@@ -4,7 +4,7 @@ import abstract from '@/assets/Home/Abstract-shape.png'
 import Image from 'next/image'
 
 const Elegant = () => {
-    const quote = "“The Cairn Hotel, an elegant retreat nestled in the heart of Utah seamlessly blends nature-inspired design with modern luxury Our thoughtfully curated accommodation embody comfort, warmth breathtaking landscapes. Surrounded by majestic red rock formations and serene mountain views, the hotel offers a peaceful escape from the ordinary.”"
+    const quote = "The Cairn Hotel is an elegant retreat in the heart of Cedar City, Utah, where nature-inspired design meets modern comfort. Thoughtfully curated accommodations offer warmth, relaxation, and a refined sense of place, surrounded by the region's breathtaking red rock landscapes and serene mountain views. Whether visiting for adventure, business, or a peaceful escape, guests will find a welcoming stay rooted in comfort, hospitality, and the beauty of Southern Utah"
 
     return (
         <section className="relative w-full min-h-screen bg-white flex items-center justify-start py-10 md:py-40 overflow-hidden">

@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { OrbitingCircles } from '@/components/ui/orbiting-circles'
 
-import image1 from '@/assets/Home/hotel-1.jpg'
-import image2 from '@/assets/Home/hotel-2.jpg'
-import image3 from '@/assets/Home/hotel-3.jpg'
-import image4 from '@/assets/Home/hotel-4.jpg'
-import image5 from '@/assets/Home/hotel-5.jpg'
-import image6 from '@/assets/Home/hotel-6.jpg'
+import image1 from '@/assets/gallery/g01.jpg'
+import image2 from '@/assets/gallery/g05.jpg'
+import image3 from '@/assets/gallery/g06.jpg'
+import image4 from '@/assets/gallery/g07.jpg'
+import image5 from '@/assets/gallery/g09.jpg'
+import image6 from '@/assets/gallery/g11.jpg'
 import bgimg from '@/assets/Home/booknow_bg.png'
 
 const hotelGallery = [image1, image2, image3, image4, image5, image6];

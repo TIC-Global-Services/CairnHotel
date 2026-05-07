@@ -2,27 +2,40 @@
 
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
-import hotel1 from '@/assets/hotel/stay_at_carin1.jpg'
-import hotel2 from '@/assets/hotel/stay_at_carin2.jpg'
-import hotel3 from '@/assets/hotel/stay_at_carin3.jpg'
-import hotel4 from '@/assets/hotel/stay_at_carin4.jpg'
-import hotel5 from '@/assets/hotel/stay_at_carin5.jpg'
+import windsor from '@/assets/events/windsor.png'
+import windsorEast from '@/assets/events/windsor_east.png'
 
 const slides = [
-  { id: 1, title: 'MEETING ROOM', image: hotel1 },
-  { id: 2, title: 'BUSINESS AREA', image: hotel2 },
-  { id: 3, title: 'CONFERENCE HALL', image: hotel3 },
-  { id: 4, title: 'PRIVATE LOUNGE', image: hotel4 },
-  { id: 5, title: 'EXECUTIVE SUITE', image: hotel5 },
+  { 
+    id: 1, 
+    label: 'THE WINDSOR -CAPACITY 75',
+    title: 'Our spacious pre-function area is a perfect setting..', 
+    image: windsor,
+    detail: 'Our spacious pre-function area is a perfect setting for your next meeting, reception, or gathering in Cedar City, Utah, at The Cairn Hotel. Our event team is here to help you with thoughtful planning, creative ideas, and personalized support to make your event or meeting successful.'
+  },
+  { 
+    id: 2, 
+    label: 'THE WINDSOR EAST -CAPACITY-57',
+    title: 'Host the perfect event', 
+    image: windsorEast,
+    detail: 'Host the perfect event or corporate meetings in Cedar City at The Cairn Hotel. Our flexible meeting spaces are designed for productive gatherings, featuring modern technology, complimentary Wi-Fi, audiovisual equipment, and a spacious, comfortable setting for your guests.'
+  },
+  { 
+    id: 3, 
+    label: 'THE WINDSOR WEST -CAPACITY-18',
+    title: 'Whether you are hosting a business meeting..', 
+    image: windsorEast,
+    detail: 'Whether you are hosting a business meeting, corporate event, or small group gathering, our boardroom offers an ideal setting for a productive and professional experience in Cedar City. This modern meeting space includes Wi-Fi, comfortable seating, and access to off-site catering options to support a seamless event from start to finish'
+  },
 ]
 
 const PrivateEvent = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [expandedId, setExpandedId] = useState<number | null>(null)
   const [isMobile, setIsMobile] = useState(false)
 
-  // Hydration-safe responsiveness
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 1024)
     handleResize()
@@ -30,37 +43,27 @@ const PrivateEvent = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Auto Move Carousel
+  const handleNext = () => {
+    setExpandedId(null)
+    setCurrentIndex((prev) => (prev + 1) % slides.length)
+  }
+  
+  const handlePrev = () => {
+    setExpandedId(null)
+    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length)
+  }
+
+  // Auto-play logic: 3 second interval
   useEffect(() => {
+    // Only auto-play if no card is currently expanded
+    if (expandedId !== null) return
+
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % slides.length)
-    }, 5000)
+      handleNext()
+    }, 3000)
+
     return () => clearInterval(interval)
-  }, [currentIndex])
-
-  const handleNext = () => setCurrentIndex((prev) => (prev + 1) % slides.length)
-  const handlePrev = () => setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length)
-
-  const getDiff = (index: number) => {
-    let diff = index - currentIndex
-    if (diff < -2) diff += slides.length
-    if (diff > 2) diff -= slides.length
-    return diff
-  }
-
-  const getLayout = (diff: number) => {
-    if (isMobile) {
-      if (diff === 0) return { left: "0%", width: "100%", height: "100%", top: "0%", opacity: 1, zIndex: 10 }
-      if (diff === 1) return { left: "105%", width: "100%", height: "100%", top: "0%", opacity: 0, zIndex: 9 }
-      if (diff === -1) return { left: "-105%", width: "100%", height: "100%", top: "0%", opacity: 0, zIndex: 9 }
-      return { left: "105%", width: "100%", height: "100%", top: "0%", opacity: 0, zIndex: 1 }
-    } else {
-      if (diff === 0) return { left: "0%", width: "63%", height: "100%", top: "0%", opacity: 1, zIndex: 10 }
-      if (diff === 1) return { left: "65%", width: "35%", height: "78%", top: "11%", opacity: 1, zIndex: 9 }
-      if (diff > 1) return { left: "105%", width: "35%", height: "78%", top: "11%", opacity: 0, zIndex: 8 }
-      if (diff < 0) return { left: "-65%", width: "63%", height: "100%", top: "0%", opacity: 0, zIndex: 8 }
-    }
-  }
+  }, [expandedId, currentIndex]) // Re-run if expandedId or currentIndex changes to reset timer
 
   return (
     <section className="relative w-full py-20 lg:py-32 bg-[#FCFBF8] overflow-hidden">
@@ -80,75 +83,135 @@ const PrivateEvent = () => {
         </div>
 
         {/* Carousel Region */}
-        <div className="relative w-full h-[380px] md:h-[500px] lg:h-[550px] z-10 xl:-mr-[10%]">
-          {slides.map((slide, index) => {
-            const diff = getDiff(index)
-            const layout = getLayout(diff)
-
-            return (
-              <motion.div
-                key={slide.id}
-                initial={false}
-                animate={layout as any}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} 
-                className="absolute rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer shadow-md"
-                onClick={() => {
-                  if (diff === 1) handleNext()
-                  if (diff === -1) handlePrev()
-                }}
-                drag={diff === 0 ? "x" : false}
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.2}
-                onDragEnd={(e, { offset }) => {
-                  if (offset.x < -50) handleNext()
-                  else if (offset.x > 50) handlePrev()
-                }}
-              >
-                <Image
-                  src={slide.image}
-                  alt={slide.title}
-                  fill
-                  className="object-cover"
-                  priority={diff === 0 || diff === 1}
-                />
+        <div className="relative w-full h-[320px] md:h-[400px] lg:h-[460px] mt-10">
+          <div className="relative w-full h-full">
+            <AnimatePresence initial={false}>
+              {slides.map((slide, index) => {
+                const isActive = index === currentIndex
+                const isNext = index === (currentIndex + 1) % slides.length
                 
-                {/* Subtle dark gradient overlay based on active status */}
-                <div 
-                  className={`absolute inset-0 transition-colors duration-500 pointer-events-none ${
-                    diff === 0 ? 'bg-black/10' : 'bg-black/30'
-                  }`} 
-                />
-                
-                {/* Pill Tag Overlay */}
-                <div className="absolute top-6 left-6 md:top-8 md:left-8 z-20 pointer-events-none">
-                  <div className="px-5 py-2 md:px-6 md:py-[10px] rounded-full border border-white/60 bg-white/20 backdrop-blur-md">
-                    <span className="text-white text-xs md:text-sm font-medium tracking-wider uppercase drop-shadow-sm">
-                      {slide.title}
-                    </span>
-                  </div>
-                </div>
+                if (!isActive && !isNext) return null
 
-              </motion.div>
-            )
-          })}
+                return (
+                  <motion.div
+                    key={slide.id}
+                    initial={{ 
+                      opacity: 0, 
+                      x: isNext ? '100%' : '-100%',
+                      scale: 0.8
+                    }}
+                    animate={{ 
+                      opacity: isActive ? 1 : 0.6,
+                      scale: isActive ? 1 : 0.8,
+                      x: isActive ? '0%' : '65%', // Reduced offset for smaller cards
+                      zIndex: isActive ? 20 : 10,
+                      filter: isActive ? 'blur(0px)' : 'blur(2px)'
+                    }}
+                    exit={{ 
+                      opacity: 0, 
+                      x: '-100%',
+                      scale: 0.8
+                    }}
+                    transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+                    className={`absolute top-0 left-0 w-[75%] md:w-[60%] lg:w-[58%] h-full cursor-pointer`}
+                    onClick={() => {
+                      if (isNext) handleNext()
+                    }}
+                  >
+                    {/* Inner wrapper for image clipping */}
+                    <div className="relative w-full h-full rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl">
+                        <Image
+                          src={slide.image}
+                          alt={slide.title}
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                        
+                        {/* Main Content */}
+                        <AnimatePresence>
+                          {expandedId !== slide.id && (isActive || isNext) && (
+                            <motion.div 
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: isActive ? 1 : 0.4 }}
+                              exit={{ opacity: 0 }}
+                              className="absolute inset-x-0 bottom-12 flex flex-col items-center justify-center p-6 text-center text-white"
+                            >
+                              <span className="text-[10px] md:text-[11px] font-medium tracking-[0.1em] mb-2 opacity-90 uppercase">
+                                {slide.label}
+                              </span>
+                              <h3 className="text-sm md:text-lg lg:text-[20px] font-medium max-w-xl leading-snug">
+                                {slide.title}
+                              </h3>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+
+                        {/* Expandable Overlay */}
+                        <AnimatePresence>
+                          {expandedId === slide.id && (
+                            <motion.div
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              className="absolute inset-0 bg-[#FEF9E1] z-30 p-8 md:p-12 lg:p-16 flex flex-col items-center justify-center text-center"
+                            >
+                              <button 
+                                onClick={(e) => { e.stopPropagation(); setExpandedId(null); }}
+                                className="absolute top-6 right-6 text-[#4D2F27] text-2xl hover:scale-110 transition-transform"
+                              >
+                                ✕
+                              </button>
+                              <p className="text-[#4D2F27] text-base md:text-lg lg:text-[22px] font-medium leading-relaxed max-w-3xl">
+                                {slide.detail}
+                              </p>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                    </div>
+
+                    {/* The Dynamic "+" Button (Outside the overflow-hidden wrapper) */}
+                    {(isActive || isNext) && (
+                      <motion.button
+                        layoutId={`plus-${slide.id}`}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          if (!isActive) {
+                             handleNext()
+                             return
+                          }
+                          setExpandedId(expandedId === slide.id ? null : slide.id)
+                        }}
+                        className={`absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-10 h-10 md:w-14 md:h-14 bg-[#FEF9E1] rounded-full flex items-center justify-center shadow-xl z-40 transition-all ${!isActive ? 'opacity-0' : 'opacity-100'}`}
+                        whileHover={isActive ? { scale: 1.1 } : {}}
+                        whileTap={isActive ? { scale: 0.9 } : {}}
+                      >
+                        <motion.span 
+                          animate={{ rotate: expandedId === slide.id ? 45 : 0 }}
+                          className="text-[#4D2F27] text-xl md:text-2xl font-light"
+                        >
+                          +
+                        </motion.span>
+                      </motion.button>
+                    )}
+                  </motion.div>
+                )
+              })}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Pagination Dots */}
-        <div className="flex items-center justify-center md:justify-start lg:ml-[31%] -mt-6 z-20">
-          <div className="flex items-center gap-2 md:gap-3">
-            {slides.map((_, i) => (
-              <button 
-                key={i}
-                onClick={() => setCurrentIndex(i)}
-                className={`rounded-full transition-all duration-500 hover:bg-[#483A35]/80 ${
-                  i === currentIndex 
-                  ? 'w-6 h-1.5 md:w-8 md:h-[6px] bg-[#4D2F27]' 
-                  : 'w-1.5 h-1.5 md:w-[6px] md:h-[6px] bg-[#D1D1D1]'
-                }`}
-                aria-label={`Go to slide ${i + 1}`}
-              />
-            ))}
-          </div>
+        <div className="flex items-center justify-center gap-2 mt-12">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                i === currentIndex ? 'bg-[#4D2F27] scale-125' : 'bg-[#D1D1D1]'
+              }`}
+            />
+          ))}
         </div>
 
       </div>

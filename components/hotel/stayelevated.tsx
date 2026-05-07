@@ -6,7 +6,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import bgimage from '@/assets/hotel/sand_bg.png'
-import stayImage from '@/assets/hotel/stayelevated.jpg'
+import stayImage from '@/assets/gallery/g12.jpg'
 
 gsap.registerPlugin(ScrollTrigger)
 

@@ -5,12 +5,12 @@ import ArchitectureOfNature from '@/components/hotel/architectureofnature'
 import StayElevated from '@/components/hotel/stayelevated'
 import ExploreStay from '@/components/hotel/explorstay'
 import Sustainability from '@/components/hotel/sustainability'
-import TrustedBy from '@/components/hotel/trustedby'
+// import TrustedBy from '@/components/hotel/trustedby'
 import Testimonial from '@/components/hotel/testimonial'
-import SpecialOffer from '@/components/hotel/specialoffer'
+// import SpecialOffer from '@/components/hotel/specialoffer'
 import StayAtCairn from '@/components/hotel/stayatcarin'
 import Amenities from '@/components/hotel/amenities'
-import Sanctuary from '@/components/hotel/sanctuary'
+// import Sanctuary from '@/components/hotel/sanctuary'
 import GameDayPackage from '@/components/hotel/gamedaypackage'
 import PackagesOverview from '@/components/hotel/packagesoverview'
 
@@ -22,12 +22,12 @@ const page = () => {
       <ArchitectureOfNature />
       <ExploreStay/>
       <Amenities/>
-      <Sanctuary />
-      <TrustedBy/>
+      {/* <Sanctuary /> */}
+      {/* <TrustedBy/> */}
       <StayElevated/>
       <Sustainability/>
       <Testimonial/>
-      <SpecialOffer/>
+      {/* <SpecialOffer/> */}
       <PackagesOverview/>
       <GameDayPackage/>
       <StayAtCairn/>

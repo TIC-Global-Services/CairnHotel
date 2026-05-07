@@ -48,7 +48,7 @@ const Discover = () => {
                     ref={textRef}
                     className="text-2xl md:text-3xl lg:text-[50px] font-sans font-normal leading-[1.35] md:leading-relaxed tracking-tight mb-16 md:mb-24 bg-linear-to-b from-[#4D2F27] via-[#331F1ABF] via-27% to-[#331F1ABF] to-[75.08%] bg-clip-text text-transparent"
                 >
-                    Cozy interiors, earthy tones inspired by nature, and thoughtfully crafted details that make every stay at The Cairn Hotel feel warm, refined, and truly personal.
+                    The new Cairn Hotel features inviting interiors, nature-inspired earth tones, and thoughtful design details that reflect the warmth, refinement, and natural beauty of Southern Utah
                 </p>
 
                 

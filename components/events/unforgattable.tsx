@@ -13,10 +13,10 @@ const Unforgettable = () => {
         {/* Left Side: Text Content */}
         <div className="w-full lg:w-[60%] flex flex-col gap-10 z-10">
           <p className="text-[#333333] text-sm md:text-lg lg:text-xl font-normal md:leading-relaxed leading-snug font-sans tracking-wide">
-            Host unforgettable private events at Cairn Hotel, where elegant spaces and thoughtful service come together to create seamless experiences. From corporate meetings and workshops to intimate celebrations and special occasions, each event is tailored to your needs with flexible setups, modern amenities, and curated catering.
+            Located in the heart of Cedar City, Utah, The Cairn Hotel offers an elegant setting, attentive service, and flexible event support for gatherings of all kinds. From intimate celebrations to corporate meetings and special events, our team is here to help create a seamless and memorable experience.
           </p>
           <p className="text-[#333333] text-sm md:text-lg lg:text-xl font-normal md:leading-relaxed leading-snug font-sans tracking-wide">
-            Whether you&apos;re gathering for business or celebration, every detail is designed to ensure comfort, style, and lasting impressions. At Cairn Hotel, every private event is crafted to feel both effortless and exceptional. With versatile venues, refined interiors, and a dedicated team handling every detail, your gatherings—be it corporate functions, social celebrations, or intimate occasions—are elevated into memorable experiences.
+            With a spacious banquet hall, off-site catering options, and partnerships with trusted local event venues, The Cairn Hotel makes planning simple and personalized. Whether you are hosting a wedding celebration, business meeting, retreat, or social gathering, we&apos;ll help bring your vision to life with care, detail, and genuine hospitality.
           </p>
         </div>
 

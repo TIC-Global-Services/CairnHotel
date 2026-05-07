@@ -109,7 +109,7 @@ const ArchitectureOfNature = () => {
     }, []);
 
     return (
-        <section ref={triggerRef} className="relative w-full h-auto md:h-[130dvh] bg-[#f5f3f0] overflow-hidden">
+        <section ref={triggerRef} className="relative w-full h-auto md:h-[160dvh] bg-[#f5f3f0] overflow-hidden">
             <div className="relative w-full h-full flex flex-col items-center pt-12 md:pt-20 lg:pt-10 px-4 lg:px-24">
 
                 {/* Header Content */}
@@ -123,7 +123,7 @@ const ArchitectureOfNature = () => {
                         </h2>
                     </div>
                     <p className="max-w-xl text-[#352520] text-sm md:text-2xl leading-relaxed md:leading-relaxed font-normal md:font-light">
-                        The Cairn Hotel is designed to exist in harmony with the mountains. Inspired by natural stone, open landscapes, and timeless alpine structures, every space is thoughtfully crafted to create a sense of calm and connection with nature.
+                        Nestled beneath the towering sandstone cliffs and wide-open skies of canyon country, The Cairn Hotel invites you to slow down and arrive fully. Inspired by the ancient beauty of the Colorado Plateau, with its burning sunsets, silent mesas, and sage-scented air, we reflect a perfect harmony between modern luxury and the timeless character of the American Southwest. This is a place to feel the warmth of the desert, rest deeply, and leave changed.
                     </p>
                 </div>
 

@@ -1,7 +1,8 @@
 import React from 'react'
 import Hero from '@/components/dinning/hero'
 import Experience from '@/components/dinning/experience'
-import Menu from '@/components/dinning/menu'
+// import Menu from '@/components/dinning/menu'
+import ContinentalBreakfast from '@/components/dinning/continentalbreakfast'
 import Marquee from '@/components/dinning/marquee'
 import QualityAndQuantity from '@/components/dinning/qualityandquntity'
 import Explore from '@/components/dinning/explore'
@@ -12,7 +13,8 @@ const page = () => {
     <div>
         <Hero/>
         <Experience/>
-        <Menu/>
+        {/* <Menu/> */}
+        <ContinentalBreakfast/>
         <Marquee/>
         <QualityAndQuantity/>
         <Explore/>

@@ -37,7 +37,7 @@ const navLinks = [
         href: "/gallery"
     },
     {
-        title: "EVENTS",
+        title: "BANQUETS",
         href: "/events"
     },
 ]
