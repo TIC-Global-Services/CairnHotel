@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${clashDisplay.variable} h-full antialiased`}>
-      <body className={`${clashDisplay.className} min-h-full flex flex-col antialiased`}>
+      <body className={`${clashDisplay.className} min-h-full flex flex-col antialiased overflow-x-hidden w-full max-w-[100vw]`}>
         <SmoothScroller>
           <Loader/>
           <NavBar />

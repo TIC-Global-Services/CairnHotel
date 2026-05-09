@@ -32,9 +32,10 @@ const SmoothScroller = ({ children }: LenisProviderProps) => {
 
     // Add Lenis's requestAnimationFrame (raf) to GSAP's ticker
     // This ensures smooth synchronization between GSAP animations and Lenis scrolling
-    gsap.ticker.add((time) => {
+    const update = (time: number) => {
       lenis.raf(time * 1000);
-    });
+    };
+    gsap.ticker.add(update);
 
     // Disable GSAP's lag smoothing to avoid jumps during scrolling
     gsap.ticker.lagSmoothing(0);
@@ -44,8 +45,7 @@ const SmoothScroller = ({ children }: LenisProviderProps) => {
 
     return () => {
       lenisRef.current?.destroy();
-      gsap.ticker.remove(lenis.raf);
-      ScrollTrigger.killAll();
+      gsap.ticker.remove(update);
     };
   }, []);
 
