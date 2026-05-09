@@ -13,7 +13,7 @@ const Discover = () => {
     const ctaRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        if (!textRef.current || !ctaRef.current) return
+        if (!textRef.current) return
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -29,12 +29,6 @@ const Discover = () => {
             duration: 1.2,
             ease: "power3.out"
         })
-            .from(ctaRef.current, {
-                y: 20,
-                opacity: 0,
-                duration: 1,
-                ease: "power2.out"
-            }, "-=0.8")
 
     }, { scope: sectionRef })
 
