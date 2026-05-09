@@ -125,36 +125,25 @@ export const SeasonOverlay: React.FC<SeasonOverlayProps> = ({ activeSeason, onCl
                 transition={transitionSettings}
                 className="absolute inset-0 w-full h-full overflow-hidden bg-black"
             >
-                <motion.div
-                    layoutId={`season-image-wrap-${activeSeason}`}
-                    transition={transitionSettings}
-                    className="relative w-full h-full overflow-hidden"
-                >
-                    {/* True Layout-ID Morphing Background */}
-                    <AnimatePresence>
-                        {viewItems.map((item, idx) => (
-                            activeViewIndex === idx && (
-                                <motion.div
-                                    key={`bg-${activeSeason}-${item.id}`}
-                                    layoutId={`gallery-item-${activeSeason}-${item.id}`}
-                                    exit={{ opacity: 0, zIndex: 0 }}
-                                    transition={{ duration: 0.5, type: 'tween', ease: [0.25, 0.1, 0.25, 1] }}
-                                    style={{ borderRadius: 0 }}
-                                    className="absolute inset-0 w-full h-full overflow-hidden"
-                                >
-                                    <Image
-                                        src={item.image}
-                                        alt={`Background view`}
-                                        fill
-                                        className="object-cover"
-                                        priority
-                                    />
-                                </motion.div>
-                            )
-                        ))}
-                    </AnimatePresence>
-                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-black/10 pointer-events-none" />
-                </motion.div>
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={`bg-${activeSeason}-${activeViewIndex}`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.4 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="absolute inset-0 w-full h-full"
+                    >
+                        <Image
+                            src={activeView.image}
+                            alt="Background blur"
+                            fill
+                            className="object-cover blur-[80px] scale-110"
+                            priority
+                        />
+                    </motion.div>
+                </AnimatePresence>
+                <div className="absolute inset-0 bg-black/40 pointer-events-none" />
             </motion.div>
 
             {/* Native fade out wrapper for all content (UI, text, buttons) */}
@@ -212,138 +201,111 @@ export const SeasonOverlay: React.FC<SeasonOverlayProps> = ({ activeSeason, onCl
                             </motion.div>
                         )}
 
-                        {/* SEQUENCE STEP 2: Dashboard Layout */}
+                        {/* SEQUENCE STEP 2: Split Dashboard Layout */}
                         {sequenceStep === 2 && (
                             <motion.div
                                 key="step-2"
                                 variants={containerVariants}
                                 initial="hidden"
                                 animate="show"
-                                exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.3 } }}
-                                className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between z-20 px-[5%] md:px-[8%] pt-24 pb-12 overflow-y-auto"
+                                exit={{ opacity: 0, scale: 0.98 }}
+                                className="absolute inset-0 flex items-center justify-center z-20 px-[5%] md:px-[10%]"
                             >
-                                {/* Left Side: Typography */}
-                                <div className="flex-1 relative w-full h-full flex flex-col justify-center mt-2 lg:mt-0 lg:pr-10">
-                                    <div className="relative flex flex-col justify-center">
-                                        {/* Masked outline text overlapping - Backdrop */}
-                                        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full pointer-events-none z-10 overflow-visible">
-                                            <motion.h2 
-                                                variants={maskVariants} 
-                                                className="text-[4rem] sm:text-[7rem] md:text-[10rem] xl:text-[10rem] font-black uppercase text-transparent tracking-widest leading-none block opacity-30"
-                                                style={{ WebkitTextStroke: '1px rgba(255,255,255,0.6)' }}
+                                <div className="w-full max-w-7xl flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+                                    
+                                    {/* Left Side: Active Image Card (332x546 per spec) */}
+                                    <motion.div 
+                                        layoutId={`gallery-item-${activeSeason}-${activeView.id}`}
+                                        className="relative shrink-0 w-[280px] md:w-[332px] h-[460px] md:h-[546px] rounded-[20px] overflow-hidden shadow-2xl border border-white/10"
+                                    >
+                                        <AnimatePresence mode="wait">
+                                            <motion.div
+                                                key={`card-img-${activeViewIndex}`}
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                transition={{ duration: 0.4 }}
+                                                className="absolute inset-0 w-full h-full"
                                             >
-                                                {activeView.outlineTitle}
-                                            </motion.h2>
-                                        </div>
+                                                <Image
+                                                    src={activeView.image}
+                                                    alt={activeView.title}
+                                                    fill
+                                                    className="object-cover"
+                                                    priority
+                                                />
+                                            </motion.div>
+                                        </AnimatePresence>
+                                    </motion.div>
 
-                                        {/* Masked reveal for main title - Foreground */}
-                                        <div className="overflow-hidden translate-x-[2%] md:translate-x-[5%] flex items-center relative z-20">
-                                            <AnimatePresence mode="popLayout">
-                                                <motion.h1
+                                    {/* Right Side: Content */}
+                                    <div className="flex-1 flex flex-col justify-center text-left">
+                                        <motion.span 
+                                            variants={maskVariants}
+                                            className="text-white text-lg md:text-3xl font-bold uppercase tracking-wider mb-4"
+                                        >
+                                            {activeViewIndex + 1}. {activeView.title}
+                                        </motion.span>
+                                        
+                                        <div className="overflow-hidden mb-6">
+                                            <AnimatePresence mode="wait">
+                                                <motion.h2
                                                     key={`title-${activeViewIndex}`}
                                                     initial={{ y: '100%' }}
                                                     animate={{ y: 0 }}
-                                                    exit={{ y: '-100%', opacity: 0, transition: { duration: 0.2 } }}
-                                                    transition={{ duration: 0.5, type: 'tween', ease: [0.25, 0.1, 0.25, 1] }}
-                                                    className="text-[2rem] sm:text-[3rem] md:text-[3rem] xl:text-[3rem] font-extrabold uppercase text-white tracking-widest leading-[0.85]"
+                                                    exit={{ y: '-100%' }}
+                                                    transition={{ duration: 0.5, ease: "easeOut" }}
+                                                    className="text-3xl md:text-[4.5rem] lg:text-[5rem] font-bold uppercase text-white leading-[1] tracking-tight mb-8"
                                                 >
-                                                    {activeView.title}
-                                                </motion.h1>
+                                                    {activeView.title === "Things to do" ? "Adventure" : activeView.title} <br/>
+                                                    AS A PLACE <br/>
+                                                    OF ADVENTURE
+                                                </motion.h2>
                                             </AnimatePresence>
                                         </div>
-                                    </div>
 
-                                    <div className="overflow-hidden mt-6 md:mt-15 max-w-lg">
-                                        <AnimatePresence mode="popLayout">
-                                            <motion.p
-                                                key={`desc-${activeViewIndex}`}
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, transition: { duration: 0.2 } }}
-                                                transition={{ duration: 0.5, type: 'tween', ease: [0.25, 0.1, 0.25, 1] }}
-                                                className="text-white md:text-white/90 text-sm md:text-xl leading-relaxed font-normal md:font-light z-20 drop-shadow-lg"
-                                            >
+                                        <div className="flex flex-col space-y-8 max-w-xl">
+                                            <motion.p variants={maskVariants} className="text-white/90 text-sm md:text-lg leading-relaxed">
                                                 {activeView.description}
                                             </motion.p>
-                                        </AnimatePresence>
+                                            
+                                            <motion.div variants={maskVariants} className="w-1/2 h-[1px] bg-white/20" />
+                                            
+                                            <motion.p variants={maskVariants} className="text-white/70 text-xs md:text-base leading-relaxed">
+                                                The crisp mountain air, rugged landscapes, and endless horizons invite explorers to push their limits while embracing the beauty and serenity of nature.
+                                            </motion.p>
+                                        </div>
                                     </div>
-
-                                    {/* Navigation arrows (decorative) */}
-                                    <motion.div variants={maskVariants} className="flex items-center gap-2 md:gap-4 mt-6 md:mt-12 z-20">
-                                        <button onClick={handlePrev} className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white md:border-white/30 flex items-center justify-center bg-transparent md:bg-white/10 hover:bg-white hover:text-black transition-colors outline-none focus:ring-2 focus:ring-white">
-                                            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
-                                        </button>
-                                        <button onClick={handleNext} className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white md:border-white/30 flex items-center justify-center bg-transparent md:bg-white/10 hover:bg-white hover:text-black transition-colors outline-none focus:ring-2 focus:ring-white">
-                                            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
-                                        </button>
-                                    </motion.div>
                                 </div>
 
-                                {/* Right Side: Adventure Cards - Staggered slide from right */}
-                                <motion.div layout className="flex-1 flex flex-row overflow-x-visible justify-center md:justify-end gap-6 w-full  lg:mt-[28%] md:gap-4 xl:gap-6">
-                                    <AnimatePresence mode="popLayout">
-                                        {viewItems
-                                            .slice()
-                                            .concat(viewItems) // Double the array to easily slice wrapping windows
-                                            .slice((activeViewIndex % viewItems.length) + 1, (activeViewIndex % viewItems.length) + 3) // Safely grab the NEXT 2 consecutive cards
-                                            .map((item, currentVisibleIndex) => {
-                                                // Find the true logical index of the item
-                                                const logicalIndex = viewItems.findIndex(v => v.id === item.id);
+                                {/* Bottom Navigation: Arrows & Pagination */}
+                                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 md:left-[10%] md:translate-x-0 flex items-center gap-12 z-50">
+                                    <div className="flex items-center gap-4">
+                                        <button 
+                                            onClick={handlePrev}
+                                            className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center bg-black/20 backdrop-blur-md text-white hover:bg-white hover:text-black transition-all outline-none"
+                                        >
+                                            <ChevronLeft className="w-6 h-6" />
+                                        </button>
+                                        
+                                        {/* Pagination Dots */}
+                                        <div className="flex items-center gap-3 mx-4">
+                                            {viewItems.map((_, i) => (
+                                                <div 
+                                                    key={i}
+                                                    className={`h-2.5 rounded-full transition-all duration-300 ${i === activeViewIndex ? 'w-8 bg-white' : 'w-2.5 bg-white/30'}`}
+                                                />
+                                            ))}
+                                        </div>
 
-                                                return (
-                                                    <motion.div
-                                                        layout
-                                                        initial={{ opacity: 0, x: 100 }}
-                                                        animate={{
-                                                            opacity: 1,
-                                                            x: 0,
-                                                            transition: {
-                                                                type: 'tween',
-                                                                ease: [0.25, 0.1, 0.25, 1],
-                                                                duration: 0.5,
-                                                                delay: hasLoaded ? 0 : currentVisibleIndex * 0.4 + 0.2
-                                                            }
-                                                        }}
-                                                        exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
-                                                        transition={{ duration: 0.5, type: 'tween', ease: [0.25, 0.1, 0.25, 1] }}
-                                                        key={`visible-card-${item.id}`}
-                                                        onClick={() => setActiveViewIndex(logicalIndex)}
-                                                        whileHover={{ y: -10 }}
-                                                        className={`relative shrink-0 w-[260px] sm:w-[180px] md:w-[220px] aspect-2/2 mb-20 md:mb-0 md:aspect-3/4 rounded-3xl overflow-hidden shadow-2xl cursor-pointer group transition-all duration-300 opacity-90 hover:opacity-100 mx-auto md:mx-0 ${currentVisibleIndex >= 1 ? 'hidden md:block' : ''}`}
-                                                    >
-                                                        {/* Image perfectly morphs to the background when clicked. Because this list explicitly excludes the active index, image will ALWAYS be visible! */}
-                                                        <motion.div
-                                                            key={`thumb-${activeSeason}-${item.id}`}
-                                                            layoutId={`gallery-item-${activeSeason}-${item.id}`}
-                                                            transition={{ duration: 0.5, type: 'tween', ease: [0.25, 0.1, 0.25, 1] }}
-                                                            style={{ borderRadius: '24px' }}
-                                                            className="absolute inset-0 w-full h-full z-0 bg-black/20 overflow-hidden"
-                                                        >
-                                                            <Image
-                                                                src={item.image}
-                                                                alt={item.title}
-                                                                fill
-                                                                className="object-cover transition-transform duration-700 "
-                                                            />
-                                                        </motion.div>
-
-                                                        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent pointer-events-none z-10" />
-                                                        <h3 className={`absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 text-center w-full text-[12px] md:text-base font-bold uppercase tracking-widest text-white transition-colors z-20`}>
-                                                            {item.title}
-                                                        </h3>
-                                                    </motion.div>
-                                                )
-                                            })}
-                                    </AnimatePresence>
-                                </motion.div>
-
-                                {/* Small Index Tracker */}
-                                <motion.div variants={maskVariants} className="absolute bottom-20 right-6 md:bottom-12 md:right-12 flex items-end gap-[2px] font-bold text-white z-20">
-                                    <span className="text-2xl md:text-4xl text-white leading-none">
-                                        {String(activeViewIndex + 1).padStart(2, '0')}
-                                    </span>
-                                    <span className="text-white/60 text-[10px] md:text-base tracking-widest font-medium md:mb-1 leading-none">/{String(viewItems.length).padStart(2, '0')}</span>
-                                </motion.div>
+                                        <button 
+                                            onClick={handleNext}
+                                            className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-white/20 flex items-center justify-center bg-black/20 backdrop-blur-md text-white hover:bg-white hover:text-black transition-all outline-none"
+                                        >
+                                            <ChevronRight className="w-6 h-6" />
+                                        </button>
+                                    </div>
+                                </div>
                             </motion.div>
                         )}
                     </AnimatePresence>
