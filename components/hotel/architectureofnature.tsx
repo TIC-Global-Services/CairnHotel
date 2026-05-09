@@ -110,10 +110,10 @@ const ArchitectureOfNature = () => {
 
     return (
         <section ref={triggerRef} className="relative w-full h-auto md:h-[160dvh] bg-[#f5f3f0] overflow-hidden">
-            <div className="relative w-full h-full flex flex-col items-center pt-12 md:pt-20 lg:pt-10 px-4 lg:px-24">
+            <div className="relative w-full h-full flex flex-col items-center pt-12 md:pt-10 lg:pt-20 px-4 lg:px-24">
 
                 {/* Header Content */}
-                <div className="w-full flex flex-col lg:flex-row justify-between items-start md:items-start gap-6 lg:gap-4 z-10">
+                <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-0 z-10">
                     <div className="flex flex-col">
                         <h2 className="text-lg md:text-[2.75rem] font-bold md:font-semibold text-[#352520]  whitespace-nowrap leading-none tracking-wide">
                             THE ARCHITECTURE OF
@@ -122,7 +122,7 @@ const ArchitectureOfNature = () => {
                             NATURE
                         </h2>
                     </div>
-                    <p className="max-w-xl text-[#352520] text-sm md:text-2xl leading-relaxed md:leading-relaxed font-normal md:font-light">
+                    <p className="w-full lg:w-[52%] text-[#352520] text-sm md:text-2xl leading-relaxed md:leading-relaxed font-normal md:font-light">
                         Nestled beneath the towering sandstone cliffs and wide-open skies of canyon country, The Cairn Hotel invites you to slow down and arrive fully. Inspired by the ancient beauty of the Colorado Plateau, with its burning sunsets, silent mesas, and sage-scented air, we reflect a perfect harmony between modern luxury and the timeless character of the American Southwest. This is a place to feel the warmth of the desert, rest deeply, and leave changed.
                     </p>
                 </div>

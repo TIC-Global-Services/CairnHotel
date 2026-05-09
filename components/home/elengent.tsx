@@ -17,13 +17,13 @@ const Elegant = () => {
                     />
                 </div>
 
-                <div className="absolute top-[-5%] right-[-40%] md:right-[-15%] md:top-[-20%] md:left-[42%] h-full md:h-[150dvh] w-full md:w-full flex items-center justify-center z-10 pointer-events-none">
+                <div className="absolute top-[-5%] right-[-45%] md:right-[-20%] md:top-[-25%] md:left-[40%] h-[110vh] md:h-[165dvh] w-[140%] md:w-[115%] flex items-center justify-center z-10 pointer-events-none">
                     <Image
                         src={abstract}
                         alt="Abstract Shape"
                         fill
                         priority
-                        className="object-cover h-full md:object-contain opacity-40 p-0 md:p-4 lg:p-10"
+                        className="object-cover h-full md:object-contain opacity-40 p-0"
                     />
                 </div>
             </div>
