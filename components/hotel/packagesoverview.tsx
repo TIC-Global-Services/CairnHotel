@@ -149,20 +149,19 @@ const PackagesOverview = () => {
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
 
-            {/* Left side image */}
-            <div className="w-full md:w-[48%] p-6 md:p-12 flex items-center justify-center">
-              <div className="relative w-full aspect-[534/660] rounded-[2rem] overflow-hidden shadow-lg">
-                <Image 
-                  src={packagesMap[selectedPackage].image} 
-                  alt={packagesMap[selectedPackage].title} 
-                  fill 
-                  className="object-cover" 
-                />
-              </div>
+            {/* Left side image — flush with corners and matching border radius */}
+            <div className="w-full md:w-[45%] relative min-h-[400px] md:min-h-auto overflow-hidden rounded-t-[2.5rem] md:rounded-tr-none md:rounded-l-[2.5rem]">
+              <Image 
+                src={packagesMap[selectedPackage].image} 
+                alt={packagesMap[selectedPackage].title} 
+                fill 
+                className="object-cover" 
+                priority
+              />
             </div>
 
             {/* Right side content */}
-            <div className="w-full md:w-[52%] p-6 md:p-12 md:pl-0 flex flex-col justify-center">
+            <div className="w-full md:w-[55%] p-8 md:p-16 flex flex-col justify-center">
               <h2 className="text-3xl md:text-5xl font-sans font-medium text-black mb-6 md:mb-8 tracking-tight leading-tight">
                 {packagesMap[selectedPackage].modalTitle}
               </h2>
@@ -175,11 +174,11 @@ const PackagesOverview = () => {
                 Package includes:
               </h4>
 
-              <div className="flex flex-wrap gap-3 md:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                 {packagesMap[selectedPackage].includes.map((item: string, i: number) => (
                   <div 
                     key={i}
-                    className="bg-[#FFF6E9] px-5 py-3 rounded-full text-[13px] md:text-[14px] text-[#5A4A3A] font-medium"
+                    className="bg-[#FFF6E9] px-4 py-2.5 rounded-full text-[12px] md:text-[13px] text-[#5A4A3A] font-medium text-center flex items-center justify-center"
                   >
                     {item}
                   </div>

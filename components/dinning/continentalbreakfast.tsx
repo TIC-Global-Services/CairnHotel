@@ -40,7 +40,7 @@ export default function ContinentalBreakfast() {
                 viewport={{ once: true, margin: "-100px" }}
                 className="text-center max-w-5xl px-4 z-10"
             >
-                <h2 className="text-xl md:text-[40px] font-semibold uppercase tracking-widest mb-6 text-[#1a1a1a]">
+                <h2 className="text-xl md:text-[40px] font-semibold uppercase tracking-normal mb-6 text-[#1a1a1a]">
                     Continental Breakfast
                 </h2>
                 <p className="text-[#1a1a1a]/90 text-base md:text-[20px] font-medium leading-normal md:leading-relaxed">
