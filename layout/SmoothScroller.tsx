@@ -43,7 +43,15 @@ const SmoothScroller = ({ children }: LenisProviderProps) => {
     // Auto-refresh ScrollTrigger on window load/resize
     ScrollTrigger.refresh();
 
+    // Watch for DOM height changes (like images loading) to prevent scroll lock
+    const resizeObserver = new ResizeObserver(() => {
+      lenis.resize();
+      ScrollTrigger.refresh();
+    });
+    resizeObserver.observe(document.body);
+
     return () => {
+      resizeObserver.disconnect();
       lenisRef.current?.destroy();
       gsap.ticker.remove(update);
     };

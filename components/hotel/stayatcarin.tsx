@@ -109,7 +109,6 @@ interface CardProps {
 function DesktopCard({ img, index, isCenter, scrollYProgress, globalScale }: CardProps) {
   const offsets = [-710, -355, 0, 355, 710]
   const rotations = [-8, -4, 0, 4, 8]
-  const internalRotations = ['-rotate-6', '-rotate-3', 'rotate-0', 'rotate-3', 'rotate-6'] // Counter-tilt the image content
 
   const x = useTransform(scrollYProgress, [0, 0.4], [0, offsets[index]])
   const rotate = useTransform(scrollYProgress, [0, 0.4], [0, rotations[index]])
@@ -128,16 +127,14 @@ function DesktopCard({ img, index, isCenter, scrollYProgress, globalScale }: Car
         zIndex: isCenter ? 10 : 5 - Math.abs(index - 2),
       }}
     >
-      <div className="w-full h-full bg-white shadow-2xl p-3 md:p-4">
-        <div className="relative w-full h-full overflow-hidden bg-white">
-          <Image
-            src={img.src}
-            alt={img.alt}
-            fill
-            className={`object-cover w-full h-full scale-[1.2] transition-transform duration-700 hover:scale-[1.3] ${isCenter ? '' : internalRotations[index]}`}
-            quality={95}
-          />
-        </div>
+      <div className="w-full h-full overflow-hidden rounded-sm">
+        <Image
+          src={img.src}
+          alt={img.alt}
+          fill
+          className="object-cover w-full h-full transition-transform duration-700 hover:scale-[1.05]"
+          quality={95}
+        />
       </div>
     </motion.div>
   )
@@ -172,7 +169,6 @@ const mobileCardConfig = [
 
 function MobileCard({ img, index, isCenter, scrollYProgress, globalScale }: CardProps) {
   const cfg = mobileCardConfig[index]
-  const internalRotations = ['-rotate-12', '-rotate-6', 'rotate-0', 'rotate-6', 'rotate-12']
 
   const x = useTransform(scrollYProgress, [0, 0.35], [0, cfg.offsetX])
   const rotate = useTransform(scrollYProgress, [0, 0.35], [0, cfg.rot])
@@ -191,16 +187,14 @@ function MobileCard({ img, index, isCenter, scrollYProgress, globalScale }: Card
         zIndex: cfg.z,
       }}
     >
-      <div className="w-full h-full bg-white shadow-xl p-2.5">
-        <div className="relative w-full h-full overflow-hidden bg-white">
-          <Image
-            src={img.src}
-            alt={img.alt}
-            fill
-            className={`object-cover w-full h-full scale-[1.2] ${isCenter ? '' : internalRotations[index]}`}
-            quality={85}
-          />
-        </div>
+      <div className="w-full h-full overflow-hidden rounded-sm">
+        <Image
+          src={img.src}
+          alt={img.alt}
+          fill
+          className="object-cover w-full h-full"
+          quality={85}
+        />
       </div>
     </motion.div>
   )

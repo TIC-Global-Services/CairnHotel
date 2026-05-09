@@ -29,7 +29,7 @@ const page = () => {
       <Testimonial/>
       {/* <SpecialOffer/> */}
       <PackagesOverview/>
-      <GameDayPackage/>
+      {/* <GameDayPackage/> */}
       <StayAtCairn/>
     </div>
   )

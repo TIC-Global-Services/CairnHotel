@@ -17,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${clashDisplay.variable} h-full antialiased`}>
-      <body className={`${clashDisplay.className} min-h-full flex flex-col antialiased overflow-x-hidden w-full max-w-[100vw]`}>
+    <html lang="en" className={`${clashDisplay.variable} antialiased`}>
+      <body className={`${clashDisplay.className} min-h-screen flex flex-col antialiased`}>
         <SmoothScroller>
           <Loader/>
           <NavBar />
