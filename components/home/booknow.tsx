@@ -86,7 +86,7 @@ const BookNow = () => {
                     <span className="text-xs md:text-sm font-light  uppercase text-[#FFF7E0] mb-3 md:mb-6 ">
                         CAIRN HOTEL
                     </span>
-                    <h2 className="text-[22px] md:text-3xl lg:text-3xl font-sans font-normal text-[#FFF7E0] leading-[1.3] lg:leading-[1.1] tracking-wide mb-6 md:mb-8 whitespace-nowrap">
+                    <h2 className="text-[20px] md:text-5xl lg:text-5xl font-sans font-normal text-[#FFF7E0] leading-[1.3] lg:leading-[1.1] tracking-wide mb-6 md:mb-8 whitespace-nowrap">
                         ENJOY A COZY<br />
                         <span className="hidden md:inline">STAY</span>
                         <span className="md:hidden">WEEKEND STAY</span>

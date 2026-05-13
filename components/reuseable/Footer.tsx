@@ -44,7 +44,7 @@ const Footer = () => {
                 </h1>
 
                 {/* Description */}
-                <p className="text-[#3A3A3A] text-base md:text-2xl max-w-4xl mx-auto leading-relaxed font-[400] mb-20">
+                <p className="text-[#3A3A3A] text-base md:text-2xl max-w-4xl mx-auto leading-tight font-[400] mb-20">
                     Escape to refined comfort in the heart of Utah's breathtaking landscapes. 
                     Discover elevated stays, curated dining, and unforgettable mountain moments 
                     at Cairn Hotel.

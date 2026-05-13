@@ -81,15 +81,12 @@ const CloseOnMapClick = () => {
 }
 
 
-const MapView = ({ locations, activeId, hotel, onMarkerClick }: MapViewProps) => {
+/** Inner component — mounts only after MapContainer is fully initialized, avoiding TileLayer race condition */
+const MapContent = ({ locations, activeId, hotel, onMarkerClick }: MapViewProps) => {
+  useMap() // guarantees the map instance is ready
+
   return (
-    <MapContainer
-      center={[hotel.lat, hotel.lng]}
-      zoom={13}
-      style={{ width: '100%', height: '100%' }}
-      scrollWheelZoom={true}
-      className="z-0"
-    >
+    <>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -149,6 +146,25 @@ const MapView = ({ locations, activeId, hotel, onMarkerClick }: MapViewProps) =>
           </Marker>
         )
       })}
+    </>
+  )
+}
+
+const MapView = ({ locations, activeId, hotel, onMarkerClick }: MapViewProps) => {
+  return (
+    <MapContainer
+      center={[hotel.lat, hotel.lng]}
+      zoom={13}
+      style={{ width: '100%', height: '100%' }}
+      scrollWheelZoom={true}
+      className="z-0"
+    >
+      <MapContent
+        locations={locations}
+        activeId={activeId}
+        hotel={hotel}
+        onMarkerClick={onMarkerClick}
+      />
     </MapContainer>
   )
 }

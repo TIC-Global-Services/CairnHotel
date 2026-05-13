@@ -162,8 +162,8 @@ const Hero = memo(() => {
                         </h1>
                     </div>
 
-                    <div ref={descTextRef} className="mt-4 md:mt-6 max-w-2xl text-center px-6" style={{ willChange: 'transform' }}>
-                        <p className="text-white/80 text-[11px] md:text-sm lg:text-xl leading-relaxed tracking-wide capitalize">
+                    <div ref={descTextRef} className="mt-4 md:mt-6 max-w-3xl text-center px-6" style={{ willChange: 'transform' }}>
+                        <p className="text-white text-[11px] md:text-sm lg:text-xl leading-tight tracking-wide font-medium capitalize">
                             Cairn Hotel Is A Place Where Timeless Design, Natural Materials,
                             And Hospitality Come Together To Create An Experience
                             That Is Thoughtfully Crafted To Reflect Harmony With Nature.
@@ -192,7 +192,7 @@ const Hero = memo(() => {
                             Adventures Begin At The Cairn
                         </h2>
 
-                        <p className="text-white text-xs md:text-xl text-left leading-relaxed mb-5 md:mb-6 max-w-3xl capitalize">
+                        <p className="text-white text-xs md:text-xl text-left leading-tight mb-5 md:mb-6 max-w-3xl capitalize">
                             The Cairn Hotel Is The Perfect Retreat For Hiking
                             Enthusiasts, Surrounded By Scenic Mountain Trails
                             And Breathtaking Natural Landscapes.
@@ -217,7 +217,7 @@ const Hero = memo(() => {
                             Discovery Southern Utah
                         </h2>
 
-                        <p className="text-white text-xs md:text-xl text-left leading-relaxed mb-4 md:mb-5 max-w-3xl capitalize">
+                        <p className="text-white text-xs md:text-xl text-left leading-tight mb-4 md:mb-5 max-w-3xl capitalize">
                             Surrounded By Breathtaking Landscapes, The Cairn
                             Hotel Offers Access To A Variety Of Scenic Mountain
                             Routes Perfect For Hikers And Nature Enthusiasts.

@@ -1,14 +1,19 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import gamedayImg from '@/assets/hotel/gameday.png'
-import shakespeareImg from '@/assets/hotel/shakespeare.png'
-import petfriendlyImg from '@/assets/hotel/petfriendly.png'
+import { motion } from 'framer-motion'
+import gamedayImg from '@/assets/hotel/gameday-no-text.png'
+import shakespeareImg from '@/assets/hotel/shakespeare-no-text.png'
+import petfriendlyImg from '@/assets/hotel/petfriendly-no-text.png'
+import gamedayImgText from '@/assets/hotel/gameday.png'
+import shakespeareImgText from '@/assets/hotel/shakespeare.png'
+import petfriendlyImgText from '@/assets/hotel/petfriendly.png'  
 
 const packagesMap: Record<string, any> = {
   gameday: {
     title: "Game Day Package",
     image: gamedayImg,
+    textImage: gamedayImgText,
     modalTitle: "Game Day Package details",
     description: "Stay close to the action with The Cairn Hotel's Game Day Package, perfect for guests attending events at Southern Utah University, the Utah Summer Games, tournaments, competitions, or local sporting events. Located less than two miles from SUU and key Cedar City event venues, this package gives guests a comfortable place to land before and after the big day. With late checkout included, you can enjoy a more relaxed morning after cheering on your team.",
     includes: [
@@ -22,6 +27,7 @@ const packagesMap: Record<string, any> = {
   petfriendly: {
     title: "Pet-Friendly Stay Package",
     image: petfriendlyImg,
+    textImage: petfriendlyImgText,
     modalTitle: "Pet-Friendly Stay Package details",
     description: "Bring your furry friend along for the adventure. Our pet-friendly package ensures that your pet is treated to the same level of luxury as you are, with special amenities and easy access to outdoor spaces.",
     includes: [
@@ -35,6 +41,7 @@ const packagesMap: Record<string, any> = {
   shakespeare: {
     title: "Shakespeare Festival Package",
     image: shakespeareImg,
+    textImage: shakespeareImgText,
     modalTitle: "Shakespeare Festival Package details",
     description: "Immerse yourself in the world of theater with our exclusive Shakespeare Festival Package. Enjoy premium seating, exclusive behind-the-scenes tours, and luxurious accommodations just minutes from the stage.",
     includes: [
@@ -70,7 +77,7 @@ const PackagesOverview = () => {
           <h2 className="text-[3rem] md:text-[4rem] font-bold text-black leading-[1] tracking-[-0.03em]">
             Cairn<br/>Packages
           </h2>
-          <p className="text-[#4A4A4A] text-[13px] md:text-[15px] font-light max-w-[500px] leading-[1.8]">
+          <p className="text-[20px] md:text-[20px] font-normal leading-tight max-w-[700px]">
             Experience the Cedar City in every season with our exclusive offers for
             adventure, relaxation, indulgence, and unforgettable moments.
           </p>
@@ -89,7 +96,7 @@ const PackagesOverview = () => {
               <h3 className="text-white font-medium text-lg md:text-xl mb-3 text-center tracking-wide">
                 Game Day Package
               </h3>
-              <button className="text-white text-[10px] md:text-[11px] uppercase tracking-widest px-6 py-2 rounded-full border border-white/60 hover:bg-white hover:text-black transition-colors font-light">
+              <button className="text-white text-[14px] md:text-[15px] uppercase tracking-widest px-6 py-2 rounded-full border border-white hover:bg-white hover:text-black transition-colors font-normal">
                 More Info
               </button>
             </div>
@@ -102,7 +109,7 @@ const PackagesOverview = () => {
               <h3 className="text-white font-medium text-lg md:text-xl mb-3 text-center tracking-wide">
                 Pet-Friendly Stay Package
               </h3>
-              <button className="text-white text-[10px] md:text-[11px] uppercase tracking-widest px-6 py-2 rounded-full border border-white/60 hover:bg-white hover:text-black transition-colors font-light">
+              <button className="text-white text-[14px] md:text-[15px] uppercase tracking-widest px-6 py-2 rounded-full border border-white hover:bg-white hover:text-black transition-colors font-normal">
                 More Info
               </button>
             </div>
@@ -115,7 +122,7 @@ const PackagesOverview = () => {
               <h3 className="text-white font-medium text-xl md:text-2xl mb-4 text-center tracking-wide drop-shadow-md">
                 Shakespeare Festival Package
               </h3>
-              <button className="text-white text-[11px] md:text-[12px] uppercase tracking-widest px-7 py-2.5 rounded-full border border-white/80 hover:bg-white hover:text-black transition-colors font-light">
+              <button className="text-white text-[14px] md:text-[15px] uppercase tracking-widest px-7 py-2.5 rounded-full border border-white hover:bg-white hover:text-black transition-colors font-normal">
                 More Info
               </button>
             </div>
@@ -139,7 +146,7 @@ const PackagesOverview = () => {
           ></div>
           
           {/* Modal Content */}
-          <div className="relative w-full max-w-[1350px] max-h-[95vh] bg-white rounded-[2.5rem] shadow-2xl overflow-y-auto md:overflow-hidden flex flex-col md:flex-row z-10 animate-in fade-in zoom-in-95 duration-300">
+          <div className="relative w-full max-w-[1350px] max-h-[95vh] rounded-[2.5rem] shadow-2xl overflow-y-auto md:overflow-hidden flex flex-col md:flex-row z-10 animate-in fade-in zoom-in-95 duration-300">
             {/* Close button */}
             <button 
               onClick={() => setSelectedPackage(null)}
@@ -150,40 +157,63 @@ const PackagesOverview = () => {
             </button>
 
             {/* Left side image — flush with corners and matching border radius */}
-            <div className="w-full md:w-[45%] relative min-h-[400px] md:min-h-auto overflow-hidden rounded-t-[2.5rem] md:rounded-tr-none md:rounded-l-[2.5rem]">
-              <Image 
-                src={packagesMap[selectedPackage].image} 
-                alt={packagesMap[selectedPackage].title} 
-                fill 
-                className="object-cover" 
+            <div className="w-full md:w-[45%] relative min-h-[400px] md:min-h-full overflow-hidden rounded-t-[2.5rem] md:rounded-none">
+              <Image
+                src={packagesMap[selectedPackage].textImage}
+                alt={packagesMap[selectedPackage].title}
+                fill
+                className="object-cover"
                 priority
+                quality={95}
+                sizes="(max-width: 768px) 100vw, 45vw"
               />
             </div>
 
             {/* Right side content */}
-            <div className="w-full md:w-[55%] p-8 md:p-16 flex flex-col justify-center">
-              <h2 className="text-3xl md:text-5xl font-sans font-medium text-black mb-6 md:mb-8 tracking-tight leading-tight">
-                {packagesMap[selectedPackage].modalTitle}
-              </h2>
-              
-              <p className="text-[#4A4A4A] font-light leading-[1.8] text-[15px] md:text-[17px] mb-10 max-w-[650px]">
+            <div className="w-full md:w-[55%] p-8 md:p-16 flex flex-col justify-center bg-white">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
+              >
+                <h2 className="text-3xl md:text-5xl font-sans font-medium text-black mb-6 md:mb-8 tracking-tight leading-tight">
+                  {packagesMap[selectedPackage].modalTitle}
+                </h2>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
+                className="text-[#4A4A4A] font-normal leading-[1.5] text-[15px] md:text-[17px] mb-10 max-w-[650px]"
+              >
                 {packagesMap[selectedPackage].description}
-              </p>
+              </motion.p>
 
-              <h4 className="font-semibold text-black text-[15px] md:text-[17px] mb-6">
+              <motion.h4
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
+                className="font-medium text-black text-[15px] md:text-[17px] mb-6"
+              >
                 Package includes:
-              </h4>
+              </motion.h4>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
+                className="flex flex-wrap items-center gap-3"
+              >
                 {packagesMap[selectedPackage].includes.map((item: string, i: number) => (
-                  <div 
+                  <div
                     key={i}
-                    className="bg-[#FFF6E9] px-4 py-2.5 rounded-full text-[12px] md:text-[13px] text-[#5A4A3A] font-medium text-center flex items-center justify-center"
+                    className="bg-[#FFF7E0] px-4 py-2.5 rounded-full text-[12px] md:text-[13px] text-[#5A4A3A] font-normal text-center whitespace-nowrap"
                   >
                     {item}
                   </div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

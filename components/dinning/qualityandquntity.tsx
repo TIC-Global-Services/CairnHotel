@@ -48,7 +48,7 @@ const QualityAndQuantity = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-start md:mb-20 mb-10 gap-10">
           <div className="md:max-w-3xl">
             <p className="text-sm md:text-lg  uppercase font-medium md:mb-3 mb-2 text-[#1a1a1a]">QUALITY & QUANTITY</p>
-            <h2 className="text-2xl md:text-[4.4rem] font-semibold leading-[1.05] text-[#1a1a1a] tracking-tight">
+            <h2 className="text-2xl md:text-[4.4rem] font-semibold leading-[1.1] text-[#1a1a1a] tracking-tight">
               Experience <br className='hidden md:block'/> Comfort in <br className='hidden md:block'/> Every Detail
             </h2>
           </div>

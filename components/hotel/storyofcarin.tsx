@@ -110,7 +110,7 @@ const StoryOfCairn = () => {
                         Born from a passion for hospitality and a deep appreciation for nature, The Cairn Hotel was created as a peaceful retreat for travellers seeking comfort, elegance, and meaningful experiences. Inspired by the beauty of its surroundings, the hotel reflects a perfect harmony between modern luxury and timeless charm.
                     </p>
 
-                    <div className="h-px w-24 bg-[#7a6559]/30 mt-4 hidden md:block" />
+
                 </div>
             </div>
         </section>

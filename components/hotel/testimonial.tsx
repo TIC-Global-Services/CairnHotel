@@ -9,7 +9,7 @@ const testimonialData = [
     {
         id: 1,
         name: "Gokul",
-        shortDesc: "Staying at Carin Hotel was an unforgettable experience. Surrounded by stunning red rock mountains and peaceful nature, it was the perfect escape from the city. The rooms were beautifully designed, the views were breathtaking, and the staff made us feel welcome from the moment we arrived.",
+        shortDesc: "Staying at Cairn Hotel was an unforgettable experience. Surrounded by stunning red rock mountains and peaceful nature, it was the perfect escape from the city. The rooms were beautifully designed, the views were breathtaking, and the staff made us feel welcome from the moment we arrived.",
         location: "Florida, USA",
         image: <UserRound size={32} className="text-gray-400" />,
     },
@@ -117,7 +117,7 @@ const Testimonial = () => {
                         Stories from<br />Our Guests
                     </h2>
                     <p className="text-[#606060] text-base md:text-xl font-normal mb-12 max-w-lg leading-relaxed ">
-                        Our guests are at the heart of everything we do. Discover what travellers have to say about their stay, their adventures, they experienced at Carin Hotel.
+                        Our guests are at the heart of everything we do. Discover what travellers have to say about their stay, their adventures, they experienced at Cairn Hotel.
                     </p>
 
                     {/* <div className="md:flex gap-2 md:gap-4 hidden">

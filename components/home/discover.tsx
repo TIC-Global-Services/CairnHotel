@@ -35,13 +35,13 @@ const Discover = () => {
     return (
         <section
             ref={sectionRef}
-            className="w-full py-24 md:py-32 lg:py-52 bg-white flex flex-col items-center justify-center px-6 lg:px-12 relative overflow-hidden"
+            className="w-full pt-24 md:pt-32 lg:pt-52 pb-16 md:pb-20 lg:pb-32 bg-white flex flex-col items-center justify-center px-6 lg:px-12 relative overflow-hidden"
         >
             {/* Centered heading */}
             <div className="max-w-[1214px] w-full text-center flex flex-col items-center">
                 <p
                     ref={textRef}
-                    className="text-xl md:text-2xl lg:text-[50px] font-sans font-normal leading-[86.4px] tracking-normal mb-8 md:mb-12 text-[#888888]"
+                    className="text-xl md:text-2xl lg:text-[50px] font-sans font-normal leading-[86.4px] tracking-normal mb-8 md:mb-12 bg-gradient-to-b from-[#4D2F27] via-[#331F1A]/75 to-black/30 bg-clip-text text-transparent"
                 >
                     The new Cairn Hotel features inviting interiors,<br />
                     nature-inspired earth tones, and thoughtful design<br />

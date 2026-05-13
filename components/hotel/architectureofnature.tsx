@@ -122,7 +122,7 @@ const ArchitectureOfNature = () => {
                             NATURE
                         </h2>
                     </div>
-                    <p className="w-full lg:w-[52%] text-[#352520] text-sm md:text-2xl leading-relaxed md:leading-relaxed font-normal md:font-light">
+                    <p className="w-full lg:w-[52%] text-[#352520] text-sm md:text-2xl leading-tight md:leading-tight font-normal md:font-normal">
                         Nestled beneath the towering sandstone cliffs and wide-open skies of canyon country, The Cairn Hotel invites you to slow down and arrive fully. Inspired by the ancient beauty of the Colorado Plateau, with its burning sunsets, silent mesas, and sage-scented air, we reflect a perfect harmony between modern luxury and the timeless character of the American Southwest. This is a place to feel the warmth of the desert, rest deeply, and leave changed.
                     </p>
                 </div>
@@ -155,7 +155,7 @@ const ArchitectureOfNature = () => {
                                 <h3 className="text-xs md:text-base font-semibold text-[#1a1a1a] mb-1.5 md:mb-2 tracking-wide uppercase">
                                     {item.title}
                                 </h3>
-                                <p className="text-[9px] md:text-sm text-[#6b6b6b] uppercase  font-normal mb-3 md:mb-5">
+                                <p className="text-[9px] md:text-sm uppercase font-normal mb-3 md:mb-5">
                                     {item.description}
                                 </p>
                                 <button

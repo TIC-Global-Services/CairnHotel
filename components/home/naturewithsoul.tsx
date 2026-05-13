@@ -29,8 +29,8 @@ const contentData = [
 ]
 
 const CircleDot = () => (
-    <div className="w-[14px] h-[14px] md:w-[16px] md:h-[16px] rounded-full border border-gray-300 flex items-center justify-center">
-        <div className="w-[4px] h-[4px] md:w-[5px] md:h-[5px] rounded-full bg-gray-400" />
+    <div className="w-[14px] h-[14px] md:w-[16px] md:h-[16px] rounded-full border border-[#4D2F27]/40 flex items-center justify-center">
+        <div className="w-[4px] h-[4px] md:w-[5px] md:h-[5px] rounded-full bg-[#4D2F27]" />
     </div>
 )
 
@@ -96,7 +96,7 @@ const NatureWithSoul = () => {
                             {/* Circular dots and Label */}
                             <div className="flex items-center gap-4 mb-6 opacity-70">
                                 <CircleDot />
-                                <span className="text-[0.7rem] md:text-xs tracking-[0.2em] uppercase text-[#2A0800] font-medium">
+                                <span className="text-[0.7rem] md:text-sm tracking-wide uppercase text-[#2A0800] font-light">
                                     {data.label}
                                 </span>
                                 <CircleDot />
@@ -113,7 +113,7 @@ const NatureWithSoul = () => {
                             </h2>
 
                             {/* Description */}
-                            <p className="text-gray-500 text-sm md:text-base leading-[1.8] max-w-[380px] font-light">
+                            <p className="text-sm md:text-base leading-[1.4] max-w-[380px] font-normal">
                                 {data.description}
                             </p>
                         </motion.div>

@@ -140,7 +140,7 @@ const LocalFavorite = () => {
 
         <div className="w-full lg:w-[42%] px-6 md:px-12 lg:px-16 flex flex-col">
 
-          <p className="text-xl tracking-wide text-gray-500 mb-5">Things to do in Cedar City</p>
+          <p className="text-xl tracking-wide mb-5">Things to do in Cedar City</p>
           <h2 className="text-4xl md:text-[3.125rem] font-medium uppercase tracking-tighter text-black mb-8">
             LOCAL FAVORITES
           </h2>

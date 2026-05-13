@@ -54,7 +54,7 @@ const Hero = () => {
             {/* Top Typography Node */}
             <div className='relative z-10 flex flex-col mt-[30%] md:mt-[10%] items-center justify-center w-full px-[5%] mb-[10vh]'>
                 <h1 className='text-[4rem] md:text-[10rem] lg:text-[10rem] text-center font-semibold uppercase text-white leading-[0.6] md:leading-none drop-shadow-2xl'>THINGS <br className='md:hidden'/> <span className='text-[2rem] md:text-[10rem] lg:text-[10rem]'>TO DO</span></h1>
-                <p className='text-sm md:text-base lg:text-xl font-normal md:font-medium  md:max-w-3xl text-center mt-4 mb-8 text-white/95 drop-shadow flex flex-col'>
+                <p className='text-sm md:text-base lg:text-xl font-normal md:font-medium  md:max-w-3xl text-center mt-4 mb-8 text-white drop-shadow flex flex-col'>
                     <span>Let Us Host Your Group To Create An Unforgettable Experience For You. We're</span>
                     <span>Experienced With Hosting Families, Companies, Tour Buses, And More.</span>
                 </p>

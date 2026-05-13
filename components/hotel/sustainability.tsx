@@ -83,7 +83,7 @@ const Sustainability = () => {
                   <div className="text-3xl md:text-[40px] font-medium text-white mb-2 md:mb-4">
                     <Counter text={stat.value} />
                   </div>
-                  <div className="text-base md:text-xl text-white/90 font-light whitespace-pre-line leading-[1.3] text-center md:text-left">
+                  <div className="text-base md:text-xl text-white/90 font-normal whitespace-pre-line leading-[1.3] text-center md:text-left">
                     {stat.label}
                   </div>
                 </div>

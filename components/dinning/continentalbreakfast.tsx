@@ -43,7 +43,7 @@ export default function ContinentalBreakfast() {
                 <h2 className="text-xl md:text-[40px] font-semibold uppercase tracking-normal mb-6 text-[#1a1a1a]">
                     Continental Breakfast
                 </h2>
-                <p className="text-[#1a1a1a]/90 text-base md:text-[20px] font-medium leading-normal md:leading-relaxed">
+                <p className="text-[#1a1a1a]/90 text-base md:text-[20px] font-medium leading-tight md:leading-tight">
                     Let our chef take you on a culinary journey. Each dish celebrates fresh, seasonal ingredients
                     carefully selected to deliver a flavourful and authentic dining experience.
                 </p>
@@ -72,10 +72,10 @@ export default function ContinentalBreakfast() {
                         >
                             {menuItems.map((item, idx) => (
                                 <div key={idx} className="group cursor-pointer flex flex-col">
-                                    <h3 className="text-xl md:text-2xl font-semibold text-[#1a1a1a] mb-2 transition-colors">
+                                    <h3 className="text-xl md:text-2xl font-semibold mb-2 transition-colors">
                                         {item.title}
                                     </h3>
-                                    <p className="text-[#1a1a1a]/80 text-sm md:text-lg font-medium leading-relaxed max-w-lg">
+                                    <p className="text-sm md:text-lg font-medium leading-tight max-w-lg">
                                         {item.description}
                                     </p>
                                 </div>

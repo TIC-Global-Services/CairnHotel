@@ -67,7 +67,7 @@ const staysData = [
         amenities: [
             { title: "Heated Water", icon: <Image src="/wave.svg" alt="" width={20} height={20} /> },
             { title: "Jacuzzi Style", icon: <Image src="/Jacuzzi.svg" alt="" width={20} height={20} /> },
-            { title: "Quiet & Private", icon: <Image src="/lock.svg" alt="" width={20} height={20} /> }
+            { title: "Quiet & Private", icon: <Image src="/lock.svg" alt="" width={14} height={14} /> }
         ],
     },
     {
@@ -218,6 +218,16 @@ const ExploreStay = () => {
                 <div className="absolute inset-0 bg-black/40" />
             </div>
 
+            {/* Preload adjacent card images so transitions are instant */}
+            <div className="hidden" aria-hidden="true">
+                {activeIndex > 0 && (
+                    <Image src={staysData[activeIndex - 1].image} alt="" priority />
+                )}
+                {activeIndex < staysData.length - 1 && (
+                    <Image src={staysData[activeIndex + 1].image} alt="" priority />
+                )}
+            </div>
+
             {/* Main Content */}
             <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 lg:px-24 gap-5 lg:gap-8 mt-4">
                 
@@ -232,7 +242,7 @@ const ExploreStay = () => {
                             <span className="text-3xl md:text-[3.15rem] font-medium italic text-[#FFEBD3]">Stay</span>
                         </div>
                     </div>
-                    <p className="text-white text-sm md:text-xl font-normal max-w-lg  border-white/20 mt-4 md:mt-6">
+                    <p className="text-white text-sm md:text-xl font-normal max-w-lg leading-tight border-white/20 mt-4 md:mt-6">
                         Discover Thoughtfully Designed Rooms And Suites Where Comfort, Nature, And Timeless Mountain Elegance Come Together.
                     </p>
                     <Link href={'https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094'} target='_blank'>
@@ -324,10 +334,10 @@ const ExploreStay = () => {
                     <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={closeCard} />
 
                     {/* Detail Card Container */}
-                    <div className="relative w-full max-w-[1200px] h-[100dvh] md:h-[85vh] bg-transparent rounded-none md:rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-[0_0_100px_rgba(0,0,0,0.8)]">
-                        
-                        {/* Right: Full Image (Background on mobile, right panel on desktop) */}
-                        <div className="absolute inset-0 md:relative w-full md:w-[55%] h-full z-0 md:order-2">
+                    <div className="relative w-full max-w-[1200px] h-[100dvh] md:h-[85vh] rounded-none md:rounded-2xl overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)]">
+
+                        {/* Full-cover background image — spans both panels for true glass effect */}
+                        <div className="absolute inset-0 z-0">
                             <Image
                                 src={staysData[expandedCard].image}
                                 alt={staysData[expandedCard].name}
@@ -337,8 +347,11 @@ const ExploreStay = () => {
                             />
                         </div>
 
-                        {/* Left: Info Panel (Frosted Overlay on mobile, left panel on desktop) */}
-                        <div className="absolute bottom-0 left-0 w-full md:relative md:w-[45%] h-auto md:h-full bg-white/40 md:bg-white/70  md:backdrop-blur-2xl p-6 pt-8 pb-24 md:p-12 flex flex-col justify-end md:justify-center z-10 md:border-r border-white/20 md:order-1 shadow-[0_-10px_30px_rgba(0,0,0,0.1)] md:shadow-none  md:rounded-none">
+                        {/* Overlay layout on top of image */}
+                        <div className="relative z-10 flex flex-col md:flex-row h-full">
+
+                        {/* Left: Info Panel (Frosted glass overlay over the image) */}
+                        <div className="w-full md:w-[45%] h-auto md:h-full bg-white/30 md:bg-white/30 md:backdrop-blur-2xl p-6 pt-8 pb-24 md:p-12 flex flex-col justify-end md:justify-center border-white/20 shadow-[0_-10px_30px_rgba(0,0,0,0.1)] md:shadow-none">
                             
                             <h3 className="detail-animate text-[18px] md:text-[32px] font-extrabold text-[#1a1a1a] mb-4 md:mb-6 leading-none tracking-tight">
                                 {staysData[expandedCard].name}
@@ -381,6 +394,7 @@ const ExploreStay = () => {
                             </span>
                         </button>
                     </div>
+                </div>
                 </div>
             )}
         </section>

@@ -261,7 +261,7 @@ export const SeasonOverlay: React.FC<SeasonOverlayProps> = ({ activeSeason, onCl
                                                 animate={{ opacity: 1, y: 0 }}
                                                 exit={{ opacity: 0, transition: { duration: 0.2 } }}
                                                 transition={{ duration: 0.5, type: 'tween', ease: [0.25, 0.1, 0.25, 1] }}
-                                                className="text-white md:text-white/90 text-sm md:text-xl leading-relaxed font-normal md:font-light z-20 drop-shadow-lg"
+                                                className="text-white md:text-white/90 text-sm md:text-xl leading-tight font-normal md:font-normal z-20 drop-shadow-lg"
                                             >
                                                 {activeView.description}
                                             </motion.p>

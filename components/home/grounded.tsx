@@ -21,10 +21,10 @@ const Grounded = () => {
 
             {/* Overlapping Text */}
             <div className="absolute -top-10 left-0 w-full flex flex-col items-center justify-center z-20 text-center -translate-y-1/2">
-                <h2 className="text-4xl md:text-5xl lg:text-[4rem] xl:text-[5rem] text-[#4a4a4a]  tracking-tight">
+                <h2 className="text-4xl md:text-5xl lg:text-[4rem] xl:text-[5rem] text-[#4a4a4a] font-medium tracking-tight">
                     Grounded in Nature.
                 </h2>
-                <h2 className="text-4xl md:text-5xl lg:text-[4rem] xl:text-[5rem] font-semibold text-black tracking-tight">
+                <h2 className="text-4xl md:text-5xl lg:text-[4rem] xl:text-[5rem] font-medium text-black tracking-tight">
                     Elevated in Luxury.
                 </h2>
             </div>

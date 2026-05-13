@@ -90,7 +90,7 @@ const NavBar = () => {
                                             }
                                     `}
                                     >
-                                        <p className='text-xs font-normal uppercase tracking-[0.15em]'>
+                                        <p className='text-xs  font-normal uppercase tracking-[0.15em]'>
                                             {link.title}
                                         </p>
                                     </div>

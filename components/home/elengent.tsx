@@ -17,7 +17,7 @@ const Elegant = () => {
                     />
                 </div>
 
-                <div className="absolute z-10 pointer-events-none md:w-[851px] md:h-[976px] md:top-[5px] md:left-[45vw] lg:left-[700px] w-[140%] h-[110vh] top-[-5%] -right-[45%] opacity-40 scale-[1.3] lg:scale-[1.4] origin-left">
+                <div className="absolute z-10 pointer-events-none md:w-[851px] md:h-[976px] md:top-[5px] right-[-30%] md:-right-[200px] w-[140%] h-[110vh] top-[-5%] opacity-40 scale-[1.3] lg:scale-[1.4] origin-left">
                     <Image
                         src={abstract}
                         alt="Abstract Shape"
