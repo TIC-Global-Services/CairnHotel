@@ -26,7 +26,7 @@ const page = () => {
       {/* <TrustedBy/> */}
       <StayElevated/>
       <Sustainability/>
-      <Testimonial/>
+      {/* <Testimonial/> */}
       {/* <SpecialOffer/> */}
       <PackagesOverview/>
       {/* <GameDayPackage/> */}

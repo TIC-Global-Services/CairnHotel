@@ -52,9 +52,11 @@ export default function ContinentalBreakfast() {
             {/* Spacer — matches the tab row height in the original */}
             <div className="mt-14 mb-20" />
 
-            {/* Geometric Abstract Shapes — identical to Menu */}
-            <div className="absolute -bottom-[50%] left-10 right-0 inset-50 z-0 overflow-hidden pointer-events-none h-full mix-blend-multiply">
-                <Image src={abstractShape} alt="abstract-shape" fill className="object-contain opacity-30 h-full w-full" />
+            {/* Geometric Abstract Shapes — anchored to left like elengent */}
+            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-[25%] left-[20%] md:-left-[50px] w-[140%] h-full opacity-20 mix-blend-multiply scale-[1] lg:scale-[1.4] origin-left">
+                    <Image src={abstractShape} alt="abstract-shape" fill className="object-contain" />
+                </div>
             </div>
 
             {/* Main Content Grid — same 12-col split as Menu */}

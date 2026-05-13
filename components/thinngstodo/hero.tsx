@@ -65,7 +65,7 @@ const Hero = () => {
 
                 <div className="relative w-[70%] sm:w-[50%] lg:w-[25%] shrink-0">
                     
-                    <div className="relative aspect-3/4 w-full mt-[5%] lg:mt-0">
+                    <div className="relative aspect-[3/5] w-full mt-[5%] lg:mt-0">
                         <div className="absolute top-[-5%] left-[-8%] w-full h-full rounded-2xl border border-white/40 drop-shadow-sm pointer-events-none" />
 
                         <div className="relative z-10 w-full h-full rounded-2xl overflow-hidden shadow-2xl">

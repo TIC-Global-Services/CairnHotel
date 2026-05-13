@@ -29,10 +29,6 @@ const navLinks = [
         href: "/things-to-do"
     },
     {
-        title: "BOOK NOW",
-        href: "https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094"
-    },
-    {
         title: "GALLERY",
         href: "/gallery"
     },
@@ -74,7 +70,7 @@ const NavBar = () => {
                 </Link>
 
                 <div className="flex items-center gap-4 pointer-events-auto">
-                    
+
                     <div className='hidden md:flex items-center gap-4 justify-end bg-[#FFFFFF33] backdrop-blur-xs border border-white/30 rounded-full p-2 px-4'>
                         {navLinks.map((link) => {
                             const isActive = pathname === link.href
@@ -90,7 +86,7 @@ const NavBar = () => {
                                             }
                                     `}
                                     >
-                                        <p className='text-xs  font-normal uppercase tracking-[0.15em]'>
+                                        <p className='text-base font-medium uppercase tracking-wide'>
                                             {link.title}
                                         </p>
                                     </div>
@@ -98,6 +94,14 @@ const NavBar = () => {
                             )
                         })}
                     </div>
+
+                    {/* Standalone Book Now Button (Desktop) */}
+                    <Link
+                        href="https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094"
+                        className="hidden md:inline-flex px-6 py-[20px] rounded-full bg-white text-black text-sm font-semibold uppercase tracking-[0.15em] hover:bg-white/90 transition-all"
+                    >
+                        Book Now
+                    </Link>
 
                     {/* Mobile Hamburger Button */}
                     <button

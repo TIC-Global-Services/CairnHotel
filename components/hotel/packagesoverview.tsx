@@ -63,10 +63,12 @@ const PackagesOverview = () => {
     } else {
       document.body.style.overflow = '';
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
+    return () => { document.body.style.overflow = ''; };
   }, [selectedPackage]);
+
+  const handleCardClick = (pkg: string) => {
+    setSelectedPackage(prev => prev === pkg ? null : pkg);
+  };
 
   return (
     <section className="w-full py-20 md:py-32 bg-white px-6 md:px-12 lg:px-20 overflow-hidden">
@@ -90,7 +92,7 @@ const PackagesOverview = () => {
         <div className="relative flex justify-center items-center h-[480px] md:h-[820px] w-full max-w-[1400px] mx-auto">
           
           {/* Left Card (Game Day) */}
-          <div onClick={() => setSelectedPackage('gameday')} className="absolute left-[2%] md:left-0 top-10 md:top-[70px] w-[240px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl -rotate-[12deg] transform-gpu transition-all duration-500 hover:-rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
+          <div onClick={() => handleCardClick('gameday')} className="absolute left-[2%] md:left-0 top-10 md:top-[70px] w-[240px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl -rotate-[12deg] transform-gpu transition-all duration-500 hover:-rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
             <Image src={gamedayImg} alt="Game Day Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-8 px-4 opacity-90 transition-opacity group-hover:opacity-100">
               <h3 className="text-white font-medium text-lg md:text-xl mb-3 text-center tracking-wide">
@@ -103,7 +105,7 @@ const PackagesOverview = () => {
           </div>
 
           {/* Right Card (Pet Friendly) */}
-          <div onClick={() => setSelectedPackage('petfriendly')} className="absolute right-[2%] md:right-0 top-10 md:top-[70px] w-[240px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl rotate-[12deg] transform-gpu transition-all duration-500 hover:rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
+          <div onClick={() => handleCardClick('petfriendly')} className="absolute right-[2%] md:right-0 top-10 md:top-[70px] w-[240px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl rotate-[12deg] transform-gpu transition-all duration-500 hover:rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
             <Image src={petfriendlyImg} alt="Pet-Friendly Stay Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-8 px-4 opacity-90 transition-opacity group-hover:opacity-100">
               <h3 className="text-white font-medium text-lg md:text-xl mb-3 text-center tracking-wide">
@@ -116,7 +118,7 @@ const PackagesOverview = () => {
           </div>
 
           {/* Center Card (Shakespeare) */}
-          <div onClick={() => setSelectedPackage('shakespeare')} className="absolute z-10 w-[300px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl transform-gpu transition-all duration-500 hover:scale-105 cursor-pointer group">
+          <div onClick={() => handleCardClick('shakespeare')} className="absolute z-10 w-[300px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl transform-gpu transition-all duration-500 hover:scale-105 cursor-pointer group">
             <Image src={shakespeareImg} alt="Shakespeare Festival Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-10 px-4">
               <h3 className="text-white font-medium text-xl md:text-2xl mb-4 text-center tracking-wide drop-shadow-md">
@@ -131,91 +133,96 @@ const PackagesOverview = () => {
         </div>
       </div>
 
-      {/* Modal Overlay */}
+      {/* Popup Package Detail */}
       {selectedPackage && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12"
-          data-lenis-prevent="true"
-          onWheel={(e) => e.stopPropagation()}
-          onTouchMove={(e) => e.stopPropagation()}
-        >
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8">
           {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity cursor-pointer" 
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setSelectedPackage(null)}
-          ></div>
-          
-          {/* Modal Content */}
-          <div className="relative w-full max-w-[1350px] max-h-[95vh] rounded-[2.5rem] shadow-2xl overflow-y-auto md:overflow-hidden flex flex-col md:flex-row z-10 animate-in fade-in zoom-in-95 duration-300">
+          />
+
+          {/* Popup Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+            className="relative bg-white rounded-3xl shadow-2xl overflow-y-auto max-h-[90vh] w-full max-w-[1060px] p-8 md:p-12 z-10"
+          >
             {/* Close button */}
-            <button 
+            <button
               onClick={() => setSelectedPackage(null)}
-              className="absolute top-6 right-6 md:top-8 md:right-8 z-20 w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full text-black hover:bg-gray-200 hover:scale-105 transition-all"
-              aria-label="Close modal"
+              className="absolute top-5 right-5 md:top-6 md:right-6 w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-black transition-all z-10"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" /></svg>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
 
-            {/* Left side image — flush with corners and matching border radius */}
-            <div className="w-full md:w-[45%] relative min-h-[400px] md:min-h-full overflow-hidden rounded-t-[2.5rem] md:rounded-none">
-              <Image
-                src={packagesMap[selectedPackage].textImage}
-                alt={packagesMap[selectedPackage].title}
-                fill
-                className="object-cover"
-                priority
-                quality={95}
-                sizes="(max-width: 768px) 100vw, 45vw"
-              />
+            <div className="flex flex-col md:flex-row gap-8 md:gap-14">
+
+              {/* Left: Image Card */}
+              <div className="relative w-full max-w-[340px] aspect-[3/4] rounded-2xl overflow-hidden shadow-md shrink-0 mx-auto md:mx-0">
+                <Image
+                  src={packagesMap[selectedPackage].textImage}
+                  alt={packagesMap[selectedPackage].title}
+                  fill
+                  className="object-cover"
+                  sizes="340px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <span className="absolute bottom-5 left-5 text-white text-base font-medium">
+                  {packagesMap[selectedPackage].title}
+                </span>
+              </div>
+
+              {/* Right: Content */}
+              <div className="flex-1 flex flex-col justify-center min-w-0">
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.05, ease: 'easeOut' }}
+                >
+                  <h2 className="text-2xl md:text-3xl font-normal text-black mb-5 leading-tight tracking-tight">
+                    {packagesMap[selectedPackage].modalTitle}
+                  </h2>
+                </motion.div>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
+                  className="text-[#4A4A4A] font-normal leading-[1.7] text-[15px] md:text-[16px] mb-6"
+                >
+                  {packagesMap[selectedPackage].description}
+                </motion.p>
+
+                <motion.h4
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.15, ease: 'easeOut' }}
+                  className="text-xs font-semibold uppercase tracking-wider text-black/50 mb-4"
+                >
+                  Package includes
+                </motion.h4>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
+                  className="flex flex-wrap gap-2"
+                >
+                  {packagesMap[selectedPackage].includes.map((item: string, i: number) => (
+                    <div
+                      key={i}
+                      className="bg-[#FFF7E0] px-3.5 py-1.5 rounded-full text-[11px] md:text-[12px] text-[#5A4A3A] font-medium whitespace-nowrap"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
             </div>
-
-            {/* Right side content */}
-            <div className="w-full md:w-[55%] p-8 md:p-16 flex flex-col justify-center bg-white">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-              >
-                <h2 className="text-3xl md:text-5xl font-sans font-medium text-black mb-6 md:mb-8 tracking-tight leading-tight">
-                  {packagesMap[selectedPackage].modalTitle}
-                </h2>
-              </motion.div>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
-                className="text-[#4A4A4A] font-normal leading-[1.5] text-[15px] md:text-[17px] mb-10 max-w-[650px]"
-              >
-                {packagesMap[selectedPackage].description}
-              </motion.p>
-
-              <motion.h4
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
-                className="font-medium text-black text-[15px] md:text-[17px] mb-6"
-              >
-                Package includes:
-              </motion.h4>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
-                className="flex flex-wrap items-center gap-3"
-              >
-                {packagesMap[selectedPackage].includes.map((item: string, i: number) => (
-                  <div
-                    key={i}
-                    className="bg-[#FFF7E0] px-4 py-2.5 rounded-full text-[12px] md:text-[13px] text-[#5A4A3A] font-normal text-center whitespace-nowrap"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       )}
 

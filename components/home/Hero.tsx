@@ -91,10 +91,10 @@ const SECTIONS: SectionConfig[] = [
           <div className="relative flex flex-col items-center">
             <div className="relative flex justify-center items-center">
               <div className="z-50  md:right-[10%]">
-                <span className="absolute -top-4 md:top-5 -left-15 md:-left-45 text-3xl md:text-[5rem] font-semibold uppercase text-white">
+                <span className="absolute -top-4 md:top-5 -left-15 md:-left-45 text-3xl md:text-[4rem] lg:text-[5rem] font-semibold uppercase text-white">
                   The
                 </span>
-                <h1 className="text-6xl  md:text-[15rem] leading-none font-semibold uppercase select-none tracking-tighter text-white">
+                <h1 className="text-6xl md:text-[10rem] lg:text-[13rem] xl:text-[15rem] leading-none font-semibold uppercase select-none tracking-tighter text-white">
                   CAIRN
                 </h1>
               </div>
@@ -205,7 +205,7 @@ const SECTIONS: SectionConfig[] = [
           to: { yPercent: 12.5 },
         },
         content: (
-          <h2 className="text-5xl md:text-[14rem] leading-none font-bold uppercase md:tracking-tighter text-[#faf9f8] select-none mix-blend-overlay opacity-95">
+          <h2 className="text-5xl md:text-[9rem] lg:text-[12rem] xl:text-[14rem] leading-none font-bold uppercase md:tracking-tighter text-[#faf9f8] select-none mix-blend-overlay opacity-95">
             Exploring
           </h2>
         )
@@ -272,7 +272,7 @@ const SECTIONS: SectionConfig[] = [
         },
         content: (
           <div className="flex flex-col items-center gap-6 md:gap-10">
-            <h2 className="text-5xl md:text-[14rem] leading-none font-bold uppercase text-[#faf9f8] select-none mix-blend-overlay opacity-95">
+            <h2 className="text-5xl md:text-[9rem] lg:text-[12rem] xl:text-[14rem] leading-none font-bold uppercase text-[#faf9f8] select-none mix-blend-overlay opacity-95">
               Theater
             </h2>
             <Link href={'https://www.bard.org'} target='_blank'>
@@ -328,7 +328,7 @@ const SECTIONS: SectionConfig[] = [
         },
         content: (
           <div className="relative flex flex-col items-center">
-            <h1 className="text-5xl md:text-[15rem] leading-none font-semibold uppercase select-none tracking-tighter text-white">
+            <h1 className="text-5xl md:text-[10rem] lg:text-[13rem] xl:text-[15rem] leading-none font-semibold uppercase select-none tracking-tighter text-white">
               SKIING
             </h1>
           </div>
@@ -539,10 +539,14 @@ const Hero = () => {
                 {renderNavNumbers()}
               </div>
             </div>
-            <div className="w-[1px] h-[52dvh] md:h-[48dvh] bg-white/40 relative">
-              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90 text-[10px] md:text-base tracking-[0.3em] uppercase text-white/90 drop-shadow-md">
-                Nature
-              </span>
+            <div className="h-[52dvh] md:h-[48dvh] flex flex-col items-center">
+              <div className="w-[1px] flex-1 bg-white/40" />
+              <div className="flex items-center justify-center h-28 md:h-32">
+                <span className="text-[10px] md:text-base tracking-[0.3em] uppercase text-white/90 drop-shadow-md -rotate-90">
+                  Nature
+                </span>
+              </div>
+              <div className="w-[1px] flex-1 bg-white/40" />
             </div>
           </div>
         </div>

@@ -33,9 +33,9 @@ const staysData = [
         people: 4,
         image: room1,
         amenities: [
-            { title: "1 Beds", icon: <Bed size={20} strokeWidth={1.5} /> },
-            { title: "1 Bath", icon: <Bath size={20} strokeWidth={1.5} /> },
-            { title: "4 People", icon: <Users size={20} strokeWidth={1.5} /> }
+            { title: "1 Beds", icon: <Image src="/bed.svg" alt="" width={20} height={20} /> },
+            { title: "1 Bath", icon: <Image src="/shower.svg" alt="" width={20} height={20} /> },
+            { title: "4 People", icon: <Image src="/people1.svg" alt="" width={20} height={20} /> }
         ],
     },
     {

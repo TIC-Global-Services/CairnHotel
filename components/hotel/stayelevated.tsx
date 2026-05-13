@@ -30,7 +30,7 @@ const StayElevated = () => {
       scrollTrigger: {
         trigger: containerRef.current,
         start: () => window.innerWidth < 768 ? "top 75%" : "top top", 
-        toggleActions: "play none none none",
+        toggleActions: "play none none reverse",
         invalidateOnRefresh: true, 
       }
     })

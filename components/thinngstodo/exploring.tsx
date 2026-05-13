@@ -65,7 +65,7 @@ const Exploring = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1 }}
-                    className="w-full lg:w-[40%] relative aspect-[2/3] lg:aspect-[3/4] rounded-xl overflow-hidden shadow-2xl bg-gray-100 order-1 lg:order-2"
+                    className="w-full lg:w-[40%] relative aspect-[4/5] lg:aspect-[5/6] rounded-xl overflow-hidden shadow-2xl bg-gray-100 order-1 lg:order-2"
                 >
                     <AnimatePresence>
                         <motion.div

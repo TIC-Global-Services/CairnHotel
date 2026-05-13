@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const GetInTouch = () => {
     return (
-        <section className="w-full py-24 px-4 md:px-8 lg:px-16">
+        <section className="w-full py-24 px-8 md:px-8 lg:px-16">
             <div className="max-w-7xl mx-auto flex flex-col justify-center items-center">
                 
                 {/* Heading */}
@@ -26,7 +26,7 @@ const GetInTouch = () => {
                             sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                     </div>
-                    <div className="w-full lg:w-3/5 flex flex-col md:items-start items-center text-left">
+                    <div className="w-full lg:w-3/5 flex flex-col md:items-start items-center text-center md:text-left">
                         <p className="text-[#343A40] text-base md:text-lg leading-snug md:leading-loose mb-10 font-normal max-w-3xl">
                             Utah is a place where every landscape tells a different story. Red rock canyons, high desert views, alpine forests, and rugged mountain peaks create a setting that feels both adventurous and unforgettable. From winter skiing and scenic drives to hiking, mountain biking, and rock climbing, the state offers year-round experiences for travelers who want to explore, unwind, and reconnect with the natural beauty of the West.
                         </p>

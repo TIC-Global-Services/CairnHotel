@@ -12,7 +12,7 @@ const Map = () => {
         allowFullScreen
         referrerPolicy="no-referrer-when-downgrade"
         src="https://www.openstreetmap.org/export/embed.html?bbox=-113.1031%2C37.6599%2C-113.0631%2C37.6999&layer=mapnik&marker=37.6799%2C-113.0831"
-        className="w-full h-full pointer-events-none grayscale-50 contrast-[1.1] opacity-70 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700 ease-in-out"
+        className="w-full h-full grayscale-50 contrast-[1.1] opacity-70 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700 ease-in-out"
       />
 
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none bg-linear-to-t from-[#1a1818] via-transparent to-transparent opacity-80 group-hover:opacity-0 transition-opacity duration-700" />
