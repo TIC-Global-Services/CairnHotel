@@ -84,7 +84,7 @@ const StoryOfCairn = () => {
             <div className="relative z-10 w-full max-w-7xl flex flex-col lg:flex-row items-center gap-12 lg:gap-32">
                 {/* Left Side: Image */}
                 <div ref={imageRef} className="w-full lg:w-1/2 flex items-center justify-center">
-                    <div className="relative aspect-4/5 w-full max-w-[600px] max-h-[80dvh] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+                    <div className="relative aspect-[4/5] w-full max-w-[600px] max-h-[80dvh] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
                         <Image
                             src={storyofcarinimg}
                             alt="The Cairn Hotel Legacy"

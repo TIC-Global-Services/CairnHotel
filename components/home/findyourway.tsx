@@ -19,10 +19,10 @@ const FindYourWay = () => {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 flex flex-col items-center text-center px-4">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-sans text-white uppercase mb-4 leading-tight">
-                    LET OUR CAIRN HELP <br />
-                    YOU FIND YOUR WAY
+            <div className="relative z-10 flex flex-col items-center text-center px-4 md:px-4">
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium uppercase mb-4 leading-tight bg-gradient-to-b from-white via-white/80 to-white/40 bg-clip-text text-transparent">
+                    LET OUR CAIRN<br className="md:hidden" /> HELP<br className="hidden md:block" />
+                    YOU FIND<br className="md:hidden" /> YOUR WAY
                 </h2>
                 {/* <Link href={'/hotel'}>
                     <button

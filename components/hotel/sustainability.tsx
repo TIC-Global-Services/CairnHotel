@@ -49,7 +49,7 @@ const Sustainability = () => {
   ]
 
   return (
-    <section className="relative w-full h-screen min-h-screen flex flex-col justify-between overflow-hidden">
+    <section className="relative w-full min-h-screen flex flex-col justify-between overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <Image
           src={sustainabilityBg}
@@ -65,7 +65,7 @@ const Sustainability = () => {
         <h2 className="text-2xl md:text-[52px] font-normal text-white leading-tight tracking-tight">
           Sustainability starts with us
         </h2>
-        <p className="text-white/90 mt-2 text-base md:text-xl font-light">
+        <p className="text-white mt-2 text-base md:text-xl font-normal leading-tight">
           We protect what we love - with green energy, local food, and plastic-free choices that care for our surroundings.
         </p>
       </div>

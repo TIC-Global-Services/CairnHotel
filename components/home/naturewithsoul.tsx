@@ -44,7 +44,7 @@ const NatureWithSoul = () => {
                 {/* Left column - pinned via sticky */}
                 <div className="w-full md:w-1/2 pt-12 pb-4 md:py-0 md:h-screen relative md:sticky top-0 md:top-0 flex items-center justify-center z-10 bg-white md:bg-transparent">
                     {/* Stacking elements */}
-                    <div className="relative w-[85%] max-w-[480px] md:aspect-4/5 aspect-3/2 mt-6 md:mt-0">
+                    <div className="relative w-full max-w-[480px] md:aspect-4/5 aspect-3/2 mt-6 md:mt-0">
                         {/* Decorative background cards to give the "stack" look */}
                         <div className="absolute inset-0 bg-[#F4EBD9] rounded-2xl transform -rotate-4 -translate-x-3 -translate-y-3 md:-translate-x-5 md:-translate-y-5 shadow-sm" />
                         <div className="absolute inset-0 bg-[#6F3A21] rounded-2xl transform -rotate-2 -translate-x-1.5 -translate-y-1.5 md:-translate-x-2 md:-translate-y-2 shadow-sm" />
@@ -113,7 +113,7 @@ const NatureWithSoul = () => {
                             </h2>
 
                             {/* Description */}
-                            <p className="text-sm md:text-base leading-[1.4] max-w-[380px] font-normal">
+                            <p className=" text-[#2A0800] text-xl md:text-base leading-[1.4] max-w-[380px] font-normal">
                                 {data.description}
                             </p>
                         </motion.div>
@@ -121,7 +121,7 @@ const NatureWithSoul = () => {
                 </div>
 
                 {/* Mobile text content with slider controls */}
-                <div className="flex md:hidden w-full flex-col px-6 pt-8 pb-16 min-h-[45vh]">
+                <div className="flex md:hidden w-full flex-col px-1 pt-8 pb-16 min-h-[45vh]">
                     <motion.div
                         key={activeIndex}
                         initial={{ opacity: 0, y: 10 }}
@@ -139,12 +139,12 @@ const NatureWithSoul = () => {
                         </div>
 
                         {/* Title */}
-                        <h2 className="text-[2.2rem] font-light text-[#2A0800] leading-[1.1] mb-5 whitespace-pre-line">
-                            {contentData[activeIndex].title}
+                        <h2 className="text-2xl font-light text-[#2A0800] leading-[1.1] mb-5">
+                            {contentData[activeIndex].title.replace('\n', ' ')}
                         </h2>
 
                         {/* Description */}
-                        <p className="text-gray-500 text-sm leading-[1.8] max-w-[380px] font-light mb-10">
+                        <p className="text-[#2A0800] text-[12px] md:text-base leading-[1.4] font-normal mb-10">
                             {contentData[activeIndex].description}
                         </p>
                     </motion.div>

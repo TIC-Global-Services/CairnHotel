@@ -13,10 +13,10 @@ const ElevatedStay = () => {
                     <div className="flex flex-col lg:flex-row justify-between items-start mb-6 md:mb-16 gap-8">
                         {/* Left Column: Heading & Label */}
                         <div className="max-w-2xl">
-                            <span className="block text-xs md:text-xl font-medium tracking-[0.05em] uppercase text-[#4D2F27] mb-4 md:mb-6">
+                            <span className="block text-base md:text-xl font-medium tracking-[0.05em] uppercase text-[#4D2F27] mb-4 md:mb-6">
                                 ELEVATED  STAYS  IN  UTAH
                             </span>
-                            <h2 className="text-[17px] md:text-5xl lg:text-4xl font-sans font-medium text-neutral-900 leading-[1.4] md:leading-[1.1] tracking-tight pr-4 md:pr-0">
+                            <h2 className="text-[14px] md:text-5xl lg:text-4xl font-sans font-normal md:font-medium text-neutral-900 leading-[1.4] md:leading-[1.1] tracking-tight pr-4 md:pr-0">
                                 Surrounded By Breathtaking <br className="hidden md:block" />
                                 Peaks And Untouched <br className="hidden md:block" />
                                 Landscapes<span className="hidden md:inline">.</span>
@@ -40,8 +40,8 @@ const ElevatedStay = () => {
                             src={elevated}
                             alt="Elevated stay in Utah landscape"
                             fill
-                            style={{objectPosition:"80% 30%"}}
-                            className="object-cover scale-90"
+                            className="object-cover scale-75 md:scale-90"
+                            style={{ objectPosition: '30% 30%' }}
                             priority
                         />
                         </SimpleParallax>
@@ -49,9 +49,9 @@ const ElevatedStay = () => {
 
                     {/* Right Column: Secondary Text (Mobile) */}
                     <div className="md:hidden block pb-6">
-                        <p className="text-[15px] font-sans font-medium text-black/30 leading-[1.4]">
+                        <p className="text-[17px] font-sans font-medium text-black/30 leading-[1.4]">
                             In The Heart Of Utah,<br />
-                            A Seamless Blend Of Nature-Inspired Design and<br />
+                            A Seamless Blend Of Nature-Inspired Design and
                             Modern Luxury
                         </p>
                     </div>

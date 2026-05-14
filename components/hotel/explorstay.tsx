@@ -381,7 +381,7 @@ const ExploreStay = () => {
                         {/* Close Button Top Right */}
                         <button
                             onClick={closeCard}
-                            className="absolute top-12 right-6 md:top-6 md:right-6 w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-black hover:bg-white transition-colors duration-300 z-50 drop-shadow-md cursor-pointer bg-transparent"
+                            className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 rounded-full flex items-center justify-center text-white hover:text-black hover:bg-white transition-colors duration-300 z-50 drop-shadow-md cursor-pointer bg-transparent"
                         >
                             {/* Mobile Arrow Right, Desktop X */}
                            <X className='text-black'/>

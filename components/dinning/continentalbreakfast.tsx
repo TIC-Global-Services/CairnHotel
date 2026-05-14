@@ -43,7 +43,7 @@ export default function ContinentalBreakfast() {
                 <h2 className="text-xl md:text-[40px] font-semibold uppercase tracking-normal mb-6 text-[#1a1a1a]">
                     Continental Breakfast
                 </h2>
-                <p className="text-[#1a1a1a]/90 text-base md:text-[20px] font-medium leading-tight md:leading-tight">
+                <p className="text-[#1a1a1a]/90 text-base md:text-[20px] font-normal md:font-medium leading-tight md:leading-tight">
                     Let our chef take you on a culinary journey. Each dish celebrates fresh, seasonal ingredients
                     carefully selected to deliver a flavourful and authentic dining experience.
                 </p>

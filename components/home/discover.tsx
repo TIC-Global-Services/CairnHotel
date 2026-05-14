@@ -41,12 +41,22 @@ const Discover = () => {
             <div className="max-w-[1214px] w-full text-center flex flex-col items-center">
                 <p
                     ref={textRef}
-                    className="text-xl md:text-2xl lg:text-[50px] font-sans font-normal leading-[1.5] md:leading-[1.8] lg:leading-[2] tracking-normal mb-8 md:mb-12 bg-gradient-to-b from-[#4D2F27] via-[#331F1A]/75 to-black/30 bg-clip-text text-transparent"
+                    className="text-xl md:text-4xl lg:text-5xl font-sans font-normal leading-[1.5] md:leading-[1.8] lg:leading-[2] tracking-normal mb-8 md:mb-12 bg-gradient-to-b from-[#4D2F27] via-[#331F1A]/75 to-black/30 bg-clip-text text-transparent"
                 >
-                    The new Cairn Hotel features inviting interiors,<br />
-                    nature-inspired earth tones, and thoughtful design<br />
-                    details that reflect the warmth, refinement, and<br />
-                    natural beauty of Southern Utah
+                    <span className="md:hidden">
+                        The new Cairn Hotel features<br />
+                        inviting interiors, nature-inspired<br />
+                        earth tones, and thoughtful design<br />
+                        details that reflect the warmth,<br />
+                        refinement, and natural beauty of<br />
+                        Southern Utah
+                    </span>
+                    <span className="hidden md:inline">
+                        The new Cairn Hotel features inviting interiors,<br />
+                        nature-inspired earth tones, and thoughtful design<br />
+                        details that reflect the warmth, refinement, and<br />
+                        natural beauty of Southern Utah
+                    </span>
                 </p>
 
                 {/* Mobile-only: DISCOVER + downward arrow */}

@@ -17,7 +17,7 @@ const Grounded = () => {
                 />
             </div>
             {/* Top Gradient for text legibility */}
-            <div className="absolute inset-x-0 top-0 h-[40vh] md:h-[35vh] bg-gradient-to-b from-[#FAF9F8] via-[#FAF9F8]/60 to-transparent z-10 pointer-events-none"></div> 
+            <div className="absolute inset-x-0 top-0 h-[40vh] md:h-[35vh] bg-gradient-to-b from-[#FAF9F8] via-[#FAF9F8]/30 to-transparent z-10 pointer-events-none"></div> 
 
             {/* Overlapping Text */}
             <div className="absolute -top-10 left-0 w-full flex flex-col items-center justify-center z-20 text-center -translate-y-1/2">

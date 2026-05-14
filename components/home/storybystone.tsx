@@ -127,7 +127,7 @@ const StoryByStone = () => {
                                 key={i}
                                 className={`desktop-story-item ${i === 0 ? 'relative' : 'absolute top-0 left-0'} w-full`}
                             >
-                                <span className="story-label block text-sm font-sans tracking-[0.2em] uppercase text-[#7a6559] mb-8 font-semibold opacity-0 translate-y-4">
+                                <span className="story-label block text-sm font-sans tracking-[0.2em] uppercase text-[#4D2F27] mb-8 font-semibold opacity-0 translate-y-4">
                                     {story.label}
                                 </span>
                                 <h2 className="text-4xl font-sans font-medium text-neutral-800 max-w-xl leading-[1.1] tracking-tight">
@@ -173,7 +173,7 @@ const StoryByStone = () => {
             <div className="flex lg:hidden flex-col items-center justify-between min-h-[80vh] w-full px-[5%] relative pt-10">
                 {/* Slide Header */}
                 <div className="h-[40px] flex flex-col items-center justify-center w-full mb-8">
-                    <span className="text-[13px] font-sans tracking-[0.2em] uppercase text-[#7a6559] font-bold mb-10 text-center">
+                    <span className="text-[18px] font-sans tracking-wide uppercase text-[#4D2F27] font-medium mb-10 text-center">
                         {stories[currentSlide].label}
                     </span>
                 </div>
@@ -200,7 +200,7 @@ const StoryByStone = () => {
 
                 {/* Bottom Title Text & Controls */}
                 <div className="flex flex-col items-center justify-center -translate-y-10 md:translate-y-0 flex-1 w-full mb-8 md:pt-4">
-                    <div className="w-full flex items-center justify-start text-center px-4">
+                    <div className="w-full flex items-center justify-start text-justify px-0">
                         <h2 className="text-[18px] md:text-2xl font-sans font-medium text-neutral-800 leading-[1.3] transition-all duration-300">
                             {stories[currentSlide].title}
                         </h2>

@@ -41,8 +41,8 @@ const StayAtCairn = () => {
           className="text-2xl md:text-5xl lg:text-[56px] font-semibold text-black leading-[1.1] md:tracking-tight mb-6 md:mb-8"
           style={{ opacity: globalOpacity }}
         >
-          <span className="hidden md:inline">Stay at Cairn</span>
-          <span className="md:hidden">Luxury Stay With Cairn</span>
+          <span>Stay at Cairn</span>
+
         </motion.h2>
 
         <motion.p

@@ -86,7 +86,7 @@ const Experience = () => {
           viewport={{ once: true, margin: "-50px" }}
           className="md:max-w-6xl text-center md:px-4"
         >
-          <p className="text-sm md:text-lg lg:text-xl font-normal text-[#1a1a1a]">
+          <p className="text-base md:text-lg lg:text-xl font-normal capitalize leading-wide">
             Savor a refined dining experience at Crain Hotel, where thoughtfully curated menus, fresh ingredients, and a warm, elegant ambiance come together.
           </p>
         </motion.div>

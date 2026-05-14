@@ -54,9 +54,16 @@ const Hero = () => {
             {/* Top Typography Node */}
             <div className='relative z-10 flex flex-col mt-[30%] md:mt-[10%] items-center justify-center w-full px-[5%] mb-[10vh]'>
                 <h1 className='text-[4rem] md:text-[10rem] lg:text-[10rem] text-center font-semibold uppercase text-white leading-[0.6] md:leading-none drop-shadow-2xl'>THINGS <br className='md:hidden'/> <span className='text-[2rem] md:text-[10rem] lg:text-[10rem]'>TO DO</span></h1>
-                <p className='text-sm md:text-base lg:text-xl font-normal md:font-medium  md:max-w-3xl text-center mt-4 mb-8 text-white drop-shadow flex flex-col'>
-                    <span>Let Us Host Your Group To Create An Unforgettable Experience For You. We're</span>
-                    <span>Experienced With Hosting Families, Companies, Tour Buses, And More.</span>
+                <p className='text-sm md:text-base lg:text-xl font-medium md:max-w-3xl text-center mt-4 mb-8 text-white drop-shadow'>
+                    <span className="md:hidden">
+                        Let Us Host Your Group To Create An Unforgettable<br />
+                        Experience For You. We're Experienced With Hosting<br />
+                        Families, Companies, Tour Buses, And More.
+                    </span>
+                    <span className="hidden md:flex flex-col">
+                        <span>Let Us Host Your Group To Create An Unforgettable Experience For You. We're</span>
+                        <span>Experienced With Hosting Families, Companies, Tour Buses, And More.</span>
+                    </span>
                 </p>
                 <button className='px-6 py-2.5 md:px-12 md:py-3.5 rounded-full border-2 bg-white/5     border-[#FFFFFF1A] hover:bg-white/10 uppercase backdrop-blur-xs text-white transition-colors duration-300 text-sm font-medium tracking-widest shadow-lg'>Book Now</button>
             </div>

@@ -21,7 +21,7 @@ const BookNow = () => {
         setMounted(true);
         const updateSizes = () => {
             if (window.innerWidth < 768) {
-                setOuterRadius(150); // Mobile
+                setOuterRadius(160); // Mobile
             } else if (window.innerHeight < 850 && window.innerWidth >= 1024) {
                 setOuterRadius(300); // Low-height desktop
             } else {
@@ -62,7 +62,7 @@ const BookNow = () => {
 
                         {/* Outer Orbiting Layer */}
                         <OrbitingCircles
-                            className="w-[70px] h-[55px] md:w-[150px] md:h-[110px] lg:w-[13dvh] lg:h-[18dvh] border-none bg-transparent"
+                            className="w-[85px] h-[65px] md:w-[150px] md:h-[110px] lg:w-[13dvh] lg:h-[18dvh] border-none bg-transparent"
                             duration={40}
                             radius={outerRadius}
                             path={true}

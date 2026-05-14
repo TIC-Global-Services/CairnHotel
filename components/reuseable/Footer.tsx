@@ -9,14 +9,14 @@ import Link from 'next/link'
 
 const Footer = () => {
     return (
-        <footer className="relative w-full pt-22 pb-10 px-4 md:px-8 lg:px-10 overflow-hidden bg-[#FFF7E0]">
+        <footer className="relative w-full pt-10 pb-10 px-4 md:px-8 lg:px-10 overflow-hidden bg-[#FFF7E0]">
             {/* Background Shapes */}
-            <div className="absolute inset-0 -top-[10%] md:-top-[5%] lg:-top-[40%] -left-[60%] md:-left-[49%] w-full h-[180%] z-0 opacity-20 pointer-events-none">
+            <div className="absolute inset-0 -top-[40%] md:-top-[5%] lg:-top-[40%] -left-[140%] md:-left-[49%] w-[250%] md:w-full h-[180%] z-0 opacity-20 pointer-events-none">
                 <Image 
                     src={footerbg} 
                     alt="Footer Background" 
                     fill 
-                    className="object-cover object-center scale-75"
+                    className="object-cover object-center scale-50 md:scale-75"
                     priority
                 />
             </div>
@@ -66,18 +66,18 @@ const Footer = () => {
                 </div>
 
                 {/* Contact Info */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full max-w-5xl mx-auto mb-32">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-10 w-full max-w-5xl mx-auto mb-2">
                     <div className="flex flex-col items-center">
                         <h4 className="text-[#3A3A3A] mb-3 text-base font-medium">Email</h4>
-                        <p className="text-[#1A1A1A] text-xl md:text-2xl font-normal">info@thecairnhotel.com</p>
-                    </div>
-                    <div className="flex flex-col items-center">
-                        <h4 className="text-[#3A3A3A] mb-3 text-base font-medium">Phone</h4>
-                        <p className="text-[#1A1A1A] text-xl md:text-2xl font-normal">+39 0474 710 423</p>
+                        <p className="text-[#1A1A1A] text-sm md:text-2xl font-normal">info@thecairnhotel.com</p>
                     </div>
                     <div className="flex flex-col items-center">
                         <h4 className="text-[#3A3A3A] mb-3 text-base font-medium">Opening Hour</h4>
-                        <p className="text-[#1A1A1A] text-xl md:text-2xl font-normal">Open 24 hours</p>
+                        <p className="text-[#1A1A1A] text-sm md:text-2xl font-normal">Open 24 hours</p>
+                    </div>
+                    <div className="col-span-2 md:col-span-1 flex flex-col items-center">
+                        <h4 className="text-[#3A3A3A] mb-3 text-base font-medium">Phone</h4>
+                        <p className="text-[#1A1A1A] text-sm md:text-2xl font-normal">+39 0474 710 423</p>
                     </div>
                 </div>
 

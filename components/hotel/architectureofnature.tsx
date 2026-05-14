@@ -115,10 +115,10 @@ const ArchitectureOfNature = () => {
                 {/* Header Content */}
                 <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-0 z-10">
                     <div className="flex flex-col">
-                        <h2 className="text-lg md:text-[2.75rem] font-bold md:font-semibold text-[#352520]  whitespace-nowrap leading-none tracking-wide">
+                        <h2 className="text-lg md:text-[2.75rem] font-bold md:font-semibold text-[#4D2F27] whitespace-nowrap leading-none tracking-wide">
                             THE ARCHITECTURE OF
                         </h2>
-                        <h2 className="text-lg md:text-5xl font-medium italic text-[#5c4033] mt-0.5 md:mt-2">
+                        <h2 className="text-lg md:text-5xl font-medium italic text-[#4D2F27] mt-0.5 md:mt-2">
                             NATURE
                         </h2>
                     </div>
@@ -136,20 +136,20 @@ const ArchitectureOfNature = () => {
                         {data.map((item, index) => (
                             <div
                                 key={index}
-                                className={`nature-card flex-shrink-0 w-[55vw] md:w-[24vw] bg-white p-3 md:p-5 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15)] rounded-sm border border-black/5
+                                className={`nature-card flex-shrink-0 w-[90vw] md:w-[24vw] bg-white p-3 md:p-5 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15)] rounded-sm border border-black/5
                                     ${index === 0 ? 'md:-translate-y-8' : ''}
                                     ${index === 1 ? 'md:translate-y-20' : ''}
                                     ${index === 2 ? 'md:-translate-y-2' : ''}
                                     ${index === 3 ? 'md:translate-y-32' : ''}
                                 `}
                             >
-                                <div className="relative aspect-4/5 overflow-hidden mb-4 md:mb-5">
+                                <div className="relative aspect-3/2 md:aspect-4/5 overflow-hidden mb-4 md:mb-5">
                                     <Image
                                         src={item.image}
                                         alt={item.title}
                                         fill
                                         className="object-cover transition-transform duration-1000 hover:scale-105"
-                                        sizes="(max-width: 768px) 80vw, 24vw"
+                                        sizes="(max-width: 768px) 85vw, 24vw"
                                     />
                                 </div>
                                 <h3 className="text-xs md:text-base font-semibold text-[#1a1a1a] mb-1.5 md:mb-2 tracking-wide uppercase">

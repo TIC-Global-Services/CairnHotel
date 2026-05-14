@@ -193,7 +193,7 @@ function DragSlider({ activeIndex, total, onChangeIndex, orientation = 'vertical
                         key={i}
                         animate={isVertical
                             ? { width: cfg.width, opacity: cfg.opacity }
-                            : { height: cfg.width * 1.5, opacity: cfg.opacity }
+                            : { height: cfg.width * 0.75, opacity: cfg.opacity }
                         }
                         transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                         className={
@@ -244,7 +244,7 @@ const Amenities = () => {
     const activeAmenity = amenitiesData[activeIndex]
 
     return (
-        <section className="relative w-full bg-black overflow-hidden min-h-screen select-none">
+        <section className="relative w-full bg-black overflow-hidden min-h-[80vh] select-none">
             {/* Marquee strip */}
             <MarqueeStrip />
 

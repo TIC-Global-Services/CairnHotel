@@ -163,7 +163,7 @@ const Hero = memo(() => {
                     </div>
 
                     <div ref={descTextRef} className="mt-4 md:mt-6 max-w-3xl text-center px-6" style={{ willChange: 'transform' }}>
-                        <p className="text-white text-[11px] md:text-sm lg:text-xl leading-tight tracking-wide font-medium capitalize">
+                        <p className="text-white text-sm md:text-sm lg:text-xl leading-tight tracking-wide font-medium capitalize">
                             Cairn Hotel Is A Place Where Timeless Design, Natural Materials,
                             And Hospitality Come Together To Create An Experience
                             That Is Thoughtfully Crafted To Reflect Harmony With Nature.
@@ -182,7 +182,7 @@ const Hero = memo(() => {
             </div>
             <div className='relative z-[40]'>
 
-                <div className="flex justify-center md:justify-end mt-10 px-6 md:px-16 lg:px-24 pb-[3vh] md:pb-[22vh]">
+                <div className="flex justify-center md:justify-end mt-10 px-12 md:px-16 lg:px-24 pb-[3vh] md:pb-[22vh]">
                     <div ref={adventureRef} className="max-w-xl flex flex-col items-start text-center md:block md:text-left" style={{ willChange: 'transform, opacity' }}>
                         <div className="mb-3 md:mb-4">
                             <Image src={trucking} alt="trucking" width={28} height={28} className="opacity-80" />
@@ -207,7 +207,7 @@ const Hero = memo(() => {
                 </div>
 
       
-                <div className="flex justify-start px-6 md:px-16 lg:px-24 pb-[8vh] md:pb-[16vh]">
+                <div className="flex justify-start px-12 md:px-16 lg:px-24 pb-[8vh] md:pb-[16vh]">
                     <div ref={discoveryRef} className="max-w-xl flex flex-col items-start text-center md:block md:text-left" style={{ willChange: 'transform, opacity' }}>
                         <div className="mb-3 text-white/80">
                             <Image src={mountain} alt="mountain" width={32} height={24} className="brightness-0 invert opacity-80" />

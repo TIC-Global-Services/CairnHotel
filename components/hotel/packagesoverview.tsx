@@ -71,15 +71,15 @@ const PackagesOverview = () => {
   };
 
   return (
-    <section className="w-full py-20 md:py-32 bg-white px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section className="w-full pt-20 md:pt-32 pb-12 md:pb-32 bg-white px-6 md:px-12 lg:px-20 overflow-hidden">
       <div className="max-w-[1200px] mx-auto">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 md:mb-16 gap-6 md:gap-12">
-          <h2 className="text-[3rem] md:text-[4rem] font-bold text-black leading-[1] tracking-[-0.03em]">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-center mb-10 md:mb-16 gap-6 md:gap-12">
+          <h2 className="text-[3rem] md:text-[4rem] font-bold text-black leading-[1] tracking-[-0.03em] text-center md:text-left">
             Cairn<br/>Packages
           </h2>
-          <p className="text-[20px] md:text-[20px] font-normal leading-tight max-w-[700px]">
+          <p className="text-[16px] md:text-[20px] font-normal leading-tight max-w-[700px] text-center md:text-left">
             Experience the Cedar City in every season with our exclusive offers for
             adventure, relaxation, indulgence, and unforgettable moments.
           </p>
@@ -89,42 +89,42 @@ const PackagesOverview = () => {
         <div className="w-full h-[1px] bg-black/10 mb-16 md:mb-24"></div>
 
         {/* Cards Wrapper */}
-        <div className="relative flex justify-center items-center h-[480px] md:h-[820px] w-full max-w-[1400px] mx-auto">
-          
+        <div className="relative flex justify-center items-center h-[320px] md:h-[820px] w-full max-w-[1400px] mx-auto">
+
           {/* Left Card (Game Day) */}
-          <div onClick={() => handleCardClick('gameday')} className="absolute left-[2%] md:left-0 top-10 md:top-[70px] w-[240px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl -rotate-[12deg] transform-gpu transition-all duration-500 hover:-rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
+          <div onClick={() => handleCardClick('gameday')} className="absolute left-[2%] md:left-0 top-5 md:top-[70px] w-[140px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl -rotate-[12deg] transform-gpu transition-all duration-500 hover:-rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
             <Image src={gamedayImg} alt="Game Day Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-8 px-4 opacity-90 transition-opacity group-hover:opacity-100">
-              <h3 className="text-white font-medium text-lg md:text-xl mb-3 text-center tracking-wide">
+              <h3 className="text-white font-medium text-xs md:text-xl mb-1.5 md:mb-3 text-center tracking-wide">
                 Game Day Package
               </h3>
-              <button className="text-white text-[14px] md:text-[15px] uppercase tracking-widest px-6 py-2 rounded-full border border-white hover:bg-white hover:text-black transition-colors font-normal">
+              <button className="text-white text-[10px] md:text-[15px] uppercase tracking-widest px-3 md:px-6 py-1.5 md:py-2 rounded-full border border-white hover:bg-white hover:text-black transition-colors font-normal">
                 More Info
               </button>
             </div>
           </div>
 
           {/* Right Card (Pet Friendly) */}
-          <div onClick={() => handleCardClick('petfriendly')} className="absolute right-[2%] md:right-0 top-10 md:top-[70px] w-[240px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl rotate-[12deg] transform-gpu transition-all duration-500 hover:rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
+          <div onClick={() => handleCardClick('petfriendly')} className="absolute right-[2%] md:right-0 top-5 md:top-[70px] w-[140px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl rotate-[12deg] transform-gpu transition-all duration-500 hover:rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
             <Image src={petfriendlyImg} alt="Pet-Friendly Stay Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-8 px-4 opacity-90 transition-opacity group-hover:opacity-100">
-              <h3 className="text-white font-medium text-lg md:text-xl mb-3 text-center tracking-wide">
+              <h3 className="text-white font-medium text-xs md:text-xl mb-1.5 md:mb-3 text-center tracking-wide">
                 Pet-Friendly Stay Package
               </h3>
-              <button className="text-white text-[14px] md:text-[15px] uppercase tracking-widest px-6 py-2 rounded-full border border-white hover:bg-white hover:text-black transition-colors font-normal">
+              <button className="text-white text-[10px] md:text-[15px] uppercase tracking-widest px-3 md:px-6 py-1.5 md:py-2 rounded-full border border-white hover:bg-white hover:text-black transition-colors font-normal">
                 More Info
               </button>
             </div>
           </div>
 
           {/* Center Card (Shakespeare) */}
-          <div onClick={() => handleCardClick('shakespeare')} className="absolute z-10 w-[300px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl transform-gpu transition-all duration-500 hover:scale-105 cursor-pointer group">
+          <div onClick={() => handleCardClick('shakespeare')} className="absolute z-10 -top-4 w-[170px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl transform-gpu transition-all duration-500 hover:scale-105 cursor-pointer group">
             <Image src={shakespeareImg} alt="Shakespeare Festival Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-10 px-4">
-              <h3 className="text-white font-medium text-xl md:text-2xl mb-4 text-center tracking-wide drop-shadow-md">
+              <h3 className="text-white font-medium text-sm md:text-2xl mb-2 md:mb-4 text-center tracking-wide drop-shadow-md">
                 Shakespeare Festival Package
               </h3>
-              <button className="text-white text-[14px] md:text-[15px] uppercase tracking-widest px-7 py-2.5 rounded-full border border-white hover:bg-white hover:text-black transition-colors font-normal">
+              <button className="text-white text-[10px] md:text-[15px] uppercase tracking-widest px-4 md:px-7 py-1.5 md:py-2.5 rounded-full border border-white hover:bg-white hover:text-black transition-colors font-normal">
                 More Info
               </button>
             </div>

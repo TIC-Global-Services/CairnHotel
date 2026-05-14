@@ -328,7 +328,7 @@ const SECTIONS: SectionConfig[] = [
         },
         content: (
           <div className="relative flex flex-col items-center">
-            <h1 className="text-5xl md:text-[10rem] lg:text-[13rem] xl:text-[15rem] leading-none font-semibold uppercase select-none tracking-tighter text-white">
+            <h1 className="text-8xl md:text-[10rem] lg:text-[13rem] xl:text-[15rem] leading-none font-semibold uppercase select-none tracking-tighter text-white/80">
               SKIING
             </h1>
           </div>

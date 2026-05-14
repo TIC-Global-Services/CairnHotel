@@ -49,7 +49,7 @@ const QualityAndQuantity = () => {
           <div className="md:max-w-3xl">
             <p className="text-sm md:text-lg  uppercase font-medium md:mb-3 mb-2 text-[#1a1a1a]">QUALITY & QUANTITY</p>
             <h2 className="text-2xl md:text-[4.4rem] font-semibold leading-[1.1] text-[#1a1a1a] tracking-tight">
-              Experience <br className='hidden md:block'/> Comfort in <br className='hidden md:block'/> Every Detail
+              Experience <br className='hidden md:block'/> Comfort <br className='md:hidden'></br>in <br className='hidden md:block' /> Every Detail
             </h2>
           </div>
           <div className="md:max-w-xl md:pt-10">
