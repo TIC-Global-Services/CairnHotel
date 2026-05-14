@@ -336,7 +336,7 @@ export const SeasonOverlay: React.FC<SeasonOverlayProps> = ({ activeSeason, onCl
                                 </motion.div>
 
                                 {/* Small Index Tracker */}
-                                <motion.div variants={maskVariants} className="absolute bottom-10 right-6 md:bottom-8 md:right-12 flex items-end gap-[2px] font-bold text-white z-20">
+                                <motion.div variants={maskVariants} className="absolute bottom-4 right-6 md:bottom-2 lg:bottom-2 md:right-8 flex items-end gap-[2px] font-bold text-white z-20">
                                     <span className="text-2xl md:text-4xl text-white leading-none">
                                         {String(activeViewIndex + 1).padStart(2, '0')}
                                     </span>

@@ -67,7 +67,7 @@ const staysData = [
         amenities: [
             { title: "Heated Water", icon: <Image src="/wave.svg" alt="" width={20} height={20} /> },
             { title: "Jacuzzi Style", icon: <Image src="/Jacuzzi.svg" alt="" width={20} height={20} /> },
-            { title: "Quiet & Private", icon: <Image src="/lock.svg" alt="" width={14} height={14} /> }
+            { title: "Quiet & Private", icon: <Image src="/lock.svg" alt="" width={12} height={12} /> }
         ],
     },
     {
@@ -83,7 +83,7 @@ const staysData = [
         amenities: [
             { title: "Pool Access", icon: <Image src="/swimming.svg" alt="" width={20} height={20} /> },
             { title: "Sun Deck", icon: <Image src="/sun.svg" alt="" width={20} height={20} /> },
-            { title: "Family Friendly", icon: <Image src="/people.svg" alt="" width={20} height={20} /> }
+            { title: "Family Friendly", icon: <Image src="/people1.svg" alt="" width={20} height={20} /> }
         ],
     },
     // {    

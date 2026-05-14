@@ -11,12 +11,12 @@ const Footer = () => {
     return (
         <footer className="relative w-full pt-22 pb-10 px-4 md:px-8 lg:px-10 overflow-hidden bg-[#FFF7E0]">
             {/* Background Shapes */}
-            <div className="absolute inset-0 top-[10%] md:top-0 -left-[60%] md:-left-[49%] w-full h-full z-0 opacity-20 pointer-events-none">
+            <div className="absolute inset-0 -top-[10%] md:-top-[5%] lg:-top-[40%] -left-[60%] md:-left-[49%] w-full h-[180%] z-0 opacity-20 pointer-events-none">
                 <Image 
                     src={footerbg} 
                     alt="Footer Background" 
                     fill 
-                    className="object-cover max-h-[100dvh]  object-center" 
+                    className="object-cover object-center scale-75"
                     priority
                 />
             </div>

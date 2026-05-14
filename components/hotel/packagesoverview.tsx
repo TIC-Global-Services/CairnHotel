@@ -163,15 +163,11 @@ const PackagesOverview = () => {
               <div className="relative w-full max-w-[340px] aspect-[3/4] rounded-2xl overflow-hidden shadow-md shrink-0 mx-auto md:mx-0">
                 <Image
                   src={packagesMap[selectedPackage].textImage}
-                  alt={packagesMap[selectedPackage].title}
+                  alt={`${packagesMap[selectedPackage].title} Image`}
                   fill
                   className="object-cover"
                   sizes="340px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <span className="absolute bottom-5 left-5 text-white text-base font-medium">
-                  {packagesMap[selectedPackage].title}
-                </span>
               </div>
 
               {/* Right: Content */}
