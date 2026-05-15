@@ -56,8 +56,8 @@ const StayElevated = () => {
           opacity: 0,
         })
         gsap.set(card, {
-          width: metrics.width * 0.55,
-          height: metrics.height * 0.55,
+          width: metrics.width,
+          height: metrics.height,
           borderRadius: 16,
         })
       }
@@ -78,17 +78,9 @@ const StayElevated = () => {
         },
       })
 
-      // Phase 1 (0.08) — card expands from 55% to original size
-      tl.to(card, {
-        width: () => metrics.width,
-        height: () => metrics.height,
-        borderRadius: 16,
-        duration: 0.12,
-      }, 0.08)
-
-      // Phase 2 (0.24) — text slides out to offset, becomes fully visible
-      // Phase 3 (0.40) — card expands to full viewport + text flies away
-      // The gap between 0.30 and 0.40 ensures text reaches full opacity
+      // Phase 1 (0.12) — text slides out to offset, becomes fully visible
+      // Phase 2 (0.28) — card expands to full viewport + text flies away
+      // 0.10 gap between phases (0.18–0.28) ensures text rests at full opacity
       // before the exit animation begins, preventing overlap/jump
 
       if (isDesktop) {
@@ -96,55 +88,55 @@ const StayElevated = () => {
           x: () => metrics.leftOffset,
           opacity: 1,
           duration: 0.06,
-        }, 0.24)
+        }, 0.12)
         tl.to(rightText, {
           x: () => metrics.rightOffset,
           opacity: 1,
           duration: 0.06,
-        }, 0.24)
+        }, 0.12)
         tl.to(card, {
           width: () => window.innerWidth,
           height: () => window.innerHeight,
           borderRadius: 0,
           duration: 0.22,
-        }, 0.40)
+        }, 0.28)
         tl.to(leftText, {
           x: () => metrics.leftOffset - window.innerWidth,
           opacity: 0,
           duration: 0.22,
-        }, 0.40)
+        }, 0.28)
         tl.to(rightText, {
           x: () => metrics.rightOffset + window.innerWidth,
           opacity: 0,
           duration: 0.22,
-        }, 0.40)
+        }, 0.28)
       } else {
         tl.to(leftText, {
           y: () => metrics.leftOffset,
           opacity: 1,
           duration: 0.06,
-        }, 0.24)
+        }, 0.12)
         tl.to(rightText, {
           y: () => metrics.rightOffset,
           opacity: 1,
           duration: 0.06,
-        }, 0.24)
+        }, 0.12)
         tl.to(card, {
           width: () => window.innerWidth,
           height: () => window.innerHeight,
           borderRadius: 0,
           duration: 0.22,
-        }, 0.40)
+        }, 0.28)
         tl.to(leftText, {
           y: () => metrics.leftOffset - window.innerHeight,
           opacity: 0,
           duration: 0.22,
-        }, 0.40)
+        }, 0.28)
         tl.to(rightText, {
           y: () => metrics.rightOffset + window.innerHeight,
           opacity: 0,
           duration: 0.22,
-        }, 0.40)
+        }, 0.28)
       }
 
       return () => {

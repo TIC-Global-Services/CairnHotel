@@ -72,15 +72,22 @@ const ArchitectureOfNature = () => {
                 }
             });
 
-            // 1. Arrange straight perfectly horizontally arrayed
-            tl.to('.nature-card', {
-                y: 0,
+            // Measure one card step (card width + gap) for the slide distance
+            const cards = gsap.utils.toArray<HTMLElement>('.nature-card');
+            const cardStep = cards.length >= 2
+              ? cards[1].offsetLeft - cards[0].offsetLeft
+              : 0;
+
+            // Slide wrapper by one card step so card 1 exits left and its clone enters right
+            tl.to(wrapperRef.current, {
+                x: -cardStep,
                 duration: 2,
                 ease: "power2.inOut"
             }, 0);
 
-            tl.to(wrapperRef.current, {
-                x: "-42vw",
+            // 1. Arrange straight perfectly horizontally arrayed
+            tl.to('.nature-card', {
+                y: 0,
                 duration: 2,
                 ease: "power2.inOut"
             }, 0);
@@ -131,14 +138,15 @@ const ArchitectureOfNature = () => {
 
 
                     <div ref={wrapperRef} className="flex flex-col md:flex-row gap-6 md:gap-[3vw] pl-0 md:pl-[11vw] w-full md:w-max items-center pb-24 md:pb-34 z-10">
-                        {data.map((item, index) => (
+                        {[...data, data[0]].map((item, index) => (
                             <div
-                                key={index}
+                                key={`${item.title}-${index}`}
                                 className={`nature-card flex-shrink-0 w-[90vw] md:w-[24vw] bg-white p-3 md:p-5 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15)] rounded-sm border border-black/5
-                                    ${index === 0 ? 'md:-translate-y-8' : ''}
-                                    ${index === 1 ? 'md:translate-y-20' : ''}
-                                    ${index === 2 ? 'md:-translate-y-2' : ''}
-                                    ${index === 3 ? 'md:translate-y-32' : ''}
+                                    ${index % 4 === 0 ? 'md:-translate-y-8' : ''}
+                                    ${index % 4 === 1 ? 'md:translate-y-20' : ''}
+                                    ${index % 4 === 2 ? 'md:-translate-y-2' : ''}
+                                    ${index % 4 === 3 ? 'md:translate-y-32' : ''}
+                                    ${index === data.length ? 'hidden md:block' : ''}
                                 `}
                             >
                                 <div className="relative aspect-3/2 md:aspect-4/5 overflow-hidden mb-4 md:mb-5">
@@ -157,7 +165,7 @@ const ArchitectureOfNature = () => {
                                     {item.description}
                                 </p>
                                 <button
-                                    onClick={() => setSelectedCard(index)}
+                                    onClick={() => setSelectedCard(index % data.length)}
                                     className="text-[10px] md:text-xs font-semibold text-black border-b border-black pb-0.5 hover:text-gray-500 transition-colors uppercase tracking-[0.1em]"
                                 >
                                     VIEW MORE
