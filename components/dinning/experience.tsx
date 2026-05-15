@@ -34,7 +34,7 @@ const Experience = () => {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-              className="w-[47%] md:w-[45%] aspect-[1.6] rounded-3xl overflow-hidden relative shadow-lg"
+              className="w-[47%] md:w-[45%] aspect-[1] md:aspect-[1.6] rounded-3xl overflow-hidden relative shadow-lg"
             >
               <Image 
                 src={image1} 
@@ -49,7 +49,7 @@ const Experience = () => {
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-              className="w-[47%] md:w-[45%] aspect-[1.6] rounded-3xl overflow-hidden relative shadow-lg"
+              className="w-[47%] md:w-[45%] aspect-[1] md:aspect-[1.6] rounded-3xl overflow-hidden relative shadow-lg"
             >
               <Image 
                 src={image3} 
@@ -66,7 +66,7 @@ const Experience = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
-            className="w-[55%] md:w-[50%] aspect-[1.6] rounded-3xl overflow-hidden relative mx-auto -mt-[20%] md:-mt-[18%] shadow-2xl z-10"
+            className="w-[55%] md:w-[50%] aspect-[1] md:aspect-[1.6] rounded-3xl overflow-hidden relative mx-auto -mt-[20%] md:-mt-[18%] shadow-2xl z-10"
           >
             <Image 
               src={image2} 

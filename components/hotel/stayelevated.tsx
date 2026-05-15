@@ -12,110 +12,192 @@ gsap.registerPlugin(ScrollTrigger)
 
 const StayElevated = () => {
   const containerRef = useRef<HTMLDivElement>(null)
+  const stageRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)
   const textLeftRef = useRef<HTMLDivElement>(null)
   const textRightRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
-    // Set initial state of texts to be fully centered and hidden
-    gsap.set([textLeftRef.current, textRightRef.current], {
-      xPercent: -50,
-      yPercent: -50,
-      x: 0,
-      y: 0,
-      opacity: 0,
-    })
+    const mm = gsap.matchMedia()
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: () => window.innerWidth < 768 ? "top 75%" : "top top", 
-        toggleActions: "play none none reverse",
-        invalidateOnRefresh: true, 
+    const createScrollAnimation = (isDesktop: boolean) => {
+      const card = imageRef.current!
+      const leftText = textLeftRef.current!
+      const rightText = textRightRef.current!
+      const metrics = {
+        width: 0,
+        height: 0,
+        leftOffset: 0,
+        rightOffset: 0,
       }
-    })
 
-    tl.fromTo(imageRef.current,
-      { scale: 0.4 },
-      { scale: 1, duration: 1.4, ease: "power3.out" }
-    )
- 
-    .to(textLeftRef.current, {
-      x: () => {
-         if (window.innerWidth < 768) return 0; 
-         const imgW = imageRef.current?.offsetWidth || 0;
-         const textW = textLeftRef.current?.offsetWidth || 0;
-         return -(imgW / 2) - (textW / 2) - 40; 
-      },
-      y: () => {
-         if (window.innerWidth >= 768) return 0;
-         const imgH = imageRef.current?.offsetHeight || 0;
-         const textH = textLeftRef.current?.offsetHeight || 0;
-         return -(imgH / 2) - (textH / 2) - 30; 
-      },
-      opacity: 1,
-      duration: 1,
-      ease: "power2.out"
-    }, "-=0.6")
-    .to(textRightRef.current, {
-      x: () => {
-         if (window.innerWidth < 768) return 0;
-         const imgW = imageRef.current?.offsetWidth || 0;
-         const textW = textRightRef.current?.offsetWidth || 0;
-       
-         return (imgW / 2) + (textW / 2) + 40; 
-      },
-      y: () => {
-         if (window.innerWidth >= 768) return 0;
-         const imgH = imageRef.current?.offsetHeight || 0;
-         const textH = textRightRef.current?.offsetHeight || 0;
-         return (imgH / 2) + (textH / 2) + 30; 
-      },
-      opacity: 1,
-      duration: 1,
-      ease: "power2.out"
-    }, "<")
+      const measureCard = () => {
+        gsap.set(card, { clearProps: 'width,height' })
+        metrics.width = card.offsetWidth
+        metrics.height = card.offsetHeight
 
+        if (isDesktop) {
+          metrics.leftOffset = -(metrics.width / 2) - (leftText.offsetWidth / 2) - 40
+          metrics.rightOffset = (metrics.width / 2) + (rightText.offsetWidth / 2) + 40
+          return
+        }
 
+        metrics.leftOffset = -(metrics.height / 2) - (leftText.offsetHeight / 2) - 30
+        metrics.rightOffset = (metrics.height / 2) + (rightText.offsetHeight / 2) + 30
+      }
+
+      const setStartState = () => {
+        measureCard()
+        gsap.set([leftText, rightText], {
+          xPercent: -50,
+          yPercent: -50,
+          x: 0,
+          y: 0,
+          opacity: 0,
+        })
+        gsap.set(card, {
+          width: metrics.width * 0.55,
+          height: metrics.height * 0.55,
+          borderRadius: 16,
+        })
+      }
+
+      setStartState()
+
+      const tl = gsap.timeline({
+        defaults: { ease: 'none' },
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: isDesktop ? '+=300%' : 'bottom top',
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onRefreshInit: setStartState,
+        },
+      })
+
+      // Phase 1 (0.08) — card expands from 55% to original size
+      tl.to(card, {
+        width: () => metrics.width,
+        height: () => metrics.height,
+        borderRadius: 16,
+        duration: 0.12,
+      }, 0.08)
+
+      // Phase 2 (0.24) — text slides out to offset, becomes fully visible
+      // Phase 3 (0.40) — card expands to full viewport + text flies away
+      // The gap between 0.30 and 0.40 ensures text reaches full opacity
+      // before the exit animation begins, preventing overlap/jump
+
+      if (isDesktop) {
+        tl.to(leftText, {
+          x: () => metrics.leftOffset,
+          opacity: 1,
+          duration: 0.06,
+        }, 0.24)
+        tl.to(rightText, {
+          x: () => metrics.rightOffset,
+          opacity: 1,
+          duration: 0.06,
+        }, 0.24)
+        tl.to(card, {
+          width: () => window.innerWidth,
+          height: () => window.innerHeight,
+          borderRadius: 0,
+          duration: 0.22,
+        }, 0.40)
+        tl.to(leftText, {
+          x: () => metrics.leftOffset - window.innerWidth,
+          opacity: 0,
+          duration: 0.22,
+        }, 0.40)
+        tl.to(rightText, {
+          x: () => metrics.rightOffset + window.innerWidth,
+          opacity: 0,
+          duration: 0.22,
+        }, 0.40)
+      } else {
+        tl.to(leftText, {
+          y: () => metrics.leftOffset,
+          opacity: 1,
+          duration: 0.06,
+        }, 0.24)
+        tl.to(rightText, {
+          y: () => metrics.rightOffset,
+          opacity: 1,
+          duration: 0.06,
+        }, 0.24)
+        tl.to(card, {
+          width: () => window.innerWidth,
+          height: () => window.innerHeight,
+          borderRadius: 0,
+          duration: 0.22,
+        }, 0.40)
+        tl.to(leftText, {
+          y: () => metrics.leftOffset - window.innerHeight,
+          opacity: 0,
+          duration: 0.22,
+        }, 0.40)
+        tl.to(rightText, {
+          y: () => metrics.rightOffset + window.innerHeight,
+          opacity: 0,
+          duration: 0.22,
+        }, 0.40)
+      }
+
+      return () => {
+        tl.scrollTrigger?.kill()
+        tl.kill()
+      }
+    }
+
+    mm.add("(min-width: 768px)", () => createScrollAnimation(true))
+
+    mm.add("(max-width: 767px)", () => createScrollAnimation(false))
+
+    return () => mm.revert()
   }, { scope: containerRef })
 
   return (
-    <section ref={containerRef} className="relative w-full md:py-[15vh] min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section ref={containerRef} className="relative flex min-h-screen md:h-screen w-full items-center justify-center overflow-hidden">
       {/* Dynamic Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
-        <Image 
-          src={bgimage} 
-          alt="Paper Background" 
-          fill 
+        <Image
+          src={bgimage}
+          alt="Paper Background"
+          fill
+          sizes="100vw"
           className="object-cover"
         />
       </div>
-      
 
-      <div className="relative z-10 w-full max-w-[95vw] md:max-w-7xl mx-auto flex items-center justify-center h-[50vh] md:h-[60vh] lg:h-[70vh]">
-             
-        <h2 
-          ref={textLeftRef} 
-          className="absolute left-[50%] top-1/2 text-3xl md:text-5xl lg:text-6xl xl:text-5xl font-normal text-black whitespace-nowrap z-0 origin-center"
+      <div ref={stageRef} className="relative z-10 mx-auto flex h-[50vh] w-full items-center justify-center md:h-screen">
+
+        <h2
+          ref={textLeftRef}
+          className="absolute left-[50%] top-1/2 z-0 origin-center whitespace-nowrap text-3xl font-normal text-black md:text-5xl lg:text-6xl xl:text-5xl"
         >
           Stay Elevated
         </h2>
-        
-        <h2 
-          ref={textRightRef} 
-          className="absolute left-[50%] top-1/2 text-3xl md:text-5xl lg:text-6xl xl:text-5xl font-normal text-black whitespace-nowrap z-0 origin-center"
+
+        <h2
+          ref={textRightRef}
+          className="absolute left-[50%] top-1/2 z-0 origin-center whitespace-nowrap text-3xl font-normal text-black md:text-5xl lg:text-6xl xl:text-5xl"
         >
           Stay Inspired
         </h2>
 
-        <div 
-          ref={imageRef} 
-          className="relative w-[85vw] md:w-[45vw] lg:w-[40vw] xl:w-[35vw] h-[30vh] md:h-[50vh] z-10 rounded-2xl overflow-hidden shadow-2xl"
+        <div
+          ref={imageRef}
+          className="relative z-10 h-[30vh] w-[85vw] overflow-hidden rounded-2xl shadow-2xl md:h-[50vh] md:w-[45vw] lg:w-[40vw] xl:w-[35vw]"
         >
-          <Image 
-            src={stayImage} 
-            alt="Stay Elevated Interior" 
-            fill 
+          <Image
+            src={stayImage}
+            alt="Stay Elevated Interior"
+            fill
+            sizes="100vw"
             className="object-cover"
             priority
           />

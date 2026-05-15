@@ -40,7 +40,7 @@ const ElevatedStay = () => {
                             src={elevated}
                             alt="Elevated stay in Utah landscape"
                             fill
-                            className="object-cover scale-75 md:scale-90"
+                            className="object-cover scale-80 md:scale-90"
                             style={{ objectPosition: '30% 30%' }}
                             priority
                         />

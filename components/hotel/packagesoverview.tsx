@@ -85,14 +85,13 @@ const PackagesOverview = () => {
           </p>
         </div>
         
-        {/* Divider */}
-        <div className="w-full h-[1px] bg-black/10 mb-16 md:mb-24"></div>
+
 
         {/* Cards Wrapper */}
-        <div className="relative flex justify-center items-center h-[320px] md:h-[820px] w-full max-w-[1400px] mx-auto">
+        <div className="relative flex justify-center items-center h-[380px] md:h-[820px] w-full max-w-[1400px] mx-auto">
 
           {/* Left Card (Game Day) */}
-          <div onClick={() => handleCardClick('gameday')} className="absolute left-[2%] md:left-0 top-5 md:top-[70px] w-[140px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl -rotate-[12deg] transform-gpu transition-all duration-500 hover:-rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
+          <div onClick={() => handleCardClick('gameday')} className="absolute left-[2%] md:left-0 top-5 md:top-[70px] w-[170px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl -rotate-[12deg] transform-gpu transition-all duration-500 hover:-rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
             <Image src={gamedayImg} alt="Game Day Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-8 px-4 opacity-90 transition-opacity group-hover:opacity-100">
               <h3 className="text-white font-medium text-xs md:text-xl mb-1.5 md:mb-3 text-center tracking-wide">
@@ -105,7 +104,7 @@ const PackagesOverview = () => {
           </div>
 
           {/* Right Card (Pet Friendly) */}
-          <div onClick={() => handleCardClick('petfriendly')} className="absolute right-[2%] md:right-0 top-5 md:top-[70px] w-[140px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl rotate-[12deg] transform-gpu transition-all duration-500 hover:rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
+          <div onClick={() => handleCardClick('petfriendly')} className="absolute right-[2%] md:right-0 top-5 md:top-[70px] w-[170px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl rotate-[12deg] transform-gpu transition-all duration-500 hover:rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
             <Image src={petfriendlyImg} alt="Pet-Friendly Stay Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-8 px-4 opacity-90 transition-opacity group-hover:opacity-100">
               <h3 className="text-white font-medium text-xs md:text-xl mb-1.5 md:mb-3 text-center tracking-wide">
@@ -118,7 +117,7 @@ const PackagesOverview = () => {
           </div>
 
           {/* Center Card (Shakespeare) */}
-          <div onClick={() => handleCardClick('shakespeare')} className="absolute z-10 -top-4 w-[170px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl transform-gpu transition-all duration-500 hover:scale-105 cursor-pointer group">
+          <div onClick={() => handleCardClick('shakespeare')} className="absolute z-10 -top-4 w-[200px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl transform-gpu transition-all duration-500 hover:scale-105 cursor-pointer group">
             <Image src={shakespeareImg} alt="Shakespeare Festival Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-10 px-4">
               <h3 className="text-white font-medium text-sm md:text-2xl mb-2 md:mb-4 text-center tracking-wide drop-shadow-md">
@@ -204,12 +203,12 @@ const PackagesOverview = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
-                  className="flex flex-wrap gap-2"
+                  className="grid grid-cols-2 md:flex md:flex-wrap gap-2"
                 >
                   {packagesMap[selectedPackage].includes.map((item: string, i: number) => (
                     <div
                       key={i}
-                      className="bg-[#FFF7E0] px-3.5 py-1.5 rounded-full text-[11px] md:text-[12px] text-[#5A4A3A] font-medium whitespace-nowrap"
+                      className="bg-[#FFF7E0] px-3.5 py-1.5 rounded-xl md:rounded-full text-[11px] md:text-[12px] text-[#5A4A3A] font-medium md:whitespace-nowrap text-center flex items-center justify-center"
                     >
                       {item}
                     </div>

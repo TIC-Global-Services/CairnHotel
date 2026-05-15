@@ -72,43 +72,44 @@ const Hero = memo(() => {
 
     useGSAP(() => {
         requestAnimationFrame(() => {
+            const isMobile = window.innerWidth < 768
+
             gsap.set([adventureRef.current, discoveryRef.current], {
                 opacity: 0,
-                force3D: true,
+                force3D: !isMobile,
             })
-            gsap.set(layerRefs.current.filter(Boolean), { force3D: true })
-
+            gsap.set(layerRefs.current.filter(Boolean), { force3D: !isMobile })
 
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: 'top top',
                     end: 'bottom bottom',
-                    scrub: 1.2,
+                    scrub: isMobile ? 2.5 : 1.2,
                     fastScrollEnd: true,
-                    preventOverlaps: true,
+                    preventOverlaps: !isMobile,
                 },
             })
 
         LAYER_CONFIG.forEach((cfg, i) => {
                 const el = layerRefs.current[i]
-                if (el) tl.to(el, { yPercent: cfg.yPercent, force3D: true, ease: 'none' }, 0)
+                if (el) tl.to(el, { yPercent: cfg.yPercent, force3D: !isMobile, ease: 'none' }, 0)
             })
 
-            if (hotelTextRef.current) tl.to(hotelTextRef.current, { yPercent: -35, force3D: true, ease: 'none' }, 0)
-            if (descTextRef.current) tl.to(descTextRef.current, { yPercent: -25, force3D: true, ease: 'none' }, 0)
-            if (discoverRef.current) tl.to(discoverRef.current, { yPercent: -35, force3D: true, ease: 'none' }, 0)
+            if (hotelTextRef.current) tl.to(hotelTextRef.current, { yPercent: -35, force3D: !isMobile, ease: 'none' }, 0)
+            if (descTextRef.current) tl.to(descTextRef.current, { yPercent: -25, force3D: !isMobile, ease: 'none' }, 0)
+            if (discoverRef.current) tl.to(discoverRef.current, { yPercent: -35, force3D: !isMobile, ease: 'none' }, 0)
 
             if (adventureRef.current) {
                 gsap.fromTo(adventureRef.current,
                     { xPercent: 20, opacity: 0 },
                     {
-                        xPercent: 0, opacity: 1, force3D: true, ease: 'power2.out',
+                        xPercent: 0, opacity: 1, force3D: !isMobile, ease: 'power2.out',
                         scrollTrigger: {
                             trigger: adventureRef.current,
                             start: 'top 90%',
                             end: 'top 55%',
-                            scrub: 1,
+                            scrub: isMobile ? 2 : 1,
                             fastScrollEnd: true,
                         },
                     }
@@ -119,12 +120,12 @@ const Hero = memo(() => {
                 gsap.fromTo(discoveryRef.current,
                     { xPercent: -20, opacity: 0 },
                     {
-                        xPercent: 0, opacity: 1, force3D: true, ease: 'power2.out',
+                        xPercent: 0, opacity: 1, force3D: !isMobile, ease: 'power2.out',
                         scrollTrigger: {
                             trigger: discoveryRef.current,
                             start: 'top 90%',
                             end: 'top 55%',
-                            scrub: 1,
+                            scrub: isMobile ? 2 : 1,
                             fastScrollEnd: true,
                         },
                     }
@@ -192,7 +193,7 @@ const Hero = memo(() => {
                             Adventures Begin At The Cairn
                         </h2>
 
-                        <p className="text-white text-xs md:text-xl text-left leading-tight mb-5 md:mb-6 max-w-3xl capitalize">
+                        <p className="text-white text-sm md:text-xl text-left leading-tight mb-5 md:mb-6 max-w-3xl capitalize">
                             The Cairn Hotel Is The Perfect Retreat For Hiking
                             Enthusiasts, Surrounded By Scenic Mountain Trails
                             And Breathtaking Natural Landscapes.
@@ -217,7 +218,7 @@ const Hero = memo(() => {
                             Discovery Southern Utah
                         </h2>
 
-                        <p className="text-white text-xs md:text-xl text-left leading-tight mb-4 md:mb-5 max-w-3xl capitalize">
+                        <p className="text-white text-sm md:text-xl text-left leading-tight mb-4 md:mb-5 max-w-3xl capitalize">
                             Surrounded By Breathtaking Landscapes, The Cairn
                             Hotel Offers Access To A Variety Of Scenic Mountain
                             Routes Perfect For Hikers And Nature Enthusiasts.

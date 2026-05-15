@@ -19,19 +19,31 @@ const TextScrollReveal = ({ text, className }: TextScrollRevealProps) => {
         const container = containerRef.current;
         if (!container) return;
 
-        // Reset content to be words wrapped in spans
-        container.innerHTML = words
-            .map(word => `<span class="opacity-20 inline-block mr-[0.2em] transition-opacity duration-300">${word}</span>`)
-            .join("");
+        const isMobile = window.innerWidth < 768
+
+        // Reset content to be words wrapped in spans — group on mobile for perf
+        if (isMobile) {
+            const chunks: string[] = []
+            for (let i = 0; i < words.length; i += 3) {
+                chunks.push(words.slice(i, i + 3).join(' '))
+            }
+            container.innerHTML = chunks
+                .map(chunk => `<span class="opacity-20 inline-block mr-[0.2em]" style="will-change:opacity">${chunk}</span>`)
+                .join("")
+        } else {
+            container.innerHTML = words
+                .map(word => `<span class="opacity-20 inline-block mr-[0.2em]" style="will-change:opacity">${word}</span>`)
+                .join("")
+        }
 
         const spans = container.querySelectorAll("span");
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: container,
-                start: () => window.innerWidth < 768 ? "top 95%" : "top 80%",
-                end: () => window.innerWidth < 768 ? "bottom 60%" : "bottom 40%",
-                scrub: 0.5,
+                start: () => isMobile ? "top 95%" : "top 80%",
+                end: () => isMobile ? "bottom 60%" : "bottom 40%",
+                scrub: window.innerWidth < 768 ? 1.5 : 0.5,
                 invalidateOnRefresh: true,
                 // markers: true, // For debugging
             }
@@ -39,7 +51,7 @@ const TextScrollReveal = ({ text, className }: TextScrollRevealProps) => {
 
         tl.to(spans, {
             opacity: 1,
-            stagger: 0.1,
+            stagger: isMobile ? 0.15 : 0.1,
             ease: "none"
         });
 

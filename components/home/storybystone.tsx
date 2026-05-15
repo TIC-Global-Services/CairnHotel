@@ -200,8 +200,8 @@ const StoryByStone = () => {
 
                 {/* Bottom Title Text & Controls */}
                 <div className="flex flex-col items-center justify-center -translate-y-10 md:translate-y-0 flex-1 w-full mb-8 md:pt-4">
-                    <div className="w-full flex items-center justify-start text-justify px-0">
-                        <h2 className="text-[18px] md:text-2xl font-sans font-medium text-neutral-800 leading-[1.3] transition-all duration-300">
+                    <div className="w-full flex items-center justify-start text-center px-0">
+                        <h2 className="text-lg md:text-2xl font-sans font-medium text-neutral-800 leading-[1.3] transition-all duration-300">
                             {stories[currentSlide].title}
                         </h2>
                     </div>

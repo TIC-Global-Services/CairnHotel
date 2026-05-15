@@ -33,7 +33,7 @@ const StayAtCairn = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full py-20 md:py-32 bg-white overflow-hidden"
+      className="w-full pt-6 pb-20 md:py-32 bg-white overflow-hidden"
     >
       {/* Text content */}
       <div className="px-6 text-center mb-14 md:mb-20">

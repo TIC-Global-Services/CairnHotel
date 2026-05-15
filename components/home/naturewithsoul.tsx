@@ -144,7 +144,7 @@ const NatureWithSoul = () => {
                         </h2>
 
                         {/* Description */}
-                        <p className="text-[#2A0800] text-[12px] md:text-base leading-[1.4] font-normal mb-10">
+                        <p className="text-[#2A0800] text-[14px] md:text-base leading-[1.4] font-normal mb-10">
                             {contentData[activeIndex].description}
                         </p>
                     </motion.div>

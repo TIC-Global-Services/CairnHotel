@@ -69,7 +69,7 @@ const Footer = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-10 w-full max-w-5xl mx-auto mb-2">
                     <div className="flex flex-col items-center">
                         <h4 className="text-[#3A3A3A] mb-3 text-base font-medium">Email</h4>
-                        <p className="text-[#1A1A1A] text-sm md:text-2xl font-normal">info@thecairnhotel.com</p>
+                        <p className="text-[#1A1A1A] text-sm md:text-2xl font-normal">fd@thecairnhotelutah.com</p>
                     </div>
                     <div className="flex flex-col items-center">
                         <h4 className="text-[#3A3A3A] mb-3 text-base font-medium">Opening Hour</h4>
@@ -87,16 +87,13 @@ const Footer = () => {
                        <p className='text-lg'> @2026, The Cairn Hotel.</p>
                     </div>
                     <div className="flex items-center gap-4 text-[#1A1A1A]">
-                        {/* Whatsapp */}
-                        <a href="#" className="hover:opacity-60 transition-opacity">
-                            <Image src={whatsapplogo} alt="WhatsApp" width={24} height={24} className="object-contain" />
-                        </a>
+                    
                         {/* Email */}
                         <a href="#" className="hover:opacity-60 transition-opacity">
                             <Image src={emailogo} alt="Email" width={24} height={24} className="object-contain" />
                         </a>
                         {/* Facebook */}
-                        <a href="#" className="hover:opacity-60 transition-opacity">
+                        <a href="https://www.facebook.com/share/1CLa9S97Ji/?mibextid=wwXIfr" target="_blank" className="hover:opacity-60 transition-opacity">
                             <Image src={facebooklogo} alt="Facebook" width={24} height={24} className="object-contain" />
                         </a>
                         {/* Instagram */}

@@ -120,7 +120,7 @@ const Hero = () => {
                 </div>
 
                 {/* Right: Stateful Description Injection Node */}
-                <div className="flex flex-col text-white w-full lg:w-[45%] mt-[15%] lg:mt-0 relative z-10 px-[5%] lg:px-0 overflow-hidden">
+                <div className="flex flex-col text-white w-full lg:w-[45%] mt-[15%] lg:mt-0 relative z-10 pl-[10%] pr-[10%] lg:px-0 overflow-hidden">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeIndex}
@@ -130,13 +130,13 @@ const Hero = () => {
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             className="flex flex-col w-full"
                         >
-                            <h3 className="text-sm text-center md:text-left md:text-3xl font-semibold tracking-widest drop-shadow-md">
+                            <h3 className="text-sm text-center md:text-3xl font-semibold tracking-widest drop-shadow-md">
                                 {activeItem.tag}
                             </h3>
                             <h2 className="hidden md:block text-base text-center md:text-left md:text-4xl lg:text-[44px] font-medium mt-[4%] uppercase whitespace-pre-line tracking-tight leading-tight drop-shadow-lg">
                                 {activeItem.title}
                             </h2>
-                            <h2 className="md:hidden text-sm font-medium mt-[2%] uppercase">
+                            <h2 className="md:hidden text-base font-medium mt-[2%] uppercase">
                                 {activeItem.mobiletitle}
                             </h2>
 

@@ -244,7 +244,7 @@ const Amenities = () => {
     const activeAmenity = amenitiesData[activeIndex]
 
     return (
-        <section className="relative w-full bg-black overflow-hidden min-h-[80vh] select-none">
+        <section className="relative w-full bg-black overflow-hidden min-h-[80vh] select-none pb-24 md:pb-0">
             {/* Marquee strip */}
             <MarqueeStrip />
 
@@ -280,7 +280,7 @@ const Amenities = () => {
                                     scale: isActive ? 1 : Math.max(0.85, 1 - distance * 0.05),
                                 }}
                                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                                className="relative py-4 md:py-2 cursor-pointer outline-none bg-transparent border-none"
+                                className="relative py-4 md:py-2 cursor-pointer outline-none bg-transparent border-none h-[56px] flex items-center justify-center"
                             >
                                 <span
                                     className={`block font-medium md:tracking-wide transition-all duration-500 ${isActive
@@ -301,8 +301,8 @@ const Amenities = () => {
                 </div>
             </div>
 
-            {/* Mobile drag slider — horizontal, below the list */}
-            <div className="flex md:hidden items-end justify-center mt-32 md:mb-8">
+            {/* Mobile drag slider — absolute so line animations don't affect layout */}
+            <div className="flex md:hidden items-end justify-center absolute bottom-2 left-0 right-0 h-[84px] overflow-hidden">
                 <DragSlider
                     activeIndex={activeIndex}
                     total={amenitiesData.length}

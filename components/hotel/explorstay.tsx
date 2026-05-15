@@ -232,22 +232,22 @@ const ExploreStay = () => {
             <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 lg:px-24 gap-5 lg:gap-8 mt-4">
                 
                 {/* Left: Title & Description */}
-                <div className="flex flex-col gap-2 md:gap-5 w-full lg:w-[40%] flex-shrink-0">
-                    <div>
+                <div className="flex flex-col gap-2 md:gap-5 w-full lg:w-[40%] flex-shrink-0 items-center md:items-start">
+                    <div className="text-center md:text-left">
                         <h2 className="text-[2rem] md:text-[4.315rem] font-semibold text-white uppercase leading-none">
                             EXPLORE
                         </h2>
-                        <div className="flex items-center gap-3 mt-1 pl-40 md:pl-70">
+                        <div className="flex items-center justify-center md:justify-start gap-3 mt-1 md:pl-70">
                             <span className="text-3xl md:text-[3.15rem] font-medium text-white">Our</span>
                             <span className="text-3xl md:text-[3.15rem] font-medium italic text-[#FFEBD3]">Stay</span>
                         </div>
                     </div>
-                    <p className="text-white text-sm md:text-xl font-normal max-w-lg leading-tight border-white/20 mt-4 md:mt-6">
+                    <p className="text-white text-sm md:text-xl font-normal max-w-lg leading-tight border-white/20 mt-4 md:mt-6 text-center md:text-left">
                         Discover Thoughtfully Designed Rooms And Suites Where Comfort, Nature, And Timeless Mountain Elegance Come Together.
                     </p>
                     <Link href={'https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094'} target='_blank'>
-                    <button className="flex items-start justify-start md:items-center md:text-center gap-0 mt-1 md:mt-8 group w-fit bg-white rounded-full py-2 md:py-4 px-6 md:px-12 shadow-lg hover:shadow-xl transition-shadow ">
-                        <span className="text-[#1a1a1a] text-xs md:text-base  font-medium tracking-[0.1em] uppercase">
+                    <button className="flex items-center justify-center gap-0 mt-1 md:mt-8 group bg-white rounded-full py-2 md:py-4 px-6 md:px-12 shadow-lg hover:shadow-xl transition-shadow self-center md:self-start">
+                        <span className="text-[#1a1a1a] text-xs md:text-base font-medium tracking-[0.1em] uppercase">
                             BOOK NOW
                         </span>
                     </button>

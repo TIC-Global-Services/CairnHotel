@@ -1,5 +1,5 @@
 "use client";
-import { ReactNode, useRef, useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import Lenis from "lenis";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
@@ -9,10 +9,12 @@ interface LenisProviderProps {
 }
 
 const SmoothScroller = ({ children }: LenisProviderProps) => {
-  const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
+    // Skip Lenis on mobile — native momentum scroll is already smooth
+    if (window.innerWidth < 768) return
 
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual"; // Manual prevents browser from fighting Lenis
@@ -25,13 +27,10 @@ const SmoothScroller = ({ children }: LenisProviderProps) => {
       syncTouch: false,
     });
 
-    lenisRef.current = lenis;
-
     // Sync Lenis scroll with GSAP ScrollTrigger
-    lenis.on("scroll", ScrollTrigger.update);
+    lenis.on("scroll", () => ScrollTrigger.update());
 
     // Add Lenis's requestAnimationFrame (raf) to GSAP's ticker
-    // This ensures smooth synchronization between GSAP animations and Lenis scrolling
     const update = (time: number) => {
       lenis.raf(time * 1000);
     };
@@ -40,8 +39,8 @@ const SmoothScroller = ({ children }: LenisProviderProps) => {
     // Disable GSAP's lag smoothing to avoid jumps during scrolling
     gsap.ticker.lagSmoothing(0);
 
-    // Auto-refresh ScrollTrigger on window load/resize
-    ScrollTrigger.refresh();
+    // Auto-refresh ScrollTrigger after all child triggers have registered
+    requestAnimationFrame(() => ScrollTrigger.refresh());
 
     // Watch for DOM height changes (like images loading) to prevent scroll lock
     const resizeObserver = new ResizeObserver(() => {
@@ -52,7 +51,7 @@ const SmoothScroller = ({ children }: LenisProviderProps) => {
 
     return () => {
       resizeObserver.disconnect();
-      lenisRef.current?.destroy();
+      lenis.destroy();
       gsap.ticker.remove(update);
     };
   }, []);

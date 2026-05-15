@@ -155,6 +155,22 @@ const NavBar = () => {
                             ))}
                         </div>
 
+                        {/* Book Now Button */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                            className="flex justify-center mb-6"
+                        >
+                            <Link
+                                href="https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094"
+                                onClick={() => setIsOpen(false)}
+                                className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#2B2B2B] text-white text-sm tracking-[0.15em] uppercase font-medium hover:bg-black transition-colors"
+                            >
+                                Book Now
+                            </Link>
+                        </motion.div>
+
                         {/* Footer -> Copyright & Social */}
                         <motion.div
                             initial={{ opacity: 0 }}

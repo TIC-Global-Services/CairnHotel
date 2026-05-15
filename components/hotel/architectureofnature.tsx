@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import nature1 from '@/assets/hotel/nature-1.jpg'
 import nature2 from '@/assets/hotel/nature-2.jpg'
@@ -53,60 +54,57 @@ const ArchitectureOfNature = () => {
         };
     }, [selectedCard]);
 
-    useEffect(() => {
+    useGSAP(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        const ctx = gsap.context(() => {
-            let mm = gsap.matchMedia();
+        let mm = gsap.matchMedia();
 
-            // Desktop Performance Optimized Animation
-            mm.add("(min-width: 768px)", () => {
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: triggerRef.current,
-                        start: "20% top",
-                        end: "bottom 20%",
-                        scrub: 1.5, // 1.5 for buttery smooth tracking
-                        pin: true,
-                        anticipatePin: 1,
-                    }
-                });
-
-                // 1. Arrange straight perfectly horizontally arrayed
-                tl.to('.nature-card', {
-                    y: 0,
-                    duration: 2,
-                    ease: "power2.inOut"
-                }, 0);
-
-                tl.to(wrapperRef.current, {
-                    x: "-42vw",
-                    duration: 2,
-                    ease: "power2.inOut"
-                }, 0);
-   
-                tl.to(containerRef.current, {
-                    y: "10vh",
-                    duration: 2,
-                    ease: "power2.inOut"
-                }, 0);
-
-        
-                tl.fromTo(".bg-text",
-                    { opacity: 0.1, y: 100 },
-                    { opacity: 0.25, y: -50, duration: 2, ease: "none" },
-                    0
-                );
+        // Desktop Performance Optimized Animation
+        mm.add("(min-width: 768px)", () => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: triggerRef.current,
+                    start: "20% top",
+                    end: "bottom 20%",
+                    scrub: 1.5, // 1.5 for buttery smooth tracking
+                    pin: true,
+                    anticipatePin: 1,
+                }
             });
 
-            mm.add("(max-width: 767px)", () => {
-                // Restore native vertical scrolling for mobile by skipping the pin logic
-            });
+            // 1. Arrange straight perfectly horizontally arrayed
+            tl.to('.nature-card', {
+                y: 0,
+                duration: 2,
+                ease: "power2.inOut"
+            }, 0);
 
-        }, triggerRef);
+            tl.to(wrapperRef.current, {
+                x: "-42vw",
+                duration: 2,
+                ease: "power2.inOut"
+            }, 0);
 
-        return () => ctx.revert();
-    }, []);
+            tl.to(containerRef.current, {
+                y: "10vh",
+                duration: 2,
+                ease: "power2.inOut"
+            }, 0);
+
+
+            tl.fromTo(".bg-text",
+                { opacity: 0.1, y: 100 },
+                { opacity: 0.25, y: -50, duration: 2, ease: "none" },
+                0
+            );
+        });
+
+        mm.add("(max-width: 767px)", () => {
+            // Restore native vertical scrolling for mobile by skipping the pin logic
+        });
+
+        return () => mm.revert();
+    }, { scope: triggerRef });
 
     return (
         <section ref={triggerRef} className="relative w-full h-auto md:h-[160dvh] bg-[#f5f3f0] overflow-hidden">
@@ -122,7 +120,7 @@ const ArchitectureOfNature = () => {
                             NATURE
                         </h2>
                     </div>
-                    <p className="w-full lg:w-[52%] text-[#352520] text-sm md:text-2xl leading-tight md:leading-tight font-normal md:font-normal">
+                    <p className="w-full lg:w-[52%] text-[#352520] text-base md:text-2xl leading-tight md:leading-tight font-normal md:font-normal">
                         Nestled beneath the towering sandstone cliffs and wide-open skies of canyon country, The Cairn Hotel invites you to slow down and arrive fully. Inspired by the ancient beauty of the Colorado Plateau, with its burning sunsets, silent mesas, and sage-scented air, we reflect a perfect harmony between modern luxury and the timeless character of the American Southwest. This is a place to feel the warmth of the desert, rest deeply, and leave changed.
                     </p>
                 </div>
@@ -155,7 +153,7 @@ const ArchitectureOfNature = () => {
                                 <h3 className="text-xs md:text-base font-semibold text-[#1a1a1a] mb-1.5 md:mb-2 tracking-wide uppercase">
                                     {item.title}
                                 </h3>
-                                <p className="text-[9px] md:text-sm uppercase font-normal mb-3 md:mb-5">
+                                <p className="text-xs md:text-sm uppercase font-normal mb-3 md:mb-5">
                                     {item.description}
                                 </p>
                                 <button
