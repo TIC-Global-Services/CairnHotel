@@ -9,10 +9,17 @@ const Loader = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // Skip loader if already shown in a previous session
+    if (localStorage.getItem('preloader_shown')) {
+      setVisible(false);
+      return;
+    }
+
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
+          localStorage.setItem('preloader_shown', 'true');
           setTimeout(() => setVisible(false), 400);
           return 100;
         }
