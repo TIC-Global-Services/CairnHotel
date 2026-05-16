@@ -131,7 +131,7 @@ const PackagesOverview = () => {
           </div>
 
           {/* Center Card (Shakespeare) */}
-          <div onClick={() => handleCardClick('shakespeare')} className="absolute z-10 top-2 md:-top-4 w-[180px] md:w-[538px] aspect-[2/3] md:aspect-[538/710] rounded-[1rem] md:rounded-[2rem] overflow-hidden shadow-2xl transform-gpu transition-all duration-500 hover:scale-105 cursor-pointer group">
+          <div onClick={() => handleCardClick('shakespeare')} className="absolute z-10 top-2 md:top-[30px] w-[180px] md:w-[538px] aspect-[2/3] md:aspect-[538/710] rounded-[1rem] md:rounded-[2rem] overflow-hidden shadow-2xl transform-gpu transition-all duration-500 hover:scale-105 cursor-pointer group">
             <Image src={shakespeareImg} alt="Shakespeare Festival Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-10 px-4">
               <h3 className="text-white font-medium text-sm md:text-2xl mb-2 md:mb-4 text-center tracking-wide drop-shadow-md">
@@ -190,7 +190,7 @@ const PackagesOverview = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.05, ease: 'easeOut' }}
                 >
-                  <h2 className="text-2xl md:text-3xl text-center font-medium text-black mb-5 leading-tight tracking-tight">
+                  <h2 className="text-2xl md:text-3xl text-center md:text-left font-medium text-black mb-5 leading-tight tracking-tight">
                     {packagesMap[selectedPackage].modalTitle}
                   </h2>
                 </motion.div>
@@ -199,7 +199,7 @@ const PackagesOverview = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
-                  className="text-[#4A4A4A] font-normal text-center leading-tight text-[15px] md:text-[16px] mb-6"
+                  className="text-[#4A4A4A] font-normal text-center md:text-left leading-tight text-[15px] md:text-[16px] mb-6"
                 >
                   {packagesMap[selectedPackage].description}
                 </motion.p>
@@ -208,7 +208,7 @@ const PackagesOverview = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.15, ease: 'easeOut' }}
-                  className="text-xs font-semibold uppercase tracking-wider text-center text-black/50 mb-4"
+                  className="text-xs font-semibold uppercase tracking-wider text-center md:text-left text-black/50 mb-4"
                 >
                   Package includes
                 </motion.h4>
@@ -217,12 +217,12 @@ const PackagesOverview = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
-                  className="grid grid-cols-2 md:flex md:flex-wrap gap-2"
+                  className="grid grid-cols-2 md:grid-cols-3 gap-2"
                 >
                   {packagesMap[selectedPackage].includes.map((item: string, i: number) => (
                     <div
                       key={i}
-                      className="bg-[#FFF7E0] px-3.5 py-1.5 rounded-xl md:rounded-full text-[12px] md:text-[12px] text-[#5A4A3A] font-medium md:whitespace-nowrap text-center flex items-center justify-center"
+                      className="bg-[#FFF7E0] px-3.5 py-1.5 rounded-3xl md:rounded-3xl text-[12px] md:text-[12px] text-[#5A4A3A] font-medium break-words text-center md:text-left flex items-center justify-center md:justify-start"
                     >
                       {item}
                     </div>

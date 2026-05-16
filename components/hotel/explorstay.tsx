@@ -388,11 +388,11 @@ const ExploreStay = () => {
                         </button>
 
                         {/* Book Now Button Over Image (Bottom Center / Bottom Right) */}
-                        <button className="absolute bottom-8 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:bottom-8 md:right-8 flex items-center justify-center gap-0 group w-[35%] md:w-fit py-2 md:py-3 bg-white rounded-full p-1 md:pl-6 shadow-[0_10px_30px_rgba(0,0,0,0.15)] md:shadow-2xl hover:shadow-white/20 transition-all z-20 cursor-pointer">
+                        <Link href="https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094" target="_blank" className="absolute bottom-8 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:bottom-8 md:right-8 flex items-center justify-center gap-0 group w-[35%] md:w-fit py-2 md:py-3 bg-white rounded-full p-1 md:pl-6 shadow-[0_10px_30px_rgba(0,0,0,0.15)] md:shadow-2xl hover:shadow-white/20 transition-all z-20 cursor-pointer">
                             <span className="text-[#1a1a1a] text-xs md:text-xs font-bold md:font-medium tracking-[0.1em] uppercase md:pr-4">
                                 BOOK NOW
                             </span>
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 </div>
