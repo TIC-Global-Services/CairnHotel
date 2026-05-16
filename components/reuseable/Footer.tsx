@@ -69,7 +69,7 @@ const Footer = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-10 w-full max-w-5xl mx-auto mb-2">
                     <div className="flex flex-col items-center">
                         <h4 className="text-[#3A3A3A] mb-3 text-base font-medium">Email</h4>
-                        <p className="text-[#1A1A1A] text-sm md:text-2xl font-normal">fd@thecairnhotelutah.com</p>
+                        <a href="mailto:fd@thecairnhotelutah.com" className="text-[#1A1A1A] text-sm md:text-2xl font-normal hover:opacity-60 transition-opacity">fd@thecairnhotelutah.com</a>
                     </div>
                     <div className="flex flex-col items-center">
                         <h4 className="text-[#3A3A3A] mb-3 text-base font-medium">Opening Hour</h4>
@@ -89,7 +89,7 @@ const Footer = () => {
                     <div className="flex items-center gap-4 text-[#1A1A1A]">
                     
                         {/* Email */}
-                        <a href="#" className="hover:opacity-60 transition-opacity">
+                        <a href="mailto:fd@thecairnhotelutah.com" className="hover:opacity-60 transition-opacity">
                             <Image src={emailogo} alt="Email" width={24} height={24} className="object-contain" />
                         </a>
                         {/* Facebook */}
@@ -97,7 +97,7 @@ const Footer = () => {
                             <Image src={facebooklogo} alt="Facebook" width={24} height={24} className="object-contain" />
                         </a>
                         {/* Instagram */}
-                        <a href="#" className="hover:opacity-60 transition-opacity">
+                        <a href="https://www.instagram.com/thecairnhotel" className="hover:opacity-60 transition-opacity">
                             <Image src={instagramlogo} alt="Instagram" width={24} height={24} className="object-contain" />
                         </a>
                     </div>
