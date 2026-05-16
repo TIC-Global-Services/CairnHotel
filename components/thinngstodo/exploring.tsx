@@ -21,7 +21,7 @@ const Exploring = () => {
     }, [])
 
     return (
-        <section className="w-full bg-white flex max-h-screen items-center justify-center mt-5 mb-10 md:mb-0 lg:py-20 px-4 lg:px-12 overflow-hidden">
+        <section className="w-full bg-white flex min-h-screen items-center justify-center -mt-10 -mb-10 md:mt-0 md:mb-0 lg:py-20 px-4 lg:px-12 overflow-hidden">
             <div className="w-full md:px-[5%] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
                 
                 {/* Left Text Content */}

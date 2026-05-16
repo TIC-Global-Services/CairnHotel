@@ -135,9 +135,9 @@ const PrivateEvent = () => {
                               initial={{ opacity: 0 }}
                               animate={{ opacity: isActive ? 1 : 0.4 }}
                               exit={{ opacity: 0 }}
-                              className="absolute inset-x-0 bottom-12 flex flex-col items-center justify-center p-6 text-center text-white"
+                              className="absolute inset-x-0 bottom-12 flex flex-col items-center justify-center p-2 text-center text-white"
                             >
-                              <span className="text-[10px] md:text-[11px] font-medium tracking-[0.1em] mb-2 opacity-90 uppercase">
+                              <span className="text-[12px] md:text-[11px] font-medium tracking-[0.1em] mb-2 opacity-90 uppercase">
                                 {slide.label}
                               </span>
                               <h3 className="text-sm md:text-lg lg:text-[20px] font-medium max-w-xl leading-snug">

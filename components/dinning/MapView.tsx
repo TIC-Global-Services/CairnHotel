@@ -157,7 +157,7 @@ const MapView = ({ locations, activeId, hotel, onMarkerClick }: MapViewProps) =>
       zoom={13}
       style={{ width: '100%', height: '100%' }}
       scrollWheelZoom={true}
-      className="z-0"
+      className="z-0 rounded-2xl md:rounded-none"
     >
       <MapContent
         locations={locations}

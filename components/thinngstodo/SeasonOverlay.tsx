@@ -82,7 +82,10 @@ export const SeasonOverlay: React.FC<SeasonOverlayProps> = ({ activeSeason, onCl
                 if (e.key === 'Escape') onClose()
             }
             window.addEventListener('keydown', handleKeyDown)
-            return () => window.removeEventListener('keydown', handleKeyDown)
+            return () => {
+                window.removeEventListener('keydown', handleKeyDown)
+                document.body.style.overflow = ''
+            }
         }
     }, [activeSeason, onClose])
 

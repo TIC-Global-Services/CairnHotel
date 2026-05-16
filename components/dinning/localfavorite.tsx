@@ -256,7 +256,7 @@ const LocalFavorite = () => {
         </div>
 
         <div className="w-full lg:w-[50%] h-[400px] px-5  lg:h-auto rounded-2xl relative mt-10 lg:mt-0 ">
-          <div className="sticky top-5 h-screen ">
+          <div className="sticky top-5 h-full md:h-screen">
             <MapView
               locations={visible}
               activeId={activeId}
