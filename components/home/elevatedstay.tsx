@@ -16,7 +16,7 @@ const ElevatedStay = () => {
                             <span className="block text-base md:text-xl font-medium tracking-[0.05em] uppercase text-[#4D2F27] mb-4 md:mb-6">
                                 ELEVATED  STAYS  IN  UTAH
                             </span>
-                            <h2 className="text-[14px] md:text-5xl lg:text-4xl font-sans font-normal md:font-medium text-neutral-900 leading-[1.4] md:leading-[1.1] tracking-tight pr-4 md:pr-0">
+                            <h2 className="text-[16px] md:text-5xl lg:text-4xl font-sans font-normal md:font-medium text-neutral-900 leading-[1.4] md:leading-[1.1] tracking-tight pr-4 md:pr-0">
                                 Surrounded By Breathtaking <br className="hidden md:block" />
                                 Peaks And Untouched <br className="hidden md:block" />
                                 Landscapes<span className="hidden md:inline">.</span>

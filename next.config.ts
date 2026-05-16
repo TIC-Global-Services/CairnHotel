@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['images.unsplash.com'],
   },
+  allowedDevOrigins: ['192.168.0.7'],
 };
 
 export default nextConfig;
