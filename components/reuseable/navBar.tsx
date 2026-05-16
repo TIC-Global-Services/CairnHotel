@@ -71,6 +71,19 @@ const NavBar = () => {
 
                 <div className="flex items-center gap-4 pointer-events-auto">
 
+                    {/* Desktop Social Links — centered */}
+                    <div className="hidden md:flex items-center gap-3 absolute left-1/2 -translate-x-1/2">
+                        <a href="mailto:fd@thecairnhotelutah.com" className="hover:opacity-60 transition-opacity">
+                            <Image src={emailogo} alt="Email" width={22} height={22} className="object-contain" />
+                        </a>
+                        <a href="https://www.facebook.com/share/1CLa9S97Ji/?mibextid=wwXIfr" target="_blank" className="hover:opacity-60 transition-opacity">
+                            <Image src={facebooklogo} alt="Facebook" width={22} height={22} className="object-contain" />
+                        </a>
+                        <a href="https://www.instagram.com/thecairnhotel" target="_blank" className="hover:opacity-60 transition-opacity">
+                            <Image src={instagramlogo} alt="Instagram" width={22} height={22} className="object-contain" />
+                        </a>
+                    </div>
+
                     <div className='hidden md:flex items-center gap-4 justify-end bg-[#FFFFFF33] backdrop-blur-xs border border-white/30 rounded-full p-2 px-4'>
                         {navLinks.map((link) => {
                             const isActive = pathname === link.href
@@ -135,8 +148,8 @@ const NavBar = () => {
                             </button>
                         </div>
 
-                        {/* Navigation Links centered */}
-                        <div className="flex-1 flex flex-col items-center justify-center space-y-12 mb-10">
+                        {/* Navigation Links + Book Now */}
+                        <div className="flex-1 flex flex-col items-center justify-center space-y-10 mb-10">
                             {navLinks.map((link, i) => (
                                 <motion.div
                                     key={link.title}
@@ -153,23 +166,22 @@ const NavBar = () => {
                                     </Link>
                                 </motion.div>
                             ))}
-                        </div>
 
-                        {/* Book Now Button */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                            className="flex justify-center mb-6"
-                        >
-                            <Link
-                                href="https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094"
-                                onClick={() => setIsOpen(false)}
-                                className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#2B2B2B] text-white text-sm tracking-[0.15em] uppercase font-medium hover:bg-black transition-colors"
+                            {/* Book Now — inline after Banquets */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 + (navLinks.length * 0.05), duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                             >
-                                Book Now
-                            </Link>
-                        </motion.div>
+                                <Link
+                                    href="https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094"
+                                    onClick={() => setIsOpen(false)}
+                                    className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#2B2B2B] text-white text-sm tracking-[0.15em] uppercase font-medium hover:bg-black transition-colors"
+                                >
+                                    Book Now
+                                </Link>
+                            </motion.div>
+                        </div>
 
                         {/* Footer -> Copyright & Social */}
                         <motion.div
@@ -183,10 +195,6 @@ const NavBar = () => {
                             </p>
 
                             <div className="flex items-center gap-3 text-[#2B2B2B]">
-                                {/* Whatsapp */}
-                                <a href="#" className="hover:opacity-60 transition-opacity">
-                                    <Image src={whatsapplogo} alt="WhatsApp" width={24} height={24} className="object-contain" />
-                                </a>
                                 {/* Email */}
                                 <a href="#" className="hover:opacity-60 transition-opacity">
                                     <Image src={emailogo} alt="Email" width={24} height={24} className="object-contain" />

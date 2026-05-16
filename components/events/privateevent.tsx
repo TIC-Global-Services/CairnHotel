@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 import windsor from '@/assets/events/windsor.png'
 import windsorEast from '@/assets/events/windsor_east.png'
+import windsorWest from '@/assets/events/windsor_west.jpg'
 
 const slides = [
   { 
@@ -26,7 +27,7 @@ const slides = [
     id: 3, 
     label: 'THE WINDSOR WEST -CAPACITY-18',
     title: 'Whether you are hosting a business meeting..', 
-    image: windsorEast,
+    image: windsorWest,
     detail: 'Whether you are hosting a business meeting, corporate event, or small group gathering, our boardroom offers an ideal setting for a productive and professional experience in Cedar City. This modern meeting space includes Wi-Fi, comfortable seating, and access to off-site catering options to support a seamless event from start to finish'
   },
 ]
@@ -103,7 +104,7 @@ const PrivateEvent = () => {
                     animate={{ 
                       opacity: isActive ? 1 : 0.6,
                       scale: isActive ? 1 : 0.8,
-                      x: isActive ? '0%' : '65%', // Reduced offset for smaller cards
+                      x: isActive ? '0%' : '90%', // Inactive card offset
                       zIndex: isActive ? 20 : 10,
                       filter: isActive ? 'blur(0px)' : 'blur(2px)'
                     }}

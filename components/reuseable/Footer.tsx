@@ -82,12 +82,11 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Footer Area */}
-                <div className="w-full flex flex-col md:flex-row items-center gap-5 md:gap-80 justify-center pt-8 text-xs md:text-sm">
+                <div className="w-full flex flex-col md:flex-row items-center gap-5 pt-8 text-xs md:text-sm relative">
                     <div className='hidden md:block'>
                        <p className='text-lg'> @2026, The Cairn Hotel.</p>
                     </div>
-                    <div className="flex items-center gap-4 text-[#1A1A1A]">
-                    
+                    <div className="flex items-center gap-4 text-[#1A1A1A] md:absolute md:left-1/2 md:-translate-x-1/2">
                         {/* Email */}
                         <a href="mailto:fd@thecairnhotelutah.com" className="hover:opacity-60 transition-opacity">
                             <Image src={emailogo} alt="Email" width={24} height={24} className="object-contain" />
@@ -97,14 +96,14 @@ const Footer = () => {
                             <Image src={facebooklogo} alt="Facebook" width={24} height={24} className="object-contain" />
                         </a>
                         {/* Instagram */}
-                        <a href="https://www.instagram.com/thecairnhotel" className="hover:opacity-60 transition-opacity">
+                        <a href="https://www.instagram.com/thecairnhotel" target="_blank" className="hover:opacity-60 transition-opacity">
                             <Image src={instagramlogo} alt="Instagram" width={24} height={24} className="object-contain" />
                         </a>
                     </div>
                     <div className='md:hidden'>
                        <p className='text-[3.5vw]'> @2026, The Cairn Hotel.</p>
                     </div>
-                    <div>
+                    <div className="md:ml-auto">
                         <Link href="https://www.theinternetcompany.one/"><p className='md:text-[1vw] text-[3.5vw] font-normal'>Designed & Developed By TIC Global Services</p></Link>
                     </div>
                 </div>
