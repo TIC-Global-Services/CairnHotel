@@ -185,7 +185,7 @@ const PrivateEvent = () => {
                           }
                           setExpandedId(expandedId === slide.id ? null : slide.id)
                         }}
-                        className={`absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-10 h-10 md:w-14 md:h-14 bg-[#FEF9E1] rounded-full flex items-center justify-center shadow-xl z-40 transition-all ${!isActive ? 'opacity-0' : 'opacity-100'}`}
+                        className={`absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-10 h-10 md:w-14 md:h-14 bg-[#FEF9E1] rounded-full flex items-center justify-center shadow-xl z-40 transition-all cursor-pointer ${!isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
                         whileHover={isActive ? { scale: 1.1 } : {}}
                         whileTap={isActive ? { scale: 0.9 } : {}}
                       >

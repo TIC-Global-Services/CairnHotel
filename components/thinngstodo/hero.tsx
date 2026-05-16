@@ -65,7 +65,7 @@ const Hero = () => {
                         <span>Experienced With Hosting Families, Companies, Tour Buses, And More.</span>
                     </span>
                 </p>
-                <button  href="https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094" target="_blank" className='px-6 py-2.5 md:px-12 md:py-3.5 rounded-full border-2 bg-white/5  border-[#FFFFFF1A] hover:bg-white/10 uppercase backdrop-blur-xs text-white transition-colors duration-300 text-sm font-medium tracking-widest shadow-lg'>Book Now</button>
+                <a href="https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094" target="_blank" rel="noopener noreferrer" className='px-6 py-2.5 md:px-12 md:py-3.5 rounded-full border-2 bg-white/5  border-[#FFFFFF1A] hover:bg-white/10 uppercase backdrop-blur-xs text-white transition-colors duration-300 text-sm font-medium tracking-widest shadow-lg'>Book Now</a>
             </div>
 
             <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-center justify-center gap-[5%] lg:gap-[12%] w-full px-[5%] lg:px-[8%]">
