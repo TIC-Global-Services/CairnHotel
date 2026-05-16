@@ -351,9 +351,9 @@ const ExploreStay = () => {
                         <div className="relative z-10 flex flex-col md:flex-row h-full md:justify-start">
 
                         {/* Left: Info Panel (Frosted glass overlay over the image) */}
-                        <div className="w-full md:w-[45%] h-auto md:h-full bg-white/30 md:bg-white/20 backdrop-blur-xs md:backdrop-blur-2xl p-6 pt-8 pb-24 md:p-12 flex flex-col justify-end md:justify-center border-white/20 shadow-[0_-10px_30px_rgba(0,0,0,0.1)] md:shadow-none">
+                        <div className="w-full md:w-[45%] h-auto md:h-full bg-white/30 md:bg-white/20 backdrop-blur-xs md:backdrop-blur-2xl p-6 pt-8 pb-6 md:p-12 flex flex-col justify-end md:justify-center border-white/20 shadow-[0_-10px_30px_rgba(0,0,0,0.1)] md:shadow-none">
                             
-                            <h3 className="detail-animate text-[18px] md:text-[32px] font-extrabold text-[#1a1a1a] mb-4 md:mb-6 leading-none tracking-tight">
+                            <h3 className="detail-animate text-[18px] md:text-[32px] font-semibold text-[#1a1a1a] mb-4 md:mb-6 leading-none tracking-tight">
                                 {staysData[expandedCard].name}
                             </h3>
                             
@@ -376,6 +376,11 @@ const ExploreStay = () => {
                                     </div>
                                 ))}
                             </div>
+
+                            {/* Book Now inside panel — mobile only */}
+                            <Link href="https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094" target="_blank" className="md:hidden mt-6 flex items-center justify-center w-fit mx-auto px-8 py-2.5 bg-white rounded-full shadow-lg cursor-pointer">
+                                <span className="text-[#1a1a1a] text-xs font-bold tracking-[0.1em] uppercase">BOOK NOW</span>
+                            </Link>
                         </div>
 
                         {/* Close Button Top Right */}
@@ -388,7 +393,7 @@ const ExploreStay = () => {
                         </button>
 
                         {/* Book Now Button Over Image (Bottom Center / Bottom Right) */}
-                        <Link href="https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094" target="_blank" className="absolute bottom-8 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:bottom-8 md:right-8 flex items-center justify-center gap-0 group w-[35%] md:w-fit py-2 md:py-3 bg-white rounded-full p-1 md:pl-6 shadow-[0_10px_30px_rgba(0,0,0,0.15)] md:shadow-2xl hover:shadow-white/20 transition-all z-20 cursor-pointer">
+                        <Link href="https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094" target="_blank" className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:bottom-8 md:right-8 items-center justify-center gap-0 group w-[35%] md:w-fit py-2 md:py-3 bg-white rounded-full p-1 md:pl-6 shadow-[0_10px_30px_rgba(0,0,0,0.15)] md:shadow-2xl hover:shadow-white/20 transition-all z-20 cursor-pointer">
                             <span className="text-[#1a1a1a] text-xs md:text-xs font-bold md:font-medium tracking-[0.1em] uppercase md:pr-4">
                                 BOOK NOW
                             </span>
