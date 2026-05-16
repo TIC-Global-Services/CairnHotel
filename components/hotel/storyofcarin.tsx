@@ -102,8 +102,7 @@ const StoryOfCairn = () => {
                     </span>
                     
                     <h2 className="text-2xl md:text-6xl lg:text-[2.5rem] font-semibold text-white leading-[1.1] tracking-tight">
-                         THE STORY OF <br />
-                        THE CAIRN HOTEL
+                         THE STORY OF <br /> CAIRN HOTEL
                     </h2>
 
                     <p className="text-sm md:text-lg text-[#b8b8b8] max-w-lg leading-relaxed font-light">

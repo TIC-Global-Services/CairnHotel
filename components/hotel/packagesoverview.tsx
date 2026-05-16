@@ -6,14 +6,18 @@ import gamedayImg from '@/assets/hotel/gameday-no-text.png'
 import shakespeareImg from '@/assets/hotel/shakespeare-no-text.png'
 import petfriendlyImg from '@/assets/hotel/petfriendly-no-text.png'
 import gamedayImgText from '@/assets/hotel/gameday.png'
+import gamedayImgWide from '@/assets/hotel/gameday-wide.png'
+import shakespeareImgWide from '@/assets/hotel/shakespeare-wide.png'
+import petfriendlyImgWide from '@/assets/hotel/petfriendly-wide.png'
 import shakespeareImgText from '@/assets/hotel/shakespeare.png'
-import petfriendlyImgText from '@/assets/hotel/petfriendly.png'  
+import petfriendlyImgText from '@/assets/hotel/petfriendly.png'
 
 const packagesMap: Record<string, any> = {
   gameday: {
     title: "Game Day Package",
     image: gamedayImg,
     textImage: gamedayImgText,
+    wideImage: gamedayImgWide,
     modalTitle: "Game Day Package details",
     description: "Stay close to the action with The Cairn Hotel's Game Day Package, perfect for guests attending events at Southern Utah University, the Utah Summer Games, tournaments, competitions, or local sporting events. Located less than two miles from SUU and key Cedar City event venues, this package gives guests a comfortable place to land before and after the big day. With late checkout included, you can enjoy a more relaxed morning after cheering on your team.",
     includes: [
@@ -28,6 +32,7 @@ const packagesMap: Record<string, any> = {
     title: "Pet-Friendly Stay Package",
     image: petfriendlyImg,
     textImage: petfriendlyImgText,
+    wideImage: petfriendlyImgWide,
     modalTitle: "Pet-Friendly Stay Package details",
     description: "Bring your furry friend along for the adventure. Our pet-friendly package ensures that your pet is treated to the same level of luxury as you are, with special amenities and easy access to outdoor spaces.",
     includes: [
@@ -42,6 +47,7 @@ const packagesMap: Record<string, any> = {
     title: "Shakespeare Festival Package",
     image: shakespeareImg,
     textImage: shakespeareImgText,
+    wideImage: shakespeareImgWide,
     modalTitle: "Shakespeare Festival Package details",
     description: "Immerse yourself in the world of theater with our exclusive Shakespeare Festival Package. Enjoy premium seating, exclusive behind-the-scenes tours, and luxurious accommodations just minutes from the stage.",
     includes: [
@@ -56,6 +62,14 @@ const packagesMap: Record<string, any> = {
 
 const PackagesOverview = () => {
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   useEffect(() => {
     if (selectedPackage) {
@@ -71,7 +85,7 @@ const PackagesOverview = () => {
   };
 
   return (
-    <section className="w-full pt-20 md:pt-32 pb-12 md:pb-32 bg-white px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section className="w-full pt-20 md:pt-32 pb-2 md:pb-32 bg-white px-2 md:px-12 lg:px-20 overflow-hidden">
       <div className="max-w-[1200px] mx-auto">
         
         {/* Header */}
@@ -79,7 +93,7 @@ const PackagesOverview = () => {
           <h2 className="text-3xl md:text-[4rem] font-medium text-black leading-[1] tracking-tight text-left md:text-left">
             Cairn<br className='hidden md:block'/> Packages
           </h2>
-          <p className="text-[16px] md:text-[20px] font-normal leading-tight max-w-[700px] text-center md:text-left">
+          <p className="text-base md:text-[20px] font-normal leading-tight tracking-wide max-w-[700px] text-center md:text-left">
             Experience the Cedar City in every season with our exclusive offers for
             adventure, relaxation, indulgence, and unforgettable moments.
           </p>
@@ -91,7 +105,7 @@ const PackagesOverview = () => {
         <div className="relative flex justify-center items-center h-[380px] md:h-[820px] w-full max-w-[1400px] mx-auto">
 
           {/* Left Card (Game Day) */}
-          <div onClick={() => handleCardClick('gameday')} className="absolute left-[2%] md:left-0 top-5 md:top-[70px] w-[170px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl -rotate-[12deg] transform-gpu transition-all duration-500 hover:-rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
+          <div onClick={() => handleCardClick('gameday')} className="absolute left-[-1%] md:left-0 top-5 md:top-[70px] w-[170px] md:w-[538px] aspect-[2/3] md:aspect-[538/710] rounded-[1rem] md:rounded-[2rem] overflow-hidden shadow-2xl -rotate-[8deg] transform-gpu transition-all duration-500 hover:-rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
             <Image src={gamedayImg} alt="Game Day Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-8 px-4 opacity-90 transition-opacity group-hover:opacity-100">
               <h3 className="text-white font-medium text-xs md:text-xl mb-1.5 md:mb-3 text-center tracking-wide">
@@ -104,7 +118,7 @@ const PackagesOverview = () => {
           </div>
 
           {/* Right Card (Pet Friendly) */}
-          <div onClick={() => handleCardClick('petfriendly')} className="absolute right-[2%] md:right-0 top-5 md:top-[70px] w-[170px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl rotate-[12deg] transform-gpu transition-all duration-500 hover:rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
+          <div onClick={() => handleCardClick('petfriendly')} className="absolute right-[-1%] md:right-0 top-5 md:top-[70px] w-[170px] md:w-[538px] aspect-[2/3] md:aspect-[538/710] rounded-[1rem] md:rounded-[2rem] overflow-hidden shadow-2xl rotate-[8deg] transform-gpu transition-all duration-500 hover:rotate-6 hover:scale-105 hover:z-20 cursor-pointer group">
             <Image src={petfriendlyImg} alt="Pet-Friendly Stay Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-8 px-4 opacity-90 transition-opacity group-hover:opacity-100">
               <h3 className="text-white font-medium text-xs md:text-xl mb-1.5 md:mb-3 text-center tracking-wide">
@@ -117,7 +131,7 @@ const PackagesOverview = () => {
           </div>
 
           {/* Center Card (Shakespeare) */}
-          <div onClick={() => handleCardClick('shakespeare')} className="absolute z-10 -top-4 w-[200px] md:w-[538px] aspect-[538/710] rounded-[2rem] overflow-hidden shadow-2xl transform-gpu transition-all duration-500 hover:scale-105 cursor-pointer group">
+          <div onClick={() => handleCardClick('shakespeare')} className="absolute z-10 top-2 md:-top-4 w-[180px] md:w-[538px] aspect-[2/3] md:aspect-[538/710] rounded-[1rem] md:rounded-[2rem] overflow-hidden shadow-2xl transform-gpu transition-all duration-500 hover:scale-105 cursor-pointer group">
             <Image src={shakespeareImg} alt="Shakespeare Festival Package" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end items-center pb-10 px-4">
               <h3 className="text-white font-medium text-sm md:text-2xl mb-2 md:mb-4 text-center tracking-wide drop-shadow-md">
@@ -146,7 +160,7 @@ const PackagesOverview = () => {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="relative bg-white rounded-3xl shadow-2xl overflow-y-auto max-h-[90vh] w-full max-w-[1060px] p-8 md:p-12 z-10"
+            className="relative bg-white rounded-3xl shadow-2xl overflow-y-auto max-h-[90vh] w-full max-w-[1060px] p-6 pt-8 md:p-12 z-10"
           >
             {/* Close button */}
             <button
@@ -159,9 +173,9 @@ const PackagesOverview = () => {
             <div className="flex flex-col md:flex-row gap-8 md:gap-14">
 
               {/* Left: Image Card */}
-              <div className="relative w-full max-w-[340px] aspect-[3/4] rounded-2xl overflow-hidden shadow-md shrink-0 mx-auto md:mx-0">
+              <div className="relative w-full max-w-[400px] aspect-[4/3] md:aspect-[3/4] rounded-3xl overflow-hidden shadow-md shrink-0 mx-auto md:mx-0 ">
                 <Image
-                  src={packagesMap[selectedPackage].textImage}
+                  src={isMobile ? packagesMap[selectedPackage].wideImage : packagesMap[selectedPackage].textImage}
                   alt={`${packagesMap[selectedPackage].title} Image`}
                   fill
                   className="object-cover"
@@ -176,7 +190,7 @@ const PackagesOverview = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.05, ease: 'easeOut' }}
                 >
-                  <h2 className="text-2xl md:text-3xl font-normal text-black mb-5 leading-tight tracking-tight">
+                  <h2 className="text-2xl md:text-3xl text-center font-medium text-black mb-5 leading-tight tracking-tight">
                     {packagesMap[selectedPackage].modalTitle}
                   </h2>
                 </motion.div>
@@ -185,7 +199,7 @@ const PackagesOverview = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
-                  className="text-[#4A4A4A] font-normal leading-[1.7] text-[15px] md:text-[16px] mb-6"
+                  className="text-[#4A4A4A] font-normal text-center leading-tight text-[15px] md:text-[16px] mb-6"
                 >
                   {packagesMap[selectedPackage].description}
                 </motion.p>
@@ -194,7 +208,7 @@ const PackagesOverview = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.15, ease: 'easeOut' }}
-                  className="text-xs font-semibold uppercase tracking-wider text-black/50 mb-4"
+                  className="text-xs font-semibold uppercase tracking-wider text-center text-black/50 mb-4"
                 >
                   Package includes
                 </motion.h4>
@@ -208,7 +222,7 @@ const PackagesOverview = () => {
                   {packagesMap[selectedPackage].includes.map((item: string, i: number) => (
                     <div
                       key={i}
-                      className="bg-[#FFF7E0] px-3.5 py-1.5 rounded-xl md:rounded-full text-[11px] md:text-[12px] text-[#5A4A3A] font-medium md:whitespace-nowrap text-center flex items-center justify-center"
+                      className="bg-[#FFF7E0] px-3.5 py-1.5 rounded-xl md:rounded-full text-[12px] md:text-[12px] text-[#5A4A3A] font-medium md:whitespace-nowrap text-center flex items-center justify-center"
                     >
                       {item}
                     </div>

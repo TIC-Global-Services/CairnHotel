@@ -4,12 +4,13 @@ import React from 'react'
 import image1 from '@/assets/dining/getaway-1.png'
 import image2 from '@/assets/dining/getaway-2.png'
 import image3 from '@/assets/dining/getaway-3.png'
+import image4 from '@/assets/dining/getaway-4.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const Experience = () => {
   return (
-    <section className="w-full py-[30%] md:py-20 px-4 md:px-8 bg-[#FFF7E057] overflow-hidden">
+    <section className="w-full py-[20%] md:py-20 px-2 md:px-8 bg-[#FFF7E057] overflow-hidden">
       <div className="flex flex-col items-center">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -18,7 +19,7 @@ const Experience = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-12 sm:mb-16"
         >
-          <p className="font-medium text-sm md:text-3xl md:mb-4 mb-2 text-[#1a1a1a]">
+          <p className="font-medium tracking-wide text-sm md:text-3xl md:mb-4 mb-2 text-[#1a1a1a]">
             -Mountain Retreat Experience-
           </p>
           <h2 className="text-xl md:text-5xl lg:text-[3.125rem] font-medium text-[#1a1a1a] uppercase">
@@ -34,7 +35,7 @@ const Experience = () => {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-              className="w-[47%] md:w-[45%] aspect-[1] md:aspect-[1.6] rounded-3xl overflow-hidden relative shadow-lg"
+              className="w-[47%] md:w-[45%] aspect-[5/4] md:aspect-[1.6] rounded-xl overflow-hidden relative shadow-lg"
             >
               <Image 
                 src={image1} 
@@ -49,7 +50,7 @@ const Experience = () => {
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-              className="w-[47%] md:w-[45%] aspect-[1] md:aspect-[1.6] rounded-3xl overflow-hidden relative shadow-lg"
+              className="w-[47%] md:w-[45%] aspect-[5/4] md:aspect-[1.6] rounded-xl overflow-hidden relative shadow-lg"
             >
               <Image 
                 src={image3} 
@@ -66,10 +67,10 @@ const Experience = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
-            className="w-[55%] md:w-[50%] aspect-[1] md:aspect-[1.6] rounded-3xl overflow-hidden relative mx-auto -mt-[20%] md:-mt-[18%] shadow-2xl z-10"
+            className="w-[55%] md:w-[50%] aspect-[5/4] md:aspect-[1.6] rounded-xl overflow-hidden relative mx-auto -mt-[20%] md:-mt-[18%] shadow-2xl z-10"
           >
             <Image 
-              src={image2} 
+              src={image4} 
               alt="Mountain retreat food center" 
               fill 
               className="object-cover" 

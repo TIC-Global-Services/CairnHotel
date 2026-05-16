@@ -53,7 +53,7 @@ const QualityAndQuantity = () => {
             </h2>
           </div>
           <div className="md:max-w-xl md:pt-10">
-            <p className="text-[#00000066] text-sm md:text-3xl font-normal leading-[1.2]">
+            <p className="text-[#00000066] text-lg md:text-3xl font-normal leading-[1.2]">
               A comfortable and peaceful stay with simple interiors and essential amenities. Simple, clean spaces with all the basic comforts for a pleasant stay.
             </p>
           </div>

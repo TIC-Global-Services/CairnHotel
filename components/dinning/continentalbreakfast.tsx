@@ -1,10 +1,12 @@
 "use client"
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import abstractShape from '@/assets/Home/Abstract-shape.png'
 import breakfastImg from '@/assets/dining/continental_breakfast.png'
+import pancakeImg from '@/assets/dining/pancakes.jpg'
+import yogurtImg from '@/assets/dining/yogurt.jpg'
 
 const menuItems = [
     {
@@ -29,7 +31,18 @@ const menuItems = [
     },
 ]
 
+const heroImages = [breakfastImg, pancakeImg, yogurtImg];
+
 export default function ContinentalBreakfast() {
+    const [imgIndex, setImgIndex] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setImgIndex(prev => (prev + 1) % heroImages.length);
+        }, 3000);
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <section className="w-full bg-[#FFFCF6] py-24 relative overflow-hidden flex flex-col items-center">
 
@@ -50,7 +63,7 @@ export default function ContinentalBreakfast() {
             </motion.div>
 
             {/* Spacer — matches the tab row height in the original */}
-            <div className="mt-14 mb-20" />
+            <div className="mt-8 mb-12" />
 
             {/* Geometric Abstract Shapes — anchored to left like elengent */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -63,7 +76,7 @@ export default function ContinentalBreakfast() {
             <div className="w-full max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 relative z-10">
 
                 {/* Left: Items List — col-span-7, same as Menu */}
-                <div className="col-span-1 md:col-span-7 lg:col-span-7 flex flex-col space-y-10 order-2 md:order-1">
+                <div className="col-span-1 md:col-span-7 lg:col-span-7 flex flex-col space-y-10 order-2 md:order-1 pl-4 md:pl-0">
                     <div className="flex flex-col justify-start pt-2 md:pt-4 min-h-[400px]">
                         <motion.div
                             initial={{ opacity: 0, x: -10 }}
@@ -87,21 +100,32 @@ export default function ContinentalBreakfast() {
                 </div>
 
                 {/* Right: Hero Image — col-span-5, same as Menu */}
-                <div className="col-span-1 md:col-span-5 lg:col-span-5 flex justify-center lg:justify-end order-1 md:order-2">
+                <div className="col-span-1 md:col-span-5 lg:col-span-5 flex justify-center lg:justify-end order-1 md:order-2 -mt-6 md:-mt-10">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.96 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.4, ease: "easeOut" }}
-                        className="w-full max-w-lg aspect-[3/2] md:aspect-4/5 relative rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgb(0,0,0,0.1)]"
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                        className="w-full max-w-sm md:max-w-lg aspect-[4/3] md:aspect-[3/4] relative rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgb(0,0,0,0.1)]"
                     >
-                        <Image
-                            src={breakfastImg}
-                            alt="Continental Breakfast"
-                            fill
-                            className="object-cover hover:scale-105 transition-transform duration-700"
-                            sizes="(max-width: 768px) 100vw, 500px"
-                        />
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={imgIndex}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                className="absolute inset-0"
+                            >
+                                <Image
+                                    src={heroImages[imgIndex]}
+                                    alt="Continental Breakfast"
+                                    fill
+                                    className="object-cover hover:scale-105 transition-transform duration-700"
+                                    sizes="(max-width: 768px) 100vw, 500px"
+                                />
+                            </motion.div>
+                        </AnimatePresence>
                     </motion.div>
                 </div>
 
