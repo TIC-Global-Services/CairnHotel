@@ -61,8 +61,8 @@ const Sustainability = () => {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <div className="w-full px-8 md:px-16 lg:px-24 pt-15 mb-5 md:pt-32">
-        <h2 className="text-2xl md:text-[52px] font-normal text-white leading-tight tracking-tight">
+      <div className="w-full px-8 md:px-16 lg:px-24 pt-15 mb-10 md:pt-32 md:mb-5">
+        <h2 className="text-2xl md:text-[52px] font-normal text-white leading-tight tracking-wide">
           Sustainability starts with us
         </h2>
         <p className="text-white mt-2 text-base md:text-xl font-normal leading-tight">

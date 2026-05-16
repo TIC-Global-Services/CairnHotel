@@ -229,10 +229,10 @@ const ExploreStay = () => {
             </div>
 
             {/* Main Content */}
-            <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 lg:px-24 gap-5 lg:gap-8 mt-4">
-                
+            <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between px-4 md:px-16 lg:px-24 gap-8 lg:gap-8 mt-4">
+
                 {/* Left: Title & Description */}
-                <div className="flex flex-col gap-2 md:gap-5 w-full lg:w-[40%] flex-shrink-0 items-center md:items-start">
+                <div className="flex flex-col gap-4 md:gap-5 w-full lg:w-[40%] flex-shrink-0 items-center md:items-start">
                     <div className="text-center md:text-left">
                         <h2 className="text-[2rem] md:text-[4.315rem] font-semibold text-white uppercase leading-none">
                             EXPLORE
@@ -242,7 +242,7 @@ const ExploreStay = () => {
                             <span className="text-3xl md:text-[3.15rem] font-medium italic text-[#FFEBD3]">Stay</span>
                         </div>
                     </div>
-                    <p className="text-white text-sm md:text-xl font-normal max-w-lg leading-tight border-white/20 mt-4 md:mt-6 text-center md:text-left">
+                    <p className="text-white text-base md:text-xl font-normal max-w-lg leading-tight border-white/20 mt-4 md:mt-6 text-center md:text-left">
                         Discover Thoughtfully Designed Rooms And Suites Where Comfort, Nature, And Timeless Mountain Elegance Come Together.
                     </p>
                     <Link href={'https://www.choicehotels.com/en-in/utah/cedar-city/choice-hotels/ut094'} target='_blank'>
@@ -273,12 +273,12 @@ const ExploreStay = () => {
                         </div>
 
                         {/* Floating Glass Text Box */}
-                        <div className="absolute top-1/2 left-4 md:left-[8%] -translate-y-1/2 w-[90%] md:w-[60%] bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-10 border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.1)] z-10">
-                            <h4 className="text-base md:text-[26px] font-medium text-[#1a1a1a] mb-3">{current.name}</h4>
-                            <p className="text-black text-sm leading-snug md:leading-relaxed mb-6 ">
+                        <div className="absolute top-[55%] md:top-1/2 left-4 md:left-[8%] -translate-y-1/2 w-[90%] md:w-[60%] bg-white/10 backdrop-blur-sm rounded-xl p-3 md:p-10 border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.1)] z-10">
+                            <h4 className="text-base md:text-[26px] font-medium text-[#1a1a1a] mb-1">{current.name}</h4>
+                            <p className="text-black text-sm leading-snug md:leading-relaxed mb-3">
                                 {current.shortDesc}
                             </p>
-                            <div className="flex flex-wrap items-center gap-4 md:gap-6 pt-2">
+                            <div className="flex flex-wrap items-center gap-3 md:gap-6 pt-1">
                                 {current.amenities.map((amenity, i) => (
                                     <div key={i} className="flex items-center gap-2 text-black">
                                         {amenity.icon}
@@ -348,31 +348,31 @@ const ExploreStay = () => {
                         </div>
 
                         {/* Overlay layout on top of image */}
-                        <div className="relative z-10 flex flex-col md:flex-row h-full">
+                        <div className="relative z-10 flex flex-col md:flex-row h-full md:justify-start">
 
                         {/* Left: Info Panel (Frosted glass overlay over the image) */}
-                        <div className="w-full md:w-[45%] h-auto md:h-full bg-white/30 md:bg-white/30 md:backdrop-blur-2xl p-6 pt-8 pb-24 md:p-12 flex flex-col justify-end md:justify-center border-white/20 shadow-[0_-10px_30px_rgba(0,0,0,0.1)] md:shadow-none">
+                        <div className="w-full md:w-[45%] h-auto md:h-full bg-white/30 md:bg-white/20 backdrop-blur-xs md:backdrop-blur-2xl p-6 pt-8 pb-24 md:p-12 flex flex-col justify-end md:justify-center border-white/20 shadow-[0_-10px_30px_rgba(0,0,0,0.1)] md:shadow-none">
                             
                             <h3 className="detail-animate text-[18px] md:text-[32px] font-extrabold text-[#1a1a1a] mb-4 md:mb-6 leading-none tracking-tight">
                                 {staysData[expandedCard].name}
                             </h3>
                             
-                            <p className="detail-animate text-black text-xs md:text-base leading-snug md:leading-relaxed mb-4 md:mb-6 font-medium md:font-normal">
+                            <p className="detail-animate text-black text-base md:text-base leading-snug md:leading-relaxed mb-4 md:mb-6 font-medium md:font-normal">
                                 {staysData[expandedCard].fullDesc}
                             </p>
                             
-                            <p className="detail-animate text-black text-xs md:text-base leading-snug md:leading-relaxed mb-6 md:mb-10 font-medium md:font-normal">
+                            <p className="detail-animate text-black text-base md:text-base leading-snug md:leading-relaxed mb-6 md:mb-10 font-medium md:font-normal">
                                 {staysData[expandedCard].extraDesc}
                             </p>
 
                             {/* Amenities List */}
-                            <div className="space-y-3 md:space-y-5">
+                            <div className="grid grid-cols-2 gap-3 md:space-y-5 md:block">
                                 {staysData[expandedCard].amenities.map((amenity, i) => (
-                                    <div key={i} className="detail-animate flex items-center gap-3 md:gap-4">
-                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center text-[#1a1a1a] shadow-sm">
+                                    <div key={i} className="detail-animate flex  items-center gap-3 md:gap-4">
+                                        <div className="w-12 h-12 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center text-[#1a1a1a] shadow-sm">
                                             {amenity.icon}
                                         </div>
-                                        <span className="text-[12px] md:text-[15px] font-bold md:font-medium text-[#1a1a1a]">{amenity.title}</span>
+                                        <span className="text-base md:text-[16px] font-medium md:font-medium text-[#1a1a1a]">{amenity.title}</span>
                                     </div>
                                 ))}
                             </div>

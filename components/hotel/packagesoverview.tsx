@@ -76,8 +76,8 @@ const PackagesOverview = () => {
         
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-center mb-10 md:mb-16 gap-6 md:gap-12">
-          <h2 className="text-[3rem] md:text-[4rem] font-bold text-black leading-[1] tracking-[-0.03em] text-center md:text-left">
-            Cairn<br/>Packages
+          <h2 className="text-3xl md:text-[4rem] font-medium text-black leading-[1] tracking-tight text-left md:text-left">
+            Cairn<br className='hidden md:block'/> Packages
           </h2>
           <p className="text-[16px] md:text-[20px] font-normal leading-tight max-w-[700px] text-center md:text-left">
             Experience the Cedar City in every season with our exclusive offers for

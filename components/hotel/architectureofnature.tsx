@@ -158,15 +158,15 @@ const ArchitectureOfNature = () => {
                                         sizes="(max-width: 768px) 85vw, 24vw"
                                     />
                                 </div>
-                                <h3 className="text-xs md:text-base font-semibold text-[#1a1a1a] mb-1.5 md:mb-2 tracking-wide uppercase">
+                                <h3 className="text-sm md:text-base font-semibold text-[#1a1a1a] mb-1.5 md:mb-2 tracking-wide uppercase">
                                     {item.title}
                                 </h3>
-                                <p className="text-xs md:text-sm uppercase font-normal mb-3 md:mb-5">
+                                <p className="text-sm md:text-sm uppercase font-normal mb-3 md:mb-5">
                                     {item.description}
                                 </p>
                                 <button
                                     onClick={() => setSelectedCard(index % data.length)}
-                                    className="text-[10px] md:text-xs font-semibold text-black border-b border-black pb-0.5 hover:text-gray-500 transition-colors uppercase tracking-[0.1em]"
+                                    className="text-xs md:text-xs font-semibold text-black border-b border-black pb-0.5 hover:text-gray-500 transition-colors uppercase tracking-[0.1em]"
                                 >
                                     VIEW MORE
                                 </button>
@@ -239,7 +239,7 @@ const ArchitectureOfNature = () => {
                             <p className="text-[10px] md:text-xs text-[#6b6b6b] uppercase tracking-[0.2em] font-medium mb-6 md:mb-10 pb-6 border-b border-gray-200">
                                 {data[selectedCard].description}
                             </p>
-                            <div className="prose prose-sm md:prose-base text-gray-700 leading-relaxed font-light">
+                            <div className="prose prose-sm md:prose-base text-gray-700 leading-relaxed font-normal">
                                 <p>{data[selectedCard].full_description}</p>
                             </div>
                         </div>

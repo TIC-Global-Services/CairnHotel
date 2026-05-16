@@ -33,12 +33,12 @@ const StayAtCairn = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full pt-6 pb-20 md:py-32 bg-white overflow-hidden"
+      className="w-full pt-2 pb-20 md:py-32 bg-white overflow-hidden"
     >
       {/* Text content */}
       <div className="px-6 text-center mb-14 md:mb-20">
         <motion.h2
-          className="text-2xl md:text-5xl lg:text-[56px] font-semibold text-black leading-[1.1] md:tracking-tight mb-6 md:mb-8"
+          className="text-2xl md:text-5xl lg:text-[56px] font-medium text-black leading-[1.1] md:tracking-tight mb-6 md:mb-8"
           style={{ opacity: globalOpacity }}
         >
           <span>Stay at Cairn</span>

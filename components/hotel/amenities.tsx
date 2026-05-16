@@ -38,7 +38,7 @@ const amenitiesData = [
     },
 ]
 
-const AUTO_INTERVAL = 3000 
+const AUTO_INTERVAL = 2000 
 
 function MarqueeStrip() {
     const items = Array.from({ length: 8 })
