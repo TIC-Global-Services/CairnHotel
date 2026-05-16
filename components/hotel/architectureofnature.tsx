@@ -176,7 +176,7 @@ const ArchitectureOfNature = () => {
                 </div>
 
                 {/* Background Large Text */}
-                <div className="bg-text absolute bottom-0 md:bottom-[-5%] left-0 w-full pointer-events-none select-none z-0 overflow-hidden pb-4 md:pb-0">
+                <div className="bg-text absolute bottom-0 md:bottom-[-8%] left-0 w-full pointer-events-none select-none z-0 overflow-hidden py-4 md:py-10">
                     {/* Desktop: static centered text */}
                     <h1 className="hidden md:flex justify-center text-[11vw] font-bold text-black leading-none whitespace-nowrap">
                         SOUTHERN UTAH
