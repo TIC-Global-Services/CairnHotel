@@ -71,19 +71,6 @@ const NavBar = () => {
 
                 <div className="flex items-center gap-4 pointer-events-auto">
 
-                    {/* Desktop Social Links — centered */}
-                    <div className="hidden md:flex items-center gap-3 absolute left-1/2 -translate-x-1/2">
-                        <a href="mailto:fd@thecairnhotelutah.com" className="hover:opacity-60 transition-opacity">
-                            <Image src={emailogo} alt="Email" width={22} height={22} className="object-contain" />
-                        </a>
-                        <a href="https://www.facebook.com/share/1CLa9S97Ji/?mibextid=wwXIfr" target="_blank" className="hover:opacity-60 transition-opacity">
-                            <Image src={facebooklogo} alt="Facebook" width={22} height={22} className="object-contain" />
-                        </a>
-                        <a href="https://www.instagram.com/thecairnhotel" target="_blank" className="hover:opacity-60 transition-opacity">
-                            <Image src={instagramlogo} alt="Instagram" width={22} height={22} className="object-contain" />
-                        </a>
-                    </div>
-
                     <div className='hidden md:flex items-center gap-4 justify-end bg-[#FFFFFF33] backdrop-blur-xs border border-white/30 rounded-full p-2 px-4'>
                         {navLinks.map((link) => {
                             const isActive = pathname === link.href
