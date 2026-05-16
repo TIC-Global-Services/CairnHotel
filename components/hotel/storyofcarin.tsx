@@ -70,7 +70,7 @@ const StoryOfCairn = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative w-full min-h-dvh bg-[#0c0705] flex items-center justify-center overflow-hidden py-[10dvh] px-6 lg:px-24">
+        <section ref={sectionRef} className="relative w-full min-h-dvh bg-[#0c0705] flex items-center justify-center overflow-hidden pt-[2dvh] pb-[10dvh] md:py-[10dvh] px-6 lg:px-24">
             {/* Background Graphic */}
             <div className="bg-shape absolute -right-80 top-1/2 -translate-y-1/2 w-[60%] h-full opacity-50 pointer-events-none select-none">
                 <Image
@@ -84,7 +84,7 @@ const StoryOfCairn = () => {
             <div className="relative z-10 w-full max-w-7xl flex flex-col lg:flex-row items-center gap-12 lg:gap-32">
                 {/* Left Side: Image */}
                 <div ref={imageRef} className="w-full lg:w-1/2 flex items-center justify-center">
-                    <div className="relative aspect-[4/5] w-full max-w-[600px] max-h-[80dvh] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+                    <div className="relative aspect-[4/5] h-[537px] md:h-auto md:w-full w-auto max-w-[600px] max-h-[80dvh] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
                         <Image
                             src={storyofcarinimg}
                             alt="The Cairn Hotel Legacy"
@@ -96,13 +96,13 @@ const StoryOfCairn = () => {
                 </div>
 
                 {/* Right Side: Content */}
-                <div ref={contentRef} className="w-full lg:w-1/2 flex flex-col items-start gap-4 md:gap-8">
+                <div ref={contentRef} className="w-full lg:w-1/2 flex flex-col items-start gap-4 md:gap-8 pl-2 md:pl-0 ">
                     <span className="text-[8px] md:text-[10px] font-semibold tracking-[0.4em] uppercase text-[#FFFFFFCC]">
                         OUR LEGACY
                     </span>
                     
                     <h2 className="text-2xl md:text-6xl lg:text-[2.5rem] font-semibold text-white leading-[1.1] tracking-tight">
-                        STORY OF <br />
+                         THE STORY OF <br />
                         THE CAIRN HOTEL
                     </h2>
 

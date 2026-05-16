@@ -132,7 +132,7 @@ const NatureWithSoul = () => {
                         {/* Circular dots and Label */}
                         <div className="flex items-center gap-4 mb-6 opacity-70">
                             <CircleDot />
-                            <span className="text-[0.7rem] tracking-[0.2em] uppercase text-[#2A0800] font-medium">
+                            <span className="text-sm tracking-wide uppercase text-[#2A0800] font-normal">
                                 {contentData[activeIndex].label}
                             </span>
                             <CircleDot />

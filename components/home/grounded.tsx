@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react'
 
 const Grounded = () => {
     return (
-        <div className="relative w-full h-[100dvh] flex flex-col items-center justify-center mt-10">
+        <div className="relative w-full h-[100dvh] flex flex-col items-center justify-center">
             {/* Background Image Container */}
             <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
                 <Image
@@ -17,10 +17,10 @@ const Grounded = () => {
                 />
             </div>
             {/* Top Gradient for text legibility */}
-            <div className="absolute inset-x-0 top-0 h-[40vh] md:h-[35vh] bg-gradient-to-b from-[#FAF9F8] via-[#FAF9F8]/30 to-transparent z-10 pointer-events-none"></div> 
+            <div className="absolute inset-x-0 top-0 h-[40vh] md:h-[35vh] bg-gradient-to-b from-white via-white/30 to-transparent z-10 pointer-events-none"></div> 
 
             {/* Overlapping Text */}
-            <div className="absolute -top-10 left-0 w-full flex flex-col items-center justify-center z-20 text-center -translate-y-1/2">
+            <div className="absolute top-0 left-0 w-full flex flex-col items-center justify-center z-20 text-center -translate-y-1/2">
                 <h2 className="text-4xl md:text-5xl lg:text-[4rem] xl:text-[5rem] text-[#4a4a4a] font-medium tracking-tight">
                     Grounded in Nature.
                 </h2>
